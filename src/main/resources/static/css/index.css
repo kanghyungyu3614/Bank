@@ -1,0 +1,19 @@
+.webbox{
+
+  margin: 0 auto;  /*중앙정렬*/
+  border: 1px solid red;
+  width: 70%;
+  height: 1200px;
+  }
+
+.hbox{
+   border: 1px solid blue;
+   height: 15%;
+}
+
+
+.bbox{
+  border: 1px solid blue;
+  height: 15%;
+  bottom : 0px
+ }
