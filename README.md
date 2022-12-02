@@ -62,7 +62,7 @@ figma :  <br>
    <td>발표 준비 및<br> 10시 발표 및 시연</td>   
 </tr>
 </table>
-# Shoe_project 시연 영상 <br>
+# Bank Project 시연 영상 (아직없습니다.) <br>
 <a href="">시연 영상 1번<a/><br>
 <a href="">시연 영상 2번<a/><br>
 <a href="">시연 영상 3번<a/>
