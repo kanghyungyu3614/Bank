@@ -25,7 +25,7 @@ figma :  <br>
    <td>백엔드 및 프론트엔드 작업</td>
 </tr>
   <tr>
-   <td><a href=https://github.com/kimkyoungju">김경주<a/></td>
+   <td><a href="https://github.com/kimkyoungju">김경주<a/></td>
    <td>팀원</td>
    <td>김경주</td>
    <td>백엔드 및 프론트엔드 작업</td>
