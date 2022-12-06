@@ -62,6 +62,7 @@ export default function SecurityCard (){
         </div>
 
         {/* sub number */}
+        {/*더미데이터입니다.*/}
         <table className="sub">
             {/*PrintSecurityCardInfo() 함수실행해서 데이터를 여기에 뿌려준다.*/}
             <tr>

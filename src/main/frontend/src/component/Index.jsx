@@ -3,8 +3,9 @@ import React from 'react';
 // 라우터 설치[ 터미널 ] : npm i react-router-dom == npm install react-router-dom
 // import { 컴포넌트명 } from 'react-router-dom'; v6
 import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-router-dom";
-import SecurityCard from "./SecurityCard"
-import styles from "./css/Index.css"
+import styles from "./css/Index.css";
+import SecurityCard from "./SecurityCard";
+import SecurityCardPassword from "./SecurityCardPassword";
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
     // Routes :  Route 목록/리스트
@@ -19,9 +20,11 @@ export default function Index( props ){
             <BrowserRouter>
                 <ul>
                     <li><a href="/">홈URL</a></li>
+                    <li><a href="/member/securityCard/password">보안코드 비밀번호</a></li>
                     <li><a href="/member/securityCard">보안코드URL</a></li>
                 </ul>
                     <Routes>
+                        <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
                     </Routes>
             </BrowserRouter>
