@@ -62,8 +62,8 @@ export default function SecurityCard (){
         </div>
 
         {/* sub number */}
-        {/*더미데이터입니다.*/}
         <table className="sub">
+            {/*더미데이터입니다. 시작*/}
             {/*PrintSecurityCardInfo() 함수실행해서 데이터를 여기에 뿌려준다.*/}
             <tr>
                 <th className="securitysubNumber">01</th>
@@ -149,6 +149,7 @@ export default function SecurityCard (){
                   <th className="securitysubNumber">35</th>
                   <th className="securityMainNumber">00 00</th>
             </tr>
+            {/*더미데이터입니다. 끝*/}
         </table>
         <div className="warningContent">
             <span className="warningMainContent">파싱 사기 주의!!</span>
