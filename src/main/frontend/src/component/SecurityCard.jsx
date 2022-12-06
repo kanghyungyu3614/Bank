@@ -4,7 +4,7 @@ import axios from 'axios'; //   npm install axios 설치 했을경우만 가능
 
 export default function SecurityCard (){
 
-    //  @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     let data =  axios.get( "http://localhost:8080/member/securityCard") // 요청
                 .then( res => { alert( res.data);console.log(res);} )                    // 응답
 
