@@ -5,30 +5,37 @@
     <title> 십프로 은행</title>
     <link href="../css/index.css" rel="stylesheet">
 </head>
-<body>
+ <body>
 
 <div class ="webbox">
 
-    <div class ="hbox">  상단 </div>
+      <div class ="hbox">  상단 </div>
 
-    <div class= "cbox">
-        <h3> 글 목록 페이지</h3>
-        <table>
-            <tr> <th>번호</th><th>제목 </th> <th>날짜</th>  </th> 조회수 </th></tr>
+        <div class= "cbox">
 
+            <div  class = "mbox">
+            <h3> 글 목록 페이지</h3>
 
-        </table>
-
-        <div class="page"> </div>
-                       <buntton type="button" href="/board/write">글쓰기</buntton>
+             <table class = "blist">
+                <tr> <th>번호</th><th>제목 </th> <th>날짜</th> <th> 조회수 </th> </tr>
 
 
-        <div className ="bbox">  footer  </div>
+            </table>
 
-    </div>
+            <div class="page"> </div>
+
+                           <button><a href="/bank/write"> 글쓰기 </a></button>    <!--  관리자만 보이게 하기 -->
 
 
+            </div>
+     </div>
 
+        <div class ="bbox">  footer  </div>
 
-</body>
+</div>
+
+     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+       <script src="/js/list.js"></script>
+
+ </body>
 </html>

@@ -11,9 +11,17 @@
    height: 15%;
 }
 
+.cbox{  height: 85%; }
 
 .bbox{
   border: 1px solid blue;
   height: 15%;
-  bottom : 0px
+  bottom: 0px;
  }
+
+/*-----------------------------중간 부분 ----------------------------------------*/
+
+.mbox {
+  border: 1px solid green;
+  height: 90%;
+  margin: 30px; }
