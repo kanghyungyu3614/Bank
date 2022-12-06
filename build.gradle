@@ -32,7 +32,3 @@ dependencies {
          <------------------매핑---------------->
      */
 }
-
-tasks.named('test') {
-    useJUnitPlatform()
-}
