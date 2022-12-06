@@ -1,4 +1,6 @@
 
+
+/* securitCard */
 .securitCard{
     margin-top: 10px;
     border: 1px solid black;
@@ -7,6 +9,13 @@
     margin : 0 auto;
 }
 
+/* main */
+.main{
+    display: flex;
+    justify-content: space-between
+}
+/* main */
 .sub{
     display: flex;
+    flex-wrap: wrap;
 }
