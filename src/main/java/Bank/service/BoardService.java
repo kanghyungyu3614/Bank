@@ -1,20 +1,18 @@
 package Bank.service;
 
-import Bank.domain.dto.BoardDto;
-import Bank.domain.entity.board.BoardEntity;
-import Bank.domain.entity.board.BoardRepository;
+
+import Bank.domain.dto.BboardDto;
+import Bank.domain.entity.board.BboardEntity;
+import Bank.domain.entity.board.BboardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 @Service
 public class BoardService {
 
@@ -28,7 +26,7 @@ public class BoardService {
     private HttpServletResponse response; // 응답 객체 선언
 
     @Autowired  // 메모리를 자동 할당   // 변수 -> 스택  , NEW-> 힙
-    private BoardRepository boardRepository;
+    private BboardRepository bboardRepository;
 
     String path = "C:\\Users\\504\\Desktop\\Bank\\src\\main\\resources\\static\\upload\\";
 
@@ -37,7 +35,7 @@ public class BoardService {
 
 
        //  boardDto : 쓰기,수정 대상     BoardEntity:원본@Transactional
-    public boolean fileupload(BoardDto boardDto, BoardEntity boardEntity) {
+    public boolean fileupload(BboardDto boardDto, BboardEntity boardEntity) {
 
         if (boardDto.getBfile() != null) { // ** 첨부파일 있을때
             // * 업로드 된 파일의 이름 [ 문제점 : 파일명 중복 ]
@@ -60,9 +58,9 @@ public class BoardService {
     }
 
 
-    public boolean bwrtie(BoardDto boardDto) {
+    public boolean bwrtie(BboardDto boardDto) {
 
-        BoardEntity boardentity = boardRepository.save(boardDto.toEntity());
+        BboardEntity boardentity = bboardRepository.save(boardDto.toEntity());
 
         if(boardentity.getBno() != 0) {
 
@@ -77,10 +75,10 @@ public class BoardService {
 
 
 
-        public List<BoardDto> blist( ) {
-            List<BoardEntity> elist = boardRepository.findAll();
-            List<BoardDto> dlist = new ArrayList<>();
-            for ( BoardEntity entity : elist){
+        public List<BboardDto> blist( ) {
+            List<BboardEntity> elist = bboardRepository.findAll();
+            List<BboardDto> dlist = new ArrayList<>();
+            for ( BboardEntity entity : elist){
                 dlist.add(entity.toDto());
             }
             return dlist;
