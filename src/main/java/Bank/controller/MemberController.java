@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+//@RestController
+/*
 @RequestMapping("/member")
 public class MemberController {
 
@@ -22,3 +23,4 @@ public class MemberController {
         return result;
     }
 }
+*/

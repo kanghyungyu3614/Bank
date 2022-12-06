@@ -1,7 +1,5 @@
 package Bank.service;
 
-import Bank.domain.entity.member.MemberEntity;
-import Bank.domain.entity.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
-    @Autowired
+/*    @Autowired
     private MemberRepository memberRepository;      //리포지토리 객체
     @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request ;
@@ -27,5 +25,5 @@ public class MemberService {
         if( !optional.isPresent() ){ return null; }
 
         return null;
-    }
+    }*/
 }
