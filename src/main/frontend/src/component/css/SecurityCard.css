@@ -1,0 +1,12 @@
+
+.securitCard{
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 400px;
+    height: 600px;
+    margin : 0 auto;
+}
+
+.sub{
+    display: flex;
+}
