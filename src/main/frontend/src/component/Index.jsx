@@ -12,12 +12,15 @@ import styles from "./css/Index.css"
     // Link :   <---> a 태그  : 하이퍼링크
         // Link to = "Route Path"
     // Router :
+/* 2022-12-06 강현규 보안카드 프론트작성 */
 export default function Index( props ){
     return  (
         <div className="webbox">
             <BrowserRouter>
+                <ul>
                     <li><a href="/">홈URL</a></li>
                     <li><a href="/member/securityCard">보안코드URL</a></li>
+                </ul>
                     <Routes>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
                     </Routes>
