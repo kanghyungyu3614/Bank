@@ -6,7 +6,7 @@ blist()
 function blist() {
 
   $.ajax({
-     url: '/bank/blist',
+     url: '/blist',
      type:'get' ,
      success: function(re) {
            console.log ( re )

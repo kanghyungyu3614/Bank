@@ -36,8 +36,9 @@ public class BoardService {
 
        //  boardDto : 쓰기,수정 대상     BoardEntity:원본@Transactional
     public boolean fileupload(BboardDto boardDto, BboardEntity boardEntity) {
-
-        if (boardDto.getBfile() != null) { // ** 첨부파일 있을때
+        System.out.println( boardDto.getBfile() );
+        System.out.println( boardDto.getBfile().getOriginalFilename() );
+        if ( !boardDto.getBfile().getOriginalFilename().equals("") ) { // ** 첨부파일에 이름이 없으면 등록 안함.
             // * 업로드 된 파일의 이름 [ 문제점 : 파일명 중복 ]
             String uuid = UUID.randomUUID().toString(); // 1. 난수생성
             String filename = uuid + "_" + boardDto.getBfile().getOriginalFilename(); // 2. 난수+파일명

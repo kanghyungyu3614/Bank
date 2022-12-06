@@ -45,7 +45,7 @@ function bwrite() {
   	 console.log( formdata )		// [ form안에 입력받은 데이터 input 모두 가져오기 ]
 
        $.ajax({
-  	    url: "/bank/bwrtie",
+  	    url: "/bwrtie",
   	   	data: formdata ,
   		type : 'post' , // http메소드 [ get(첨부파일x) vs post ]
   		contentType : false ,
@@ -54,7 +54,7 @@ function bwrite() {
   		   alert('dd')
   			if( re == true){
   				alert('글등록');
-  				location.href= "/bank/board"
+  				location.href= "/board"
   			}
   			else{ alert('글등록실패') }
   		}
