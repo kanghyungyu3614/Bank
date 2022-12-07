@@ -37,7 +37,7 @@ export default function SecurityCardPassword(){
     return(
     <div className="passwordComponent">
         <span className="passwordContent">계좌 비밀번호 4자리를 입력해주세요.</span><br/>
-        <input type="password" className="passwordInput" ref={password} placeholder="****"/>
+        <input type="password" maxLength="4" className="passwordInput" ref={password} placeholder="****"/>
         <button type="button" className="submitButton" onClick={SubmitButton}>전송</button>
     </div>
     );
