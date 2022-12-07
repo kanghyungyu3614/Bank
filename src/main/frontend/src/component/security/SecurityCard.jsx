@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import './css/SecurityCard.css'
+import '../css/SecurityCard.css'
 import axios from 'axios'; //   npm install axios 설치 했을경우만 가능
 
 export default function SecurityCard (){
