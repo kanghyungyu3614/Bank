@@ -14,11 +14,12 @@ export default function SecurityCardPassword(){
     alert(password.current.value);
     // passwordData 를 axios로 보내기위해 이렇게 형태를 잡을겁니다.
     let passwordData = {acpw : password.current.value};
-    axios.post("http://localhost:8080/securityCardPassword", passwordData)
+    axios.post("http://localhost:8080/member/securityCard/Password", passwordData)
     .then((re)=>{
         console.log("SubmitButtong함수 잘실행되니??");
         alert("SubmitButtong함수 잘실행되니??");
-        console.log("re: " + re);
+        console.log("re: ");
+        console.log(re);
         }
     )
     .catch((error)=>{ console.log(error);})

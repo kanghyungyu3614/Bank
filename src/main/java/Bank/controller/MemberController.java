@@ -21,7 +21,7 @@ public class MemberController {
         return new ClassPathResource("");
     }*/
 
-    @PostMapping("/securityCardPassword") // 3.보안카드 계좌비밀번호 입력 페이지
+    @PostMapping("/securityCard/Password") // 3.보안카드 계좌비밀번호 입력 페이지
     public String getpassword(@RequestBody DpositDto dpositDto){
         //String result = memberService.getSecurityCard(dpositDto);
         return "result";
