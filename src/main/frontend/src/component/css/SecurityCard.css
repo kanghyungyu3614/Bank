@@ -1,0 +1,81 @@
+/* 2022-12-06 강현규 보안카드 프론트작성 */
+
+/* securitCard 전체 시작 */
+.securitCard{
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 600px;
+    height: 300px;
+    margin : 0 auto;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 30);
+}
+/* securitCard 전체 끝 */
+
+/* main */
+.main{
+    display: flex;
+    font-weight: bold;
+}
+
+.mainSecutiryContent{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #0080FF;
+
+}
+
+.mainSecutiryNumber{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 80px;
+    font-size: 16px;
+}
+
+
+
+/* main */
+/* sub  테이블 시작 */
+.sub{
+    border-collapse: collapse;
+    font-weight: bold;
+    font-size: 14px;
+}
+/* sub 테이블 끝 */
+/* tr 시작*/
+tr{
+    border: 1px solid #0080FF;
+    height: 38.2px;
+}
+th{
+    width: 60px;
+}
+/* tr 끝*/
+/*securityMainNumber 시작*/
+.securityMainNumber{
+    width: 90px;
+}
+/*securityMainNumber 시끝/
+/*securitysubNumber 시작*/
+.securitysubNumber{
+    background-color:#0080FF;
+    color:white;
+    width: 30px;
+}
+/*securitysubNumber 끝*/
+/*warningMainContent 시작*/
+.warningMainContent{
+    color: red;
+    font-weight: bold;
+    font-size: 13px;
+}
+/*warningMainContent 끝*/
+/*warningSubContent 시작*/
+.warningSubContent{
+    color: red;
+    font-size: 11px;
+}
+/*warningSubContent 끝*/
+
+

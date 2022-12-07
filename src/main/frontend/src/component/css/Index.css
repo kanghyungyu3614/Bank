@@ -1,0 +1,5 @@
+/* 2022-12-06 강현규 보안카드 프론트작성 */
+ul,li{ list-style-type: none;}
+ul{display: flex; margin-left:10px;}
+li{margin-left:10px;}
+a{ color: black; text-decoration:none; outline: none;}
