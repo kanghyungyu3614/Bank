@@ -4,8 +4,8 @@ import React from 'react';
 // import { 컴포넌트명 } from 'react-router-dom'; v6
 import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-router-dom";
 import styles from "./css/Index.css";
-import SecurityCard from "./SecurityCard";
-import SecurityCardPassword from "./SecurityCardPassword";
+import SecurityCard from "./security/SecurityCard";
+import SecurityCardPassword from "./security/SecurityCardPassword";
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
     // Routes :  Route 목록/리스트
