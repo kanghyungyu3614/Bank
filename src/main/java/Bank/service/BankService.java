@@ -2,7 +2,9 @@ package Bank.service;
 
 import org.springframework.stereotype.Service;
 
+// sub난수를 활용하기 위해 ArrayList를 가져옵니다. 즉, 보안카드 난수140개를 담을 ArrayList자료형이 필요합니다.
 import java.util.ArrayList;
+//자바 유틸에서 랜덤을 불러온다.
 import java.util.Random;
 // 강현규 2022-12-07 보안카드 난수 만들기 코드생성
 @Service
