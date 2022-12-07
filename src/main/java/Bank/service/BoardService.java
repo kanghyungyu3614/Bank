@@ -5,6 +5,10 @@ import Bank.domain.dto.BboardDto;
 import Bank.domain.entity.board.BboardEntity;
 import Bank.domain.entity.board.BboardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -76,17 +80,40 @@ public class BoardService {
 
 
 
-        public List<BboardDto> blist( ) {
-            List<BboardEntity> elist = bboardRepository.findAll();
+        public List<BboardDto> blist(   int page ) {
+            Page<BboardEntity> elist = null;
+
+            Pageable pageable = PageRequest.of ( page-1 , 3 , Sort.by(Sort.Direction.DESC, "bno"));
+
+            elist = bboardRepository.findAll( pageable);
+
+
+            int btncount = 5;  // 페이지에 표시할 총 페이지 버튼 개수
+            int startbtn = (page/btncount) * btncount +1 ;//2. 시작번호 버튼
+            int endbtn = startbtn + btncount -1;     //3.마지막 번호 버튼
+            if ( endbtn > elist.getTotalPages()) endbtn = elist.getTotalPages();
+
+            System.out.println("게시물 수 : " + elist);
+            System.out.println("현재페이지수 :" + elist.getNumber());
+
+
             List<BboardDto> dlist = new ArrayList<>();
             for ( BboardEntity entity : elist){
                 dlist.add(entity.toDto());
+
             }
+            dlist.get(0).setStartbtn( startbtn);
+            dlist.get(0).setEndbtn( endbtn);
+
             return dlist;
+
+            }
+
+
+
+
         }
 
-
-    }
 
 
 

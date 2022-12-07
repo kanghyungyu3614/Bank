@@ -7,6 +7,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -45,9 +46,12 @@ public class BoardController {
        return boardService.bwrtie( boardDto );
     }
 
-    @GetMapping("/blist")  //전체 조희
-     public List<BboardDto>blist(BboardDto boardDto ){
-         return boardService.blist( );
+    @PostMapping("/blist")  //게시물 전체 조회 및  페이징 처리
+     public List<BboardDto> blist(@RequestParam ("page") int page){
+
+
+
+         return boardService.blist( page );
     }
 
 
