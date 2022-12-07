@@ -4,65 +4,88 @@ import axios from 'axios'; //   npm install axios 설치 했을경우만 가능
 
 export default function SecurityCard (){
 
-    //@CrossOrigin(origins = "http://localhost:3000")
-    let SecurityCardData;
 
+    let SecurityCardMainData;
+    let SecurityCardSebData;
     /* 2022-12-06 강현규 보안카드 프론트작성 */
     //8783 76 9934
     //77 99, 71 15, 96 21, 75 92, 33 09, 30 06, 18 72, 37 18, 90 42, 80 22, 71 78, 57 16, 93 35, 90 64, 55 81, 28 36, 68 06, 76 58, 74 47, 19 54, 05 66, 47 54, 22 06, 07 77, 00 25, 73 31, 55 93, 72 96, 27 93, 68 78, 19 24, 86 34, 93 48, 16 39, 35 06
-/*    function PrintSecurityCardInfo(){
-            axios.get( "http://localhost:8080/member/securityCard") // 요청
-                .then( res => {
-                        alert( res.data);
-                        console.log(res.data);
-                        SecurityCardData = res.data;
-                    })// 응답
-        let SecurityComponent = '';
+    {/*
+    function PrintSecuritySubCardInfo(){
 
+
+        //let SecurityComponent = '';
+        /*  SecurityCardSebData = 69823850431978274816064248691730837769307936122602359667945139225475983503197406721035029228624057368126978577465507874015956635960908522275  */
+        /* let SecurityCardMainDataArr = [];
+         for(int i = 0; i<SecurityCardSebData.length; i++) {
+             if(i<35) {
+                 // StringBuffer 랑 String은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
+                 // 2자리 + " " + 2자리 를 합친 문자열을 subarr라는 ArrayList에 넣어줍니다.
+                 SecurityCardMainDataArr[i] = SecurityCardSebData.substring(4*i,2+4*i) +" "+ SecurityCardSebData.substring(2+4*i,4+4*i);
+             }
+         }
+         console.log("SecurityCardMainDataArr는 무엇일까요??");
+         console.log(SecurityCardMainDataArr);
+
+
+
+        {/*
         for(let i=0; i<7; i++){
             if(i<3){
                 var html =  '<tr>'+
                 '                <th className="securitysubNumber">'+("0"+(5*i+1))+'</th>'+
-                '                <th className="securityMainNumber">'+SecurityCardData[5*i+1]+'</th>'+
+                '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+1]+'</th>'+
                 '                <th className="securitysubNumber">'+("0"+(5*i+2))+'</th>'+
-                '                <th className="securityMainNumber">'+SecurityCardData[5*i+2]+'</th>'+
+                '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+2]+'</th>'+
                 '                <th className="securitysubNumber">'+("0"+(5*i+3))+'</th>'+
-                '                <th className="securityMainNumber">'+SecurityCardData[5*i+3]+'</th>'+
+                '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+3]+'</th>'+
                 '                <th className="securitysubNumber">'+("0"+(5*i+4))+'</th>'+
-                '                <th className="securityMainNumber">'+SecurityCardData[5*i+4]+'</th>'+
+                '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+4]+'</th>'+
                 '                <th className="securitysubNumber">'+(i<1?("0"+(5*i+5)):(5*i+5))+'</th>'+
-                '                <th className="securityMainNumber">'+SecurityCardData[5*i+5]+'</th>'+
+                '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+5]+'</th>'+
                 '            </tr>';
             }else{
                  var html =  '<tr>'+
                  '                <th className="securitysubNumber">'+(5*i+1)+'</th>'+
-                 '                <th className="securityMainNumber">'+SecurityCardData[5*i+1]+'</th>'+
+                 '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+1]+'</th>'+
                  '                <th className="securitysubNumber">'+(5*i+2)+'</th>'+
-                 '                <th className="securityMainNumber">'+SecurityCardData[5*i+2]+'</th>'+
+                 '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+2]+'</th>'+
                  '                <th className="securitysubNumber">'+(5*i+3)+'</th>'+
-                 '                <th className="securityMainNumber">'+SecurityCardData[5*i+3]+'</th>'+
+                 '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+3]+'</th>'+
                  '                <th className="securitysubNumber">'+(5*i+4)+'</th>'+
-                 '                <th className="securityMainNumber">'+SecurityCardData[5*i+4]+'</th>'+
+                 '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+4]+'</th>'+
                  '                <th className="securitysubNumber">'+(5*i+5)+'</th>'+
-                 '                <th className="securityMainNumber">'+SecurityCardData[5*i+5]+'</th>'+
+                 '                <th className="securityMainNumber">'+SecurityCardMainDataArr[5*i+5]+'</th>'+
                  '            </tr>';
             }
 
         }
-    }*/
+        return html;
+    }*/}
 
-
-
+    {/* function PrintSecurityMainCardInfo(){
+        axios.get( "http://localhost:8080/member/securityCard") // 요청
+                .then( res => {
+                        alert( res.data);
+                        console.log(res.data);
+                        SecurityCardMainData = res.data.smno;
+                        SecurityCardSebData = res.data.ssno;
+         })// 응답
+        {/*No. 8783 76 9934 *SecurityCardSebData = '8783769934' */}
+        {/*return ('No. '+SecurityCardMainData.substring(0, 4)+' '+SecurityCardMainData.substring(5, 7)+' '+SecurityCardMainData.substring(8)) */}
+    {/*}
+    */}
   return (
     <div className="securitCard">
         {/* main number */}
         <div className="main">
             <div className="mainSecutiryContent">피싱사기 주의!!! 보안카드번호 35개 전체입력 절대금지</div>
-            <div className="mainSecutiryNumber">No. 8783 76 9934{/*SecurityCardData.mainNumber*/}</div>
+            <div className="mainSecutiryNumber">No. 8783 76 9934</div>
         </div>
 
         {/* sub number */}
         <table className="sub">
+            {/*PrintSecuritySubCardInfo()*/}
             {/*더미데이터입니다. 시작*/}
             {/*PrintSecurityCardInfo() 함수실행해서 데이터를 여기에 뿌려준다.*/}
             <tr>

@@ -1,6 +1,7 @@
 package Bank.controller;
 
 
+import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
 import Bank.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,16 @@ import java.util.List;
 @RequestMapping("/member")
 public class MemberController {
 
+    // ------------------------------- 전역 객체 -------------------------------//
     @Autowired // 스프링 컨테이너 빈 생성 [ 외부에 메모리 위임 ]
     private MemberService memberService; // 서비스 객체 생성
+
+
+
+
+
+
+    // --------------------------------- 서비스/기능 매핑 ------------------------------------- //
     /*@GetMapping("")
     public Resource getMainpage(){
         return new ClassPathResource("");
@@ -23,8 +32,41 @@ public class MemberController {
 
     @PostMapping("/securityCard/Password") // 3.보안카드 계좌비밀번호 입력 페이지
     public String getpassword(@RequestBody DpositDto dpositDto){
-        //String result = memberService.getSecurityCard(dpositDto);
-        return "result";
+        System.out.println("dpositDto");
+        System.out.println(dpositDto);
+        String result = memberService.getSecurityCardPassword(dpositDto);
+        return result;
     }
+
+    @GetMapping("/securityCard")
+    public List<BsecurityDto> bsecurityList (){
+        System.out.println("/securityCard");
+        List<BsecurityDto> result = memberService.getSecurityCardNumber();
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
