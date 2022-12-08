@@ -13,7 +13,7 @@ export default function SecurityCard (){
     const [ SecurityCardSebData , setSecurityCardSebData] = useState([])
 
     useEffect(()=>{
-    axios.get( "http://localhost:8080/member/securityCard") // 요청
+    axios.get( "http://localhost:8080/bank/securityCard") // 요청
                   .then( res => {
                           alert( res.data);
                           console.log("res.data는?");

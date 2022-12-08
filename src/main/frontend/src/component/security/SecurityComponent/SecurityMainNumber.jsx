@@ -9,6 +9,6 @@ let Coma = props.props + ""
 let finalComa = "No. "+Coma.substring(0,4)+" "+Coma.substring(4,6)+" "+Coma.substring(6)
 {/*No. 8783 76 9934 {"No. "+Coma}*/}
 return (
-    <div className="SecurityMainNumberComponent">{finalComa}</div>
+    <div className="mainSecutiryNumber">{finalComa}</div>
 );
 }

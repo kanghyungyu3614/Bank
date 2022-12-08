@@ -15,7 +15,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/bank")
-
 public class BankConroller {
 
     // ------------------------------- 전역 객체 -------------------------------//
