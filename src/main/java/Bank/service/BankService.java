@@ -140,4 +140,7 @@ public class BankService {
         // subarr(ArrayList)의 랜덤영숫자의 길이와 문자 140개는(4개씩 * 35개 ArrayList) 를 출력해봅니다.
         System.out.println(subarr.toString());
     }
+
+
+
 }
