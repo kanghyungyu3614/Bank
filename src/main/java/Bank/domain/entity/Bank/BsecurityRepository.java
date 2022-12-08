@@ -24,7 +24,7 @@ public interface BsecurityRepository extends JpaRepository<BsecurityEntity,Integ
 //    Page<BoardEntity> findBybcno( int bcno ,  Pageable pageable);
 
     // 1. 보안카드번호검색
-    @Query( value = "select smno,ssno from bsecurity where acno = :acnumber" , nativeQuery = true )
+    @Query( value = "select * from bsecurity where acno = :acnumber" , nativeQuery = true )
     List<BsecurityEntity> findbySecurityNumberEntity(String acnumber);
 
 

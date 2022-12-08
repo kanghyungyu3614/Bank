@@ -3,6 +3,7 @@ import '../css/SecurityCardPassword.css';
 import { useNavigate } from 'react-router-dom'; // 설치한 패키지// 참고 : 6버전에서 useNavigate로 변경되었다.
 import axios from 'axios';
 
+
 /*강현규 2022-12-07 좌번호 4자리 페이지로 보안카드페이지 이동할때 password 내용*/
 /*강현규 2022-12-08 계좌비밀번호 입력해서 보안카드 페이지로 이동*/
 export default function SecurityCardPassword(){
