@@ -10,4 +10,5 @@ export default function SecurityCardPassword(){
         <button type="button" className="submitButton">전송</button>
     </div>
     );
+
 }
