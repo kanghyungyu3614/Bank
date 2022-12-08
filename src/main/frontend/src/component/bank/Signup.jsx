@@ -5,8 +5,6 @@ import axios from "axios";
 export default function Signup() {
 
     const signUp = () => {
-        const S = document.querySelector('.ssd')
-        const V = new FormData(S)
 
         let info = {    // 2. 입력받은 값 가져오기
             mid : document.querySelector('.mid').value ,
@@ -16,7 +14,7 @@ export default function Signup() {
             madress : document.querySelector('.madress').value ,
             mname : document.querySelector('.mname').value
         }
-        console.log(info.mid);console.log(info.mpw)
+
 
     }
 

@@ -1,37 +1,92 @@
 package Bank.service;
 
-import Bank.domain.dto.DpositDto;
-import Bank.domain.entity.Bank.DpositEntity;
-import Bank.domain.entity.Bank.DpositRepository;
+import Bank.domain.dto.BmemberDto;
+import Bank.domain.dto.OauthDto;
+import Bank.domain.entity.member.BmemberEntity;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
-public class MemberService {
+public class MemberService
+        implements UserDetailsService, OAuth2UserService<OAuth2UserRequest, OAuth2User> {
 
     @Autowired
-    private BmemberRepository bmemberRepository;      //리포지토리 객체
+    private  BmemberRepository bmemberRepository;
     @Autowired
-    private DpositRepository dpositRepository;      //리포지토리 객체
-    @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request;
 
 
-    public String getSecurityCard(DpositDto dpositDto) {
+    public MemberService(BmemberRepository bmemberRepository) {
+        this.bmemberRepository = bmemberRepository;
+    }
 
-        // dpositDto를 받아와서
-        // 1. DTO에서 수정할 PK번호 이용해서 엔티티 찾기
-        Optional<DpositEntity> optional = dpositRepository.findById(dpositDto.getAcpw());
-        if (optional.isPresent()) {  // 2.
-            DpositEntity boardEntity = optional.get();
-            return null;
+    @Override
+    public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+
+        OAuth2UserService oAuth2UserService =new DefaultOAuth2UserService();
+        OAuth2User oAuth2User = oAuth2UserService.loadUser(userRequest);
+        System.out.println("Oauth확인용 ;; "+oAuth2User.toString());
+
+        String registrationId = userRequest.getClientRegistration().getRegistrationId();
+        System.out.println("oauth2 회사명 : " + registrationId.toString());
+
+        String oauth2UserInfo=
+                userRequest
+                        .getClientRegistration()
+                        .getProviderDetails()
+                        .getUserInfoEndpoint()
+                        .getUserNameAttributeName();
+        System.out.println("oauth2 회원정보  담긴 객체 : " + oauth2UserInfo);
+
+        OauthDto oauthDto = OauthDto.of(registrationId,oauth2UserInfo,oAuth2User.getAttributes());
+
+        Optional<BmemberEntity> optional = bmemberRepository.findByMemail(oauthDto.getMemail());
+
+        BmemberEntity bmemberEntity=null;
+
+        if(optional.isPresent()){
+            bmemberEntity=optional.get();
+        }else {
+            bmemberEntity=bmemberRepository.save(oauthDto.toEntity());
         }
 
-        return null;
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(bmemberEntity.getMrole()));
+
+        BmemberDto bmemberDto = new BmemberDto();
+        bmemberDto.setMemail(bmemberEntity.getMemail());
+        bmemberDto.setAuthorities(authorities);
+        return bmemberDto;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String mid) throws UsernameNotFoundException {
+
+        BmemberEntity bmemberEntity = bmemberRepository.findByMemail(mid)
+                .orElseThrow(()->new UsernameNotFoundException("사용자가 존재하지 않습니다."));
+
+
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(bmemberEntity.getMrole()));
+
+        BmemberDto bmemberDto = bmemberEntity.toDto();
+        bmemberDto.setAuthorities(authorities);
+        return bmemberDto;
     }
 }
