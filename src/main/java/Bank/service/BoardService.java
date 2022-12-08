@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 @Service
 public class BoardService {
@@ -108,6 +109,26 @@ public class BoardService {
             return dlist;
 
             }
+
+
+
+      public BboardDto bdtail (int bno){
+
+        Optional<BboardEntity> optional = bboardRepository.findById( bno);
+
+        if (optional.isPresent()) {
+            BboardEntity boardentity = optional.get();  // 꺼내는게 get
+            System.out.println( "개인별 호출 " + boardentity.getBno());
+            return boardentity.toDto();
+
+        } else {
+            return null;
+        }
+    }
+
+
+
+
 
 
 

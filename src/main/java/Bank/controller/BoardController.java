@@ -33,10 +33,10 @@ public class BoardController {
         return new ClassPathResource("templates/write.html");
     }
 
-
+   @GetMapping("/bdlist")
+   public Resource getdlist() { return new ClassPathResource("templates/bdetail.html"); }
 
     //*--------------요청과 응답처리 ------------------------*//
-
 
     @PostMapping("/bwrtie")  // 게시물 쓰기
      public boolean bwrtie(BboardDto boardDto ){
@@ -49,10 +49,18 @@ public class BoardController {
     @PostMapping("/blist")  //게시물 전체 조회 및  페이징 처리
      public List<BboardDto> blist(@RequestParam ("page") int page){
 
-
-
          return boardService.blist( page );
     }
+
+    @GetMapping("/detail")
+    public BboardDto bdtail( int bno){
+
+        return boardService.bdtail( bno);
+    }
+
+
+
+
 
 
 /*

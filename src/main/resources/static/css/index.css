@@ -14,6 +14,7 @@
 .cbox{  height: 85%; }
 
 .bbox{
+  background-color: #f8f8f8;
   border: 1px solid blue;
   height: 15%;
   bottom: 0px;
