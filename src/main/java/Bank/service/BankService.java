@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 // 강현규 2022-12-07 보안카드 난수 만들기 코드생성
+// 강현규 2022-12-09 보안카드 난수 만들기 수정
+//=> 수정내용 : 난수를 db에 저장할때는 숫자형 문자열로 저장하고 스크립트에서 출력할때 필터링함.
 @Service
 public class BankService {
 
@@ -101,11 +103,10 @@ public class BankService {
             //문자형 숫자(0부터9까지)는 아스키코드의 48 ~ 58까지 범위입니다.
             mainsecurityCard.append((char)((int)random.nextInt(10)+48));
         }
-        // main 랜덤영숫자의 길이와 문자는 "0부터 4까지" + " " + "4부터6까지" + " " + "6부터10까지" 를 합친 문자열을 만듭니다.
         // StringBuffer 랑 String은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
-        mainsecurityCardString = mainsecurityCard.substring(0, 4).toString()+" "+mainsecurityCard.substring(4, 6).toString()+" "+mainsecurityCard.substring(6, 10).toString();
-        System.out.println(mainsecurityCard.substring(0, 4)+" "+mainsecurityCard.substring(4, 6)+" "+mainsecurityCard.substring(6, 10));
-        // String 타입으로 바꿔서 띄어쓰기가 된 10자리 숫자를 콘솔창에 출력하면?
+        // String 타입으로 바꿔서 10자리 숫자를 콘솔창에 출력하면?
+        System.out.println("mainsecurityCardString는? : "+mainsecurityCardString);
+        mainsecurityCardString = mainsecurityCard.toString();
         System.out.println("mainsecurityCardString는? : "+mainsecurityCardString);
         // 이렇게 나옵니다.
 
@@ -124,20 +125,5 @@ public class BankService {
         }
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
-
-        ArrayList<String> subarr = new ArrayList<String>();
-        // for 문 안에 코드를 넣을겁니다.
-        //1) 띄어쓰기를 한 4자리 : subarr.add(subsecurityCard.substring(4*i,2+4*i).toString()+" "+subsecurityCard.substring(2+4*i,4+4*i).toString());
-        //2) 그냥 4자리 : subarr.add(subsecurityCard.substring(4*i,4+4*i).toString());
-        for(int i = 0; i<subsecurityCard.length(); i++) {
-            if(i<35) {
-                // StringBuffer 랑 String은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
-                // 2자리 + " " + 2자리 를 합친 문자열을 subarr라는 ArrayList에 넣어줍니다.
-                subarr.add(subsecurityCard.substring(4*i,2+4*i).toString()+" "+subsecurityCard.substring(2+4*i,4+4*i).toString());
-            }
-        }
-
-        // subarr(ArrayList)의 랜덤영숫자의 길이와 문자 140개는(4개씩 * 35개 ArrayList) 를 출력해봅니다.
-        System.out.println(subarr.toString());
     }
 }
