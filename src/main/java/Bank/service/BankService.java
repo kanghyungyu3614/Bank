@@ -126,4 +126,7 @@ public class BankService {
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
     }
+
+
+
 }
