@@ -23,10 +23,7 @@ export default function SecurityCardPassword(){
     axios.post("http://localhost:8080/bank/securityCard/Password", passwordData)
     .then((re)=>{
         console.log("SubmitButtong함수 잘실행되니??");
-        alert("SubmitButtong함수 잘실행되니??");
-        console.log("re: ");
-        console.log(re.data);
-        console.log(typeof re.data);
+        console.log("re: " + re.data);
         if(re.data ===1){
            handleUseHistory();
         }else{ alert("지금입력하신 비밀번호는 없는번호 입니다.")}

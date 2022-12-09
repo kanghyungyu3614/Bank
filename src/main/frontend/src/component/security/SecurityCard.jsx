@@ -15,21 +15,13 @@ export default function SecurityCard (){
     useEffect(()=>{
     axios.get( "http://localhost:8080/bank/securityCard") // 요청
                   .then( res => {
-                          alert( res.data);
-                          console.log("res.data는?");
-                          console.log(res.data);
+                          console.log("res.data는?" + res.data);
                           setSecurityCardMainData( res.data[0].smno )
                           setSecurityCardSebData( res.data[0].ssno )
-                          console.log("axios안의 SecurityCardMainData");
-                          console.log(SecurityCardMainData);
-                          console.log("axios안의 SecurityCardSebData");
-                          console.log(SecurityCardSebData);
+                          console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
+                          console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
         })// 응답
     },[])
-        console.log("axios 밖의 SecurityCardMainData");
-        console.log(SecurityCardMainData);
-        console.log("axios 밖의 SecurityCardSebData");
-        console.log(SecurityCardSebData);
 
       return (
         <div className="securitCard">
@@ -38,101 +30,8 @@ export default function SecurityCard (){
                 <div className="mainSecutiryContent">피싱사기 주의!!! 보안카드번호 35개 전체입력 절대금지</div>
                 <div className="mainSecutiryNumber"><SecurityMainNumber props={SecurityCardMainData}/></div>
             </div>
-
-            {/* sub number */}
-
-                {/*PrintSecuritySubCardInfo*/}
-                {/*더미데이터입니다. 시작*/}
-                {/*PrintSecurityCardInfo() 함수실행해서 데이터를 여기에 뿌려준다.*/}
-
-                    <SecuritySubNumber props={SecurityCardSebData}/>
-                {/*
-                 <tr>
-                    <th className="securitysubNumber">01</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">02</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">03</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">04</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">05</th>
-                    <th className="securityMainNumber">00 00</th>
-                </tr>
-                <tr>
-                    <th className="securitysubNumber">06</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">07</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">08</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">09</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">10</th>
-                    <th className="securityMainNumber">00 00</th>
-                </tr>
-                <tr>
-                    <th className="securitysubNumber">11</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">12</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">13</th>
-                    <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">14</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">15</th>
-                     <th className="securityMainNumber">00 00</th>
-                </tr>
-                <tr>
-                     <th className="securitysubNumber">16</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">17</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">18</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">19</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">20</th>
-                     <th className="securityMainNumber">00 00</th>
-                </tr>
-                <tr>
-                    <th className="securitysubNumber">21</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">22</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">23</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">24</th>
-                    <th className="securityMainNumber">00 00</th>
-                    <th className="securitysubNumber">25</th>
-                    <th className="securityMainNumber">00 00</th>
-                </tr>
-                <tr>
-                     <th className="securitysubNumber">26</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">27</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">28</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">29</th>
-                     <th className="securityMainNumber">00 00</th>
-                     <th className="securitysubNumber">30</th>
-                     <th className="securityMainNumber">00 00</th>
-                </tr>
-                <tr>
-                      <th className="securitysubNumber">31</th>
-                      <th className="securityMainNumber">00 00</th>
-                      <th className="securitysubNumber">32</th>
-                      <th className="securityMainNumber">00 00</th>
-                      <th className="securitysubNumber">33</th>
-                      <th className="securityMainNumber">00 00</th>
-                      <th className="securitysubNumber">34</th>
-                      <th className="securityMainNumber">00 00</th>
-                      <th className="securitysubNumber">35</th>
-                      <th className="securityMainNumber">00 00</th>
-                </tr>*/
-                }
-                {/*더미데이터입니다. 끝*/}
+            {/*sub number PrintSecurityCardInfo() 함수실행해서 데이터를 여기에 뿌려준다.*/}
+            <SecuritySubNumber props={SecurityCardSebData}/>
             <div className="warningContent">
                 <span className="warningMainContent">파싱 사기 주의!!</span>
                 <span className="warningSubContent"> 정상적인 금융거래는 어떠한 경우에도</span>
