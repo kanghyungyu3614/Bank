@@ -15,6 +15,12 @@ export default function Signup() {
             mname : document.querySelector('.mname').value
         }
 
+            axios
+                .post("/member/signup",info)
+                .then(res => {
+                    let result = res.data;
+                    console.log(result);
+                })
 
     }
 

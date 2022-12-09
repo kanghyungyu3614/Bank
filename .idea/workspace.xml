@@ -4,7 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="" />
+    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="1차테스트">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Bank.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Bank.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Bank.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.example.Bank.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.example.Bank.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/config/BankSecurityConfigration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/config/WebConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/config/WebConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/IndexController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto$BboardDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto$BboardDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto$BmemberDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto$BmemberDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BsecurityDto$BsecurityDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BsecurityDto$BsecurityDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BsecurityDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BsecurityDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/OauthDto$OauthDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/OauthDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BsecurityEntity$BsecurityEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BsecurityEntity$BsecurityEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BsecurityEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BsecurityEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BsecurityRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BsecurityRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/board/BboardEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/board/BboardEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/service/BankService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/service/BankService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/component/Index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/component/Index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/component/bank/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/component/bank/Signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/config/BankSecurityConfigration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/controller/IndexController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/domain/dto/BmemberDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/domain/dto/BmemberDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/domain/dto/OauthDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/service/MemberService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +53,23 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Bank" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -23,6 +78,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -49,6 +109,14 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a8014dab-bdc0-4c22-a303-e5f89a4e752a" />
+        <option name="url" value="https://github.com/kanghyungyu3614/Bank.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -62,9 +130,19 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "8d02954774d2e4c9ddd3c7185c0f0be6",
     "vue.rearranger.settings.migration": "true"
@@ -88,10 +166,23 @@
       <option name="presentableId" value="Default" />
       <updated>1670572355684</updated>
       <workItem from="1670572357785" duration="110000" />
+      <workItem from="1670572495245" duration="4320000" />
     </task>
+    <task id="LOCAL-00001" summary="1차테스트">
+      <created>1670572537701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670572537701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1차테스트" />
+    <option name="LAST_COMMIT_MESSAGE" value="1차테스트" />
   </component>
 </project>

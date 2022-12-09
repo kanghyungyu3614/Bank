@@ -6,6 +6,7 @@ import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-r
 import styles from "./css/Index.css";
 import SecurityCard from "./security/SecurityCard";
 import SecurityCardPassword from "./security/SecurityCardPassword";
+import Signup from "./bank/Signup";
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
     // Routes :  Route 목록/리스트
@@ -21,10 +22,12 @@ export default function Index( props ){
                     <ul>
                         <li><a href="/">홈URL</a></li>
                         <li><a href="/member/securityCard/password">보안코드</a></li>
+                        <li><a href="/member/signup" >회원가입 </a></li>
                     </ul>
                     <Routes>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
+                        <Route path="/member/signup" element={ <Signup/> }/>
                     </Routes>
             </BrowserRouter>
         </div>
