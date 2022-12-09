@@ -6,6 +6,7 @@ import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-r
 import styles from "./css/Index.css";
 import SecurityCard from "./security/SecurityCard";
 import SecurityCardPassword from "./security/SecurityCardPassword";
+import Bank from './Bank/Account' // 계좌 임포트
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
     // Routes :  Route 목록/리스트
@@ -14,18 +15,21 @@ import SecurityCardPassword from "./security/SecurityCardPassword";
         // Link to = "Route Path"
     // Router :
 /* 2022-12-06 강현규 보안카드 프론트작성 */
+/* 2022-12-09 강현규 일단 경주님꺼까지 라우트 연결추가 */
 export default function Index( props ){
     return  (
         <div className="webbox">
             <BrowserRouter>
                     <ul>
                         <li><a href="/">홈URL</a></li>
-                        <li><a href="/member/securityCard/password">보안코드 비밀번호</a></li>
-                        <li><a href="/member/securityCard">보안코드URL</a></li>
+                        <li><a href="/member/securityCard/password">보안코드</a></li>
+                        <li><a href="/member/securityCard/account">계좌거래</a></li>
+                        <li><a href="/member/securityCard/dealReport">거래내역</a></li>
                     </ul>
                     <Routes>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
+                        <Route path="/member/securityCard/account" element={ <Bank/> }/>
                     </Routes>
             </BrowserRouter>
         </div>
