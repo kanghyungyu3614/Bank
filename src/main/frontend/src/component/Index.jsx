@@ -20,8 +20,7 @@ export default function Index( props ){
             <BrowserRouter>
                     <ul>
                         <li><a href="/">홈URL</a></li>
-                        <li><a href="/member/securityCard/password">보안코드 비밀번호</a></li>
-                        <li><a href="/member/securityCard">보안코드URL</a></li>
+                        <li><a href="/member/securityCard/password">보안코드</a></li>
                     </ul>
                     <Routes>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
