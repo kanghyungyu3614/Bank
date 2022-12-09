@@ -45,7 +45,7 @@ public class BboardEntity {
                 .bno(this.bno)
                 .btitle(this.btitle)
                 .bcontent(this.bcontent)
-                .bfile(this.bfile)
+                .bfilename(this.bfile)
                 .bview(this.bview)
                 .build();
     }
