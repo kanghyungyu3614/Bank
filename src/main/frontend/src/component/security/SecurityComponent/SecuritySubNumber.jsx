@@ -5,19 +5,7 @@ import '../../css/SecurityCardPassword.css';
 
 
 export default function SecuritySubNumber(props){
-
-
-    //alert("SecuritySubNumber 안의 props 잘들어오니?");
-    //alert(props);
-    console.log("SecuritySubNumber 안의 props");
-    console.log("props.props");
-    console.log(props.props);
     let Coma = props.props + ""
-    console.log("Coma");
-    console.log(Coma);
-    console.log("Coma length");
-    console.log(Coma.length);
-    console.log(typeof Coma);
     let SecuritySubNumberArray = [];
      for(let i = 0; i<Coma.length; i++) {
          if(i<36) {
@@ -26,17 +14,11 @@ export default function SecuritySubNumber(props){
              SecuritySubNumberArray[i]=Coma.substring(4*i,2+4*i)+" "+Coma.substring(2+4*i,4+4*i);
          }
      }
-     console.log("SecuritySubNumberArray");
-     console.log(SecuritySubNumberArray);
      let result
      const [ ResultTrComponent , setResultTrComponent] = useState();
 
      useEffect(()=>{
         result =  SecuritySubNumberArray.map((el,i,arr) =>{
-                    console.log("i")
-                    console.log(i)
-                    console.log("el")
-                    console.log(el)
                     if(i<2){
                         return(
                         <tr>

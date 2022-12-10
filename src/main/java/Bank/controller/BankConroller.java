@@ -36,7 +36,7 @@ public class BankConroller {
     }*/
 
     @PostMapping("/securityCard/Password") // 3.보안카드 계좌비밀번호 입력 페이지
-    public String getpassword(@RequestBody DpositDto dpositDto){
+    public String SecurityGetPassword(@RequestBody DpositDto dpositDto){
         System.out.println("dpositDto");
         System.out.println(dpositDto);
         String result = bankService.getSecurityCardPassword(dpositDto);
@@ -49,6 +49,24 @@ public class BankConroller {
         List<BsecurityDto> result = bankService.getSecurityCardNumber();
         System.out.println("result");
         System.out.println(result);
+        return result;
+    }
+
+
+/*    @GetMapping("/dealReport")
+    public List<BsecurityDto> dealReportList (){
+        System.out.println("/securityCard");
+        List<BsecurityDto> result = bankService.getdealReportList();
+        System.out.println("result");
+        System.out.println(result);
+        return result;
+    }
+*/
+    @PostMapping("/dealReport/password") // 3.보안카드 계좌비밀번호 입력 페이지
+    public String DealReportGetPassword(@RequestBody DpositDto dpositDto){
+        System.out.println("dpositDto");
+        System.out.println(dpositDto);
+        String result = bankService.ReportPassword(dpositDto);
         return result;
     }
 

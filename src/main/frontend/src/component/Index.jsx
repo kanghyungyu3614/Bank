@@ -4,9 +4,11 @@ import React from 'react';
 // import { 컴포넌트명 } from 'react-router-dom'; v6
 import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-router-dom";
 import styles from "./css/Index.css";
-import SecurityCard from "./security/SecurityCard";
-import SecurityCardPassword from "./security/SecurityCardPassword";
-import Bank from './Bank/Account' // 계좌 임포트
+import SecurityCard from "./security/SecurityCard"; // 보안카드 페이지
+import SecurityCardPassword from "./security/SecurityCardPassword"; // 보안카드 비밀번호 입력 페이지
+import Bank from './Bank/Account'; // 계좌 페이지
+import DealReport from "./Bank/DealReport"; // 거래내역 페이지
+import DealReportPassword from "./Bank/DealReportPassword"; // 거래내역 비밀번호 페이지
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
     // Routes :  Route 목록/리스트
@@ -16,20 +18,23 @@ import Bank from './Bank/Account' // 계좌 임포트
     // Router :
 /* 2022-12-06 강현규 보안카드 프론트작성 */
 /* 2022-12-09 강현규 일단 경주님꺼까지 라우트 연결추가 */
+/* 2022-12-11 거래내역 출력 페이지 연결 추가 */
 export default function Index( props ){
     return  (
         <div className="webbox">
             <BrowserRouter>
                     <ul>
                         <li><a href="/">홈URL</a></li>
-                        <li><a href="/member/securityCard/password">보안코드</a></li>
-                        <li><a href="/member/securityCard/account">계좌거래</a></li>
-                        <li><a href="/member/securityCard/dealReport">거래내역</a></li>
+                        <li><a href="/bank/securityCard/password">보안코드</a></li>
+                        <li><a href="/bank/account">계좌거래</a></li>
+                        <li><a href="/bank/dealReport/password">거래내역 비밀번호 페이지</a></li>
                     </ul>
                     <Routes>
-                        <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
-                        <Route path="/member/securityCard" element={ <SecurityCard/> }/>
-                        <Route path="/member/securityCard/account" element={ <Bank/> }/>
+                        <Route path="/bank/securityCard/password" element={ <SecurityCardPassword/> }/>
+                        <Route path="/bank/securityCard" element={ <SecurityCard/> }/>
+                        <Route path="/bank/account" element={ <Bank/> }/>
+                        <Route path="/bank/dealReport/password" element={ <DealReportPassword/> }/>
+                        <Route path="/bank/dealReport" element={ <DealReport/> }/>
                     </Routes>
             </BrowserRouter>
         </div>

@@ -22,7 +22,7 @@ public class BoardController {
 
 
     /*----------------------- 페이징 처리---------------*/
-
+/*
     @GetMapping("/board")
     public Resource getboard(){
         return new ClassPathResource("templates/board.html");
@@ -36,8 +36,8 @@ public class BoardController {
    @GetMapping("/bdlist")
    public Resource getdlist() { return new ClassPathResource("templates/bdetail.html"); }
 
-    //*--------------요청과 응답처리 ------------------------*//
-
+    /*--------------요청과 응답처리 ------------------------*/
+/*
     @PostMapping("/bwrtie")  // 게시물 쓰기
      public boolean bwrtie(BboardDto boardDto ){
 
@@ -57,7 +57,7 @@ public class BoardController {
 
         return boardService.bdtail( bno);
     }
-
+*/
 
 
 
