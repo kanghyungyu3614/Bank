@@ -4,13 +4,13 @@ alert( 'list')
 let page = 1;
 
 
-blist(1)
+blist(1);
 
 function blist( page ) {
 $.ajax({
      url: "/blist",
      type: "post",
-     data: { "page" : page},
+     data: {"page" : page },
      success : function( bboard ){
 
           let html = ' <tr> <th>번호</th><th>제목 </th> <th>날짜</th> <th> 조회수 </th> </tr>'

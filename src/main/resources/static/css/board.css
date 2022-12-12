@@ -1,1 +1,33 @@
 
+.webbox{
+  margin: 0 auto;  /*중앙정렬*/
+  border: 1px solid red;
+  width: 70%;
+  height: 1200px;
+  }
+
+.hbox{
+   border: 1px solid blue;
+   height: 15%;
+}
+
+
+
+/*-----------------------------중간 부분 ----------------------------------------*/
+
+.cbox{  height: 85%; }
+
+.mbox {
+  border: 1px solid green;
+  height: 90%;
+  margin: 30px; }
+
+
+
+/*----------------------- 하단 부분--------------------------------------------*/
+.bbox{
+  background-color: #f8f8f8;
+  border: 1px solid blue;
+  height: 15%;
+  bottom: 0px;
+ }

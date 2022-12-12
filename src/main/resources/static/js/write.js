@@ -37,8 +37,8 @@ $.ajax({    data : data,
 }*/
 
 function bwrite() {
-   alert('cc')
-  let ss = document.querySelector( '.bbord' )
+  alert('cc')
+  let ss = document.querySelector('.bbord')
   console.log( ss )
 
   let formdata = new FormData( ss )
