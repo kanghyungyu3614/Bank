@@ -10,7 +10,7 @@ export default function SecurityCardPassword(){
     // react에서 location.href가 안되서 블로그를 찾아보다 useHistory를 찾게 되었습니다.
     const navigate = useNavigate();
     function handleUseHistory() {
-        navigate('/bank/securityCard'); //"/member/securityCard"로 url 이동
+        navigate('/member/securityCard'); //"/member/securityCard"로 url 이동
      }
     // dom 역할을 하는  useRef 입니다.
     // dom 으로 password변수를 밑에 input의 속성 에 지정해줍니다.
@@ -20,7 +20,7 @@ export default function SecurityCardPassword(){
     alert(password.current.value);
     // passwordData 를 axios로 보내기위해 이렇게 형태를 잡을겁니다.
     let passwordData = {acpw : password.current.value};
-    axios.post("http://localhost:8080/bank/securityCard/Password", passwordData)
+    axios.post("/bank/securityCard/Password", passwordData)
     .then((re)=>{
         console.log("SubmitButtong함수 잘실행되니??");
         console.log("re: " + re.data);
