@@ -22,13 +22,13 @@ export default function Index( props ){
                     <ul>
                         <li><a href="/">홈URL</a></li>
                         <li><a href="/member/securityCard/password">보안코드</a></li>
-                        <li><a href="/member/signup" >회원가입 </a></li>
+                        <li><a href="/member/Signup">회원가입 </a></li>
                     </ul>
                     <Routes>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
-                        <Route path="/member/signup" element={ <Signup/> }/>
-                    </Routes>
+                        <Route path="/member/Signup" element={<Signup/>}/>
+                        </Routes>
             </BrowserRouter>
         </div>
     );

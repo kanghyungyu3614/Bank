@@ -6,50 +6,45 @@ export default function Signup() {
 
     const signUp = () => {
 
-        let info = {    // 2. 입력받은 값 가져오기
-            mid : document.querySelector('.mid').value ,
-            mpw : document.querySelector('.mpw').value ,
-            mphone : document.querySelector('.mphone').value,
-            msno : document.querySelector('.msno').value ,
-            madress : document.querySelector('.madress').value ,
-            mname : document.querySelector('.mname').value
-        }
+        let bankform = document.querySelector('.bankform');
+        let formdata = new FormData( bankform );
 
-            axios
-                .post("/member/signup",info)
-                .then(res => {
-                    let result = res.data;
-                    console.log(result);
-                })
-
+        console.log(formdata.mid)
+        axios
+            .post("/member/signup/" , formdata , { headers: { 'Content-Type': 'multipart/form-data'  } }  )
+            .then( res => {
+                console.log( res.data )
+                if( res.data == true ){ alert('회원가입성공'); }
+                else{ alert('회원가입 실패 '); }
+            })
+            .catch( err => { console.log( err ); } )
     }
 
     return (
         <div>
             <h3 className="top_title "> Welcome_<br/>
                 Team_Bank</h3>
-            <form className="ssd">
+            <form className="bankform">
                 <label className="text-bg-center" >👉아이디</label>
-                <input type="text" className="form-control mid"  />
+                <input type="text" className="form-control" name="mid"  />
 
                 <label className="text-bg-center" >👉비밀번호</label>
-                <input type="text" className="form-control mpw" />
+                <input type="text" className="form-control" name="mpw" />
 
                 <label className="text-bg-center" >👉전화번호</label>
-                <input type="text" className="form-control mphone" />
+                <input type="text" className="form-control " name="mphone"/>
 
                 <label className="text-bg-center" >👉주민번호</label>
-                <input type="text" className="form-control msno"/>
+                <input type="text" className="form-control " name="msno"/>
 
                 <label className="text-bg-center" >👉이름</label>
-                <input type="text" className="form-control mname"/>
+                <input type="text" className="form-control " name="mname"/>
 
                 <label className="text-bg-center" >👉주소</label>
-                <input type="text" className="form-control madress" />
+                <input type="text" className="form-control " name="madress" />
 
                 <button type="button" onClick={signUp}>Go</button>
             </form>
         </div>
-
     );
 }

@@ -2,12 +2,9 @@ package Bank.controller;
 
 
 import Bank.domain.dto.BmemberDto;
-import Bank.domain.dto.DpositDto;
 import Bank.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -18,8 +15,10 @@ public class MemberController {
     private MemberService memberService; // 서비스 객체 생성
 
     @PostMapping("/signup")
-    public boolean signup(){
-        return false;
+    public boolean signup(BmemberDto bmemberDto){
+        System.out.println("확인하라잉");
+        System.out.println(bmemberDto);
+        return memberService.signup(bmemberDto);
     }
 }
 
