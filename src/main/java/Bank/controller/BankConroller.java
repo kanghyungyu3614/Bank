@@ -1,7 +1,9 @@
 package Bank.controller;
 
+import Bank.domain.dto.BhistoryDto;
 import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
+import Bank.domain.entity.Bank.BhistoryEntity;
 import Bank.service.BankService;
 import Bank.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,15 +55,15 @@ public class BankConroller {
     }
 
 
-/*    @GetMapping("/dealReport")
-    public List<BsecurityDto> dealReportList (){
+    @GetMapping("/dealReport")
+    public List<BhistoryDto> dealReportList (){
         System.out.println("/securityCard");
-        List<BsecurityDto> result = bankService.getdealReportList();
+        List<BhistoryDto> result = bankService.getdealReportList();
         System.out.println("result");
         System.out.println(result);
         return result;
     }
-*/
+
     @PostMapping("/dealReport/password") // 3.보안카드 계좌비밀번호 입력 페이지
     public String DealReportGetPassword(@RequestBody DpositDto dpositDto){
         System.out.println("dpositDto");

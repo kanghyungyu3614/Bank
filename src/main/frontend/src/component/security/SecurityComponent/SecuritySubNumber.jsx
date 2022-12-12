@@ -52,7 +52,8 @@ export default function SecuritySubNumber(props){
                     }
                 })
                setResultTrComponent(result);
-     })
+
+     },[props.props]) // 의존성 배열을 안넣으면 페이지가 렌더링 될때마다 바뀜 // props.props 가 바뀔때마다 렌더링 된다.
 
     return (
         <table className="sub">

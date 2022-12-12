@@ -21,6 +21,16 @@ export default function SecurityCard (){
                           console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
                           console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
         })// 응답
+    {/* 고객이름을 눌렀을때 요청
+    axios.get( "http://localhost:8080/bank/securityCard") // 요청
+    then( res => {
+                              console.log("res.data는?" + res.data);
+                              setSecurityCardMainData( res.data[0].smno )
+                              setSecurityCardSebData( res.data[0].ssno )
+                              console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
+                              console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
+    })// 응답
+    */}
     },[])
 
       return (

@@ -1,24 +1,61 @@
 /*강현규 2022-12-11 거래내역 css 작성 */
 /* 전체 시작 css*/
 .dealReport{
-    border: 1px solid #000;
-    box-shadow: 0 1px 1px #000;
-    height: 300px;
     margin-left: 60px;
     width: 90%;
 }
 /* 전체 끝 css*/
 /* 고객 거래내역 시작*/
-.dealReportComtent{
-    font-size: 15px;
-    font-weight: bold;
+.ContentText{
+  display: flex;
 }
+.userNameOutput{
+    font-size: 20px;
+    line-height: 23px;
+    vertical-align: top;
+    display: inline-block;
+}
+.DefaultUserName{
+    font-size: 20px;
+    line-height: 23px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+
+/* input 태그 시작*/
+.dealReportComtent{
+    font-size: 17px;
+    font-weight: 700;
+    height: 30px;
+}
+/* input 태그 끝*/
+/* 버튼 시작*/
+.userNameButton{
+    height: 26px;
+}
+/* 버튼 끝*/
 /* dealReportComtent 끝*/
+/*input 태그 시작*/
+.userNameinput{
+    margin: 0px 10px;
+    height: 20px;
+    width: 175px;
+    vertical-align: top;
+}
+/* input 태그 끝*/
+/* 버튼 시작*/
+.userNameButton{
+   vertical-align: top;
+}
+/* 버튼 끝*/
 /* 고객 거래내역 끝 css*/
 .dealReportTable{
     border-collapse: collapse;
-    border : 1px solid black;
+    border: 1px solid black;
+    box-shadow: 0 1px 1px #000;
     width: 100%;
+    margin-top: 5px;
 }
 .dealReportTrComponent{
     border : 1px solid black;

@@ -1,11 +1,9 @@
 package Bank.service;
 
+import Bank.domain.dto.BhistoryDto;
 import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
-import Bank.domain.entity.Bank.BsecurityEntity;
-import Bank.domain.entity.Bank.BsecurityRepository;
-import Bank.domain.entity.Bank.DpositEntity;
-import Bank.domain.entity.Bank.DpositRepository;
+import Bank.domain.entity.Bank.*;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +29,8 @@ public class BankService {
     private DpositRepository dpositRepository;      //리포지토리 객체
     @Autowired
     private BsecurityRepository bsecurityRepository; //리포지토리 객체
+    @Autowired
+    private BhistoryRepository bhistoryRepository; //리포지토리 객체
     @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request;
     @Autowired
@@ -151,30 +151,19 @@ public class BankService {
         return "2"; //비밀번호가 없습니다.
     }
 
-    public List<BsecurityDto> getdealReportList() {
-        String acnumber = (String) request.getSession().getAttribute("acno");
-        System.out.println("acnumber");
-        System.out.println(acnumber);
-        // 계좌번호 acnumber 3521071 가 가져와졌다.
-        if (acnumber != null) {
-            List<BsecurityEntity> elist = bsecurityRepository.findbySecurityNumberEntity(acnumber);
+    public List<BhistoryDto> getdealReportList() {
+
+            List<BhistoryEntity> elist = bhistoryRepository.findAll();
             System.out.println("elist");
             System.out.println(elist);
 
-            List<BsecurityDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
-            for (BsecurityEntity entity : elist) { // 3. 변환
+            List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
+            for (BhistoryEntity entity : elist) { // 3. 변환
                 dlist.add(entity.toDto());
             }
             System.out.println("MemberService dlist 값은?");
             System.out.println(dlist);
-            return dlist;  // 4. 변환된 리스트 dist 반환
-        } else {
-            try {
-                response.sendRedirect("/");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            return null;
-        }
+            return dlist;
+
     }
 }
