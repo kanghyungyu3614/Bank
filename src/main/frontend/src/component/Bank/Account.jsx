@@ -38,19 +38,17 @@ export default function Account(props) {
                         <th>
                           <td>{ isclick && <select className="bank"><option>기업</option><option>신협</option><option>카뱅</option></select>}</td>
                             <td>{ isclick && <input type="text" className="ainput" placeholder="계좌번호" /> }</td>
-                            <td>{ isclick &&  <input type="text" className="master" placeholder="예금주" /> }</td>
-
-
+                            <td>{ isclick &&  <input type="text" className="master" placeholder="예금주" readonly="readonly"/> }</td>
                         </th>
                     </div>
 
-                  { isclick? (<button onClick={send}>닫기</button>)
+                  { isclick? (<button onClick={send} className="close">닫기</button>)
                     :
-                    (<button onClick={send}>계좌입력</button>)
+                    (<button onClick={send} className="accinput">계좌입력</button>)
                   }
 
-                  {isclick && <button onClick={ainsert} >송금하기</button>}
-                  </div>
+                  {isclick && <button onClick={ainsert} className="closinsert">송금하기</button>}
+              </div>
                <div className="aside_box">
                     <h4>최근 거래 은행(클릭시 그은행 거래나옴)</h4>
                     <input type="checkbox" name="xxx" value="yyy"/> 카뱅
@@ -61,6 +59,7 @@ export default function Account(props) {
                </div>
 
               <div className="deal">
+
                <h3>최근거래내역</h3>
                    <div className="nowbill">
                       <li>2022-10-10 전상근 10,000</li>
@@ -68,17 +67,31 @@ export default function Account(props) {
                       <li>2022-10-10 전상근 10,000</li>
                       <li>2022-10-10 전상근 10,000</li>
                       <li>2022-10-10 전상근 10,000</li>
+
                    </div>
+
+              </div>
+              <div>
+                1 , 2 , 3 , 4 ,5 페이징 자리 또는 스크롤 자리
               </div>
         </div>
             <div className="acdate">
-              <h3>날짜별 거래내역</h3>
-
+                <div className="datebill">
+                     <h3>날짜별 거래내역</h3>
+                </div>
                 <div className="calender">
                         <Calendar
                          onChange={onChange}
                           value={value}
                           />
+                </div>
+                <div className="billdate">
+                    <h1>거래별 날짜 자리</h1>
+                     <li>2022-10-10 전상근 10,000</li>
+                      <li>2022-10-10 전상근 10,000</li>
+                     <li>2022-10-10 전상근 10,000</li>
+                         <li>2022-10-10 전상근 10,000</li>
+                       <li>2022-10-10 전상근 10,000</li>
                 </div>
 
              </div>
