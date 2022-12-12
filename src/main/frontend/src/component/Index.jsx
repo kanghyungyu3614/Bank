@@ -27,14 +27,14 @@ export default function Index( props ){
                         <li><a href="/">홈URL</a></li>
                         <li><a href="/member/securityCard/password">보안코드</a></li>
                         <li><a href="/member/account">계좌거래</a></li>
-                        <li><a href="/member/dealReport/password">거래내역 비밀번호 페이지</a></li>
+                        <li><a href="/admin/dealReport/password">거래내역 비밀번호 페이지</a></li>
                     </ul>
                     <Routes>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
                         <Route path="/member/account" element={ <Bank/> }/>
-                        <Route path="/member/dealReport/password" element={ <DealReportPassword/> }/>
-                        <Route path="/member/dealReport" element={ <DealReport/> }/>
+                        <Route path="/admin/dealReport/password" element={ <DealReportPassword/> }/>
+                        <Route path="/admin/dealReport" element={ <DealReport/> }/>
                     </Routes>
             </BrowserRouter>
         </div>

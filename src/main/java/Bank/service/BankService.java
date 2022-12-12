@@ -87,7 +87,7 @@ public class BankService {
         // dpositDto를 받아와서
         // 1. 엔티티 전부 가져오기
         List<DpositEntity> entityList = dpositRepository.findAll();
-        System.out.println("entityList");
+        System.out.println("entityList를 출력해보겠습니다.");
         System.out.println(entityList);
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
         for (DpositEntity entity : entityList) { // 리스트 반복
@@ -135,6 +135,8 @@ public class BankService {
         List<DpositEntity> entityList = dpositRepository.findAll();
         System.out.println("entityList 를 가져왔습니다.");
         System.out.println(entityList);
+        System.out.println("entityList.get(0).getBmemberEntity()를 출력해보겠습니다.");
+        System.out.println(entityList.get(0).getBmemberEntity());
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
         for (DpositEntity entity : entityList) { // 리스트 반복
             if (entity.getAcpw() == dpositDto.getAcpw()) { // 엔티티=레코드 의 비밀번호 과 입력받은 비밀번호

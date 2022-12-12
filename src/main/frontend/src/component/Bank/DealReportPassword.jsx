@@ -9,7 +9,7 @@ export default function DealReportPassword(){
   // react에서 location.href가 안되서 블로그를 찾아보다 useHistory를 찾게 되었습니다.
     const DealRerportNavigate = useNavigate();
     function handleUseHistory() {
-        DealRerportNavigate('/member/dealReport'); //"/member/securityCard"로 url 이동
+        DealRerportNavigate('/admin/dealReport'); //"/member/securityCard"로 url 이동
      }
     // dom 역할을 하는  useRef 입니다.
     // dom 으로 password변수를 밑에 input의 속성 에 지정해줍니다.
