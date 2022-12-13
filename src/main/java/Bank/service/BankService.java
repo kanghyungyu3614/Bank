@@ -3,14 +3,20 @@ package Bank.service;
 import Bank.domain.dto.BhistoryDto;
 import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
+import Bank.domain.dto.PageDto;
 import Bank.domain.entity.Bank.*;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 // sub난수를 활용하기 위해 ArrayList를 가져옵니다. 즉, 보안카드 난수140개를 담을 ArrayList자료형이 필요합니다.
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.ArrayList;
 //자바 유틸에서 랜덤을 불러온다.
@@ -113,7 +119,6 @@ public class BankService {
         System.out.println(ano);
         // 계좌순서 번호 1,2,3,4,5....가 가져와졌다.
         if (ano != null) {
-
             List<DpositEntity> dpolist = dpositRepository.findAcno( Integer.parseInt(ano)); // ano로 계좌번호를 가져와야 한다.
             System.out.println("dpolist.get(0).getAcno()");
             System.out.println(dpolist.get(0).getAcno());
@@ -179,4 +184,13 @@ public class BankService {
             return dlist;
 
     }
+    // 2. 게시물 목록 조회
+    @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
+    public PageDto boardlist(PageDto pageDto) {
+        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 3 , Sort.by( Sort.Direction.DESC , "bno")  );
+
+        return pageDto;
+
+    }
+
 }
