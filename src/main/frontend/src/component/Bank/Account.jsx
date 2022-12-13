@@ -2,6 +2,8 @@ import React , { useState , useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'; // css import
 import styles from './account.css'
+import axios from 'axios';
+import {useParams} from 'react-router-dom';
 export default function Account(props) {
 
     const [ isclick , setIsclick ]  = useState( false );
@@ -19,8 +21,15 @@ export default function Account(props) {
     }
 
 
-
     const [value,onChange] = useState(new Date());
+
+
+  /*  const onchange2 = ( value ) => {
+        onChange(value)
+       axios.get("",{params : {date : value}})
+            .then(res => {bankacciunt(res.data)})
+    }*/
+
 
     const ainsert =() =>{
       let ainput = document.querySelector(".ainput").value;
@@ -51,11 +60,12 @@ export default function Account(props) {
               </div>
                <div className="aside_box">
                     <h4>최근 거래 은행(클릭시 그은행 거래나옴)</h4>
+                      <div className="aside_main">
                     <input type="checkbox" name="xxx" value="yyy"/> 카뱅
                      <input type="checkbox" name="xxx" value="yyy"/> 신협
                      <input type="checkbox" name="xxx" value="yyy"/> 농협
                      <input type="checkbox" name="xxx" value="yyy"/> 우리은행
-
+                    </div>
                </div>
 
               <div className="deal">
@@ -81,17 +91,20 @@ export default function Account(props) {
                 </div>
                 <div className="calender">
                         <Calendar
-                         onChange={onChange}
-                          value={value}
-                          />
+                            onChange={ onchange2 }
+                            value={value}
+                         />
                 </div>
                 <div className="billdate">
                     <h1>거래별 날짜 자리</h1>
-                     <li>2022-10-10 전상근 10,000</li>
-                      <li>2022-10-10 전상근 10,000</li>
-                     <li>2022-10-10 전상근 10,000</li>
-                         <li>2022-10-10 전상근 10,000</li>
-                       <li>2022-10-10 전상근 10,000</li>
+                    <div className="billcontent">
+                          <li>2022-10-10 전상근 10,000</li>
+                          <li>2022-10-10 전상근 10,000</li>
+                          <li>2022-10-10 전상근 10,000</li>
+                          <li>2022-10-10 전상근 10,000</li>
+                          <li>2022-10-10 전상근 10,000</li>
+                     </div>
+
                 </div>
 
              </div>

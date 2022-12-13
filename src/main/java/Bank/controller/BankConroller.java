@@ -52,4 +52,7 @@ public class BankConroller {
         return result;
     }
 
+    /*개인거래*/
+ /*   @GetMapping("/memberaccount")
+    public List<>*/
 }
