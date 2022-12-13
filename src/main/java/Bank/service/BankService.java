@@ -92,8 +92,13 @@ public class BankService {
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
         for (DpositEntity entity : entityList) { // 리스트 반복
             if (entity.getAcpw() == dpositDto.getAcpw()) { // 엔티티=레코드 의 비밀번호 과 입력받은 비밀번호
+                System.out.println("entity");
+                System.out.println(entity);
+                System.out.println("entity");
+                System.out.println("entity.getAno()");
+                System.out.println(entity.getAno());
                 // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
-                request.getSession().setAttribute("acno", entity.getAcno());
+                request.getSession().setAttribute("ano", String.valueOf(entity.getAno()));
                 // 엔티티 = 레코드 = 로그인 성공한객체
                 return "1";// 비밀번호가 있습니다.
             }
@@ -102,12 +107,22 @@ public class BankService {
     }
 
     public List<BsecurityDto> getSecurityCardNumber() {
-        String acnumber = (String) request.getSession().getAttribute("acno");
-        System.out.println("acnumber");
-        System.out.println(acnumber);
-        // 계좌번호 acnumber 3521071 가 가져와졌다.
-        if (acnumber != null) {
-            List<BsecurityEntity> elist = bsecurityRepository.findbySecurityNumberEntity(acnumber);
+        // 계좌순서(숫자)를 일단 문자열로 세션으로 가져온다.
+        String ano = (String) request.getSession().getAttribute("ano");
+        System.out.println("ano");
+        System.out.println(ano);
+        // 계좌순서 번호 1,2,3,4,5....가 가져와졌다.
+        if (ano != null) {
+
+            List<DpositEntity> dpolist = dpositRepository.findAcno( Integer.parseInt(ano)); // ano로 계좌번호를 가져와야 한다.
+            System.out.println("dpolist.get(0).getAcno()");
+            System.out.println(dpolist.get(0).getAcno());
+            System.out.println("dpolist.get(0).getAcno()");
+            System.out.println("dpolist.get(Integer.parseInt(ano)-1).getAcno()");
+            System.out.println("dpolist");
+            System.out.println(dpolist);
+            System.out.println("dpolist");
+            List<BsecurityEntity> elist = bsecurityRepository.findbySecurityNumberEntity(dpolist.get(0).getAcno());
             System.out.println("elist");
             System.out.println(elist);
 
@@ -135,13 +150,11 @@ public class BankService {
         List<DpositEntity> entityList = dpositRepository.findAll();
         System.out.println("entityList 를 가져왔습니다.");
         System.out.println(entityList);
-        System.out.println("entityList.get(0).getBmemberEntity()를 출력해보겠습니다.");
-        System.out.println(entityList.get(0).getBmemberEntity());
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
         for (DpositEntity entity : entityList) { // 리스트 반복
             if (entity.getAcpw() == dpositDto.getAcpw()) { // 엔티티=레코드 의 비밀번호 과 입력받은 비밀번호
                 // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
-                request.getSession().setAttribute("acno", entity.getAcno());
+                request.getSession().setAttribute("ano", entity.getAno());
                 System.out.println("entity 를 가져왔습니다.");
                 System.out.println(entity);
                 // 엔티티 = 레코드 = 로그인 성공한객체

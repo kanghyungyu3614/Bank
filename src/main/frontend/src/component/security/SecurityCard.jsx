@@ -31,6 +31,8 @@ export default function SecurityCard (){
                               console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
     })// 응답
     */}
+      console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
+      console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
     },[])
 
       return (
