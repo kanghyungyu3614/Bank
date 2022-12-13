@@ -68,17 +68,24 @@ background-color: white;
 
 /*입금 인풋 */
 .ainput{
-width : 250px;
+width : 200px;
 height : 40px;
 border : 1px solid #9e9e9e;
 }
 
 /*예금주*/
 .master{
-display :flex;
-width : 100px;
+
+width : 80px;
 height : 40px;
-border : px solid #9e9e9e;
+border : 1px solid #9e9e9e;
+}
+.mastercheck{
+
+   width : 80px;
+   height : 40px;
+
+
 }
 /*
 최근 거래 내역*/

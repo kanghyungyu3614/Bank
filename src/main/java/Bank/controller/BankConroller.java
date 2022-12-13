@@ -53,6 +53,10 @@ public class BankConroller {
     }
 
     /*개인거래*/
- /*   @GetMapping("/memberaccount")
-    public List<>*/
+ @PostMapping("/memberaccount")
+    public boolean mastercheck(@RequestParam("data") String data){
+    return bankService.memberaccount(data);
+
+
+ }
 }

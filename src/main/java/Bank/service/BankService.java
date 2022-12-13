@@ -6,6 +6,7 @@ import Bank.domain.entity.Bank.BsecurityEntity;
 import Bank.domain.entity.Bank.BsecurityRepository;
 import Bank.domain.entity.Bank.DpositEntity;
 import Bank.domain.entity.Bank.DpositRepository;
+import Bank.domain.entity.member.BmemberEntity;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,10 +32,14 @@ public class BankService {
     private DpositRepository dpositRepository;      //리포지토리 객체
     @Autowired
     private BsecurityRepository bsecurityRepository; //리포지토리 객체
+
+
     @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request;
     @Autowired
     private HttpServletResponse response;
+
+
 
     // ------------------------------- 전역 객체 -------------------------------//
     /*강현규 2022-12-07 계좌 비밀번호를 입력했을때 보안카드 페이지로 이동하는 내용*/
@@ -83,6 +88,15 @@ public class BankService {
             return null;
         }
     }
+    //예금주 확인하기
+    public boolean memberaccount(String data){
+
+        System.out.println(data);
+
+        return  false;
+    }
+
+
 
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
@@ -126,6 +140,7 @@ public class BankService {
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
     }
+
 
 
 
