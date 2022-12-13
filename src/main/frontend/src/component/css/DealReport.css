@@ -100,3 +100,11 @@ th{
     width: 20%;
 }
 /* th list들 내용 끝 css*/
+
+/*pagination 시작*/
+.pagination{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+/*pagination 끝*/
