@@ -18,7 +18,7 @@ public class BoardController {
     private BoardService boardService = new BoardService();
 
 
-    /*----------------------- 페이징 처리---------------*/
+  /*  *//*----------------------- 페이징 처리---------------*//*
 
     @GetMapping("/board")  // 기본 전체 게시판
     public Resource getboard(){
@@ -34,11 +34,11 @@ public class BoardController {
    public Resource getdlist() { return new ClassPathResource("templates/bdetail.html"); }
 
     @GetMapping("/bupdate")
-    public Resource getupdate() { return new ClassPathResource("templates/bupdate.html");}
+    public Resource getupdate() { return new ClassPathResource("templates/bupdate.html");}*/
 
     //*--------------요청과 응답처리 ------------------------*//
 
-    @PostMapping("/bwrtie")  // 게시물 쓰기
+    @PostMapping("/bwrite")  // 게시물 쓰기
      public boolean bwrtie(BboardDto boardDto ){
 
         System.out.println( boardDto.toString());

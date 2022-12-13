@@ -4,8 +4,19 @@ import React from 'react';
 // import { 컴포넌트명 } from 'react-router-dom'; v6
 import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-router-dom";
 import styles from "./css/Index.css";
-import SecurityCard from "./security/SecurityCard";
-import SecurityCardPassword from "./security/SecurityCardPassword";
+
+import Header from './Header'
+import Footer from './Footer'
+
+import Bank from './Bank/Account' // 계좌 임포트
+
+import SecurityCard from "./security/SecurityCard";   //  보안카드 임포트
+import SecurityCardPassword from "./security/SecurityCardPassword";  // 보안카드 패스워드
+
+import BoardList from "./Bboard/Board";    // 공지사항 임포트
+import BoardWrite from "./Bboard/BoardWrite";
+import BoardUpdate from "./Bboard/BoardUpdate";
+
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
     // Routes :  Route 목록/리스트
@@ -18,14 +29,24 @@ export default function Index( props ){
     return  (
         <div className="webbox">
             <BrowserRouter>
+              <Header/>
                     <ul>
                         <li><a href="/">홈URL</a></li>
                         <li><a href="/member/securityCard/password">보안코드</a></li>
+                        <li><a href="/Bank/Account">계좌송금</a></li>
+                        <li><a href="/Bboard/Board">공지사항</a></li>
                     </ul>
                     <Routes>
+                        <Route path="/Bank/Account" element={ <Bank/> }/>
+
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
+
+                        <Route path="/Bboard/Board" element={ <BoardList/> }/>
+                        <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>
+                        <Route path="/Bboard/BoardUpdate" element={ <BoardUpdate/> }/>
                     </Routes>
+                  <Footer/>
             </BrowserRouter>
         </div>
     );

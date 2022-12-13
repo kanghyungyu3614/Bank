@@ -1,4 +1,4 @@
-alert( 'cc')
+
 /*
 
 $('#summernote').summernote({
@@ -37,9 +37,9 @@ $.ajax({    data : data,
 }*/
 
 function bwrite() {
-  alert('cc')
-  let ss = document.querySelector('.bbord')
-  console.log( ss )
+
+  let ss = document.querySelector('.bbord');
+
 
   let formdata = new FormData( ss )
   	 console.log( formdata )		// [ form안에 입력받은 데이터 input 모두 가져오기 ]
