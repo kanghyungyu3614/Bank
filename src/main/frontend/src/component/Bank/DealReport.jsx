@@ -14,41 +14,49 @@ export default function DealReport (){
     // ------------------------------  1. 게시물  -------------------------------------- //
     function getboardlist( ){ // 2. server : pageInfo 요청 => pageDto 응답 [ 실행조건 : 1. 렌더링될때 2.검색할때 3.카테고리선택 4.페이징 선택  ---> 일반 함수화 ]
         axios.post( "/bank/dealReport/boardlist" ,  pageInfo )
-             .then( res => {  console.log( res.data );  setPageDto( res.data );  } ).catch( err => { console.log( err ); } )
+             .then( res => {
+             console.log( "/bank/dealReport/boardlist 경로" );
+             console.log( "res.data" );
+             console.log( res.data );
+             setPageDto( res.data );
+             })
+             .catch( err => { console.log( err ); } )
     }
     useEffect( getboardlist , [ pageInfo ] )  // 3. 렌더링 될때 그리고 *** pageInfo 변경될때 마다
-        // ------------------------------  3.페이징  -------------------------------------- //
-        const onPage = ( page ) =>{
-            setPageInfo(
-                {   page : page ,
-                    key : pageInfo.key ,            // 기존 검색 필드명
-                    keyword : pageInfo.keyword  }   // 기존 검색할 단어
-            )
-        }
-        // ------------------------------ --------------------------------------------------- //
-        // ------------------------------  4. 검색   -------------------------------------- //
-        const onSearch = () => {
-            setPageInfo(
-                {   page : 1 ,              // 검색시 첫페이지부터 보여주기 [ 1 ]
-                    key : document.querySelector('.key').value ,    // 검색할 필드명
-                    keyword: document.querySelector('.keyword').value  } // 검색할 단어
-            )
-        }
-        // --------------------------------끝------------------------------------- //
-         const [ dealReportMainData , setDealReportMainData] = useState([])
-         useEffect(()=>{
-         axios.get( "http://localhost:8080/bank/dealReport") // 요청
-                      .then( res => {
-                              console.log("res.data는?" + res.data);
-                              console.log(res.data);
-                              setDealReportMainData([...res.data])
-                              console.log("axios안의 dealReportMainData");
-                              console.log(dealReportMainData);
-             })// 응답
+
+
+    // ------------------------------  3.페이징  -------------------------------------- //
+    const onPage = ( page ) =>{
+        setPageInfo(
+            {   page : page ,
+                key : pageInfo.key ,            // 기존 검색 필드명
+                keyword : pageInfo.keyword  }   // 기존 검색할 단어
+        )
+    }
+    // ------------------------------ --------------------------------------------------- //
+    // ------------------------------  4. 검색   -------------------------------------- //
+    const onSearch = () => {
+        setPageInfo(
+            {   page : 1 ,              // 검색시 첫페이지부터 보여주기 [ 1 ]
+                key : document.querySelector('.key').value ,    // 검색할 필드명
+                keyword: document.querySelector('.keyword').value  } // 검색할 단어
+        )
+    }
+    // --------------------------------끝------------------------------------- //
+     const [ dealReportMainData , setDealReportMainData] = useState([])
+     useEffect(()=>{
+     axios.get( "http://localhost:8080/bank/dealReport") // 요청
+                  .then( res => {
+                          console.log("res.data는?" + res.data);
+                          console.log(res.data);
+                          setDealReportMainData([...res.data])
+                          console.log("axios안의 dealReportMainData");
+                          console.log(dealReportMainData);
+         })// 응답
          axios.post("http://localhost:8080/bank/dealReport")
 
 
-         },[])
+     },[])
          console.log("axios밖의 dealReportMainData");
          console.log(dealReportMainData);
          return(
