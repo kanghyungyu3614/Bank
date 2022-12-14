@@ -65,7 +65,7 @@ export default function DealReport (){
                  <div className="ContentText searchBox">
                      <span className="userNameOutput">모든 고객</span>
                      <span className="DefaultUserName">님의 거래내역</span>
-                     <select className="key keyoption">
+                     <select className="key">
                          <option value="bhno">순서</option>
                          <option value="bcontent">내용</option>
                          <option value="bmoney">보낸금액</option>
