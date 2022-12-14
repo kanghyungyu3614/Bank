@@ -7,7 +7,7 @@ export default function SecurityMainNumber( props ){
     let Coma;
     const [ ResultComa , setResultComa] = useState('');
 
-    useEffect( ()=>{
+    useEffect(()=>{
         if(props.props.length>0){
             Coma = props.props;
             let finalComa =Coma;

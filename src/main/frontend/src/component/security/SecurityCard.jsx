@@ -15,24 +15,10 @@ export default function SecurityCard (){
     useEffect(()=>{
         axios.get("http://localhost:8080/bank/securityCard") // 요청
                       .then( res => {
-                              console.log("res.data는?");
-                              console.log(res.data);
                               setSecurityCardMainData( res.data[0].smno )
                               setSecurityCardSebData( res.data[0].ssno )
-                              console.log("axios안의 SecurityCardMainData");
-                              console.log(SecurityCardMainData);
-                              console.log("axios안의 SecurityCardSebData");
-                              console.log(SecurityCardSebData);
             })// 응답
-          console.log("axios안의 SecurityCardMainData");
-          console.log(SecurityCardMainData);
-          console.log("axios안의 SecurityCardSebData");
-          console.log(SecurityCardSebData);
     },[SecurityCardMainData ,  SecurityCardSebData  ])
-      console.log("axios밖의 SecurityCardMainData");
-      console.log(SecurityCardMainData);
-      console.log("axios밖의 SecurityCardSebData");
-      console.log(SecurityCardSebData);
 
       return (
         <div className="securitCard">

@@ -20,7 +20,6 @@ export default function SecuritySubNumber(props){
               }
           }
 
-
         result =  SecuritySubNumberArray.map((el,i,arr) =>{
                     if(i<2){
                         return(
