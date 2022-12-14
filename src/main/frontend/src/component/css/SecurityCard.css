@@ -12,7 +12,7 @@
 /* securitCard 전체 끝 */
 
 /* main */
-.main{
+.mainCard{
     display: flex;
     font-weight: bold;
 }

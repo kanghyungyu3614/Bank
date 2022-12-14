@@ -1,11 +1,11 @@
-/*강현규 2022-12-11 거래내역 css 작성 */
-/* 전체 시작 css*/
+/*강현규 2022-12-11거래내역 css작성 */
+/*전체 시작 css*/
 .dealReport{
     margin-left: 60px;
     width: 90%;
 }
-/* 전체 끝 css*/
-/* 고객 거래내역 시작*/
+/*전체 끝 css*/
+/*고객 거래내역 시작*/
 .ContentText{
   display: flex;
 }
@@ -21,38 +21,35 @@
     vertical-align: top;
     display: inline-block;
 }
-/* select option 값 시작*/
+/* select option값 시작*/
 .key{
-    margin-left: 10px;
+    margin: 0px 10px;
+    height: 25px;
+    width: 175px;
+    vertical-align: top;
 }
-/* select option 값 끝*/
-/* input 태그 시작*/
+/* select option값 끝*/
+/* input태그 시작*/
 .dealReportComtent{
     font-size: 17px;
     font-weight: 700;
     height: 30px;
 }
-/* input 태그 끝*/
-/* 버튼 시작*/
+/* input태그 끝*/
+/*버튼 시작*/
 .userNameButton{
     height: 26px;
 }
-/* 버튼 끝*/
-/* dealReportComtent 끝*/
-/*input 태그 시작*/
-.userNameinput{
-    margin: 0px 10px;
-    height: 20px;
-    width: 175px;
-    vertical-align: top;
-}
-/* input 태그 끝*/
-/* 버튼 시작*/
+/*버튼 끝*/
+/* dealReportComtent끝*/
+/*input태그 시작*/
+/* input태그 끝*/
+/*버튼 시작*/
 .userButton{
    vertical-align: top;
 }
-/* 버튼 끝*/
-/* 고객 거래내역 끝 css*/
+/*버튼 끝*/
+/*고객 거래내역 끝 css*/
 .dealReportTable{
     border-collapse: collapse;
     border: 1px solid black;
@@ -63,8 +60,8 @@
 .dealReportTrComponent{
     border : 1px solid black;
 }
-/* 테이블 내용 끝 css*/
-/* th 내용 시작 css*/
+/*테이블 내용 끝 css*/
+/* th내용 시작 css*/
 th{
     border: 1px solid black;
 }
@@ -84,7 +81,7 @@ th{
     width: 20%;
     height: 50px;
 }
-/* th 내용 끝 css*/
+/* th내용 끝 css*/
 /* th list들 내용 시작 css*/
 .orderComponentList{
     height: 20px;
@@ -104,10 +101,10 @@ th{
 }
 /* th list들 내용 끝 css*/
 
-/*pagination 시작*/
+/*pagination시작*/
 .pagination{
     display: flex;
     margin-bottom: 10px;
     justify-content: center;
 }
-/*pagination 끝*/
+/*pagination끝*/

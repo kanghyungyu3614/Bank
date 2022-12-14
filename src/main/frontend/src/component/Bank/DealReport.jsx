@@ -6,13 +6,13 @@ import DealListComponent from'./DealReportComponent/DealListComponent';
 import Pagination from'react-js-pagination'// npm i react-js-pagination설치
 
 /*강현규 2022-12-12 admin에서의 user들의 거래내역 출력*/
-export default function DealReport (){
+exportdefault functionDealReport (){
 
-    const [ pageInfo , setPageInfo ] = useState({  page : 1 , key :"", keyword:""})// 1.요청 정보 객체 state
+const [ pageInfo , setPageInfo ] = useState({  page : 1 , key :"", keyword:""})// 1.요청 정보 객체 state
 const [ pageDto , setPageDto ] = useState( { list : [] } )// 1.게시물 리스트 state
     // [ ] : array/list     {  } : object/dto
     // ------------------------------  1.게시물  -------------------------------------- //
-function getboardlist( ){// 2. server : pageInfo요청 => pageDto응답 [실행조건 : 1.렌더링될때 2.검색할때 3.카테고리선택 4.페이징 선택  --->일반 함수화 ]
+functiongetboardlist( ){// 2. server : pageInfo요청 => pageDto응답 [실행조건 : 1.렌더링될때 2.검색할때 3.카테고리선택 4.페이징 선택  --->일반 함수화 ]
 axios.post("/bank/dealReport/boardlist",  pageInfo )
              .then( res => {
              console.log("/bank/dealReport/boardlist경로");
@@ -76,7 +76,7 @@ return(
                          <option value="bacba">통장에남은금액</option>
                          <option value="bacst">휴먼상태</option>
                      </select>
-                     <input type="text"className="userNameinput keyword"/>
+                     <input type="text"className="keyword"/>
                      <button type="button"className="userButton"onClick={ onSearch }>검색</button>
                  </div>
              </div>

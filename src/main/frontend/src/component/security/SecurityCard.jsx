@@ -23,7 +23,7 @@ const [ SecurityCardMainData , setSecurityCardMainData] = useState('')
 return(
         <div className="securitCard">
             {/* main number */}
-            <div className="main">
+            <div className="mainCard">
                 <div className="mainSecutiryContent">피싱사기 주의!!! 보안카드번호 35개 전체입력 절대금지</div>
                 <div className="mainSecutiryNumber"><SecurityMainNumber props={SecurityCardMainData}/></div>
             </div>

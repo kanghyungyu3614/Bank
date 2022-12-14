@@ -1,10 +1,10 @@
 import React , { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // css import
-{/*import styles from '../css/account.css'*/}
 import styles from './account.css'
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; // css import
+{/*import styles from '../css/account.css'*/}
 export default function Account(props) {
 
     const [ isclick , setIsclick ]  = useState( false );
