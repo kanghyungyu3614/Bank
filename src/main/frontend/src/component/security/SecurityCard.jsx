@@ -9,31 +9,30 @@ export default function SecurityCard (){
     /* 2022-12-06 강현규 보안카드 프론트작성 */
     //8783 76 9934
     //77 99, 71 15, 96 21, 75 92, 33 09, 30 06, 18 72, 37 18, 90 42, 80 22, 71 78, 57 16, 93 35, 90 64, 55 81, 28 36, 68 06, 76 58, 74 47, 19 54, 05 66, 47 54, 22 06, 07 77, 00 25, 73 31, 55 93, 72 96, 27 93, 68 78, 19 24, 86 34, 93 48, 16 39, 35 06
-    const [ SecurityCardMainData , setSecurityCardMainData] = useState([])
-    const [ SecurityCardSebData , setSecurityCardSebData] = useState([])
+    const [ SecurityCardMainData , setSecurityCardMainData] = useState('')
+    const [ SecurityCardSebData , setSecurityCardSebData] = useState('')
 
     useEffect(()=>{
-    axios.get( "http://localhost:8080/bank/securityCard") // 요청
-                  .then( res => {
-                          console.log("res.data는?" + res.data);
-                          setSecurityCardMainData( res.data[0].smno )
-                          setSecurityCardSebData( res.data[0].ssno )
-                          console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
-                          console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
-        })// 응답
-    {/* 고객이름을 눌렀을때 요청
-    axios.get( "http://localhost:8080/bank/securityCard") // 요청
-    then( res => {
-                              console.log("res.data는?" + res.data);
+        axios.get("http://localhost:8080/bank/securityCard") // 요청
+                      .then( res => {
+                              console.log("res.data는?");
+                              console.log(res.data);
                               setSecurityCardMainData( res.data[0].smno )
                               setSecurityCardSebData( res.data[0].ssno )
-                              console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
-                              console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
-    })// 응답
-    */}
-      console.log("axios안의 SecurityCardMainData" + SecurityCardMainData);
-      console.log("axios안의 SecurityCardSebData" + SecurityCardSebData);
-    },[])
+                              console.log("axios안의 SecurityCardMainData");
+                              console.log(SecurityCardMainData);
+                              console.log("axios안의 SecurityCardSebData");
+                              console.log(SecurityCardSebData);
+            })// 응답
+          console.log("axios안의 SecurityCardMainData");
+          console.log(SecurityCardMainData);
+          console.log("axios안의 SecurityCardSebData");
+          console.log(SecurityCardSebData);
+    },[SecurityCardMainData ,  SecurityCardSebData  ])
+      console.log("axios밖의 SecurityCardMainData");
+      console.log(SecurityCardMainData);
+      console.log("axios밖의 SecurityCardSebData");
+      console.log(SecurityCardSebData);
 
       return (
         <div className="securitCard">

@@ -82,11 +82,11 @@ export default function DealReport (){
              </div>
              <DealListComponent props={dealReportMainData}/>
                <Pagination
-                      activePage={ pageInfo.page  } {/**/}
-                      itemsCountPerPage = { 3 }     {/**/}
-                      totalItemsCount = { pageDto.totalBoards } {/**/}
-                      pageRangeDisplayed = { 5 } {/**/}
-                      onChange={ onPage } {/**/}
+                      activePage={ pageInfo.page  }
+                      itemsCountPerPage = { 3 }
+                      totalItemsCount = { pageDto.totalBoards }
+                      pageRangeDisplayed = { 5 }
+                      onChange={ onPage }
                />
          </div>
      );
