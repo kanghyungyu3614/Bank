@@ -71,10 +71,10 @@ public class BankConroller {
 
 
     /*개인거래*/
- @PostMapping("/memberaccount")
+/* @PostMapping("/memberaccount")
     public boolean mastercheck(@RequestParam("data") String data){
     return bankService.memberaccount(data);
 
 
- }
+ }*/
 }
