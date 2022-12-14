@@ -1,6 +1,5 @@
 package Bank.domain.dto;
 
-import Bank.domain.entity.BaseEntity;
 import Bank.domain.entity.member.BmemberEntity;
 import lombok.*;
 
@@ -10,24 +9,26 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class BmemberDto{
-    int mno   ;               // 회원번호  [PK]
-    String mname;  	//  회원이름
-    String mphone;		// 	회원전화번호
-    String msno;		//  회원주민번호
-    String madress ;	// 	회원 주소
-    String mid;		//  회원아이디
-    String mpw;		//  회원비밀번호
+public class BmemberDto {
+    int mno;               // 회원번호  [PK]
+    private String mname;    //  회원이름
+    private String mphone;        // 	회원전화번호
+    private String msno;        //  회원주민번호
+    private String madress;    // 	회원 주소
+    private String memail;
+    private String mid;        //  회원아이디
+    private String mpw;        //  회원비밀번호
 
-   public BmemberEntity toEntity(){
+    public BmemberEntity toEntity() {
         return BmemberEntity.builder()
                 .mno(this.mno)
                 .mname(this.mname)
                 .mphone(this.mphone)
                 .msno(this.msno)
                 .madress(this.madress)
+                .memail(this.memail)
                 .mid(this.mid)
                 .mpw(this.mpw)
                 .build();
-   }
+    }
 }

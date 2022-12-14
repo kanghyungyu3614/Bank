@@ -12,14 +12,13 @@
 }
 
 
-
 /*-----------------------------중간 부분 ----------------------------------------*/
 
 .cbox{  height: 85%; }
 
-.mbox {
+.mbox{
   border: 1px solid green;
-  height: 90%;
+  height: 65%;
   margin: 30px; }
 
 

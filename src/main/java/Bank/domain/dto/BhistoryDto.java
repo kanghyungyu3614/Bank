@@ -1,11 +1,7 @@
 package Bank.domain.dto;
 
 import Bank.domain.entity.Bank.BhistoryEntity;
-import Bank.domain.entity.BaseEntity;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
-
-import javax.persistence.Column;
 
 @AllArgsConstructor@NoArgsConstructor
 @Getter@Setter@ToString@Builder

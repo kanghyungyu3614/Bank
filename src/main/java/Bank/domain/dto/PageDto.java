@@ -1,7 +1,6 @@
 package Bank.domain.dto;
 /*강현규 2022-12-13 페이징처리 Dto 추가 */
 import lombok.*;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
