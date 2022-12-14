@@ -5,23 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Index from './component/Index.jsx'
 import Bank from './component/Bank/Account' // 계좌 임포트
-
+import Signup from "./component/bank/Signup"; // 회원가입
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-router-dom";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-/*
 root.render(
   <React.StrictMode>
     <Index/>
-  </React.StrictMode>
-);
-*/
-
-root.render(
-  <React.StrictMode>
-    <Bank/>
   </React.StrictMode>
 );
 

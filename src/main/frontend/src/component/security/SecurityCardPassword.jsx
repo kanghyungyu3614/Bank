@@ -20,7 +20,7 @@ export default function SecurityCardPassword(){
     alert(password.current.value);
     // passwordData 를 axios로 보내기위해 이렇게 형태를 잡을겁니다.
     let passwordData = {acpw : password.current.value};
-    axios.post("http://localhost:8080/bank/securityCard/Password", passwordData)
+    axios.post("/bank/securityCard/Password", passwordData)
     .then((re)=>{
         console.log("SubmitButtong함수 잘실행되니??");
         console.log("re: " + re.data);

@@ -1,14 +1,14 @@
 package Bank.controller;
 
+import Bank.domain.dto.BhistoryDto;
 import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
+import Bank.domain.dto.PageDto;
 import Bank.service.BankService;
 import Bank.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.*;
-/* 강현규 2022-12-07 react와 spring의 연동을 위해서 필요한 파일입니다. 이거랑 src폴더를 나가서 최상단에 build.gradle파일이 바뀌었을겁니다. */
-import javax.annotation.Resource;
+
 import java.util.List;
 
 
@@ -29,21 +29,16 @@ public class BankConroller {
 
 
 
-    // --------------------------------- 서비스/기능 매핑 ------------------------------------- //
-    /*@GetMapping("")
-    public Resource getMainpage(){
-        return new ClassPathResource("");
-    }*/
 
-    @PostMapping("/securityCard/Password") // 3.보안카드 계좌비밀번호 입력 페이지
-    public String getpassword(@RequestBody DpositDto dpositDto){
+    @PostMapping("/securityCard/Password") // 1.보안카드 계좌비밀번호 입력 페이지
+    public String SecurityGetPassword(@RequestBody DpositDto dpositDto){
         System.out.println("dpositDto");
         System.out.println(dpositDto);
         String result = bankService.getSecurityCardPassword(dpositDto);
         return result;
     }
 
-    @GetMapping("/securityCard")
+    @GetMapping("/securityCard") // 2.보안카드 번호 출력 페이지
     public List<BsecurityDto> bsecurityList (){
         System.out.println("/securityCard");
         List<BsecurityDto> result = bankService.getSecurityCardNumber();
@@ -52,4 +47,34 @@ public class BankConroller {
         return result;
     }
 
+    @PostMapping("/dealReport/password") // 3.거래내역 계좌비밀번호 입력 페이지
+    public String DealReportGetPassword(@RequestBody DpositDto dpositDto){
+        System.out.println("dpositDto");
+        System.out.println(dpositDto);
+        String result = bankService.ReportPassword(dpositDto);
+        return result;
+    }
+
+    @GetMapping("/dealReport") // 4.거래내역 출력페이지
+    public List<BhistoryDto> dealReportList (){
+        System.out.println("/securityCard");
+        List<BhistoryDto> result = bankService.getdealReportList();
+        System.out.println("result");
+        System.out.println(result);
+        return result;
+    }
+
+    @PostMapping("/dealReport/boardlist") // 5.거래내역 페이징처리
+    public PageDto DealReportGetBoardList( @RequestBody PageDto pageDto){
+        return bankService.boardlist( pageDto  );
+    }
+
+
+    /*개인거래*/
+ @PostMapping("/memberaccount")
+    public boolean mastercheck(@RequestParam("data") String data){
+    return bankService.memberaccount(data);
+
+
+ }
 }
