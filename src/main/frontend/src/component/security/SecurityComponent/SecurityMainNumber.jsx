@@ -1,17 +1,12 @@
 import React,{useState,useEffect} from 'react';
 
 export default function SecurityMainNumber( props ){
-    console.log("props");
-    console.log(props);
     let result;
-    let Coma;
     const [ ResultComa , setResultComa] = useState('');
 
     useEffect(()=>{
         if(props.props.length>0){
-            Coma = props.props;
-            let finalComa =Coma;
-            console.log(finalComa);
+            let finalComa =props.props;
             result = "No. "+finalComa.substring(0,4)+" "+finalComa.substring(4,6)+" "+finalComa.substring(6);
             setResultComa(result)
         }
