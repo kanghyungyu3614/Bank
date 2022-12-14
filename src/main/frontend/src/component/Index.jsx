@@ -16,6 +16,7 @@ import SecurityCardPassword from "./security/SecurityCardPassword";  // 보안�
 import BoardList from "./Bboard/Board";    // 공지사항 임포트
 import BoardWrite from "./Bboard/BoardWrite";
 import BoardUpdate from "./Bboard/BoardUpdate";
+import BoardView from "./Bboard/BoardView";
 
     // BrowserRouter : 가상 URL
     //  vs HashRouter :
@@ -45,6 +46,7 @@ export default function Index( props ){
                         <Route path="/Bboard/Board" element={ <BoardList/> }/>
                         <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>
                         <Route path="/Bboard/BoardUpdate" element={ <BoardUpdate/> }/>
+                        <Route path="/Bboard/BoardView" element={ <BoardView/> }/>
                     </Routes>
                   <Footer/>
             </BrowserRouter>

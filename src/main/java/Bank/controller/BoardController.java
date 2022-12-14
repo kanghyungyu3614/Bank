@@ -18,23 +18,6 @@ public class BoardController {
     private BoardService boardService = new BoardService();
 
 
-  /*  *//*----------------------- 페이징 처리---------------*//*
-
-    @GetMapping("/board")  // 기본 전체 게시판
-    public Resource getboard(){
-        return new ClassPathResource("templates/board.html");
-      }
-
-    @GetMapping("/write")  // 글 등록
-    public Resource getwrite(){
-        return new ClassPathResource("templates/write.html");
-    }
-
-   @GetMapping("/bdlist") // 자세히보기
-   public Resource getdlist() { return new ClassPathResource("templates/bdetail.html"); }
-
-    @GetMapping("/bupdate")
-    public Resource getupdate() { return new ClassPathResource("templates/bupdate.html");}*/
 
     //*--------------요청과 응답처리 ------------------------*//
 
@@ -46,10 +29,21 @@ public class BoardController {
        return boardService.bwrtie( boardDto );
     }
 
-    @PostMapping("/blist")  //게시물 전체 조회 및  페이징 처리
-     public List<BboardDto> blist(@RequestParam ("page") int page){
 
-         return boardService.blist( page );
+
+ /*   @PostMapping ("/blists")
+    public List<BboardDto> blists( BboardDto boardDto ){
+        return boardService.blists( boardDto );
+
+
+    }*/
+
+
+
+    @PostMapping("/blist")  //게시물 전체 조회 및  페이징 처리
+    public List<BboardDto> blist(@RequestParam ("page") int page){
+
+        return boardService.blist( page );
     }
 
     @GetMapping("/bdetail") // 게시물 개별 조회

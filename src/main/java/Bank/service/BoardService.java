@@ -66,6 +66,7 @@ public class BoardService {
     }
 
 
+    // 게시물 등록
     public boolean bwrtie(BboardDto boardDto) {
 
         BboardEntity boardentity = bboardRepository.save(boardDto.toEntity());
@@ -82,8 +83,18 @@ public class BoardService {
 
     }
 
+   // 게시물 전체 출력
+  /* public List<BboardDto> blists( ) {
+       List<BboardEntity> elist = bboardRepository.findAll();
+       List<BboardDto> dlist = new ArrayList<>();
+       for ( BboardEntity entity : elist){
+           dlist.add(entity.toDto());
+       }
+       return dlist;
+   }
+*/
 
-    public List<BboardDto> blist(int page) {
+   public List<BboardDto> blist(int page) {
         Page<BboardEntity> elist = null;
 
         Pageable pageable = PageRequest.of(page - 1, 3, Sort.by(Sort.Direction.DESC, "bno"));
