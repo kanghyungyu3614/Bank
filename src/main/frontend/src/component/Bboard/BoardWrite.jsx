@@ -9,7 +9,7 @@ export default function BoardWrite( props ){
         let boardform = document.querySelector('.bbord');
         let formdata = new FormData( boardform );
 
-        axios .get("/bwrtie", formdata ,{ headers: { 'Content-Type': 'multipart/form-data'  } }  )
+        axios .post("/bwrite", formdata ,{ headers: { 'Content-Type': 'multipart/form-data'  } }  )
               .then( res => {
                       console.log( res.data )
                       if( res.data == true ){ alert('게시물 작성 성공'); }
@@ -24,7 +24,7 @@ export default function BoardWrite( props ){
                  제목 : <input type="text" name="btitle"/>
                  첨부파일 : <input type="file" name="bfile"/>
 
-                <textarea name="content"> </textarea>
+                <textarea name="bcontent"> </textarea>
 
                  <button type="button"> <Link to="/Bboard/Board">목록</Link> </button>
                  <button type="button" onClick={ bwrite } >등록</button>
