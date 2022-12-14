@@ -21,8 +21,11 @@
     vertical-align: top;
     display: inline-block;
 }
-
-
+/* select option 값 시작*/
+.key{
+    margin-left: 10px;
+}
+/* select option 값 끝*/
 /* input 태그 시작*/
 .dealReportComtent{
     font-size: 17px;
@@ -45,7 +48,7 @@
 }
 /* input 태그 끝*/
 /* 버튼 시작*/
-.userNameButton{
+.userButton{
    vertical-align: top;
 }
 /* 버튼 끝*/
