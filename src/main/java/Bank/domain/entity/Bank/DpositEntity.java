@@ -1,6 +1,5 @@
 package Bank.domain.entity.Bank;
 
-import Bank.domain.dto.BboardDto;
 import Bank.domain.dto.DpositDto;
 import Bank.domain.entity.BaseEntity;
 import Bank.domain.entity.member.BmemberEntity;

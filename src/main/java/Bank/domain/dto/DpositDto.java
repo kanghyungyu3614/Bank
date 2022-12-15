@@ -1,7 +1,6 @@
 package Bank.domain.dto;
 
 import Bank.domain.entity.Bank.DpositEntity;
-import Bank.domain.entity.BaseEntity;
 import lombok.*;
 
 @AllArgsConstructor

@@ -3,7 +3,6 @@ package Bank.domain.entity.Bank;
 import Bank.domain.dto.BhistoryDto;
 import Bank.domain.entity.BaseEntity;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 

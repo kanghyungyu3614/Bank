@@ -1,6 +1,5 @@
 package Bank.domain.dto;
 
-import Bank.domain.entity.BaseEntity;
 import Bank.domain.entity.member.BmemberEntity;
 import lombok.*;
 

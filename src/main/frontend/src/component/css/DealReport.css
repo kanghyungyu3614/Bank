@@ -1,0 +1,113 @@
+/*강현규 2022-12-11 거래내역 css 작성 */
+/* 전체 시작 css*/
+.dealReport{
+    margin-left: 60px;
+    width: 90%;
+}
+/* 전체 끝 css*/
+/* 고객 거래내역 시작*/
+.ContentText{
+  display: flex;
+}
+.userNameOutput{
+    font-size: 20px;
+    line-height: 23px;
+    vertical-align: top;
+    display: inline-block;
+}
+.DefaultUserName{
+    font-size: 20px;
+    line-height: 23px;
+    vertical-align: top;
+    display: inline-block;
+}
+/* select option 값 시작*/
+.key{
+    margin-left: 10px;
+}
+/* select option 값 끝*/
+/* input 태그 시작*/
+.dealReportComtent{
+    font-size: 17px;
+    font-weight: 700;
+    height: 30px;
+}
+/* input 태그 끝*/
+/* 버튼 시작*/
+.userNameButton{
+    height: 26px;
+}
+/* 버튼 끝*/
+/* dealReportComtent 끝*/
+/*input 태그 시작*/
+.userNameinput{
+    margin: 0px 10px;
+    height: 20px;
+    width: 175px;
+    vertical-align: top;
+}
+/* input 태그 끝*/
+/* 버튼 시작*/
+.userButton{
+   vertical-align: top;
+}
+/* 버튼 끝*/
+/* 고객 거래내역 끝 css*/
+.dealReportTable{
+    border-collapse: collapse;
+    border: 1px solid black;
+    box-shadow: 0 1px 1px #000;
+    width: 100%;
+    margin-top: 5px;
+}
+.dealReportTrComponent{
+    border : 1px solid black;
+}
+/* 테이블 내용 끝 css*/
+/* th 내용 시작 css*/
+th{
+    border: 1px solid black;
+}
+.orderComponent{
+    width: 10%;
+    height: 50px;
+}
+.categoryComponent{
+    width: 15%;
+    height: 50px;
+}
+.contentComponent{
+    width: 55%;
+    height: 50px;
+}
+.moneyComponent{
+    width: 20%;
+    height: 50px;
+}
+/* th 내용 끝 css*/
+/* th list들 내용 시작 css*/
+.orderComponentList{
+    height: 20px;
+    width: 10%;
+}
+.categoryComponentList{
+    height: 20px;
+    width: 15%;
+}
+.contentComponentList{
+    height: 20px;
+    width: 55%;
+}
+.moneyComponentList{
+    height: 20px;
+    width: 20%;
+}
+/* th list들 내용 끝 css*/
+
+/*pagination 시작*/
+.pagination{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+/*pagination 끝*/
