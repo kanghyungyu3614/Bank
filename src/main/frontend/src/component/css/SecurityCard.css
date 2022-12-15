@@ -11,21 +11,22 @@
 }
 /* securitCard 전체 끝 */
 
-/* main */
+/* mainCard 시작 */
 .mainCard{
     display: flex;
     font-weight: bold;
 }
-
+/* mainCard 끝 */
+/*mainSecutiryContent 시작*/
 .mainSecutiryContent{
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 10px;
     font-size: 15px;
     color: #0080FF;
-
 }
-
+/*mainSecutiryContent 끝*/
+/*mainSecutiryNumber 시작*/
 .mainSecutiryNumber{
     font-size: 16px;
     margin-bottom: 1px;
@@ -33,17 +34,16 @@
     margin-top: 2px;
     vertical-align: top;
 }
-
-
-
-/* main */
-/* sub  테이블 시작 */
-.sub{
+/* mainSecutiryNumber 끝 */
+/* subtable  테이블 시작 */
+.subtable{
     border-collapse: collapse;
     font-weight: bold;
     font-size: 14px;
+    width: 500px;
+    height: 250px;
 }
-/* sub 테이블 끝 */
+/* subtable 테이블 끝 */
 /* tr 시작*/
 tr{
     border: 1px solid #0080FF;

@@ -7,7 +7,7 @@ import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-r
 import Header from './Header'
 import Footer from './Footer'
 import styles from "./css/Index.css";
-import Signup from "./bank/Signup";
+import Signup from "./Bank/Signup.jsx";
 import Bank from './Bank/Account' // 계좌 임포트
 import SecurityCard from "./security/SecurityCard";   //  보안카드 임포트
 import SecurityCardPassword from "./security/SecurityCardPassword";  // 보안카드 패스워드

@@ -6,13 +6,13 @@ import DealListComponent from'./DealReportComponent/DealListComponent';
 import Pagination from'react-js-pagination'// npm i react-js-pagination설치
 
 /*강현규 2022-12-12 admin에서의 user들의 거래내역 출력*/
-exportdefault functionDealReport (){
+export default function DealReport (){
 
 const [ pageInfo , setPageInfo ] = useState({  page : 1 , key :"", keyword:""})// 1.요청 정보 객체 state
 const [ pageDto , setPageDto ] = useState( { list : [] } )// 1.게시물 리스트 state
     // [ ] : array/list     {  } : object/dto
     // ------------------------------  1.게시물  -------------------------------------- //
-functiongetboardlist( ){// 2. server : pageInfo요청 => pageDto응답 [실행조건 : 1.렌더링될때 2.검색할때 3.카테고리선택 4.페이징 선택  --->일반 함수화 ]
+function getboardlist( ){// 2. server : pageInfo요청 => pageDto응답 [실행조건 : 1.렌더링될때 2.검색할때 3.카테고리선택 4.페이징 선택  --->일반 함수화 ]
 axios.post("/bank/dealReport/boardlist",  pageInfo )
              .then( res => {
              console.log("/bank/dealReport/boardlist경로");
@@ -45,7 +45,7 @@ keyword: document.querySelector('.keyword').value  }//검색할 단어
 // --------------------------------끝------------------------------------- //
 const [ dealReportMainData , setDealReportMainData] = useState([])
      useEffect(()=>{
-     axios.get("http://localhost:8080/bank/dealReport")//요청
+     axios.get("/bank/dealReport")//요청
 .then( res => {
                           console.log("res.data는?"+ res.data);
                           console.log(res.data);
@@ -53,7 +53,7 @@ const [ dealReportMainData , setDealReportMainData] = useState([])
                           console.log("axios안의 dealReportMainData");
                           console.log(dealReportMainData);
          })//응답
-axios.post("http://localhost:8080/bank/dealReport")
+axios.post("/bank/dealReport")
 
 
      },[])
