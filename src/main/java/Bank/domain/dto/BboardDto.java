@@ -1,6 +1,5 @@
 package Bank.domain.dto;
 
-import Bank.domain.entity.BaseEntity;
 import Bank.domain.entity.board.BboardEntity;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
