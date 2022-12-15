@@ -67,7 +67,7 @@ export default function Signup(prop) {
             return false;
         }
     }
-    const pwfirmcheck = (e) => {
+   /* const pwfirmcheck = (e) => {
         alert(form.mpw)
         if (form.mpw==e.target.value) {
             document.querySelector('.pwchbox').innerHTML = "👌."
@@ -77,7 +77,7 @@ export default function Signup(prop) {
             document.querySelector('.pwchbox').innerHTML = "🔓"
             return false;
         }
-    }
+    }*/
     return (
         <div>
             <h3 className="top_title "> Welcome_<br/>
