@@ -33,12 +33,12 @@ export default function Index( props ){
             <BrowserRouter>
               <Header/>
                     <ul>
-                        <li><a href="/">홈URL</a></li>
-                        <li><a href="/member/securityCard/password">보안코드</a></li>
-                        <li><a href="/member/Signup">회원가입 </a></li>
-                        <li><a href="/Bank/Account">계좌송금</a></li>
-                        <li><a href="/Bboard/Board">공지사항</a></li>
-                        <li><a href="/admin/dealReport/password">거래내역 비밀번호 페이지</a></li>
+                        <li className="urlList"><a href="/">홈URL</a></li>
+                        <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
+                        <li className="urlList"><a href="/member/Signup">회원가입 </a></li>
+                        <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
+                        <li className="urlList"><a href="/Bboard/Board">공지사항</a></li>
+                        <li className="urlList"><a href="/admin/dealReport/password">거래내역</a></li>
 
                     </ul>
                     <Routes>

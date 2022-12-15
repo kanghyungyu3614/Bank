@@ -4,10 +4,10 @@
 .securitCard{
     margin-top: 10px;
     border: 1px solid black;
-    width: 600px;
-    height: 300px;
-    margin : 0 auto;
     box-shadow: 0 1px 1px rgb(0 0 0 / 30);
+    height: 400px;
+    margin: 0 auto;
+    width: 100%;
 }
 /* securitCard 전체 끝 */
 
@@ -30,7 +30,7 @@
 .mainSecutiryNumber{
     font-size: 16px;
     margin-bottom: 1px;
-    margin-left: 42px;
+    margin-left: 12px;
     margin-top: 2px;
     vertical-align: top;
 }
@@ -38,10 +38,11 @@
 /* subtable  테이블 시작 */
 .subtable{
     border-collapse: collapse;
-    font-weight: bold;
+    border: 1px solid rgba(34,34,34,.05);
     font-size: 14px;
-    width: 500px;
+    font-weight: 700;
     height: 250px;
+    width: 100%;
 }
 /* subtable 테이블 끝 */
 /* tr 시작*/
@@ -55,7 +56,8 @@ th{
 /* tr 끝*/
 /*securityMainNumber 시작*/
 .securityMainNumber{
-    width: 90px;
+    width: 80px;
+    text-align: center;
 }
 /*securityMainNumber 시끝/
 /*securitysubNumber 시작*/
@@ -63,6 +65,7 @@ th{
     background-color:#0080FF;
     color:white;
     width: 30px;
+    text-align: center;
 }
 /*securitysubNumber 끝*/
 /*warningMainContent 시작*/

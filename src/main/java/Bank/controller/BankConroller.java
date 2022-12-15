@@ -55,17 +55,11 @@ public class BankConroller {
         return result;
     }
 
-    @GetMapping("/dealReport") // 4.거래내역 출력페이지
-    public List<BhistoryDto> dealReportList (){
-        System.out.println("/securityCard");
-        List<BhistoryDto> result = bankService.getdealReportList();
-        System.out.println("result");
-        System.out.println(result);
-        return result;
-    }
-
     @PostMapping("/dealReport/boardlist") // 5.거래내역 페이징처리
     public PageDto DealReportGetBoardList( @RequestBody PageDto pageDto){
+        System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
+        System.out.println(pageDto);
+        System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
         return bankService.boardlist( pageDto  );
     }
 
