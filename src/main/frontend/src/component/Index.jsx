@@ -43,10 +43,10 @@ export default function Index( props ){
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
 
-                        <Route path="/Bboard/Board" element={ <BoardList/> }/>
-                        <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>
-                        <Route path="/Bboard/BoardUpdate" element={ <BoardUpdate/> }/>
-                        <Route path="/Bboard/BoardView" element={ <BoardView/> }/>
+                        <Route path= "/Bboard/Board" element={ <BoardList/> }/>
+                        <Route path= "/Bboard/BoardWrite" element={ <BoardWrite/> }/>
+                        <Route path= "/Bboard/BoardUpdate/:bno" element={ <BoardUpdate/> }/>
+                        <Route path= "/Bboard/BoardView/:bno" element={ <BoardView/> }/>
                     </Routes>
                   <Footer/>
             </BrowserRouter>

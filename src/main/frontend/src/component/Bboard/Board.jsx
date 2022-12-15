@@ -1,19 +1,21 @@
 import React , { useState , useEffect } from 'react';
 import axios from "axios";
 import Pagination from 'react-js-pagination'
-
+import { useParams , Link } from "react-router-dom";
 
 import styles from './board.css'
 
 export default function Board( ) {
 
+    const params = useParams();
   //1. 메모리
-   const [ pageInfo , setPageInfo ] = useState({ page : 1  }) // 1. 요청 정보 객체 state
-   const [ pageDto , setPageDto ] = useState( { list : [] } )          // 1. 게시물 리스트 state
+   const [ pageInfo , setPageInfo ] = useState({ page:1 }) // 1. 요청 정보 객체 state
+   const [ pageDto , setPageDto ] = useState( [ { totalBoards : 0}] )          // 1. 게시물 리스트 state
+    console.log( pageDto)
 
     // 2. 서버로부터  pageInfo  요청 ==> 페이지 응답  [  실행 조건 : 1. 랜더링 될때   2. 페이징 선택 ]
          function getboardlist(){
-                  axios   .post( "/blist" , pageInfo )
+                  axios   .get ( "/blist" , { params : { page: pageInfo.page } } )
                           .then( res => {  console.log( res.data );  setPageDto( res.data );  } )
                           .catch( err => { console.log( err ); } )
               }
@@ -22,10 +24,10 @@ export default function Board( ) {
 
 
      /*----------------------------3. 페이징 --------------------------*/
-        const onPage = ( page ) => {   setPageInfo ( {page : page} )}
+        const onPage = ( page ) => {   setPageInfo ( { page : page} )}
     /*--------------------------------------- --------------------------*/
         const loadView = ( bno) => {
-              window.location.href ='/Bboard/BoardView'+bno
+              window.location.href ='/Bboard/BoardView/'+ bno;
             }
 
         return(
@@ -34,11 +36,11 @@ export default function Board( ) {
                                     <table className = "blist" >
                                          <tr><th> 번호 </th> <th>제목</th> <th>작성 날짜</th><th>조회수</th> </tr>
                                    {
-                                         pageDto.list.map( (b) => {
+                                         pageDto.map( (b) => {
                                                       return(
                                                          <tr>
                                                             <td> {b.bno} </td>
-                                                            <td onClick = { ()=> loadView( b.bno) }> {b.btitle} </td>
+                                                            <td onClick = {() => loadView(b.bno) }> {b.btitle} </td>
                                                             <td> {b.bview} </td>
                                                         </tr>
                                                       )
@@ -50,7 +52,7 @@ export default function Board( ) {
                                 <Pagination
                                              activePage={ pageInfo.page  }
                                              itemsCountPerPage = { 3 }
-                                             totalItemsCount = { pageDto.totalBoards }
+                                             totalItemsCount = { pageDto[0].totalBoards }
                                               pageRangeDisplayed = { 5 }
                                              onChange= { onPage }
                                           />

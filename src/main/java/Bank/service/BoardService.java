@@ -2,6 +2,7 @@ package Bank.service;
 
 
 import Bank.domain.dto.BboardDto;
+import Bank.domain.dto.PageDto;
 import Bank.domain.entity.board.BboardEntity;
 import Bank.domain.entity.board.BboardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +68,7 @@ public class BoardService {
 
 
     // 게시물 등록
-    public boolean bwrtie(BboardDto boardDto) {
+    public boolean bwrite(BboardDto boardDto) {
 
         BboardEntity boardentity = bboardRepository.save(boardDto.toEntity());
 
@@ -83,55 +84,44 @@ public class BoardService {
 
     }
 
-   // 게시물 전체 출력
-  /* public List<BboardDto> blists( ) {
-       List<BboardEntity> elist = bboardRepository.findAll();
-       List<BboardDto> dlist = new ArrayList<>();
-       for ( BboardEntity entity : elist){
-           dlist.add(entity.toDto());
-       }
-       return dlist;
-   }
-*/
 
-   public List<BboardDto> blist(int page) {
-        Page<BboardEntity> elist = null;
+    public List<BboardDto> blist(int page) {
+      Page<BboardEntity> elist = null;
 
-        Pageable pageable = PageRequest.of(page - 1, 3, Sort.by(Sort.Direction.DESC, "bno"));
+      Pageable pageable = PageRequest.of(page - 1, 3, Sort.by(Sort.Direction.DESC, "bno"));
 
-        elist = bboardRepository.findAll(pageable);
+      elist = bboardRepository.findAll(pageable);
 
 
-        int btncount = 5;  // 페이지에 표시할 총 페이지 버튼 개수
-        int startbtn = (page / btncount) * btncount + 1;//2. 시작번호 버튼
-        int endbtn = startbtn + btncount - 1;     //3.마지막 번호 버튼
-        if (endbtn > elist.getTotalPages()) endbtn = elist.getTotalPages();
+      int btncount = 5;  // 페이지에 표시할 총 페이지 버튼 개수
+      int startbtn = (page / btncount) * btncount + 1;//2. 시작번호 버튼
+      int endbtn = startbtn + btncount - 1;     //3.마지막 번호 버튼
+      if (endbtn > elist.getTotalPages()) endbtn = elist.getTotalPages();
 
-        System.out.println("게시물 수 : " + elist);
-        System.out.println("현재페이지수 :" + elist.getNumber());
-
-
-        List<BboardDto> dlist = new ArrayList<>();
-        for (BboardEntity entity : elist) {
-            dlist.add(entity.toDto());
-
-        }
-        dlist.get(0).setStartbtn(startbtn);
-        dlist.get(0).setEndbtn(endbtn);
-
-        return dlist;
-
-    }
+      System.out.println("게시물 수 : " + elist);
+      System.out.println("현재페이지수 :" + elist.getNumber());
 
 
-    public BboardDto bdtail(int bno) {  //개별 조회
+      List<BboardDto> dlist = new ArrayList<>();
+      for (BboardEntity entity : elist) {
+          dlist.add(entity.toDto());
+
+      }
+
+      dlist.get(0).setTotalBoards( elist.getTotalElements());
+
+      return dlist;
+
+  }
+
+    public BboardDto bdetail(int bno) {  //개별 조회
 
         Optional<BboardEntity> optional = bboardRepository.findById(bno);
 
         if (optional.isPresent()) {
-            BboardEntity boardentity = optional.get();  // 꺼내는게 get
-            System.out.println("개인별 호출 " + boardentity.getBno());
-            return boardentity.toDto();
+            BboardEntity bboardentity = optional.get();  // 꺼내는게 get
+            System.out.println("개인별 호출 " + bboardentity.getBno());
+            return bboardentity.toDto();
 
         } else {
             return null;
@@ -164,23 +154,22 @@ public class BoardService {
 
         if (optional.isPresent()) {
             // 입력받은 수정값을  기존데이터에 추가
-            BboardEntity  boardEntity = optional.get();  // optiona에서  entity 꺼내요기
+            BboardEntity  bboardEntity = optional.get();  // optiona에서  entity 꺼내요기
 
 
             //1. 수정할 첨부파일이 있을때  ---> 새로운 첨부파일 업로드 ,db 수정
             if (boardDto.getBfile() != null) {
-                if (boardEntity.getBfile() != null) {  // 기존 첨부파일 있을때
-                    File file = new File(path + boardEntity.getBfile()); // 기존 첨부파일을 객체화
+                if (bboardEntity.getBfile() != null) {  // 기존 첨부파일 있을때
+                    File file = new File(path + bboardEntity.getBfile()); // 기존 첨부파일을 객체화
                     if (file.exists()) {  // 존재하면
                         file.delete();  //삭제
                     }
                 }
-                fileupload(boardDto, boardEntity);  // 업로드 함수 실행 // 없으면 덮어씌우기
-            } //수정할 첨부파일이 없을때 ---> 기존 그대로 사용함
+                fileupload(boardDto, bboardEntity);
+            }
 
-            // 수정 처리 [ 메소드 별도 존재x / 엔티티 <---> 레코드 // 엔티티 객체 자제를 수정
-            boardEntity.setBtitle(boardDto.getBtitle());
-            boardEntity.setBcontent(boardDto.getBcontent());
+            bboardEntity.setBtitle(boardDto.getBtitle());
+            bboardEntity.setBcontent(boardDto.getBcontent());
             return true;
         } else { return false;}
     }

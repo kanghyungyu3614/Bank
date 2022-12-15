@@ -27,7 +27,8 @@ export default function BoardWrite( props ){
                 <textarea name="bcontent"> </textarea>
 
                  <button type="button"> <Link to="/Bboard/Board">목록</Link> </button>
-                 <button type="button" onClick={ bwrite } >등록</button>
+
+                  <button type="button" onClick={ bwrite } >등록</button>
              </form>
 
            </div>
