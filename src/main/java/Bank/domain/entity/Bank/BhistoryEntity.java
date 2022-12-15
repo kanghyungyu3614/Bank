@@ -29,10 +29,17 @@ public class BhistoryEntity extends BaseEntity {
     @Column(nullable = false)
     String bcontent;   //거래내용
 
+
     @ManyToOne
     @JoinColumn(name = "acno")
     @ToString.Exclude
     private DpositEntity dpositEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "acno2")
+    @ToString.Exclude
+    private DpositEntity dpositEntity2;
+
 
     public BhistoryDto toDto(){
         return BhistoryDto.builder()

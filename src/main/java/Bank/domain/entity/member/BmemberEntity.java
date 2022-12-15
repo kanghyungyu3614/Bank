@@ -2,6 +2,7 @@ package Bank.domain.entity.member;
 
 
 import Bank.domain.dto.BmemberDto;
+import Bank.domain.entity.Bank.DpositEntity;
 import Bank.domain.entity.BaseEntity;
 import Bank.domain.entity.board.BboardEntity;
 import lombok.*;
@@ -43,6 +44,8 @@ public class BmemberEntity extends BaseEntity {
     @OneToMany(mappedBy ="bmemberEntity")
     @Builder.Default
     private List<BboardEntity> bboardEntityList = new ArrayList<>();
+
+
 
     public BmemberDto toDto() {
         return BmemberDto.builder()
