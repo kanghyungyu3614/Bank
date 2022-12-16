@@ -142,7 +142,7 @@
       <workItem from="1670832043320" duration="5784000" />
       <workItem from="1671092581963" duration="7617000" />
       <workItem from="1671105199704" duration="51000" />
-      <workItem from="1671173841393" duration="8132000" />
+      <workItem from="1671173841393" duration="8306000" />
     </task>
     <task id="LOCAL-00001" summary="1차테스트">
       <created>1670572537701</created>
@@ -179,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671182741941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2022-12-16 김원종 회원가입 다음 주소 API 구현중">
+      <created>1671183098190</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671183098190</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
