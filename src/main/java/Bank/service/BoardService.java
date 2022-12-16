@@ -154,22 +154,29 @@ public class BoardService {
 
         if (optional.isPresent()) {
             // 입력받은 수정값을  기존데이터에 추가
-            BboardEntity  bboardEntity = optional.get();  // optiona에서  entity 꺼내요기
+            BboardEntity  boardEntity = optional.get();  // optiona에서  entity 꺼내요기
+
+               System.out.println( boardEntity);
 
 
             //1. 수정할 첨부파일이 있을때  ---> 새로운 첨부파일 업로드 ,db 수정
             if (boardDto.getBfile() != null) {
-                if (bboardEntity.getBfile() != null) {  // 기존 첨부파일 있을때
-                    File file = new File(path + bboardEntity.getBfile()); // 기존 첨부파일을 객체화
+                if (boardEntity.getBfile() != null) {  // 기존 첨부파일 있을때
+                    File file = new File(path + boardEntity.getBfile()); // 기존 첨부파일을 객체화
                     if (file.exists()) {  // 존재하면
                         file.delete();  //삭제
                     }
                 }
-                fileupload(boardDto, bboardEntity);
+                fileupload(boardDto, boardEntity);
             }
 
-            bboardEntity.setBtitle(boardDto.getBtitle());
-            bboardEntity.setBcontent(boardDto.getBcontent());
+            boardEntity.setBtitle(boardDto.getBtitle());
+            boardEntity.setBcontent(boardDto.getBcontent());
+
+            System.out.println( boardDto );
+
+            System.out.println( boardEntity );
+
             return true;
         } else { return false;}
     }

@@ -27,7 +27,7 @@ public class BoardController {
 
         System.out.println( boardDto.toString());
 
-       return boardService.bwrtie( boardDto );
+       return boardService.bwrite( boardDto );
     }
 
    @GetMapping("/blist")  //게시물 전체 조회 및  페이징 처리

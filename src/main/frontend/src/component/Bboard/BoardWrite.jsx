@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+let bcontent = ''
 
 export default function BoardWrite( props ){
 
@@ -21,16 +25,21 @@ export default function BoardWrite( props ){
   return(
          <div className = "mbox">
              <form className = "bbord">
-                 제목 : <input type="text" name="btitle"/>
-                 첨부파일 : <input type="file" name="bfile"/>
+                  제목 : <input type="text" name="btitle" />
 
-                <textarea name="bcontent"> </textarea>
+                     <CKEditor
+                                         editor={ ClassicEditor }
+                                         data=""
+                                         onChange={ ( event, editor ) => {
+                                          const data = editor.getData();  bcontent = data  }  }
 
-                 <button type="button"> <Link to="/Bboard/Board">목록</Link> </button>
-
-                  <button type="button" onClick={ bwrite } >등록</button>
+                                     />
+                     첨부파일 : <input type="file" name="bfile" />
              </form>
 
+             <button type="button"> <Link to="/Bboard/Board">목록</Link> </button>
+
+             <button type="button" onClick={ bwrite } >등록</button>
            </div>
   );
 
