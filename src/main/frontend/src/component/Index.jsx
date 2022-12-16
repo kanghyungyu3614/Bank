@@ -33,7 +33,7 @@ export default function Index( props ){
         <div className="webbox">
             <BrowserRouter>
               <Header/>
-                    <ul>
+                    <ul className="main_sidebar">
                         <li className="urlList"><a href="/">홈URL</a></li>
                         <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
                         <li className="urlList"><a href="/member/Signup">회원가입 </a></li>
@@ -46,11 +46,6 @@ export default function Index( props ){
                         <Route path="/Bank/Account" element={ <Bank/> }/>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
-
-                        <Route path= "/Bboard/Board" element={ <BoardList/> }/>
-                        <Route path= "/Bboard/BoardWrite" element={ <BoardWrite/> }/>
-                        <Route path= "/Bboard/BoardUpdate/:bno" element={ <BoardUpdate/> }/>
-                        <Route path= "/Bboard/BoardView/:bno" element={ <BoardView/> }/>
                         <Route path="/member/Signup" element={<Signup/>}/>
                         <Route path="/Bboard/Board" element={ <BoardList/> }/>
                         <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>

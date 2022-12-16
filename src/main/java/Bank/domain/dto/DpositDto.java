@@ -17,6 +17,7 @@ public class DpositDto {
     long acba;       // 계좌 통장잔고
     int mno;         // 회원번호 FK
 
+    String bankname;
     
     public DpositEntity toEntity() {
         return DpositEntity.builder()
