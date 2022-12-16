@@ -60,7 +60,7 @@ figma :  <br>
 </tr>
 </table>
 
-### 3) 시연 영상 :movie_camera:
+### 3) :movie_camera: 시연 영상 :camera:
 <a href="">시연 영상 1번<a/><br>
 <a href="">시연 영상 2번<a/><br>
 <a href="">시연 영상 3번<a/>
