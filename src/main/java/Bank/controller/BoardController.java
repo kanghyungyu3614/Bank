@@ -1,6 +1,7 @@
 package Bank.controller;
 
 import Bank.domain.dto.BboardDto;
+import Bank.domain.dto.PageDto;
 import Bank.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,48 +17,32 @@ public class BoardController {
     private BoardService boardService = new BoardService();
 
 
-  /*  *//*----------------------- 페이징 처리---------------*//*
-
-    @GetMapping("/board")  // 기본 전체 게시판
-    public Resource getboard(){
-        return new ClassPathResource("templates/board.html");
-      }
-
-    @GetMapping("/write")  // 글 등록
-    public Resource getwrite(){
-        return new ClassPathResource("templates/write.html");
-    }
-
-   @GetMapping("/bdlist") // 자세히보기
-   public Resource getdlist() { return new ClassPathResource("templates/bdetail.html"); }
-
-    @GetMapping("/bupdate")
-    public Resource getupdate() { return new ClassPathResource("templates/bupdate.html");}*/
 
     //*--------------요청과 응답처리 ------------------------*//
 
     @PostMapping("/bwrite")  // 게시물 쓰기
-     public boolean bwrtie(BboardDto boardDto ){
-
+     public boolean bwrite(BboardDto boardDto ){
+                     System.out.println("응답처리" + boardDto);
         System.out.println( boardDto.toString());
 
-       return boardService.bwrtie( boardDto );
+       return boardService.bwrite( boardDto );
     }
 
-    @PostMapping("/blist")  //게시물 전체 조회 및  페이징 처리
-     public List<BboardDto> blist(@RequestParam ("page") int page){
+   @GetMapping("/blist")  //게시물 전체 조회 및  페이징 처리
+    public List<BboardDto> blist(@RequestParam ("page") int page){
 
-         return boardService.blist( page );
+        return boardService.blist( page );
     }
+
 
     @GetMapping("/bdetail") // 게시물 개별 조회
-    public BboardDto bdtail( int bno){
+    public BboardDto bdetail(@RequestParam("bno") int bno){
 
-        return boardService.bdtail( bno);
+        return boardService.bdetail( bno);
     }
 
 
-    @DeleteMapping("/bdelete")
+    @DeleteMapping("/delboard")
     public boolean bdlete  (int bno){
         return boardService.bdelete( bno);
     }

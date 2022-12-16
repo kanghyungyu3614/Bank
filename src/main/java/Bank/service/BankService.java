@@ -7,7 +7,6 @@ import Bank.domain.dto.PageDto;
 import Bank.domain.entity.Bank.*;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -41,6 +40,14 @@ public class BankService {
     private HttpServletResponse response;
 
     // ------------------------------- 전역 객체 -------------------------------//
+
+    @Transactional
+    public boolean memberaccount(DpositDto dpositDto){
+
+        System.out.println(dpositDto.getBankname());
+        System.out.println(dpositDto.getAcno());
+        return  false;
+    }
 
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.

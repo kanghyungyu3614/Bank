@@ -30,11 +30,11 @@ public class BmemberEntity extends BaseEntity {
     @Column(nullable = false,length = 13)
     String msno;        //  회원주민번호
     @Column(nullable = false)
-    String memail;
-    @Column(nullable = false)
     String madress;    // 	회원 주소
     @Column(nullable = false,length = 30)
-    String mid;        //  회원아이디
+    String mid;        //  회원아이디]
+    @Column(nullable = false)
+    String memail;
     @Column(nullable = false ,length = 40)
     String mpw;        //  회원비밀번호
 

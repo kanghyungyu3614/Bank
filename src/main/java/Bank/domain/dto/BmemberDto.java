@@ -3,6 +3,10 @@ package Bank.domain.dto;
 import Bank.domain.entity.member.BmemberEntity;
 import lombok.*;
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

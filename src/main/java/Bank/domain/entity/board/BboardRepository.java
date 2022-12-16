@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface BboardRepository extends JpaRepository< BboardEntity , Integer> {
 
 
-    @Query(value = "select * from bboard where bno = :bno ", nativeQuery = true)
-    Page<BboardEntity> findBybno(int bno, Pageable pageable) ;
+    @Query(value = "select * from bboard where bno=:bno;", nativeQuery = true)
+    Page<BboardEntity> findBybno(  Pageable pageable) ;
 
 }

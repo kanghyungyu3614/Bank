@@ -65,10 +65,10 @@ public class BankConroller {
 
 
     /*개인거래*/
-/* @PostMapping("/memberaccount")
-    public boolean mastercheck(@RequestParam("data") String data){
-    return bankService.memberaccount(data);
+ @PostMapping("/memberaccount")
+    public boolean mastercheck(@RequestBody DpositDto dpositDto){
 
-
- }*/
+   boolean result =  bankService.memberaccount(dpositDto);
+    return result;
+ }
 }
