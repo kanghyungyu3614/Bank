@@ -4,31 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="Oauth2 오류발생으로 인한 코드수정">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-09__4_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-09__4_53__Changes_.xml" afterDir="false" />
+    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="2022-12-15 김원종 회원가입 유효성검사 구현중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BankController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto$BmemberDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto$BmemberDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BmemberDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BhistoryEntity$BhistoryEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BhistoryEntity$BhistoryEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BhistoryEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/BhistoryEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/DpositEntity$DpositEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/DpositEntity$DpositEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/DpositEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/Bank/DpositEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity$BmemberEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity$BmemberEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/service/MemberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/src/component/Bank/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/component/Bank/Signup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/domain/entity/Bank/DpositRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/domain/entity/Bank/DpositRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/domain/entity/member/BmemberEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/domain/entity/member/BmemberEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bank/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bank/service/MemberService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +137,8 @@
       <workItem from="1670580172098" duration="31000" />
       <workItem from="1670810023231" duration="11000" />
       <workItem from="1670832043320" duration="5784000" />
-      <workItem from="1671092581963" duration="7304000" />
+      <workItem from="1671092581963" duration="7617000" />
+      <workItem from="1671105199704" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="1차테스트">
       <created>1670572537701</created>
@@ -175,15 +154,41 @@
       <option name="project" value="LOCAL" />
       <updated>1670577089098</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2022-12-15 김원종 회원가입 유효성검사 구현중">
+      <created>1671101204965</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671101204965</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2022-12-15 김원종 회원가입 유효성검사 구현중">
+      <created>1671101261646</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671101261646</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1차테스트" />
     <MESSAGE value="Oauth2 오류발생으로 인한 코드수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oauth2 오류발생으로 인한 코드수정" />
+    <MESSAGE value="2022-12-15 김원종 회원가입 유효성검사 구현중" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022-12-15 김원종 회원가입 유효성검사 구현중" />
   </component>
 </project>
