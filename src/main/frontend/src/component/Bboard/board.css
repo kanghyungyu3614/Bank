@@ -1,3 +1,4 @@
+*{ decoration : none;}
 
 .webbox{
   margin: 0 auto;  /*중앙정렬*/
@@ -14,13 +15,18 @@
 
 /*-----------------------------중간 부분 ----------------------------------------*/
 
-.cbox{  height: 85%; }
-
 .mbox{
   border: 1px solid green;
   height: 65%;
   margin: 30px; }
 
+
+.blist{
+  margin: 0 auto;
+  border: 1px solid blue;
+  width: 90%;
+  height: 70%
+}
 
 
 /*----------------------- 하단 부분--------------------------------------------*/

@@ -30,18 +30,21 @@ export default function Board( ) {
               window.location.href ='/Bboard/BoardView/'+ bno;
             }
 
+        const count = ( btitle ) => {     }
+
         return(
                     <div className = "mbox">
-                                <h3> 글 목록 페이지</h3>
+                                <h3 > 공지사항</h3>
                                     <table className = "blist" >
-                                         <tr><th> 번호 </th> <th>제목</th> <th>작성 날짜</th><th>조회수</th> </tr>
+                                         <tr><th> 번호 </th> <th>제목</th> <th>작성 날짜</th> <th>조회수</th> </tr>
                                    {
                                          pageDto.map( (b) => {
                                                       return(
                                                          <tr>
                                                             <td> {b.bno} </td>
                                                             <td onClick = {() => loadView(b.bno) }> {b.btitle} </td>
-                                                            <td> {b.bview} </td>
+                                                            <td> {b.bdate} </td>
+                                                            <td onClick = {() => { count(b.title) }} > {b.bview} </td>
                                                         </tr>
                                                       )
                                                   })
