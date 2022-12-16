@@ -23,7 +23,7 @@ export default function SecuritySubNumber(props){
             result =  SecuritySubNumberArray.map((el,i,arr) =>{
             if(i<2){
                 return(
-                            <tr>
+                            <tr className="securityCardTrComponent">
                                 <th className="securitysubNumber">{"0"+(5*i+1)}</th>
                                 <th className="securityMainNumber">{arr[5*i]}</th>
                                 <th className="securitysubNumber">{"0"+(5*i+2)}</th>
@@ -38,7 +38,7 @@ export default function SecuritySubNumber(props){
                             )
                         }else if(i>1 && i<7){
                             return(
-                            <tr>
+                            <tr className="securityCardTrComponent">
                                 <th className="securitysubNumber">{(5*i+1)}</th>
                                 <th className="securityMainNumber">{arr[5*i]}</th>
                                 <th className="securitysubNumber">{(5*i+2)}</th>

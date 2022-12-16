@@ -38,15 +38,16 @@
 /* subtable  테이블 시작 */
 .subtable{
     border-collapse: collapse;
-    border: 1px solid rgba(34,34,34,.05);
+    border: 1px solid rgb(0 0 0);
     font-size: 14px;
     font-weight: 700;
     height: 250px;
     width: 100%;
+    box-shadow: 0 1px 1px #000;
 }
 /* subtable 테이블 끝 */
 /* tr 시작*/
-tr{
+.securityCardTrComponent{
     border: 1px solid #0080FF;
     height: 38.2px;
 }
