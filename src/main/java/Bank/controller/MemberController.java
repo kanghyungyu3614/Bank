@@ -16,12 +16,12 @@ public class MemberController {
        @Autowired // 스프링 컨테이너 빈 생성 [ 외부에 메모리 위임 ]
     private MemberService memberService; // 서비스 객체 생성
 
-    @PostMapping("/signup")
-    public boolean signup(BmemberDto bmemberDto){
-        System.out.println("확인하라잉");
-        System.out.println(bmemberDto);
-        return memberService.signup(bmemberDto);
-    }
+//    @PostMapping("/signup")
+//    public boolean signup(BmemberDto bmemberDto){
+//        System.out.println("확인하라잉");
+//        System.out.println(bmemberDto);
+//        return memberService.signup(bmemberDto);
+//    }
 }
 
 
