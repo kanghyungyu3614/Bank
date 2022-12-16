@@ -1,16 +1,12 @@
-# Bank Project
+# :bank: Bank Project :moneybag:
+### 1) :computer: 주요 내용 :books:
 
- - 👋 Hi, I’m @Kimtree94
- - 👋 Hi, I’m @kimkyoungju
- - 👋 Hi, I’m @dive27
- - 👋 Hi, I’m @kanghyungyu3614 <br>
 주제 : 은행 <br>
 주제선정이유: 은행<br>
 노션 : https://bit.ly/3UsHijP <br>
 캔바 :  <br>
 figma :  <br>
 
-/* Y이드스트릿체 를 사용해봤습니다. */ <br>
 <table>
  <tr>
    <th>이름</th>
@@ -43,10 +39,11 @@ figma :  <br>
    <td>백엔드 및 프론트엔드 작업</td>
 </tr>
 </table>
- <br>
+
+ ### 2) :calendar: 일정 :date:
  <table>
  <tr>
-   <th>  11/28 (월) ~ 11/29 (화)</th>
+   <th>  11/28 (월) <br>~ 11/29 (화)</th>
    <th>  11/30(수) <br>~ 12월 1(목)</th>
    <th>  12월 2(목) <br>~ 12월 6(화)  </th>
    <th>  12월 7(수) <br>~ 12월 23(금)  </th>
@@ -62,12 +59,11 @@ figma :  <br>
    <td>발표 준비 및<br> 10시 발표 및 시연</td>   
 </tr>
 </table>
-# Bank Project 시연 영상 (아직없습니다.) <br>
+
+### 3) 시연 영상 :movie_camera:
 <a href="">시연 영상 1번<a/><br>
 <a href="">시연 영상 2번<a/><br>
 <a href="">시연 영상 3번<a/>
-
- <br>
 
 
 
