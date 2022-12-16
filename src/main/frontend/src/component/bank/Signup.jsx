@@ -97,7 +97,7 @@ export default function Signup(prop) {
 
                 <label className="text-bg-center">👉비밀번호확인</label>
                 <input type="text"
-                       className="form-control" name="mpw" onChange={(e)=>pwfirmcheck(e) }/>
+                       className="form-control" name="mpw" />
                 <div>
                     <span className="pwchbox"></span>
                 </div>
