@@ -7,6 +7,7 @@ import Bank.domain.dto.PageDto;
 import Bank.domain.entity.Bank.*;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -42,10 +43,10 @@ public class BankService {
     // ------------------------------- 전역 객체 -------------------------------//
 
     @Transactional
-    public boolean memberaccount(DpositDto dpositDto){
+    public boolean memberaccount(int ainput , String bank ){
 
-        System.out.println(dpositDto.getBankname());
-        System.out.println(dpositDto.getAcno());
+
+
         return  false;
     }
 

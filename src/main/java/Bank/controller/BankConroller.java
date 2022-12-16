@@ -63,12 +63,12 @@ public class BankConroller {
         return bankService.boardlist( pageDto  );
     }
 
-
     /*개인거래*/
- @PostMapping("/memberaccount")
-    public boolean mastercheck(@RequestBody DpositDto dpositDto){
-
-   boolean result =  bankService.memberaccount(dpositDto);
-    return result;
+ @GetMapping("/memberaccount")
+    public boolean mastercheck(@RequestParam int ainput , @RequestParam String bank){
+     System.out.println(ainput+"11");
+     System.out.println(bank);
+     boolean result =  bankService.memberaccount(ainput,bank );
+     return result;
  }
 }
