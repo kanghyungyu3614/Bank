@@ -31,13 +31,18 @@ export default function Account(props) {
     }*/
 
     const ainsert =() =>{
-      let ainput = document.querySelector(".ainput").value;
-    alert(ainput);
+      let data = {
+             ainput : document.querySelector(".ainput").value,
+             bank: document.querySelector(".bank").value
+        }
+     axios
+        .post("/bank/memberaccount", data)
+         .then(res=>{if(res.data == false){
+            document.querySelector(".master").value = "김경주"
 
-    axios.post("/bank/memberaccount",{params : {date : ainput}})
-          .then(res=>{mastercheck(res.data)})
+         }})
+        .catch(err => {console.log(err)})
     }
-
    /* 계좌 조회가 우선 계좌입력 예금주있으면 true  | true일시 변화 -> 금액 입력창 나오게 */
     return(
     <div className="main">
@@ -47,15 +52,12 @@ export default function Account(props) {
 
                    <div className="inputsize">
                         <th>
-                          <td>{ isclick && <select className="bank"><option>기업</option><option>신협</option><option>카뱅</option></select>}</td>
+                          <td>{ isclick && <select className="bank"><option value="기업">기업</option><option value="신협">신협</option><option value="카뱅">카뱅</option></select>}</td>
                             <td>{ isclick && <input type="text" className="ainput" placeholder="계좌번호" /> }</td>
                             <td>{ isclick &&  <input type="text" className="master" placeholder="예금주" readonly="readonly" value=""/> }</td>
                             <td>{ isclick && <button type="button" className="mastercheck"  onClick={ainsert}>확인</button>}</td>
-
-
                         </th>
                     </div>
-
                   { isclick? (<button onClick={send} className="close">닫기</button>)
                     :
                     (<button onClick={send} className="accinput">계좌입력</button>)

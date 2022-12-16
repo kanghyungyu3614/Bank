@@ -32,7 +32,7 @@ export default function Index( props ){
         <div className="webbox">
             <BrowserRouter>
               <Header/>
-                    <ul>
+                    <ul className="main_sidebar">
                         <li><a href="/">홈URL</a></li>
                         <li><a href="/member/securityCard/password">보안코드</a></li>
                         <li><a href="/member/Signup">회원가입 </a></li>

@@ -41,6 +41,14 @@ public class BankService {
 
     // ------------------------------- 전역 객체 -------------------------------//
 
+    @Transactional
+    public boolean memberaccount(DpositDto dpositDto){
+
+        System.out.println(dpositDto.getBankname());
+        System.out.println(dpositDto.getAcno());
+        return  false;
+    }
+
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
         Random random = new Random();
@@ -179,7 +187,6 @@ public class BankService {
             System.out.println("MemberService dlist 값은?");
             System.out.println(dlist);
             return dlist;
-
     }
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
@@ -189,5 +196,11 @@ public class BankService {
         return pageDto;
 
     }
+
+
+
+
+
+
 
 }
