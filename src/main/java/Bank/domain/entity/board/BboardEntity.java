@@ -24,7 +24,7 @@ public class BboardEntity {
     @Column(nullable = false, length = 30)
     private String btitle;      //게시물 제목
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column
     private String bcontent;    // 게시물 내용
 
     @Column

@@ -24,7 +24,7 @@ export default function BoardUpdate( props ) {
 
                   //수정할 게시물번호
                   formdata.set( "bno" , board.bno);
-                  formdata.set( "bcontent" , board.bcontent ); // 수정할 게시물 내용
+                  formdata.set( "bcontent" , bcontent ); // 수정할 게시물 내용
 
                   axios .put("/bupdate" , formdata , { headers: { 'Content-Type': 'multipart/form-data'  } } )
                                  .then( res => {

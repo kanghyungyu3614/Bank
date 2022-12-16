@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +35,14 @@ public class BoardService {
     @Autowired  // 메모리를 자동 할당   // 변수 -> 스택  , NEW-> 힙
     private BboardRepository bboardRepository;
 
-    String path = "C:\\Users\\504\\Desktop\\Bank\\src\\main\\resources\\static\\upload\\";
+    String path = "C:\\upload";
 
 
     //*--------------2. 서비스 ------------------------*//
 
 
     //  boardDto : 쓰기,수정 대상     BoardEntity:원본@Transactional
+    @Transactional
     public boolean fileupload(BboardDto boardDto, BboardEntity boardEntity) {
         System.out.println(boardDto.getBfile());
         System.out.println(boardDto.getBfile().getOriginalFilename());
@@ -68,6 +70,7 @@ public class BoardService {
 
 
     // 게시물 등록
+    @Transactional
     public boolean bwrite(BboardDto boardDto) {
 
         BboardEntity boardentity = bboardRepository.save(boardDto.toEntity());
@@ -84,7 +87,7 @@ public class BoardService {
 
     }
 
-
+    @Transactional
     public List<BboardDto> blist(int page) {
       Page<BboardEntity> elist = null;
 
@@ -113,7 +116,7 @@ public class BoardService {
       return dlist;
 
   }
-
+    @Transactional
     public BboardDto bdetail(int bno) {  //개별 조회
 
         Optional<BboardEntity> optional = bboardRepository.findById(bno);
@@ -129,7 +132,7 @@ public class BoardService {
     }
 
 
-
+    @Transactional
     public boolean bdelete( int bno){
 
         Optional<BboardEntity> optional = bboardRepository.findById(bno);
@@ -147,7 +150,7 @@ public class BoardService {
         } else { return false;}
     }
 
-
+    @Transactional
     public boolean bupdate(BboardDto boardDto) {
 
         Optional<BboardEntity> optional = bboardRepository.findById(boardDto.getBno());
@@ -156,7 +159,7 @@ public class BoardService {
             // 입력받은 수정값을  기존데이터에 추가
             BboardEntity  boardEntity = optional.get();  // optiona에서  entity 꺼내요기
 
-               System.out.println( boardEntity);
+               System.out.println( boardEntity );
 
 
             //1. 수정할 첨부파일이 있을때  ---> 새로운 첨부파일 업로드 ,db 수정
