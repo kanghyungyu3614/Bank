@@ -72,12 +72,16 @@ public class BoardService {
     // 게시물 등록
     @Transactional
     public boolean bwrite(BboardDto boardDto) {
+        System.out.println( boardDto) ;
 
         BboardEntity boardentity = bboardRepository.save(boardDto.toEntity());
 
         if (boardentity.getBno() != 0) {
 
             fileupload(boardDto, boardentity);
+
+
+
             return true;
 
         } else {

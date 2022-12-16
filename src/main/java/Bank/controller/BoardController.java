@@ -24,7 +24,7 @@ public class BoardController {
 
     @PostMapping("/bwrite")  // 게시물 쓰기
      public boolean bwrite(BboardDto boardDto ){
-
+                     System.out.println("응답처리" + boardDto);
         System.out.println( boardDto.toString());
 
        return boardService.bwrite( boardDto );
