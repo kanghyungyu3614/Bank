@@ -43,7 +43,7 @@ export default function Signup(prop) {
     })
 
     const midform = /^[A-Za-z0-9$@!%*#?&]{6,15}$/; // 정규표현식 아이디[ 2022-12-16 김원종 ]
-    const mpwform = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d@!%*?&]{8,15}$/ // 정규표현식 비밀번호[ 2022-12-16 김원종 ]
+    const mpwform = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@!%*?&])[A-Za-z\d@!%*?&]{8,15}$/ // 정규표현식 비밀번호[ 2022-12-16 김원종 ]
     const emailform = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;// 정규표현식 이메일[ 2022-12-16 김원종 ]
     const phoneform = /^\d{3}-\d{3,4}-\d{4}$/;// 정규표현식 휴대폰[ 2022-12-16 김원종 ]
     const msnoform = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-8][0-9]{6}$/;// 정규표현식 주민번호[ 2022-12-16 김원종 ]
@@ -79,7 +79,7 @@ export default function Signup(prop) {
         setForm({...form, mpwconfirm: e.target.value})
 
         let pwchbox = document.querySelector('.pwchbox')
-        if (form.mpw == e.target.value) {
+        if (form.mpw === e.target.value) {
             pwchbox.innerHTML = "👀비밀번호가 일치합니다👀"
             confirm.mpwconfirmc = true;
             setForm({...form, mpwconfirm: e.target.value})
