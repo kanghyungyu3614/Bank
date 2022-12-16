@@ -7,6 +7,7 @@ import Bank.domain.dto.PageDto;
 import Bank.domain.entity.Bank.*;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -166,25 +167,39 @@ public class BankService {
         return "2"; //비밀번호가 없습니다.
     }
 
-    public List<BhistoryDto> getdealReportList() {
-
-            List<BhistoryEntity> elist = bhistoryRepository.findAll();
-            System.out.println("elist");
-            System.out.println(elist);
-
-            List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
-            for (BhistoryEntity entity : elist) { // 3. 변환
-                dlist.add(entity.toDto());
-            }
-            System.out.println("MemberService dlist 값은?");
-            System.out.println(dlist);
-            return dlist;
-
-    }
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
-        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 3 , Sort.by( Sort.Direction.DESC , "bno")  );
+        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 5 , Sort.by( Sort.Direction.ASC , "bhno")  );
+
+        Page<BhistoryEntity> elist = bhistoryRepository.findBySearch(pageDto.getKey() , pageDto.getKeyword() , pageable);
+        List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
+
+        for( BhistoryEntity entity : elist ){ // 3. 변환
+            int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
+            int mnamenumber2  =  entity.getDpositEntity2().getBmemberEntity().getMno();
+            System.out.println("mnamenumber");
+            System.out.println(mnamenumber);
+            String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+            System.out.println(mname);
+            System.out.println("mnamenumber");
+            System.out.println("mnamenumber2");
+            System.out.println(mnamenumber2);
+            String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+            System.out.println(mname2);
+            System.out.println("mnamenumber2");
+
+            dlist.add( entity.toDto(mname,mname2) );
+        }
+        System.out.println("dlist 를 보여드리겠습니다.");
+        for( BhistoryDto entity : dlist ){ // 3. 변환
+            System.out.println("entity시작 ");
+            System.out.println(entity);
+            System.out.println("entity끝 ");
+        }
+        System.out.println("dlist 를 보여드리겠습니다.");
+        pageDto.setBhistorylist( dlist  );  // 결과 리스트 담기
+        pageDto.setTotalBoards( elist.getTotalElements() );
 
         return pageDto;
 

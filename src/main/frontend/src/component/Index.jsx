@@ -7,7 +7,7 @@ import { HashRouter, BrowserRouter, Routes, Route, Link,  Router } from "react-r
 import Header from './Header'
 import Footer from './Footer'
 import styles from "./css/Index.css";
-import Signup from "./bank/Signup";
+import Signup from "./Bank/Signup.jsx";
 import Bank from './Bank/Account' // 계좌 임포트
 import SecurityCard from "./security/SecurityCard";   //  보안카드 임포트
 import SecurityCardPassword from "./security/SecurityCardPassword";  // 보안카드 패스워드
@@ -33,12 +33,12 @@ export default function Index( props ){
             <BrowserRouter>
               <Header/>
                     <ul>
-                        <li><a href="/">홈URL</a></li>
-                        <li><a href="/member/securityCard/password">보안코드</a></li>
-                        <li><a href="/member/Signup">회원가입 </a></li>
-                        <li><a href="/Bank/Account">계좌송금</a></li>
-                        <li><a href="/Bboard/Board">공지사항</a></li>
-                        <li><a href="/admin/dealReport/password">거래내역 비밀번호 페이지</a></li>
+                        <li className="urlList"><a href="/">홈URL</a></li>
+                        <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
+                        <li className="urlList"><a href="/member/Signup">회원가입 </a></li>
+                        <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
+                        <li className="urlList"><a href="/Bboard/Board">공지사항</a></li>
+                        <li className="urlList"><a href="/admin/dealReport/password">거래내역</a></li>
 
                     </ul>
                     <Routes>

@@ -1,19 +1,13 @@
-/*강현규 2022-12-11 거래내역 css 작성 */
-/* 전체 시작 css*/
+/*강현규 2022-12-11거래내역 css작성 */
+/*전체 시작 css*/
 .dealReport{
-    margin-left: 60px;
     width: 90%;
+    margin: 0 auto;
 }
-/* 전체 끝 css*/
-/* 고객 거래내역 시작*/
+/*전체 끝 css*/
+/*고객 거래내역 시작*/
 .ContentText{
   display: flex;
-}
-.userNameOutput{
-    font-size: 20px;
-    line-height: 23px;
-    vertical-align: top;
-    display: inline-block;
 }
 .DefaultUserName{
     font-size: 20px;
@@ -21,93 +15,105 @@
     vertical-align: top;
     display: inline-block;
 }
-/* select option 값 시작*/
+/* select option값 시작*/
 .key{
-    margin-left: 10px;
+    height: 25px;
+    margin: 0 10px;
+    vertical-align: top;
+    width: 100px;
 }
-/* select option 값 끝*/
-/* input 태그 시작*/
-.dealReportComtent{
+/* select option값 끝*/
+/* input태그 시작*/
+.dealReportContent{
     font-size: 17px;
     font-weight: 700;
     height: 30px;
 }
-/* input 태그 끝*/
-/* 버튼 시작*/
+.keyword{
+    height: 25px;
+    width: 220px;
+}
+/* input태그 끝*/
+/*버튼 시작*/
 .userNameButton{
     height: 26px;
 }
-/* 버튼 끝*/
-/* dealReportComtent 끝*/
-/*input 태그 시작*/
-.userNameinput{
-    margin: 0px 10px;
-    height: 20px;
-    width: 175px;
-    vertical-align: top;
-}
-/* input 태그 끝*/
-/* 버튼 시작*/
+/*버튼 끝*/
+/* dealReportComtent끝*/
+/*input태그 시작*/
+/* input태그 끝*/
+/*버튼 시작*/
 .userButton{
-   vertical-align: top;
+    vertical-align: top;
+    margin-left: 10px;
+    width: 70px;
+    height: 25px;
+    padding: 1px;
+    font-size: 15px;
 }
-/* 버튼 끝*/
-/* 고객 거래내역 끝 css*/
+/*버튼 끝*/
+/*고객 거래내역 끝 css*/
 .dealReportTable{
     border-collapse: collapse;
     border: 1px solid black;
     box-shadow: 0 1px 1px #000;
     width: 100%;
     margin-top: 5px;
+    text-align: center;
 }
 .dealReportTrComponent{
     border : 1px solid black;
 }
-/* 테이블 내용 끝 css*/
-/* th 내용 시작 css*/
+/*테이블 내용 끝 css*/
+/* th내용 시작 css*/
 th{
     border: 1px solid black;
 }
 .orderComponent{
-    width: 10%;
+    width: 25%;
     height: 50px;
 }
 .categoryComponent{
-    width: 15%;
+    width: 25%;
     height: 50px;
 }
 .contentComponent{
-    width: 55%;
+    width: 25%;
     height: 50px;
 }
 .moneyComponent{
-    width: 20%;
+    width: 25%;
     height: 50px;
 }
-/* th 내용 끝 css*/
+/* th내용 끝 css*/
 /* th list들 내용 시작 css*/
 .orderComponentList{
-    height: 20px;
+    height: 25px;
     width: 10%;
 }
 .categoryComponentList{
-    height: 20px;
+    height: 25px;
     width: 15%;
 }
 .contentComponentList{
-    height: 20px;
+    height: 25px;
     width: 55%;
 }
 .moneyComponentList{
-    height: 20px;
+    height: 25px;
     width: 20%;
 }
 /* th list들 내용 끝 css*/
 
-/*pagination 시작*/
+/*pagination시작*/
 .pagination{
-    display: flex;
-    margin-bottom: 10px;
     justify-content: center;
+    margin: 10px 0;
 }
-/*pagination 끝*/
+.pagination li a{
+    width: 15px;
+    margin: 0 3px;
+    font-size: 20px;
+    font-weight: bold;
+}
+/*pagination끝*/

@@ -37,8 +37,6 @@ public class BmemberEntity extends BaseEntity {
     String mid;        //  회원아이디
     @Column(nullable = false ,length = 40)
     String mpw;        //  회원비밀번호
-    @Column
-    private String mrole;
 
     @OneToMany(mappedBy ="bmemberEntity")
     @Builder.Default

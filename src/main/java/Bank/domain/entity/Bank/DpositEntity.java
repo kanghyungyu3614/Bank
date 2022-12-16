@@ -46,6 +46,10 @@ public class DpositEntity extends BaseEntity {
     @Builder.Default
     private List<BhistoryEntity> bhistoryEntityList = new ArrayList<>();
 
+    @OneToMany(mappedBy ="dpositEntity2")
+    @Builder.Default
+    private List<BhistoryEntity> bhistoryEntityList2 = new ArrayList<>();
+
     public DpositDto toDto() {
         return DpositDto.builder()
                 .ano(this.ano)
