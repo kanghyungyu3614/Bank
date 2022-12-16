@@ -1,9 +1,8 @@
 /*강현규 2022-12-11거래내역 css작성 */
 /*전체 시작 css*/
 .dealReport{
-    margin: 0 auto;
     width: 90%;
-    height: 300px;
+    margin: 0 auto;
 }
 /*전체 끝 css*/
 /*고객 거래내역 시작*/
@@ -108,7 +107,7 @@ th{
 /*pagination시작*/
 .pagination{
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 .pagination li a{
     width: 15px;

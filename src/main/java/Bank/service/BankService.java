@@ -170,7 +170,7 @@ public class BankService {
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
-        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 3 , Sort.by( Sort.Direction.ASC , "bhno")  );
+        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 5 , Sort.by( Sort.Direction.ASC , "bhno")  );
 
         Page<BhistoryEntity> elist = bhistoryRepository.findBySearch(pageDto.getKey() , pageDto.getKeyword() , pageable);
         List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서

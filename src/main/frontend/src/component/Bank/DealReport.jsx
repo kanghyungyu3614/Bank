@@ -68,9 +68,9 @@ const onSearch = () => {
                 <DealListComponent props={pageDto}/>
                <Pagination
                       activePage={ pageInfo.page  }
-                      itemsCountPerPage = { 3 }
+                      itemsCountPerPage = { 5 }
                       totalItemsCount = { pageDto.totalBoards }
-                      pageRangeDisplayed = { 5 }
+                      pageRangeDisplayed = { Math.ceil(pageDto.totalBoards/5) }
                       onChange={ onPage }
                />
          </div>
