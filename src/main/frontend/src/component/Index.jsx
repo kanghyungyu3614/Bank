@@ -14,6 +14,7 @@ import SecurityCardPassword from "./security/SecurityCardPassword";  // 보안�
 import BoardList from "./Bboard/Board";    // 공지사항 임포트
 import BoardWrite from "./Bboard/BoardWrite";
 import BoardUpdate from "./Bboard/BoardUpdate";
+import BoardView from "./Bboard/BoardView";
 import DealReport from "./Bank/DealReport"; // 거래내역 페이지
 import DealReportPassword from "./Bank/DealReportPassword"; // 거래내역 비밀번호 페이지
 
@@ -45,6 +46,11 @@ export default function Index( props ){
                         <Route path="/Bank/Account" element={ <Bank/> }/>
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
+
+                        <Route path= "/Bboard/Board" element={ <BoardList/> }/>
+                        <Route path= "/Bboard/BoardWrite" element={ <BoardWrite/> }/>
+                        <Route path= "/Bboard/BoardUpdate/:bno" element={ <BoardUpdate/> }/>
+                        <Route path= "/Bboard/BoardView/:bno" element={ <BoardView/> }/>
                         <Route path="/member/Signup" element={<Signup/>}/>
                         <Route path="/Bboard/Board" element={ <BoardList/> }/>
                         <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>

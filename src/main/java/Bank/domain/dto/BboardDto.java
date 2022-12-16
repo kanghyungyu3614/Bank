@@ -6,7 +6,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter@Setter@ToString@Builder
+@Getter@Setter
+@ToString @Builder
 public class BboardDto {
 
     private int bno;
@@ -22,8 +23,14 @@ public class BboardDto {
 
     private int mno;
 
-    private int startbtn;
-    private int endbtn;
+    private String mid;		//  회원아이디
+
+    private int page;  // 현재 페이지
+
+
+    private int startbtn;    // 페이징 버튼 시작 번호
+    private int endbtn;   // 페이징 버튼  끝 번호
+    private Long totalBoards; // 총 게시물 수
 
 
     public BboardEntity toEntity() {
