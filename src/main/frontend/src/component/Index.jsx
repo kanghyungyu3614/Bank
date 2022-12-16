@@ -26,8 +26,6 @@ import DealReportPassword from "./Bank/DealReportPassword"; // 거래내역 비�
         // Link to = "Route Path"
     // Router :
 /* 2022-12-06 강현규 보안카드 프론트작성 */
-/* 2022-12-09 강현규 일단 경주님꺼까지 라우트 연결추가 */
-/* 2022-12-11 거래내역 출력 페이지 연결 추가 */
 export default function Index( props ){
     return  (
         <div className="webbox">
