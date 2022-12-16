@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from'react';
 import { useNavigate } from'react-router-dom';//설치한 패키지//참고 : 6버전에서 useNavigate로 변경되었다.
 import axios from'axios';
 import Pagination from'react-js-pagination'// npm i react-js-pagination설치
+import Form from 'react-bootstrap/Form'; // react bootstrap install 2022-12-16 강현규
+import Button from 'react-bootstrap/Button'; // react bootstrap install 2022-12-16 강현규
+
 
 import'../css/DealReport.css'
 import DealListComponent from'./DealReportComponent/DealListComponent';
@@ -55,14 +58,26 @@ const onSearch = () => {
              <div className="dealReportContent">
                  <div className="ContentText searchBox">
                      <span className="DefaultUserName">거래내역</span>
-                     <select className="key">
+
+                    {/*<select className="key">
                          <option value="btypes">거래유형</option>
                          <option value="acno">보내신분</option>
                          <option value="bmoney">보낸금액</option>
                          <option value="acno2">받으신분</option>
-                     </select>
+                     </select> */}
+
+                     <Form.Select id="keyid" className="key" aria-label="Default select example">
+                       <option value="btypes">거래유형</option>
+                       <option value="acno">보내신분</option>
+                       <option value="bmoney">보낸금액</option>
+                       <option value="acno2">받으신분</option>
+                     </Form.Select>
+
                      <input type="text"className="keyword"/>
-                     <button type="button"className="userButton"onClick={ onSearch }>검색</button>
+                         <Button variant="primary" size="sm" type="button"className="userButton"onClick={ onSearch }>
+                           검색
+                         </Button>
+                     {/*<button type="button"className="userButton"onClick={ onSearch }>검색</button>*/}
                  </div>
              </div>
                 <DealListComponent props={pageDto}/>

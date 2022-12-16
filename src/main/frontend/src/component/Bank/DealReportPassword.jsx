@@ -2,6 +2,9 @@ import React, { useState ,useEffect,useRef } from 'react';
 import '../css/DealReportPassword.css';
 import { useNavigate } from 'react-router-dom'; /*설치한 패키지// 참고 : 6버전에서 useNavigate로 변경되었다. */
 import axios from 'axios';
+import Form from 'react-bootstrap/Form'; // react bootstrap install 2022-12-16 강현규
+import Button from 'react-bootstrap/Button'; // react bootstrap install 2022-12-16 강현규
+
 
 {/*강현규 2022-12-10 계좌비밀번호 입력해서 거래내역 페이지 이동*/}
 export default function DealReportPassword(){
@@ -33,9 +36,23 @@ export default function DealReportPassword(){
 
     return(
     <div className="DealpasswordComponent">
-        <span className="DealpasswordContent">계좌 비밀번호 4자리를 입력해주세요.</span><br/>
+        <Form>
+          <Form.Group id="passwordContent" className="mb-3" controlId="formGroupPassword">
+            <Form.Control type="password" placeholder="계좌 비밀번호 4자리를 입력해주세요." type="password" maxLength="4" className="DealpasswordInput" ref={password} />
+          </Form.Group>
+        </Form>
+
+
+           <Button variant="primary" type="button" id="submitButtonId" className="DealsubmitButton" onClick={SubmitButton}>
+                전송
+              </Button>
+
+
+   {/*<span className="DealpasswordContent">계좌 비밀번호 4자리를 입력해주세요.</span><br/>
     <input type="password" maxLength="4" className="DealpasswordInput"placeholder="****" ref={password}/>
-        <button type="button" className="DealsubmitButton" onClick={SubmitButton}>전송</button>
+
+
+        <button type="button" className="DealsubmitButton" onClick={SubmitButton}>전송</button>*/}
     </div>
     );
 }

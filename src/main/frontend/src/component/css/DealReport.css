@@ -10,28 +10,29 @@
   display: flex;
 }
 .DefaultUserName{
-    font-size: 20px;
-    line-height: 23px;
-    vertical-align: top;
     display: inline-block;
+    font-size: 22px;
+    width: 90px;
+    line-height: 40px;
 }
 /* select option값 시작*/
-.key{
-    height: 25px;
-    margin: 0 10px;
+#keyid{
+    height: 40px;
+    margin: 0 6px;
     vertical-align: top;
-    width: 100px;
+    width: 120px;
 }
+
 /* select option값 끝*/
 /* input태그 시작*/
 .dealReportContent{
     font-size: 17px;
     font-weight: 700;
-    height: 30px;
 }
 .keyword{
-    height: 25px;
-    width: 220px;
+    height: 40px;
+    margin-left: 5px;
+    border-radius: 5px;
 }
 /* input태그 끝*/
 /*버튼 시작*/
@@ -44,12 +45,12 @@
 /* input태그 끝*/
 /*버튼 시작*/
 .userButton{
-    vertical-align: top;
-    margin-left: 10px;
-    width: 70px;
-    height: 25px;
-    padding: 1px;
     font-size: 15px;
+    height: 40px;
+    margin-left: 6px;
+    padding: 1px;
+    vertical-align: top;
+    width: 70px;
 }
 /*버튼 끝*/
 /*고객 거래내역 끝 css*/
@@ -65,8 +66,8 @@
     border : 1px solid black;
 }
 /*테이블 내용 끝 css*/
-/* th내용 시작 css*/
-th{
+/* th내용 시작 css 강현규 2022-12-16 수정*/
+.dealReportTrComponent th{
     border: 1px solid black;
 }
 .orderComponent{
