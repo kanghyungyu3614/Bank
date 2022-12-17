@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import '../css/SecurityCardPassword.css';
 import { useNavigate } from 'react-router-dom'; // 설치한 패키지// 참고 : 6버전에서 useNavigate로 변경되었다.
 import axios from 'axios';
-
+import Form from 'react-bootstrap/Form'; // react bootstrap install 2022-12-16 강현규
+import Button from 'react-bootstrap/Button'; // react bootstrap install 2022-12-16 강현규
 
 /*강현규 2022-12-07 좌번호 4자리 페이지로 보안카드페이지 이동할때 password 내용*/
 /*강현규 2022-12-08 계좌비밀번호 입력해서 보안카드 페이지로 이동*/
@@ -34,9 +35,17 @@ export default function SecurityCardPassword(){
 
     return(
     <div className="passwordComponent">
-        <span className="passwordContent">계좌 비밀번호 4자리를 입력해주세요.</span><br/>
-        <input type="password" maxLength="4" className="passwordInput" ref={password} placeholder="****"/>
-        <button type="button" className="submitButton" onClick={SubmitButton}>전송</button>
+        <Form>
+          <Form.Group id="passwordContent" className="mb-3" controlId="formGroupPassword">
+            <Form.Control type="password" placeholder="계좌 비밀번호 4자리를 입력해주세요." type="password" maxLength="4" className="passwordInput" ref={password} />
+          </Form.Group>
+        </Form>
+
+
+           <Button variant="primary" type="button" id="submitButtonId" className="submitButton" onClick={SubmitButton}>
+                전송
+              </Button>
+
     </div>
     );
 }

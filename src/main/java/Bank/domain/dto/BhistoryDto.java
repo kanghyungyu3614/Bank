@@ -14,6 +14,12 @@ public class BhistoryDto {
 
     String bcontent; //거래내용
 
+    String acno;
+    String acno2;
+    String mname;
+    String mname2;
+
+
     public BhistoryEntity toEntity(){
         return BhistoryEntity.builder()
                 .bhno(this.bhno)

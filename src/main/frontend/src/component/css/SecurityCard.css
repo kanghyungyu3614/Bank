@@ -1,51 +1,54 @@
 /* 2022-12-06 강현규 보안카드 프론트작성 */
-
+/* 2022-12-16 강현규 보안카드 css 수정 */
 /* securitCard 전체 시작 */
 .securitCard{
     margin-top: 10px;
     border: 1px solid black;
-    width: 600px;
-    height: 300px;
-    margin : 0 auto;
     box-shadow: 0 1px 1px rgb(0 0 0 / 30);
+    height: 400px;
+    margin: 0 auto;
+    width: 100%;
 }
 /* securitCard 전체 끝 */
 
-/* main */
+/* mainCard 시작 */
 .mainCard{
     display: flex;
     font-weight: bold;
 }
-
+/* mainCard 끝 */
+/*mainSecutiryContent 시작 강현규 2022-12-16 수정*/
 .mainSecutiryContent{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 10px;
+    color: #0080ff;
     font-size: 15px;
-    color: #0080FF;
-
+    margin-bottom: 5px;
+    margin-left: 14px;
+    margin-top: 5px;
 }
-
+/*mainSecutiryContent 끝*/
+/*mainSecutiryNumber 시작 강현규 2022-12-16 수정*/
 .mainSecutiryNumber{
     font-size: 16px;
     margin-bottom: 1px;
-    margin-left: 42px;
+    margin-left: 8px;
     margin-top: 2px;
     vertical-align: top;
 }
-
-
-
-/* main */
-/* sub  테이블 시작 */
-.sub{
+/* mainSecutiryNumber 끝 */
+/* subtable  테이블 시작 강현규 2022-12-16 수정 */
+.subtable{
+    border: 1px solid #000;
     border-collapse: collapse;
-    font-weight: bold;
+    box-shadow: 0 1px 1px #000;
     font-size: 14px;
+    font-weight: 700;
+    height: 250px;
+    width: 95%;
+    margin: 3px auto;
 }
-/* sub 테이블 끝 */
+/* subtable 테이블 끝 */
 /* tr 시작*/
-tr{
+.securityCardTrComponent{
     border: 1px solid #0080FF;
     height: 38.2px;
 }
@@ -55,16 +58,24 @@ th{
 /* tr 끝*/
 /*securityMainNumber 시작*/
 .securityMainNumber{
-    width: 90px;
+    width: 80px;
+    text-align: center;
 }
 /*securityMainNumber 시끝/
-/*securitysubNumber 시작*/
+/*securitysubNumber 강현규 2022-12-16 시작*/
 .securitysubNumber{
     background-color:#0080FF;
+    border-bottom: 1px solid #62aef9;
     color:white;
     width: 30px;
+    text-align: center;
 }
 /*securitysubNumber 끝*/
+/*warningContent 시작 강현규 2022-12-16 수정 */
+.warningContent{
+    margin: 14px 14px;
+}
+/*warningContent 끝*/
 /*warningMainContent 시작*/
 .warningMainContent{
     color: red;

@@ -33,12 +33,20 @@ public class BhistoryEntity extends BaseEntity {
     @ToString.Exclude
     private DpositEntity dpositEntity;
 
-    public BhistoryDto toDto(){
+    @ManyToOne
+    @JoinColumn(name = "acno2")
+    @ToString.Exclude
+    private DpositEntity dpositEntity2;
+    public BhistoryDto toDto(String mname, String mname2){
         return BhistoryDto.builder()
                 .bhno(this.bhno)
                 .btypes(this.btypes)
                 .bmoney(this.bmoney)
                 .bcontent(this.bcontent)
+                .acno( this.getDpositEntity().getAcno())
+                .acno2( this.getDpositEntity2().getAcno() )
+                .mname( mname )
+                .mname2( mname2 )
                 .build();
     }
 }

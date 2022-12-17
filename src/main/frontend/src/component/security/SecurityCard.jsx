@@ -13,7 +13,7 @@ const [ SecurityCardMainData , setSecurityCardMainData] = useState('')
     const [ SecurityCardSebData , setSecurityCardSebData] = useState('')
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/bank/securityCard")//요청
+        axios.get("/bank/securityCard")//요청
 .then( res => {
                               setSecurityCardMainData( res.data[0].smno )
                               setSecurityCardSebData( res.data[0].ssno )
