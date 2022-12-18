@@ -1,4 +1,10 @@
-*{ decoration : none;}
+/* css 초기화 */
+*{
+	text-decoration: none;	/* 텍스트 밑줄 제거 */
+	list-style: none;		/* 글머리 기호 제거 */
+	text-decoration: none;
+}
+/*-------------------------------*/
 
 .webbox{
   margin: 0 auto;  /*중앙정렬*/
@@ -11,6 +17,13 @@
    border: 1px solid blue;
    height: 15%;
 }
+
+
+button{  border:1px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;}
 
 
 /*-----------------------------중간 부분 ----------------------------------------*/
