@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="2022-12-15 김원종 회원가입 유효성검사 구현중" />
+    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="2022-12-19 1차 머지" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671101261646</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2022-12-19 1차 머지">
+      <created>1671434298531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671434298531</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +204,7 @@
     <MESSAGE value="1차테스트" />
     <MESSAGE value="Oauth2 오류발생으로 인한 코드수정" />
     <MESSAGE value="2022-12-15 김원종 회원가입 유효성검사 구현중" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022-12-15 김원종 회원가입 유효성검사 구현중" />
+    <MESSAGE value="2022-12-19 1차 머지" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022-12-19 1차 머지" />
   </component>
 </project>
