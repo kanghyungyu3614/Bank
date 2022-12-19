@@ -5,92 +5,253 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="2022-12-19 1차 머지">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.291f1fdd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.291f1fdd.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.368eff48.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.368eff48.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.38d6617d.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.38d6617d.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.8bdb57cc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.8bdb57cc.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.a0f10106.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.a0f10106.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.f9a28ac4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.f9a28ac4.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.0b0199b3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.0b0199b3.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.0b0199b3.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.167273ad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.167273ad.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.167273ad.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.1de46955.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.1de46955.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.1de46955.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.259d5197.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.259d5197.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.259d5197.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.34390da2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.34390da2.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.34390da2.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.375a9915.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.375a9915.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.375a9915.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.3fcf0cc3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.3fcf0cc3.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.3fcf0cc3.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.42730b4d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.42730b4d.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.42730b4d.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4b9a40f1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4b9a40f1.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4b9a40f1.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4cf52afb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4cf52afb.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4cf52afb.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4efdf12b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4efdf12b.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4efdf12b.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.618cca10.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.618cca10.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.618cca10.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.632cbdb3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.632cbdb3.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.632cbdb3.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.67a80285.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.67a80285.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.67a80285.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.8ac22272.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.8ac22272.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.8ac22272.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.938f938d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.938f938d.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.938f938d.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.93e2c7ac.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.93e2c7ac.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.93e2c7ac.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.99f063a7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.99f063a7.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.99f063a7.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.bbdd3e12.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.bbdd3e12.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.bbdd3e12.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.c023f399.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.c023f399.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.c023f399.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.da11408e.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.da11408e.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.da11408e.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.e5044928.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.e5044928.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.e5044928.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.e6718eb0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.e6718eb0.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.e6718eb0.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/component/bank/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/component/bank/Signup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/asset-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.1d7d7846.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.1d7d7846.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.473a387f.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.473a387f.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.6d41b09b.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.6d41b09b.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.76e20576.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.76e20576.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.b265ab70.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.b265ab70.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.c523774f.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.c523774f.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.ea8746ba.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/css/main.ea8746ba.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.2cf3912c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.2cf3912c.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.2d5c4317.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.2d5c4317.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4cbabcb5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4cbabcb5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.5d99fa06.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.5d99fa06.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.6ebecfc1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.6ebecfc1.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.6ebecfc1.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.99b7f59c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.99b7f59c.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.99b7f59c.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-09__4_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-09__4_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BankConroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BankConroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BankController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto$BboardDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto$BboardDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/dto/BboardDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/board/BboardEntity$BboardEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/board/BboardEntity$BboardEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/board/BboardEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/board/BboardEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity$BmemberEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity$BmemberEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/domain/entity/member/BmemberEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/service/BankService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/service/BankService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Bank/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Bank/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/css/main.a46604a0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/css/main.a46604a0.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/css/main.d23cb516.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/css/main.d23cb516.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.027af8d2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.027af8d2.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.027af8d2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.040df98a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.040df98a.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.040df98a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0555c4ff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0555c4ff.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0555c4ff.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.06de35ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.06de35ca.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.2d5c4317.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.06de35ca.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0f015944.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0f015944.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0f015944.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0f228b03.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0f228b03.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.2cf3912c.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.0f228b03.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.16c24dce.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.16c24dce.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.4cbabcb5.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.16c24dce.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1cec8e10.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1cec8e10.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/static/js/main.5d99fa06.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1cec8e10.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1d3b8274.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1d3b8274.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1d3b8274.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1eea9aac.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1eea9aac.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.1eea9aac.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.2145cb0c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.2145cb0c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.2145cb0c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.224b12fd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.224b12fd.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.224b12fd.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.271ba87f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.271ba87f.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.271ba87f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.28dd691f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.28dd691f.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.28dd691f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.30dd563d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.30dd563d.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.30dd563d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.37b4aac0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.37b4aac0.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.37b4aac0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.38ffb9a0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.38ffb9a0.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.38ffb9a0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3a55cb67.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3a55cb67.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3a55cb67.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3cfce0e0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3cfce0e0.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3cfce0e0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3e39182f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3e39182f.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.3e39182f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.47e1c925.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.47e1c925.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.47e1c925.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.4fbe1709.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.4fbe1709.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.4fbe1709.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.5033ab3a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.5033ab3a.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.5033ab3a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.54372759.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.54372759.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.54372759.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.558c5c24.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.558c5c24.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.558c5c24.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.57fded3a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.57fded3a.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.57fded3a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.61d96086.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.61d96086.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.61d96086.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.64798a88.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.64798a88.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.64798a88.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.66d2bc21.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.66d2bc21.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.66d2bc21.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.68add445.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.68add445.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.68add445.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.68c3849f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.68c3849f.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.68c3849f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.6c4c0bc3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.6c4c0bc3.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.6c4c0bc3.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.6e043eea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.6e043eea.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.6e043eea.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.7178afe0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.7178afe0.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.7178afe0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.74142059.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.74142059.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.74142059.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.7d91b27c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.7d91b27c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.7d91b27c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.8c1d9443.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.8c1d9443.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.8c1d9443.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.924681d5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.924681d5.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.924681d5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.9319fda1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.9319fda1.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.9319fda1.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.9700a04e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.9700a04e.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.9700a04e.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a032e860.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a032e860.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a032e860.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a61eb811.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a61eb811.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a61eb811.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a6a109e7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a6a109e7.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a6a109e7.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a6a243c2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a6a243c2.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.a6a243c2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.afc4b88e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.afc4b88e.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.afc4b88e.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.b04f0ba0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.b04f0ba0.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.b04f0ba0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.b11e68ac.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.b11e68ac.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.b11e68ac.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.ba61d0a8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.ba61d0a8.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.ba61d0a8.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bc21f5af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bc21f5af.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bc21f5af.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bc48e6ae.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bc48e6ae.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bc48e6ae.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bec8996a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bec8996a.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.bec8996a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.c509c0e5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.c509c0e5.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.c509c0e5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.c7340b2c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.c7340b2c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.c7340b2c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.d390ee72.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.d390ee72.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.d390ee72.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.df29e7a1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.df29e7a1.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.df29e7a1.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.e84c7e8d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.e84c7e8d.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.e84c7e8d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.ec902a4d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.ec902a4d.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.ec902a4d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.eedcbc51.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.eedcbc51.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.eedcbc51.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f1085cfb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f1085cfb.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f1085cfb.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f26c3661.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f26c3661.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f26c3661.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f43bec4a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f43bec4a.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f43bec4a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f6420bd3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f6420bd3.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.f6420bd3.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fa6ca1b8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fa6ca1b8.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fa6ca1b8.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fa75e7d7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fa75e7d7.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fa75e7d7.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fde50af0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fde50af0.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fde50af0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fe544cca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fe544cca.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/static/js/main.fe544cca.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +268,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Bank" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -253,7 +419,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671101261646</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2022-12-19 1차 머지">
+      <created>1671433786749</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671433786749</updated>
+    </task>
+    <task id="LOCAL-00006" summary="2022-12-19 1차 머지">
+      <created>1671433822080</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671433822080</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +443,11 @@
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="cfa30a05-8487-4b57-b265-94bdbae1bd8a">
           <value>
             <State />
           </value>
