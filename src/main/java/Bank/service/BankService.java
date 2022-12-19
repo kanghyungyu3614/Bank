@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 // 강현규 2022-12-07 보안카드 난수 만들기 코드생성
 // 강현규 2022-12-09 보안카드 난수 만들기 수정
 //=> 수정내용 : 난수를 db에 저장할때는 숫자형 문자열로 저장하고 스크립트에서 출력할때 필터링함.
@@ -182,6 +185,25 @@ public class BankService {
 
         Page<BhistoryEntity> elist = bhistoryRepository.findBySearch(pageDto.getKey() , pageDto.getKeyword() , pageable);
         List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
+        System.out.println(pageDto.getKey());
+        System.out.println(pageDto.getKeyword());
+        for( BhistoryEntity entity : elist ){ // 3. 변환
+            int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
+            int mnamenumber2  =  entity.getDpositEntity2().getBmemberEntity().getMno();
+            System.out.println("mnamenumber");
+            System.out.println(mnamenumber);
+            String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+            System.out.println(mname);
+            System.out.println("mnamenumber");
+            System.out.println("mnamenumber2");
+            System.out.println(mnamenumber2);
+            String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+            System.out.println(mname2);
+            System.out.println("mnamenumber2");
+            entity.toDto(mname,mname2);
+            dlist.add( entity.toDto(mname,mname2) );
+        }
+
 
         for( BhistoryEntity entity : elist ){ // 3. 변환
             int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
@@ -196,9 +218,23 @@ public class BankService {
             String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
             System.out.println(mname2);
             System.out.println("mnamenumber2");
+            System.out.println(pageDto.getKey());
+            System.out.println(pageDto.getKeyword());
+            Pattern format = Pattern.compile("[가-힣]");
+            Matcher matcher1 = format.matcher(mname);
+            Matcher matcher2 = format.matcher(mname2);
+            if(pageDto.getKey().equals("보내신분") && matcher1.group(pageDto.getKeyword()).length()>0 ){ //  acno
+                dlist.add( entity.toDto(mname,mname2) );
+            }else if(pageDto.getKey().equals("받으신분") && matcher2.group(pageDto.getKeyword()).length()>0){ // acno2
+                dlist.add( entity.toDto(mname,mname2) );
+            }else{
+                dlist.add( entity.toDto(mname,mname2) );
+            }
 
-            dlist.add( entity.toDto(mname,mname2) );
         }
+
+
+
         System.out.println("dlist 를 보여드리겠습니다.");
         for( BhistoryDto entity : dlist ){ // 3. 변환
             System.out.println("entity시작 ");

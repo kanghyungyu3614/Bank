@@ -59,6 +59,8 @@ public class BankConroller {
     public PageDto DealReportGetBoardList( @RequestBody PageDto pageDto){
         System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
         System.out.println(pageDto);
+        System.out.println(pageDto.getKey());
+        System.out.println(pageDto.getKeyword());
         System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
         return bankService.boardlist( pageDto  );
     }
