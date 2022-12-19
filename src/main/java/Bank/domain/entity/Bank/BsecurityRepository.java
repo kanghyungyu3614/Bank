@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface BsecurityRepository extends JpaRepository<BsecurityEntity,Integer> {
-    // 1. 기본메소드 외 메소드 추가
+    // 1. 기본메소드 외 메소드  추가
     // 1. .findById( pk값 ) : 해당 pk의 엔티티 하나 호출
     // 2. .findAll()       : 모든 엔티티를 호출
     // 3. [ 직접 find 만들기 ] :  .findby필드명( 조건 )     [ Optional<엔티티명> ]

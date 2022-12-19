@@ -8,7 +8,7 @@ import SecuritySubNumber from'./SecurityComponent/SecuritySubNumber'
 export default function SecurityCard (){
 /* 2022-12-06강현규 보안카드 프론트작성 */
     //8783 76 9934
-    //77 99, 71 15, 96 21, 75 92, 33 09, 30 06, 18 72, 37 18, 90 42, 80 22, 71 78, 57 16, 93 35, 90 64, 55 81, 28 36, 68 06, 76 58, 74 47, 19 54, 05 66, 47 54, 22 06, 07 77, 00 25, 73 31, 55 93, 72 96, 27 93, 68 78, 19 24, 86 34, 93 48, 16 39, 35 06
+    //77 99, 71 15, 96 21, 75 92, 33 09,  30 06, 18 72, 37 18, 90 42, 80 22, 71 78, 57 16, 93 35, 90 64, 55 81, 28 36, 68 06, 76 58, 74 47, 19 54, 05 66, 47 54, 22 06, 07 77, 00 25, 73 31, 55 93, 72 96, 27 93, 68 78, 19 24, 86 34, 93 48, 16 39, 35 06
 const [ SecurityCardMainData , setSecurityCardMainData] = useState('')
     const [ SecurityCardSebData , setSecurityCardSebData] = useState('')
 

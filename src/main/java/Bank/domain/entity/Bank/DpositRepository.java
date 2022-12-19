@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface DpositRepository extends JpaRepository<DpositEntity,Integer> {
-    // 1. 보안카드번호검색
+    // 1.  보안카드번호검색
     @Query( value = "select * from dposit where ano = :ano" , nativeQuery = true )
     List<DpositEntity> findAcno(int ano);
 }

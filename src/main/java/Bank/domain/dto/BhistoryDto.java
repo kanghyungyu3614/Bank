@@ -6,7 +6,7 @@ import lombok.*;
 @AllArgsConstructor@NoArgsConstructor
 @Getter@Setter@ToString@Builder
 public class BhistoryDto {
-    int bhno; // 거래내역 순서
+    int bhno; //  거래내역 순서
 
     int btypes; //거래유형
 

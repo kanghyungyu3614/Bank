@@ -7,6 +7,6 @@ public class IndexController {
 
 /*   @GetMapping("/")
     public Resource getindex() {
-        return new ClassPathResource("templates/index.html");
+        return new ClassPathResource("templates/index.html ");
     }*/
 }
