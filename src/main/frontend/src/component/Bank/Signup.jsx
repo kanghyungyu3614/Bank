@@ -1,9 +1,71 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "../css/Signup.css"
+import DaumPostcode from "react-daum-postcode";
 
 export default function Signup(props) {
 
+    /*===========================주소API========================================*/
+    const Post = (props) => {
+
+        const complete = (data) =>{
+            let fullAddress = data.address;
+            let extraAddress = '';
+
+            if (data.addressType === 'R') {
+                if (data.bname !== '') {
+                    extraAddress += data.bname;
+                }
+                if (data.buildingName !== '') {
+                    extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
+                }
+                fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
+            }
+            console.log(data)
+            console.log(fullAddress)
+            console.log(data.zonecode)
+
+            props.setcompany({
+                ...props.company,
+                address:fullAddress,
+            })
+        }
+
+        return (
+            <div >
+                <DaumPostcode
+                    className="postmodal"
+                    autoClose
+                    onComplete={complete} />
+            </div>
+        );
+    };
+
+
+    const [enroll_company, setEnroll_company] = useState({
+        address:'',
+    });
+
+    let [popup, setPopup] = useState(false);
+
+    const handleInput = (e) => {
+        setEnroll_company({
+            ...enroll_company,
+            [e.target.name]:e.target.value,
+
+        })
+    }
+
+    const handleComplete = (data) => {
+        setPopup(!popup);
+        let user_enroll_text=document.querySelector('.user_enroll_text')
+        console.log(user_enroll_text.value)
+        if(user_enroll_text.value!=null){
+        setPopup(!popup);
+        }
+    }
+
+    /*===========================================================================*/
     const signUp = () => {
 
 
@@ -29,7 +91,6 @@ export default function Signup(props) {
         mphone: '',
         msno: '',
         mname: '',
-        madress: ''
     })
 
     const [confirm, setConfirm] = useState({ // form의 input의 객체값이 전부 true여야 통과
@@ -39,15 +100,14 @@ export default function Signup(props) {
         mphonec: false,
         msnoc: false,
         mnamec: false,
-        madressc: false
     })
 
     const midform = /^[A-Za-z0-9$@!%*#?&]{6,15}$/; // 정규표현식 아이디[ 2022-12-16 김원종 ]
     const mpwform = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@!%*?&])[A-Za-z\d@!%*?&]{8,15}$/ // 정규표현식 비밀번호[ 2022-12-16 김원종 ]
     const emailform = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/// 정규표현식 이메일[ 2022-12-16 김원종 ]
     const phoneform = /^\d{3}-\d{3,4}-\d{4}$/;// 정규표현식 휴대폰[ 2022-12-16 김원종 ]
-    const msnoform = /^(:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-8][0-9]{6}$/;// 정규표현식 주민번호[ 2022-12-16 김원종 ]
-    const mnameform = /^[가-힣a-zA-Z]+$/;// 정규표현식 이름[ 2022-12-16 김원종 ]
+    const msnoform = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))[1-4][0-9]{6}$/ // 정규표현식 주민번호[ 2022-12-16 김원종 ]
+    const mnameform = /^[가-힣a-zA-Z]{2,20}$/;// 정규표현식 이름[ 2022-12-16 김원종 ]
 
 
     const midcheck = (e) => { /*아이디 검사 [ 2022-12-16 ] 김원종 */
@@ -124,42 +184,7 @@ export default function Signup(props) {
             mnameckbox.innerHTML = "나라가 어디신가요..?😳관리자에게 문의해주세요..ㅠㅠ"
         }
     }
-    /*다음 주소 api////////////////////////////////*//*주소 확인 [2022-12-16] 김원종 */
-/*
-    function adress ()  {
 
-        const [address, setAddress] = useState(''); // 주소
-        const [addressDetail, setAddressDetail] = useState(''); // 상세주소
-
-
-        const [isOpenPost, setIsOpenPost] = useState(false);
-
-
-        const onChangeOpenPost = () => {
-            setIsOpenPost(!isOpenPost);
-        };
-
-        const onCompletePost = (data) => {
-            let fullAddr = data.address;
-            let extraAddr = '';
-
-            if (data.addressType === 'R') {
-                if (data.bname !== '') {
-                    extraAddr += data.bname;
-                }
-                if (data.buildingName !== '') {
-                    extraAddr += extraAddr !== '' ? `, ${data.buildingName}` : data.buildingName;
-                }
-                fullAddr += extraAddr !== '' ? ` (${extraAddr})` : '';
-            }
-
-            setAddress(data.zonecode);
-            setAddressDetail(fullAddress);
-            setIsOpenPost(false);
-        };
-        confirm.madressc=true
-    }*/
-        /*//////////////////////////////////////////*/
         return (
             <div>
                 <h3 className="top_title "> Welcome_<br/>
@@ -194,8 +219,8 @@ export default function Signup(props) {
                         <span className="phckbox"></span>
                     </div>
 
-                    <label className="text-bg-center">👉주민번호</label>
-                    <input type="text" value={form.msno}
+                    <label className="text-bg-center">👉주민번호[ - 을 제외하고 적어주세요 ]</label>
+                    <input type="password" value={form.msno}
                            className="form-control " name="msno" onChange={(e) => msnocheck(e)}/>
                     <div>
                         <span className="msnockbox"></span>
@@ -207,8 +232,12 @@ export default function Signup(props) {
                         <span className="mnameckbox"></span>
                     </div>
 
-                    <label className="text-bg-center">👉주소</label>
-                    {/*<input type="text"  className="form-control" name="madress" onClick={adress()}/>*/}
+                    <label className="text-bg-center">👉주소</label> {/*2022-12-19 김원종 주소 api 구현중*/}
+                    <div className="address_search" >
+                        <input className="form-control user_enroll_text" placeholder="주소"  type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
+                        <button onClick={handleComplete}>우편번호 찾기</button>
+                        {popup && <Post company={enroll_company} setcompany={setEnroll_company} />}
+                    </div>
 
 
                  {/*   {openPostcode &&
@@ -223,3 +252,4 @@ export default function Signup(props) {
             </div>
         );
     }
+
