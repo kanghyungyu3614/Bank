@@ -15,6 +15,8 @@ import BoardList from "./Bboard/Board";    // 공지사항 임포트
 import BoardWrite from "./Bboard/BoardWrite";
 import BoardUpdate from "./Bboard/BoardUpdate";
 import BoardView from "./Bboard/BoardView";
+import Signup from "./Bank/Signup"; // 회원가입
+
 import DealReport from "./Bank/DealReport"; // 거래내역 페이지
 import DealReportPassword from "./Bank/DealReportPassword"; // 거래내역 비밀번호 페이지
 
@@ -34,7 +36,7 @@ export default function Index( props ){
                     <ul className="main_sidebar">
                         <li className="urlList"><a href="/">홈URL</a></li>
                         <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
-                        <li className="urlList"><a href="/member/Signup">회원가입 </a></li>
+                        <li className="urlList"><a href="/Bank/Signup">회원가입 </a></li>
                         <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
                         <li className="urlList"><a href="/Bboard/Board">공지사항</a></li>
                         <li className="urlList"><a href="/admin/dealReport/password">거래내역</a></li>
@@ -45,7 +47,8 @@ export default function Index( props ){
                         <Route path="/member/securityCard/password" element={ <SecurityCardPassword/> }/>
                         <Route path="/member/securityCard" element={ <SecurityCard/> }/>
                         <Route path="/Bboard/Board" element={ <BoardList/> }/>
-                        <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>
+                          <Route path="/Bank/Signup" element={ <Signup/> }/>
+                          <Route path="/Bboard/BoardWrite" element={ <BoardWrite/> }/>
                         <Route path= "/Bboard/BoardUpdate/:bno" element={ <BoardUpdate/> }/>
                         <Route path= "/Bboard/BoardView/:bno" element={ <BoardView/> }/>
                         <Route path="/admin/dealReport/password" element={ <DealReportPassword/> }/>
