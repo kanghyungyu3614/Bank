@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="2022-12-15 김원종 회원가입 유효성검사 구현중">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/src/component/Bank/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/src/component/Bank/Signup.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="8c774ff3-b157-4bfc-b718-345b91a09927" name="Changes" comment="2022-12-15 김원종 회원가입 유효성검사 구현중" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +89,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IfUumb2rkyDDejA9zuCTtxDEpB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -181,6 +181,11 @@
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="cfa30a05-8487-4b57-b265-94bdbae1bd8a">
           <value>
             <State />
           </value>
