@@ -65,6 +65,10 @@
 .dealReportTrComponent{
     border : 1px solid black;
 }
+.dealReportTrComponent:nth-child(1){
+    background-color: #EFEFEF;
+    font-size: 22px;
+}
 /*테이블 내용 끝 css*/
 /* th내용 시작 css 강현규 2022-12-16 수정*/
 .dealReportTrComponent th{
