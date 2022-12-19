@@ -21,7 +21,7 @@ import java.util.List;
 public class DpositEntity extends BaseEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동번호
-    @Column(unique = true)  // 유니크
+    @Column(unique = true)  //  유니크
     int ano;         // 계좌 번호 순서
 
     @Id

@@ -18,14 +18,18 @@ public class BboardDto {
 
     private String bfilename;  // [ 호출용 ] 첨부파일
 
-
     private int bview;
+
+    private String bdate;
+
 
     private int mno;
 
     private String mid;		//  회원아이디
 
     private int page;  // 현재 페이지
+
+
 
 
     private int startbtn;    // 페이징 버튼 시작 번호

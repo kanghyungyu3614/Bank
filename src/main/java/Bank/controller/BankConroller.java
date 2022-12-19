@@ -59,16 +59,18 @@ public class BankConroller {
     public PageDto DealReportGetBoardList( @RequestBody PageDto pageDto){
         System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
         System.out.println(pageDto);
+        System.out.println(pageDto.getKey());
+        System.out.println(pageDto.getKeyword());
         System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
         return bankService.boardlist( pageDto  );
     }
 
-
     /*개인거래*/
- @PostMapping("/memberaccount")
-    public boolean mastercheck(@RequestBody DpositDto dpositDto){
-
-   boolean result =  bankService.memberaccount(dpositDto);
-    return result;
+ @GetMapping("/memberaccount")
+    public boolean mastercheck(@RequestParam int ainput , @RequestParam String bank){
+     System.out.println(ainput+"11");
+     System.out.println(bank);
+     boolean result =  bankService.memberaccount(ainput,bank );
+     return result;
  }
 }

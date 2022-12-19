@@ -14,7 +14,7 @@ export default function SecuritySubNumber(props){
             let SecuritySubNumberArray = [];
             for(let i = 0; i<Coma.length; i++) {
                 if(i<36) {
-                // StringBuffer랑 String은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
+                // StringBuffer랑 String 은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
                                   // 2자리 + " " + 2자리 를 합친 문자열을 subarr라는 ArrayList에 넣어줍니다.
                 SecuritySubNumberArray[i]=Coma.substring(4*i,2+4*i)+" "+Coma.substring(2+4*i,4+4*i);
                  }

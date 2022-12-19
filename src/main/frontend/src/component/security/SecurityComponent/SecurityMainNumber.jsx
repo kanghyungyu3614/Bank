@@ -12,7 +12,7 @@ export default function SecurityMainNumber( props ){
             }
         },[props.props])
 
-    {/*No. 8783 76 9934 {"No. "+Coma}*/}
+    {/*No. 8783 76 9934 {"No. "+Coma} */}
     return(
         <div className="mainSecutiryNumber">{ResultComa}</div>
     );
