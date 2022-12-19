@@ -18,7 +18,7 @@ public class BoardController {
 
 
 
-    //*--------------요청과 응답처리 ------------------------*//
+    //*--------------요청과 응답처리 ------------------------ *//
 
     @PostMapping("/bwrite")  // 게시물 쓰기
      public boolean bwrite(BboardDto boardDto ){

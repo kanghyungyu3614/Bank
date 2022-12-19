@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 public class PageDto {
 
-    private int page ;      // 현재 페이지
+    private int page ;      //  현재 페이지
     private String key;     // 검색 필드
     private String keyword; // 검색 단어
     @Builder.Default // 빌더 사용시 현재 객체가 기본적으로 할당

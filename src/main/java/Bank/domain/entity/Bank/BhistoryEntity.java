@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class BhistoryEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int bhno; // 거래내역 순서
+    int bhno; //  거래내역 순서
 
     @Column(nullable = false)
     int btypes; //거래유형
