@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import '../../css/DealReport.css';
 
-/*2022-12-13 강현규 bank/dealReport list들 출력은 됨 페이징처리 미완성 */
+/*2022-12-13 강현규 bank/dealReport list들 출력은 됨 페이징처리 미완성  */
 export default function DealListComponent(props){
     console.log("props.props1")
     console.log(props.props)
