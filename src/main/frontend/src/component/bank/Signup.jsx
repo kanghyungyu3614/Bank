@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import "../css/Signup.css"
 
-export default function Signup() {
+export default function Signup(props) {
 
     const signUp = () => {
 
@@ -32,7 +32,7 @@ export default function Signup() {
         madress: ''
     })
 
-    const [confirm] = useState({ // form의 input의 객체값이 전부 true여야 통과
+    const [confirm, setConfirm] = useState({ // form의 input의 객체값이 전부 true여야 통과
         midc: false,
         mpwc: false,
         mpwconfirmc: false,
@@ -44,7 +44,7 @@ export default function Signup() {
 
     const midform = /^[A-Za-z0-9$@!%*#?&]{6,15}$/; // 정규표현식 아이디[ 2022-12-16 김원종 ]
     const mpwform = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@!%*?&])[A-Za-z\d@!%*?&]{8,15}$/ // 정규표현식 비밀번호[ 2022-12-16 김원종 ]
-    // const emailform = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/// 정규표현식 이메일[ 2022-12-16 김원종 ]
+    const emailform = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/// 정규표현식 이메일[ 2022-12-16 김원종 ]
     const phoneform = /^\d{3}-\d{3,4}-\d{4}$/;// 정규표현식 휴대폰[ 2022-12-16 김원종 ]
     const msnoform = /^(:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-8][0-9]{6}$/;// 정규표현식 주민번호[ 2022-12-16 김원종 ]
     const mnameform = /^[가-힣a-zA-Z]+$/;// 정규표현식 이름[ 2022-12-16 김원종 ]
