@@ -2,11 +2,14 @@ package Bank.domain.entity.board;
 
 
 import Bank.domain.dto.BboardDto;
+import Bank.domain.entity.BaseEntity;
 import Bank.domain.entity.member.BmemberEntity;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +19,7 @@ import javax.persistence.*;
 @Builder
 @ToString
 @Entity
-public class BboardEntity {
+public class BboardEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bno;            // 게시물번호
@@ -46,6 +49,9 @@ public class BboardEntity {
                 .btitle(this.btitle)
                 .bcontent(this.bcontent)
                 .bfilename(this.bfile)
+                .bdate(this.getCdate().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString() ) ?
+                        this.getCdate().toLocalTime().format(DateTimeFormatter.ofPattern(" HH : mm ")) :
+                        this.getCdate().toLocalDate().toString() )
                 .bview(this.bview)
                 .build();
     }
