@@ -8,14 +8,15 @@
    border : 2px solid #6c7a81;
     justify-content: space-between;
     border-radius : 5px;
-
+    display : flex;
 }
 /*캘린더*/
 .react-calendar{
-   border : none
+   border : none;
 }
 .react-calendar__navigation {
     width : 600px;
+   border : 1px black solid;   /*김경주 2022-12-16*/
 }
 .react-calendar__month-view{
  width : 600px;

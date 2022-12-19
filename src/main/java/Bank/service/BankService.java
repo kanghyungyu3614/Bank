@@ -43,10 +43,10 @@ public class BankService {
     // ------------------------------- 전역 객체 -------------------------------//
 
     @Transactional
-    public boolean memberaccount(DpositDto dpositDto){
+    public boolean memberaccount(int ainput , String bank ){
 
-        System.out.println(dpositDto.getBankname());
-        System.out.println(dpositDto.getAcno());
+
+
         return  false;
     }
 
