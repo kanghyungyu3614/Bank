@@ -220,27 +220,67 @@ public class BankService {
             System.out.println("mnamenumber2");
             System.out.println(pageDto.getKey());
             System.out.println(pageDto.getKeyword());
-            Pattern format = Pattern.compile("[가-힣]");
-            Matcher matcher1 = format.matcher(mname);
-            Matcher matcher2 = format.matcher(mname2);
-            if(pageDto.getKey().equals("보내신분") && matcher1.group(pageDto.getKeyword()).length()>0 ){ //  acno
+
+
+//            Pattern format = Pattern.compile("[가-힣]");
+//            Matcher matcher1 = format.matcher(mname);
+//            Matcher matcher2 = format.matcher(mname2);
+            //matcher1.group(pageDto.getKeyword()).length()>0
+            //matcher2.group(pageDto.getKeyword()).length()>0
+/*            System.out.println("mname.contains(pageDto.getKeyword())");
+            System.out.println(mname.contains(pageDto.getKeyword()));
+            System.out.println("mname.contains(pageDto.getKeyword())");
+            System.out.println("mname2.contains(pageDto.getKeyword())");
+            System.out.println(mname2.contains(pageDto.getKeyword()));
+            System.out.println("mname2.contains(pageDto.getKeyword())");
+            if(pageDto.getKey().equals("acno") &&  mname.contains(pageDto.getKeyword())){ //  acno
                 dlist.add( entity.toDto(mname,mname2) );
-            }else if(pageDto.getKey().equals("받으신분") && matcher2.group(pageDto.getKeyword()).length()>0){ // acno2
+            }else if(pageDto.getKey().equals("acno2") && mname2.contains(pageDto.getKeyword())){ // acno2
                 dlist.add( entity.toDto(mname,mname2) );
             }else{
                 dlist.add( entity.toDto(mname,mname2) );
-            }
-
+            }*/
+            dlist.add( entity.toDto(mname,mname2) );
         }
 
 
 
         System.out.println("dlist 를 보여드리겠습니다.");
-        for( BhistoryDto entity : dlist ){ // 3. 변환
-            System.out.println("entity시작 ");
-            System.out.println(entity);
-            System.out.println("entity끝 ");
+        if(pageDto.getKey().equals("acno")){
+            System.out.println("pageDto.getKey().equals(acno) 를 보여드리겠습니다.");
+            int index = 0;
+            for( BhistoryDto entity : dlist ) { // 3. 변환
+                System.out.println("entity시작 ");
+                System.out.println(entity);
+                System.out.println("entity끝 ");
+
+                if (entity.getMname().contains(pageDto.getKeyword())) {
+                    continue;
+                } else {
+                    dlist.remove(index);
+                }
+                index++;
+            }
         }
+        else if(pageDto.getKey().equals("acno2")){
+            System.out.println("pageDto.getKey().equals(acno2) 를 보여드리겠습니다.");
+            int index = 0;
+            for( BhistoryDto entity : dlist ) { // 3. 변환
+                System.out.println("entity시작 ");
+                System.out.println(entity);
+                System.out.println("entity끝 ");
+
+                if (entity.getMname().contains(pageDto.getKeyword())) {
+                    continue;
+                } else if (pageDto.getKey().equals("acno2") && entity.getMname2().contains(pageDto.getKeyword())) {
+                    continue;
+                } else {
+                    dlist.remove(index);
+                }
+                index++;
+            }
+        }
+
         System.out.println("dlist 를 보여드리겠습니다.");
         pageDto.setBhistorylist( dlist  );  // 결과 리스트 담기
         pageDto.setTotalBoards( elist.getTotalElements() );
