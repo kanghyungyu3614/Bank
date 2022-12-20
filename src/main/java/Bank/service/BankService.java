@@ -19,10 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 // 강현규 2022-12-07 보안카드 난수 만들기 코드생성
 // 강현규 2022-12-09 보안카드 난수 만들기 수정
@@ -210,7 +212,7 @@ public class BankService {
             if (bmemberlists.size() > 1) {
                 for (BmemberEntity memberlist : bmemberlists) {
                     String acnoNumber = dpositRepository.findByGetacno(memberlist.getMno()).get(0).getAcno();
-                    elist=bhistoryRepository.findBySearch(pageDto.getKey(), acnoNumber, pageable);
+                    elist = bhistoryRepository.findBySearch(pageDto.getKey(), acnoNumber, pageable);
                     // 3-2) : 3-1) 에서 해준 Arraylist 값에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
                     for (BhistoryEntity entity : elist) {
                         int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
@@ -226,25 +228,67 @@ public class BankService {
                 System.out.println(dlistfinal);
 
                 List<BhistoryDto> lastFinalList = new ArrayList<>();
-                //fot(int i=0; i<)
+
                 System.out.println("여기는 시작 되나요??");
-//                lastFinalList.add(dlistfinal.get(0));
+                //lastFinalList.add(dlistfinal.get(0));
+                System.out.println("lastFinalList 시작");
+                System.out.println(lastFinalList);
+                System.out.println("lastFinalList 끝");
+
+
+                List<Integer> numberList = new ArrayList<>();
+                for(int i=0; i<dlistfinal.size(); i++){
+                    numberList.add(dlistfinal.get(i).getBhno());
+                }
+
+                System.out.println("newList 시작");
+                List<Integer> newList = numberList.stream().distinct().collect(Collectors.toList());
+                Collections.sort(newList);
+                System.out.println(newList);
+                System.out.println("newList 끝");
+                for(int i=0; i<newList.size(); i++) { // 1,2,3,4,5,6,7,8,9,10,11,12
+                    for(int j=0; j<dlistfinal.size(); j++) { // 54개
+                        if(j<=dlistfinal.size() ||  i <= newList.size()){
+                            continue;
+                        }else{
+                            System.out.println("i" + i);
+                            System.out.println("j" + j);
+                            if(!(newList.get(i).equals(dlistfinal.get(j).getBhno()))){
+                                lastFinalList.add(
+                                   new BhistoryDto(dlistfinal.get(j).getBhno(),
+                                                   dlistfinal.get(j).getBtypes(),
+                                                   dlistfinal.get(j).getBmoney(),
+                                                   dlistfinal.get(j).getBcontent(),
+                                                   dlistfinal.get(j).getAcno(),
+                                                   dlistfinal.get(j).getAcno2(),
+                                                   dlistfinal.get(j).getMname(),
+                                                   dlistfinal.get(j).getMname2())
+                                );
+                                newList.remove(i);
+                            }
+                        }
+                    }
+                }
+
 //                for(int i=0; i<dlistfinal.size(); i++) {
 //                    for(int j=0; j<lastFinalList.size(); j++) {
-//                        if(!(dlistfinal.get(i).getBhno()==lastFinalList.get(j).getBhno())){
-//                            lastFinalList.add(dlistfinal.get(i));
-//                            System.out.println("무엇일까요?");
-//                            System.out.println("dlistfinal.get(i).getBhno()" + dlistfinal.get(i).getBhno());
-//                            System.out.println("lastFinalList.get(j).getBhno()" + lastFinalList.get(j).getBhno());
-//                            System.out.println("무엇일까요?");
-//                        }else{continue;}
+//                        if(dlistfinal.size() == i) {
+//                            continue;
+//                        }else{
+//                            if(!(dlistfinal.get(i).getBhno()==lastFinalList.get(j).getBhno())){
+//                                lastFinalList.add(dlistfinal.get(i));
+//                                dlistfinal.remove(i);
+//                            }
+//                        }
 //                    }
 //                }
 
-
-
-
-                System.out.println("dlistfinal 끝");
+                System.out.println("dlistfinal 시작");
+                System.out.println("lastFinalList 시작");
+                System.out.println(dlistfinal);
+                System.out.println(lastFinalList);
+                System.out.println(newList);
+                System.out.println("lastFinalList 끝");
                 System.out.println("dlistfinal 끝");
                 // 1-1-마지막) : 값 모두 넣고 프론트로 보내주기
                 pageDto.setBhistorylist(lastFinalList);  // 결과 리스트 담기
@@ -256,7 +300,26 @@ public class BankService {
 
                 return pageDto;
             }
-            // 1-2) 만약 이름이 한개이면 그대로 진행 끝
+            // 1-2) 만약 이름이 0개이면 그대로 진행 끝
+            else if(bmemberlists.size() ==0){
+                elist = bhistoryRepository.findBySearch("", "", pageable);
+
+                // 1-2-2) : 1-2-1)에서 해준 값들에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+                for (BhistoryEntity entity : elist) {
+                    int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                    int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                    String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                    String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                    entity.toDto(mname, mname2);
+                    dlist.add(entity.toDto(mname, mname2));
+                }
+                // 1-2-3) : 값 모두 넣고 프론트로 보내주기
+                pageDto.setBhistorylist(dlist);  // 결과 리스트 담기
+                pageDto.setTotalBoards(elist.getTotalElements());
+
+                return pageDto;
+            }
+            // 1-3) 만약 이름이 한개이면 그대로 진행 끝
             else {
                 // 1-2-1) :  이름과 관련된 mno를 찾고 그걸로 계좌테이블에서 계좌번호를 찾아서 페이징처리를 해준다.
                 int memberNameNumber = bmemberRepository.findPageMname(pageDto.getKeyword()).get(0).getMno();
@@ -315,7 +378,26 @@ public class BankService {
 
                 return pageDto;
             }
-            // 1-2) 만약 이름이 한개이면 그대로 진행 끝
+            // 1-2) 만약 이름이 0개이면 그대로 진행 끝
+            else if(bmemberlists.size() ==0){
+                elist = bhistoryRepository.findBySearch("", "", pageable);
+
+                // 1-2-2) : 1-2-1)에서 해준 값들에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+                for (BhistoryEntity entity : elist) {
+                    int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                    int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                    String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                    String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                    entity.toDto(mname, mname2);
+                    dlist.add(entity.toDto(mname, mname2));
+                }
+                // 1-2-3) : 값 모두 넣고 프론트로 보내주기
+                pageDto.setBhistorylist(dlist);  // 결과 리스트 담기
+                pageDto.setTotalBoards(elist.getTotalElements());
+
+                return pageDto;
+            }
+            // 1-3) 만약 이름이 한개이면 그대로 진행 끝
             else {
                 // 1-2-1) :  이름과 관련된 mno를 찾고 그걸로 계좌테이블에서 계좌번호를 찾아서 페이징처리를 해준다.
                 int memberNameNumber = bmemberRepository.findPageMname(pageDto.getKeyword()).get(0).getMno();
