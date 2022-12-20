@@ -5,6 +5,7 @@ import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
 import Bank.domain.dto.PageDto;
 import Bank.domain.entity.Bank.*;
+import Bank.domain.entity.member.BmemberEntity;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -46,7 +47,7 @@ public class BankService {
     // ------------------------------- 전역 객체 -------------------------------//
 
     @Transactional
-    public boolean memberaccount(String ainput , String bank ){
+    public boolean memberaccount(String ainput, String bank) {
         System.out.println(ainput);
       /*  DpositEntity dpositEntity = dpositRepository.findAcno(ainput);
         if(dpositEntity.getAcno() != null){
@@ -65,36 +66,36 @@ public class BankService {
 
         // 1번 : 보안카드 위에 번호 10개 만들기위해 길이를 정해줍니다. //
         int mainlength = 10;
-        System.out.println("length : "+mainlength);
+        System.out.println("length : " + mainlength);
         // StringBuffer는 문자열을 추가하거나 변경 할 때 주로 사용하는 자료형입니다.
         // 주의 : string이랑 다른 자료형입니다.
         // mainsecurityCard 라는 StringBuffer타입의 변수를 만들겠습니다. 이게 위의 보안카드 번호 10자리 입니다.
         StringBuffer mainsecurityCard = new StringBuffer();
-        System.out.println("처음에 빈문자생성 : "+mainsecurityCard);
+        System.out.println("처음에 빈문자생성 : " + mainsecurityCard);
         // 이제 난수를 만들겁니다.
         for (int i = 0; i < mainlength; i++) {
             //문자형 숫자(0부터9까지)는 아스키코드의 48 ~ 58까지 범위입니다.
-            mainsecurityCard.append((char)((int)random.nextInt(10)+48));
+            mainsecurityCard.append((char) ((int) random.nextInt(10) + 48));
         }
         // StringBuffer 랑 String은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
         // String 타입으로 바꿔서 10자리 숫자를 콘솔창에 출력하면?
-        System.out.println("mainsecurityCardString는? : "+mainsecurityCardString);
+        System.out.println("mainsecurityCardString는? : " + mainsecurityCardString);
         mainsecurityCardString = mainsecurityCard.toString();
-        System.out.println("mainsecurityCardString는? : "+mainsecurityCardString);
+        System.out.println("mainsecurityCardString는? : " + mainsecurityCardString);
         // 이렇게 나옵니다.
 
 
         // 2번 : 보안카드 밑에 번호 140개 만들기 //
         // 보안카드 번호 140개의 길이를 지정해줍니다.
         int sublength = 140;
-        System.out.println("length : "+sublength);
+        System.out.println("length : " + sublength);
         // StringBuffer는 문자열을 추가하거나 변경 할 때 주로 사용하는 자료형입니다.
         StringBuffer subsecurityCard = new StringBuffer();
-        System.out.println("처음에 빈문자생성 : "+subsecurityCard);
+        System.out.println("처음에 빈문자생성 : " + subsecurityCard);
         // 마찬가지로 140개의 난수를 만들 for문을 만들어줍니다.
         for (int i = 0; i < sublength; i++) {
             //문자형 숫자(0부터9까지)는 48 ~ 58까지 범위다.
-            subsecurityCard.append((char)((int)random.nextInt(10)+48));
+            subsecurityCard.append((char) ((int) random.nextInt(10) + 48));
         }
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
@@ -132,7 +133,7 @@ public class BankService {
         System.out.println(ano);
         // 계좌순서 번호 1,2,3,4,5....가 가져와졌다.
         if (ano != null) {
-            List<DpositEntity> dpolist = dpositRepository.findAcno( Integer.parseInt(ano)); // ano로 계좌번호를 가져와야 한다.
+            List<DpositEntity> dpolist = dpositRepository.findAcno(Integer.parseInt(ano)); // ano로 계좌번호를 가져와야 한다.
             System.out.println("dpolist.get(0).getAcno()");
             System.out.println(dpolist.get(0).getAcno());
             System.out.println("dpolist.get(0).getAcno()");
@@ -161,7 +162,7 @@ public class BankService {
         }
     }
 
-    public String ReportPassword (DpositDto dpositDto) {
+    public String ReportPassword(DpositDto dpositDto) {
 
         // dpositDto를 받아와서
         // 1. 엔티티 전부 가져오기
@@ -182,115 +183,187 @@ public class BankService {
         return "2"; //비밀번호가 없습니다.
     }
 
+    // 2022-12-20 강현규 mname, mname2 유효성검사중
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
-        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 5 , Sort.by( Sort.Direction.ASC , "bhno")  );
-
-        Page<BhistoryEntity> elist = bhistoryRepository.findBySearch(pageDto.getKey() , pageDto.getKeyword() , pageable);
-        List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
-        System.out.println(pageDto.getKey());
-        System.out.println(pageDto.getKeyword());
-        for( BhistoryEntity entity : elist ){ // 3. 변환
-            int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
-            int mnamenumber2  =  entity.getDpositEntity2().getBmemberEntity().getMno();
-            System.out.println("mnamenumber");
-            System.out.println(mnamenumber);
-            String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
-            System.out.println(mname);
-            System.out.println("mnamenumber");
-            System.out.println("mnamenumber2");
-            System.out.println(mnamenumber2);
-            String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
-            System.out.println(mname2);
-            System.out.println("mnamenumber2");
-            entity.toDto(mname,mname2);
-            dlist.add( entity.toDto(mname,mname2) );
-        }
+        // 0-1) : 초기값
+        Pageable pageable = PageRequest.of(pageDto.getPage() - 1, 5, Sort.by(Sort.Direction.ASC, "bhno"));
+        // 0-2) : 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
+        List<BhistoryDto> dlist = new ArrayList<>();
+        List<BhistoryDto> dlistfinal = new ArrayList<>();
 
 
-        for( BhistoryEntity entity : elist ){ // 3. 변환
-            int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
-            int mnamenumber2  =  entity.getDpositEntity2().getBmemberEntity().getMno();
-            System.out.println("mnamenumber");
-            System.out.println(mnamenumber);
-            String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
-            System.out.println(mname);
-            System.out.println("mnamenumber");
-            System.out.println("mnamenumber2");
-            System.out.println(mnamenumber2);
-            String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
-            System.out.println(mname2);
-            System.out.println("mnamenumber2");
-            System.out.println(pageDto.getKey());
-            System.out.println(pageDto.getKeyword());
+        // 1. acno 일때 시작
+        if (pageDto.getKey().equals("acno")) {
 
+            System.out.println("맴버에서 정보가 있을까요?? 시작");
+            // 1-1-1) MEMBER DB에서 유효성 검사를 거친 이름들의 모임
+            List<BmemberEntity> bmemberlists = bmemberRepository.findPageMname(pageDto.getKeyword());
+            // 1-1-2) 페이징처리 디폴트값 처리
+            Page<BhistoryEntity> elist = null;
+            System.out.println("bmemberlists");
+            System.out.println(bmemberlists);
+            System.out.println("bmemberlists");
 
-//            Pattern format = Pattern.compile("[가-힣]");
-//            Matcher matcher1 = format.matcher(mname);
-//            Matcher matcher2 = format.matcher(mname2);
-            //matcher1.group(pageDto.getKeyword()).length()>0
-            //matcher2.group(pageDto.getKeyword()).length()>0
-/*            System.out.println("mname.contains(pageDto.getKeyword())");
-            System.out.println(mname.contains(pageDto.getKeyword()));
-            System.out.println("mname.contains(pageDto.getKeyword())");
-            System.out.println("mname2.contains(pageDto.getKeyword())");
-            System.out.println(mname2.contains(pageDto.getKeyword()));
-            System.out.println("mname2.contains(pageDto.getKeyword())");
-            if(pageDto.getKey().equals("acno") &&  mname.contains(pageDto.getKeyword())){ //  acno
-                dlist.add( entity.toDto(mname,mname2) );
-            }else if(pageDto.getKey().equals("acno2") && mname2.contains(pageDto.getKeyword())){ // acno2
-                dlist.add( entity.toDto(mname,mname2) );
-            }else{
-                dlist.add( entity.toDto(mname,mname2) );
-            }*/
-            dlist.add( entity.toDto(mname,mname2) );
-        }
-
-
-
-        System.out.println("dlist 를 보여드리겠습니다.");
-        if(pageDto.getKey().equals("acno")){
-            System.out.println("pageDto.getKey().equals(acno) 를 보여드리겠습니다.");
-            int index = 0;
-            for( BhistoryDto entity : dlist ) { // 3. 변환
-                System.out.println("entity시작 ");
-                System.out.println(entity);
-                System.out.println("entity끝 ");
-
-                if (entity.getMname().contains(pageDto.getKeyword())) {
-                    continue;
-                } else {
-                    dlist.remove(index);
+            // 1-2) 만약 이름이 2개이상이면
+            if (bmemberlists.size() > 1) {
+                for (BmemberEntity memberlist : bmemberlists) {
+                    String acnoNumber = dpositRepository.findByGetacno(memberlist.getMno()).get(0).getAcno();
+                    elist=bhistoryRepository.findBySearch(pageDto.getKey(), acnoNumber, pageable);
+                    // 3-2) : 3-1) 에서 해준 Arraylist 값에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+                    for (BhistoryEntity entity : elist) {
+                        int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                        int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                        String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                        String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                        dlist.add(entity.toDto(mname, mname2));
+                        dlistfinal.addAll(dlist);
+                    }
                 }
-                index++;
+                System.out.println("dlistfinal 시작");
+                System.out.println("dlistfinal 시작");
+                System.out.println(dlistfinal);
+
+                List<BhistoryDto> lastFinalList = new ArrayList<>();
+                //fot(int i=0; i<)
+                System.out.println("여기는 시작 되나요??");
+//                lastFinalList.add(dlistfinal.get(0));
+//                for(int i=0; i<dlistfinal.size(); i++) {
+//                    for(int j=0; j<lastFinalList.size(); j++) {
+//                        if(!(dlistfinal.get(i).getBhno()==lastFinalList.get(j).getBhno())){
+//                            lastFinalList.add(dlistfinal.get(i));
+//                            System.out.println("무엇일까요?");
+//                            System.out.println("dlistfinal.get(i).getBhno()" + dlistfinal.get(i).getBhno());
+//                            System.out.println("lastFinalList.get(j).getBhno()" + lastFinalList.get(j).getBhno());
+//                            System.out.println("무엇일까요?");
+//                        }else{continue;}
+//                    }
+//                }
+
+
+
+
+                System.out.println("dlistfinal 끝");
+                System.out.println("dlistfinal 끝");
+                // 1-1-마지막) : 값 모두 넣고 프론트로 보내주기
+                pageDto.setBhistorylist(lastFinalList);  // 결과 리스트 담기
+                pageDto.setTotalBoards((long)lastFinalList.size());
+                System.out.println("pageDto.getTotalBoards()");
+                System.out.println(pageDto.getTotalBoards());
+                System.out.println(pageDto.getBhistorylist());
+                System.out.println("pageDto.getTotalBoards()");
+
+                return pageDto;
+            }
+            // 1-2) 만약 이름이 한개이면 그대로 진행 끝
+            else {
+                // 1-2-1) :  이름과 관련된 mno를 찾고 그걸로 계좌테이블에서 계좌번호를 찾아서 페이징처리를 해준다.
+                int memberNameNumber = bmemberRepository.findPageMname(pageDto.getKeyword()).get(0).getMno();
+                String acnoNumber = dpositRepository.findByGetacno(memberNameNumber).get(0).getAcno();
+                elist = bhistoryRepository.findBySearch(pageDto.getKey(), acnoNumber, pageable);
+
+                // 1-2-2) : 1-2-1)에서 해준 값들에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+                for (BhistoryEntity entity : elist) {
+                    int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                    int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                    String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                    String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                    entity.toDto(mname, mname2);
+                    dlist.add(entity.toDto(mname, mname2));
+                }
+                // 1-2-3) : 값 모두 넣고 프론트로 보내주기
+                pageDto.setBhistorylist(dlist);  // 결과 리스트 담기
+                pageDto.setTotalBoards(elist.getTotalElements());
+
+                return pageDto;
             }
         }
-        else if(pageDto.getKey().equals("acno2")){
-            System.out.println("pageDto.getKey().equals(acno2) 를 보여드리겠습니다.");
-            int index = 0;
-            for( BhistoryDto entity : dlist ) { // 3. 변환
-                System.out.println("entity시작 ");
-                System.out.println(entity);
-                System.out.println("entity끝 ");
+        // 1. acno 일때 끝
+        
+        
+        
+        
+        // 2. acno2 일때 acno1이랑 비슷하다. 시작 
+        else if (pageDto.getKey().equals("acno2")) {
+            System.out.println("맴버에서 정보가 있을까요?? 시작");
+            // 1-1-1) MEMBER DB에서 유효성 검사를 거친 이름들의 모임
+            List<BmemberEntity> bmemberlists = bmemberRepository.findPageMname(pageDto.getKeyword());
+            // 1-1-2) 페이징처리 디폴트값 처리
+            Page<BhistoryEntity> elist = null;
 
-                if (entity.getMname().contains(pageDto.getKeyword())) {
-                    continue;
-                } else if (pageDto.getKey().equals("acno2") && entity.getMname2().contains(pageDto.getKeyword())) {
-                    continue;
-                } else {
-                    dlist.remove(index);
+
+            // 1-2) 만약 이름이 2개이상이면
+            if (bmemberlists.size() > 1) {
+                for (BmemberEntity memberlist : bmemberlists) {
+                    String acnoNumber = dpositRepository.findByGetacno(memberlist.getMno()).get(0).getAcno();
+                    elist = bhistoryRepository.findBySearch(pageDto.getKey(), acnoNumber, pageable);
+                    // 3-2) : 3-1) 에서 해준 Arraylist 값에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+                    for (BhistoryEntity entity : elist) {
+                        int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                        int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                        String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                        String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                        //
+                        dlist.add(entity.toDto(mname, mname2));
+                        dlistfinal.addAll(dlist);
+                    }
                 }
-                index++;
+                // 1-1-마지막) : 값 모두 넣고 프론트로 보내주기
+                pageDto.setBhistorylist(dlistfinal);  // 결과 리스트 담기
+                pageDto.setTotalBoards((long)dlistfinal.size());
+
+                return pageDto;
+            }
+            // 1-2) 만약 이름이 한개이면 그대로 진행 끝
+            else {
+                // 1-2-1) :  이름과 관련된 mno를 찾고 그걸로 계좌테이블에서 계좌번호를 찾아서 페이징처리를 해준다.
+                int memberNameNumber = bmemberRepository.findPageMname(pageDto.getKeyword()).get(0).getMno();
+                String acnoNumber = dpositRepository.findByGetacno(memberNameNumber).get(0).getAcno();
+                elist = bhistoryRepository.findBySearch(pageDto.getKey(), acnoNumber, pageable);
+
+                // 1-2-2) : 1-2-1)에서 해준 값들에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+                for (BhistoryEntity entity : elist) {
+                    int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                    int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                    String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                    String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                    dlist.add(entity.toDto(mname, mname2));
+                }
+                // 1-2-3) : 값 모두 넣고 프론트로 보내주기
+                pageDto.setBhistorylist(dlist);  // 결과 리스트 담기
+                pageDto.setTotalBoards(elist.getTotalElements());
+
+                return pageDto;
             }
         }
+        // 2. acno2 일때 acno1이랑 비슷하다. 끝
 
-        System.out.println("dlist 를 보여드리겠습니다.");
-        pageDto.setBhistorylist( dlist  );  // 결과 리스트 담기
-        pageDto.setTotalBoards( elist.getTotalElements() );
 
-        return pageDto;
 
+
+        // 3. acno, acno2가 모두 아닐때 (끝)
+        else {
+            // 3-1) : 필터링을 해준다.
+            Page<BhistoryEntity> elist = bhistoryRepository.findBySearch(pageDto.getKey(), pageDto.getKeyword(), pageable);
+
+
+            // 3-2) : 3-1) 에서 해준 Arraylist 값에 mname, mname2 를 넣어준 객체를 dlist === setBhistorylist 에 넣어주기
+            for (BhistoryEntity entity : elist) {
+                int mnamenumber = entity.getDpositEntity().getBmemberEntity().getMno();
+                int mnamenumber2 = entity.getDpositEntity2().getBmemberEntity().getMno();
+                String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
+                String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
+                entity.toDto(mname, mname2);
+                dlist.add(entity.toDto(mname, mname2));
+            }
+
+            // 3-3) : 값 모두 넣고 프론트로 보내주기
+            pageDto.setBhistorylist(dlist);  // 결과 리스트 담기
+            pageDto.setTotalBoards(elist.getTotalElements());
+
+            return pageDto;
+        }
+        // 3. acno, acno2가 모두 아닐때 (끝)
     }
-
 }
