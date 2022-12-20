@@ -48,12 +48,13 @@ public class BankService {
     @Transactional
     public boolean memberaccount(String ainput , String bank ){
         System.out.println(ainput);
-        DpositEntity dpositEntity = dpositRepository.findacno(ainput);
+      /*  DpositEntity dpositEntity = dpositRepository.findAcno(ainput);
         if(dpositEntity.getAcno() != null){
                 return  true;
         }else{
             return  false;
-        }
+        }*/
+        return false;
     }
 
     public static void main(String[] args) {

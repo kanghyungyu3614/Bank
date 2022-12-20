@@ -42,8 +42,7 @@ export default function Account(props) {
             alert("일치하는 계좌가 없습니다")
          }else{
             document.querySelector(".master").value = res.data.name
-            setStatech = true;
-
+            setStatech(true);
             }
          })
         .catch(err => {console.log(err)})
