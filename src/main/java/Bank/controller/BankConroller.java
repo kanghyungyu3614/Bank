@@ -67,7 +67,7 @@ public class BankConroller {
 
     /*개인거래*/
  @GetMapping("/memberaccount")
-    public boolean mastercheck(@RequestParam int ainput , @RequestParam String bank){
+    public boolean mastercheck(@RequestParam String ainput , @RequestParam String bank){
      System.out.println(ainput+"11");
      System.out.println(bank);
      boolean result =  bankService.memberaccount(ainput,bank );

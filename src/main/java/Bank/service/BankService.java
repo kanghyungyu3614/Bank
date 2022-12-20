@@ -46,11 +46,14 @@ public class BankService {
     // ------------------------------- 전역 객체 -------------------------------//
 
     @Transactional
-    public boolean memberaccount(int ainput , String bank ){
-
-
-
-        return  false;
+    public boolean memberaccount(String ainput , String bank ){
+        System.out.println(ainput);
+        DpositEntity dpositEntity = dpositRepository.findacno(ainput);
+        if(dpositEntity.getAcno() != null){
+                return  true;
+        }else{
+            return  false;
+        }
     }
 
     public static void main(String[] args) {

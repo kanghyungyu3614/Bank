@@ -13,10 +13,13 @@ export default function Account(props) {
     const [sendview , setSendview] = useState(false);
     const [value,onChange] = useState(new Date());
     const params = useParams();
+    const [statech ,setStatech] = useState(false);
     const[mastercheck ,setMastercheck] = useState('');
 
     const sendpay = () => { // 1. 송금버튼 2->3
+
         setCcLick(3)
+
     }
 
     const send1 = () => { // 3. 계좌입력버튼    1-2
@@ -36,8 +39,13 @@ export default function Account(props) {
      axios
         .get("/bank/memberaccount",{params : {ainput : ainput , bank : bank}})
          .then(res=>{if(res.data == false){
-            document.querySelector(".master").value = "김경주"
-         }})
+            alert("일치하는 계좌가 없습니다")
+         }else{
+            document.querySelector(".master").value = res.data.name
+            setStatech = true;
+
+            }
+         })
         .catch(err => {console.log(err)})
     }
 
@@ -77,19 +85,22 @@ export default function Account(props) {
                             </th>
 
                             <button onClick={send2} className="close">닫기</button>
-                            <button className="closinsert" onClick={sendpay}>금액 입력</button>
+
                             </>
                             )
                          }
                     </div>
 
-                    { cclick == 3 &&(
+
+                       { statech == 3 && setStatech && (
                      <>
+                     <button className="closinsert" onClick={sendpay}>금액 입력</button>
                      <input type="text" placeholder="금액입력"/>
                      <button type="button">입금</button>
                       </>
                         )
                       }
+
 
 
               </div>
@@ -138,12 +149,8 @@ export default function Account(props) {
                           <li>2022-10-10 전상근 10,000</li>
                           <li>2022-10-10 전상근 10,000</li>
                      </div>
-
-                </div>
-
              </div>
-
-
+         </div>
     </div>
     );
 }
