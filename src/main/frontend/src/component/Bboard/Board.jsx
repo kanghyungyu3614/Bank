@@ -11,6 +11,9 @@ export default function Board( ) {
   //1. 메모리
    const [ pageInfo , setPageInfo ] = useState({ page:1 }) // 1. 요청 정보 객체 state
    const [ pageDto , setPageDto ] = useState( [ { totalBoards : 0}] )          // 1. 게시물 리스트 state
+
+
+
     console.log( pageDto)
 
     // 2. 서버로부터  pageInfo  요청 ==> 페이지 응답  [  실행 조건 : 1. 랜더링 될때   2. 페이징 선택 ]
@@ -27,10 +30,15 @@ export default function Board( ) {
         const onPage = ( page ) => {   setPageInfo ( { page : page} )}
     /*--------------------------------------- --------------------------*/
         const loadView = ( bno) => {
+
+              axios .get( "/count/{bno}" , { params : { bno : bno} } )
+                    .then( res => {  console.log( res.data ); } )
+                    .catch( err => { console.log( err ); } )
+
               window.location.href ='/Bboard/BoardView/'+ bno;
+
             }
 
-        const count = ( btitle ) => {     }
 
         return(
                     <div className = "mbox">
@@ -45,7 +53,7 @@ export default function Board( ) {
                                                             <td> {b.bno} </td>
                                                             <td onClick = {() => loadView(b.bno) }> {b.btitle} </td>
                                                             <td> {b.bdate} </td>
-                                                            <td onClick = {() => { count(b.title) }} > {b.bview} </td>
+                                                            <td> {b.bview} </td>
                                                         </tr>
                                                         </tbody>
                                                       )

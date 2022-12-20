@@ -1,7 +1,7 @@
 package Bank.controller;
 
 import Bank.domain.dto.BboardDto;
-import Bank.domain.dto.PageDto;
+import Bank.domain.entity.board.BboardRepository;
 import Bank.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,8 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService = new BoardService();
-
+    @Autowired
+    private BboardRepository bboardRepository;
 
 
     //*--------------요청과 응답처리 ------------------------ *//
@@ -54,6 +55,10 @@ public class BoardController {
     }
 
 
+    @GetMapping("/count/{bno}")
+    public boolean viewcount (@RequestParam int bno) {
+        return boardService.viewcount(bno);
+    }
 
 
 
