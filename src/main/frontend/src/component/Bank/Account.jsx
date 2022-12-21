@@ -13,13 +13,12 @@ export default function Account(props) {
     const [sendview , setSendview] = useState(false);
     const [value,onChange] = useState(new Date());
     const params = useParams();
-    const [statech ,setStatech] = useState(false);
+    const [statech ,setStatech] = useState(1);
     const[mastercheck ,setMastercheck] = useState('');
-
+    const [account,setAccount] = useState()
     const sendpay = () => { // 1. 송금버튼 2->3
-
-        setCcLick(3)
-
+        setStatech(2);
+        setCcLick(0);
     }
 
     const send1 = () => { // 3. 계좌입력버튼    1-2
@@ -34,18 +33,34 @@ export default function Account(props) {
     const ainsert =() =>{
         const bank =  document.querySelector(".bank").value
         const ainput = document.querySelector(".ainput").value
-
+        setAccount({accountnum:ainput})
 
      axios
         .get("/bank/memberaccount",{params : {ainput : ainput , bank : bank}})
          .then(res=>{if(res.data == false){
+            console.log(res.data)
+            console.log(res)
             alert("일치하는 계좌가 없습니다")
          }else{
-            document.querySelector(".master").value = res.data.name
-            setStatech(true);
+           alert("계좌가 확인되었습니다.")
+            setCcLick(3);
             }
          })
         .catch(err => {console.log(err)})
+    }
+
+
+    const sendmoney =()=>{
+        const payinsert = document.querySelector(".payinsert").value;
+        axios
+            .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum}})
+            .then(res=>{if(res.data == true){
+                alert("입금완료")
+            }else{
+                 alert("입금실패[관리자에게 문의]")
+            }
+          })
+            .catch(err => {console.log(err)})
     }
 
 
@@ -88,14 +103,19 @@ export default function Account(props) {
                             </>
                             )
                          }
+
+
                     </div>
+                      {cclick ==3 &&(
+                            <>
+                             <button className="closinsert" onClick={sendpay}>금액 입력</button>
+                            </>
+                        )}
 
-
-                       { statech == 3 && setStatech && (
+                       { statech == 2 && (
                      <>
-                     <button className="closinsert" onClick={sendpay}>금액 입력</button>
-                     <input type="text" placeholder="금액입력"/>
-                     <button type="button">입금</button>
+                     <input type="text" className="payinsert" placeholder="금액입력"/>
+                     <button type="button" onClick={sendmoney}>입금</button>
                       </>
                         )
                       }

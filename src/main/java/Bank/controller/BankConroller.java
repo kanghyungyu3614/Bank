@@ -70,7 +70,20 @@ public class BankConroller {
     public boolean mastercheck(@RequestParam String ainput , @RequestParam String bank){
      System.out.println(ainput+"11");
      System.out.println(bank);
-     boolean result =  bankService.memberaccount(ainput,bank );
+     boolean result = bankService.memberaccount(ainput,bank );
      return result;
  }
+    /*개인송금금액*/
+  @GetMapping("/accountinsert")
+    public boolean paysend(@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account){
+      System.out.println(payinsert);
+      System.out.println(account);
+      boolean result = bankService.paysend(payinsert , account);
+      return result;
+  }
+
+
+
+
+
 }

@@ -48,14 +48,31 @@ public class BankService {
     @Transactional
     public boolean memberaccount(String ainput , String bank ){
         System.out.println(ainput);
-      /*  DpositEntity dpositEntity = dpositRepository.findAcno(ainput);
-        if(dpositEntity.getAcno() != null){
-                return  true;
-        }else{
-            return  false;
-        }*/
-        return false;
+        DpositEntity dpositEntity =  dpositRepository.findbyAcno(ainput);
+        System.out.println(dpositEntity);
+     if(dpositEntity.getAcno()!=null){
+         return true;
+     }else{
+         return  false;
+         }
     }
+    /*-------------------------계좌 송금--------------------------------------*/
+
+    @Transactional
+    public  boolean paysend(String payinsert , String account){
+        System.out.println(payinsert);
+        System.out.println(account);
+       /* DpositEntity dpositEntity = dpositRepository.save();
+        if(dpositEntity.getAcno()!=null){
+            return true;
+        }else {
+            return false;
+            }*/
+        return  true;
+        }
+
+    /*-----------------------------*/
+
 
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
