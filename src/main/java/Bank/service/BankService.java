@@ -191,11 +191,13 @@ public class BankService {
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
 
-
+        // 페이징처리 정보를 받아온다.
         Pageable pageable = PageRequest.of(pageDto.getPage() - 1, 5 );
 
-        List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch();
         // 키와 값을 따로 리스트로 묶는다.
+        List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch();
+
+        // 담아줄 List를 만든다.
         List<BhistoryEntity> historyDtoEntity = new ArrayList<BhistoryEntity>();
         List<BhistoryDto> historyDtoList = new ArrayList<BhistoryDto>();
 
@@ -208,16 +210,18 @@ public class BankService {
                 System.out.println( "key 값은 무엇일까요? : " + key ); // 필드명
                 System.out.println( "value 값은 무엇일까요? : " + r.get(key) ); // 필드명의 값
             });
-            historyDtoList.add(new BhistoryDto(  Integer.parseInt((String)r.get("bhno"))  , (String)r.get("bcontent")  ,  Integer.parseInt((String)r.get("bmoney"))  ,  Integer.parseInt((String)r.get("btypes"))  ,  (String) r.get("mname")  ,  (String)r.get("mname2")));
+            historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2"))));
+            // 궁금한거 1.룸북 적용? 안됨 ㅠ
+            // 몰랐던거 Integer.parseInt(String.valueOf(r.get("bhno"))) 이건 되고
+            // Integer.parseInt((String)(r.get("bhno")) 이건 안된다.
             System.out.println("historyDtoList 시작 ");
             System.out.println(historyDtoList);
             System.out.println("historyDtoList 끝");
         });
+        pageDto.setBhistorylist(historyDtoList);  // 결과 리스트 담기
+        pageDto.setTotalBoards((long)historyDtoList.size());
 
-
-
-
-        return null;
+        return pageDto;
     }
 }
 

@@ -21,11 +21,11 @@ public class BhistoryDto {
 
     public BhistoryDto(int bhno, String bcontent, int bmoney, int btypes, String mname, String mname2) {
         this.bhno = bhno;
-        this.btypes = btypes;
-        this.bmoney = bmoney;
         this.bcontent = bcontent;
-        this.mname  = mname;
-        this.mname2  = mname2;
+        this.bmoney = bmoney;
+        this.btypes = btypes;
+        this.mname = mname;
+        this.mname2 = mname2;
     }
 
     public BhistoryEntity toEntity(){
