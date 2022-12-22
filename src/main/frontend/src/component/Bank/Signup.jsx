@@ -161,7 +161,7 @@ export default function Signup(props) {
     const msnoform = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))[1-4][0-9]{6}$/ // 정규표현식 주민번호[ 2022-12-16 김원종 ]
     const mnameform = /^[가-힣a-zA-Z]{2,20}$/;// 정규표현식 이름[ 2022-12-16 김원종 ]
 
-
+    console.log(confirm)
     const midcheck = (e) => { /*아이디 검사 [ 2022-12-16 ] 김원종 */
 
         setForm({...form, mid: e.target.value})

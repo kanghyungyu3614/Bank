@@ -1,18 +1,35 @@
 import react from 'react';
+import logo from "../img/logo 2.jpg";
+
+export default function Header(props) {
 
 
-export default function Footer ( props) {
+    return (
+        <div class="hbox" style={{backgroundColor:"#193f52"}}>
+
+            <div>
+                <img src={logo} style={{width: "9%",margin:"0.5% 0% 0% 46%"}}/>
+                <h3 style={{
+                    textAlign: "center",
+                    fontSize:"123%",
+                    color:"#3598db",
+                    paddingBottom:"13px"
+                }}>Welcome_$ecurity_Bank</h3>
+            </div>
+
+        </div>
+
+    )
+}
 
 
-   return (
-
-     <div class ="hbox">
-
-         <div> 로고 이미지 </div>  <div> 개인  기업 자산관리 금융 상품 카드  전체메뉴</div>
-
-     </div>
-
-
-
-
-)}
+{/*     <div>
+                <ul>
+                    <li><a>개인</a></li>
+                    <li><a>기업</a></li>
+                    <li><a>자산관리</a></li>
+                    <li><a>금융 상품</a></li>
+                    <li><a>카드 전체메뉴</a></li>
+                </ul>
+            </div>
+*/}

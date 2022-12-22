@@ -1,0 +1,9 @@
+ul{
+    display: flex;
+    background-color: #193f52;
+    width: 100%;
+    margin-left: 0px;
+}
+a{
+    color: lightskyblue;
+}
