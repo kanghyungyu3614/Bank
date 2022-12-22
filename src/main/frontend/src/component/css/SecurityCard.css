@@ -5,7 +5,6 @@
     margin-top: 10px;
     border: 1px solid black;
     box-shadow: 0 1px 1px rgb(0 0 0 / 30);
-    height: 400px;
     margin: 0 auto;
     width: 100%;
 }
@@ -20,7 +19,7 @@
 /*mainSecutiryContent 시작 강현규 2022-12-16 수정*/
 .mainSecutiryContent{
     color: #0080ff;
-    font-size: 15px;
+    font-size: 30px;
     margin-bottom: 5px;
     margin-left: 14px;
     margin-top: 5px;
@@ -28,9 +27,9 @@
 /*mainSecutiryContent 끝*/
 /*mainSecutiryNumber 시작 강현규 2022-12-16 수정*/
 .mainSecutiryNumber{
-    font-size: 16px;
+    font-size: 30px;
     margin-bottom: 1px;
-    margin-left: 8px;
+    margin-left: 490px;
     margin-top: 2px;
     vertical-align: top;
 }
@@ -40,11 +39,11 @@
     border: 1px solid #000;
     border-collapse: collapse;
     box-shadow: 0 1px 1px #000;
-    font-size: 14px;
+    font-size: 40px;
     font-weight: 700;
-    height: 250px;
-    width: 95%;
+    height: 500px;
     margin: 3px auto;
+    width: 99%;
 }
 /* subtable 테이블 끝 */
 /* tr 시작*/
@@ -86,7 +85,8 @@ th{
 /*warningSubContent 시작*/
 .warningSubContent{
     color: red;
-    font-size: 11px;
+    font-size: 40px;
+    font-weight: 700;
 }
 /*warningSubContent 끝*/
 
