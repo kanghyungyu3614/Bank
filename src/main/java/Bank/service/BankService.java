@@ -190,12 +190,19 @@ public class BankService {
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
-
+        System.out.println("pageDto");
+        System.out.println(pageDto);
+        System.out.println("pageDto");
         // 페이징처리 정보를 받아온다.
         Pageable pageable = PageRequest.of(pageDto.getPage() - 1, 5 );
 
+        // 페이지 번호 에 따른 db에서 정보필터를 해줄 변수를 설정해준다.
+        int StartBtnNumber = pageDto.getStartbtn()*5-4;
+        int FinalBtnNumber = pageDto.getStartbtn()*5-1;
+        String getkey = pageDto.getKey();
+        String getkeyword = pageDto.getKeyword();
         // 키와 값을 따로 리스트로 묶는다.
-        List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch();
+        List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch(getkey, getkeyword);
 
         // 담아줄 List를 만든다.
         List<BhistoryEntity> historyDtoEntity = new ArrayList<BhistoryEntity>();
@@ -212,15 +219,18 @@ public class BankService {
             });
             historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2"))));
             // 궁금한거 1.룸북 적용? 안됨 ㅠ
-            // 몰랐던거 Integer.parseInt(String.valueOf(r.get("bhno"))) 이건 되고
+            // 2.몰랐던거 Integer.parseInt(String.valueOf(r.get("bhno"))) 이건 되고
             // Integer.parseInt((String)(r.get("bhno")) 이건 안된다.
+            // 3. 197번줄의 List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch();
+            // 를 Map<String,String> 으로 하면 안되나요??
             System.out.println("historyDtoList 시작 ");
             System.out.println(historyDtoList);
             System.out.println("historyDtoList 끝");
         });
         pageDto.setBhistorylist(historyDtoList);  // 결과 리스트 담기
         pageDto.setTotalBoards((long)historyDtoList.size());
-
+        pageDto.setStartbtn(pageDto.getPage()*5-5);
+        pageDto.setEndbtn(pageDto.getPage()*5-1);
         return pageDto;
     }
 }
