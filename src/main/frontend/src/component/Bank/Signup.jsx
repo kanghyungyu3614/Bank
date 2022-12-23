@@ -251,16 +251,14 @@ export default function Signup(props) {
 
     return (
         <div>
-            <h3 className="top_title "> Welcome_<br/>
-                Team_Bank</h3>
             <form className="bankform">
-                <label className="text-bg-center">👉아이디[ 영대소문자,특수문자,숫자 포함 6~15자리로 작성해주세요😀]</label>
+                <label className="text-bg-center" style={{color:"white"}}>👉아이디[ 영대소문자,특수문자,숫자 포함 6~15자리로 작성해주세요😀]</label>
                 <input type="text" name="mid" maxLength="15" value={form.mid} className="form-control"
                        onChange={(e) => midcheck(e)}/>
                 <div>
                     <span className="idbox"></span>
                 </div>
-                <label className="text-bg-center">👉비밀번호 [최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상으로
+                <label className="text-bg-center" style={{color:"white"}}>👉비밀번호 [최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상으로
                     작성해주세요😁]</label>
                 <input type="password"
                        maxLength="15" className="form-control" value={form.mpw} name="mpw"
@@ -269,7 +267,7 @@ export default function Signup(props) {
                     <span className="pwbox"></span>
                 </div>
 
-                <label className="text-bg-center">👉비밀번호확인</label>
+                <label className="text-bg-center" style={{color:"white"}}>👉비밀번호확인</label>
                 <input type="password"
                        className="form-control" value={form.mpwconfirm} name="mpwconfirm"
                        onChange={(e) => pwfirmcheck(e)}/>
@@ -277,27 +275,27 @@ export default function Signup(props) {
                     <span className="pwchbox"></span>
                 </div>
 
-                <label className="text-bg-center">👉전화번호</label>
+                <label className="text-bg-center" style={{color:"white"}}>👉전화번호</label>
                 <input type="text" value={form.mphone}
                        className="form-control " name="mphone" maxLength="13" onChange={(e) => phonecheck(e)}/>
                 <div>
                     <span className="phckbox"></span>
                 </div>
 
-                <label className="text-bg-center">👉주민번호[ - 을 제외하고 적어주세요 ]</label>
+                <label className="text-bg-center" style={{color:"white"}}>👉주민번호[ - 을 제외하고 적어주세요 ]</label>
                 <input type="password" value={form.msno}
                        className="form-control " name="msno" maxLength="13" onChange={(e) => msnocheck(e)}/>
                 <div>
                     <span className="msnockbox"></span>
                 </div>
-                <label className="text-bg-center">👉이름</label>
+                <label className="text-bg-center" style={{color:"white"}}>👉이름</label>
                 <input type="text" value={form.mname}
                        className="form-control " name="mname" onChange={(e) => mnamecheck(e)}/>
                 <div>
                     <span className="mnameckbox"></span>
                 </div>
                 {/*주소 ifram 방식으로 변경 2022-12-21 김원종 */}
-                <label className="text-bg-center">👉주소</label><br/>{/*2022-12-19 김원종 주소 api 구현중*/}
+                <label className="text-bg-center" style={{color:"white"}}>👉주소</label><br/>{/*2022-12-19 김원종 주소 api 구현중*/}
                 <input type="text" className="form-control" id="sample2_postcode" placeholder="우편번호"/>
                 <input type="button" className="form-control" onClick={sample2_execDaumPostcode} value="우편번호 찾기"/><br/>
                 <input type="text" className="form-control" id="sample2_address" placeholder="주소"/><br/>
@@ -321,7 +319,6 @@ export default function Signup(props) {
         </div>
     );
 }
-
 
 
 

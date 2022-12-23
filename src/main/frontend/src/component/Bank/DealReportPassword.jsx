@@ -38,7 +38,7 @@ export default function DealReportPassword(){
     <div className="DealpasswordComponent">
         <Form>
           <Form.Group id="passwordContent" className="mb-3" controlId="formGroupPassword">
-            <Form.Control type="password" placeholder="계좌 비밀번호 4자리를 입력해주세요." type="password" maxLength="4" className="DealpasswordInput" ref={password} />
+            <Form.Control typeof="password" placeholder="계좌 비밀번호 4자리를 입력해주세요." type="password" maxLength="4" className="DealpasswordInput" ref={password} />
           </Form.Group>
         </Form>
 

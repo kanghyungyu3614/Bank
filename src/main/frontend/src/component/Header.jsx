@@ -3,12 +3,11 @@ import logo from "../img/logo 2.jpg";
 
 export default function Header(props) {
 
-
     return (
         <div class="hbox" style={{backgroundColor:"#193f52"}}>
 
-            <div>
-                <img src={logo} style={{width: "9%",margin:"0% 0% 0% 46%"}}/>
+            <div style={{backgroundColor:"#193f52"}}>
+                <img src={logo} style={{width: "9%",margin:"0% 0% 0% 44%"}}/>
                 <h3 style={{
                     textAlign: "center",
                     fontSize:"123%",

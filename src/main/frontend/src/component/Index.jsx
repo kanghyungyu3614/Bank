@@ -7,6 +7,7 @@ import {HashRouter, BrowserRouter, Routes, Route, Link, Router} from "react-rout
 
 import Header from './Header'
 import Footer from './Footer'
+import Main from "./Main";
 import styles from "./css/Index.css";
 //import Signup from "./Bank/Signup.jsx";
 import Bank from './Bank/Account' // 계좌 임포트
@@ -31,18 +32,21 @@ import style from "./css/Index.css"
 /* 2022-12-06 강현규 보안카드 프론트작성 */
 export default function Index(props) {
     return (
-            <div className="webbox">
-                <BrowserRouter>
-                    <Header/>
-                    <ul className="main_sidebar" style={{display:"flex"}}>
+        <div className="webbox">
+            <BrowserRouter>
+                <Header/>
+                <div style={{backgroundColor: "#193f52"}}>
+                    <ul className="main_sidebar" style={{display: "flex"}}>
                         <li className="urlList"><a href="/">홈</a></li>
                         <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
                         <li className="urlList"><a href="/Bank/Signup">회원가입 </a></li>
                         <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
                         <li className="urlList"><a href="/Bboard/Board">공지사항</a></li>
                         <li className="urlList"><a href="/admin/dealReport/password">거래내역</a></li>
-
                     </ul>
+                </div>
+                <Main/>
+                <div style={{border:"1px red solid"}}>
                     <Routes>
                         <Route path="/Bank/Account" element={<Bank/>}/>
                         <Route path="/member/securityCard/password" element={<SecurityCardPassword/>}/>
@@ -55,8 +59,9 @@ export default function Index(props) {
                         <Route path="/admin/dealReport/password" element={<DealReportPassword/>}/>
                         <Route path="/admin/dealReport" element={<DealReport/>}/>
                     </Routes>
-                    <Footer/>
-                </BrowserRouter>
-            </div>
+                </div>
+                <Footer/>
+            </BrowserRouter>
+        </div>
     );
 }

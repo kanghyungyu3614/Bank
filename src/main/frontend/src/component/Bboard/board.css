@@ -8,15 +8,11 @@
 
 .webbox{
   margin: 0 auto;  /*중앙정렬*/
-  border: 1px solid red;
   width: 70%;
-  height: 1200px;
+  height: 1400px;
+    background-color: #193f52;
   }
 
-.hbox{
-   border: 1px solid blue;
-   height: 9%;
-}
 
 
 button{  border:1px;
@@ -48,5 +44,4 @@ button{  border:1px;
     border: 1px solid blue;
     bottom: 0;
     height: 15%;
-    margin-top: 20px;
  }
