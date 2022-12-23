@@ -29,7 +29,7 @@
 .mainSecutiryNumber{
     font-size: 30px;
     margin-bottom: 1px;
-    margin-left: 490px;
+    margin-left: 150px;
     margin-top: 2px;
     vertical-align: top;
 }
@@ -63,11 +63,11 @@ th{
 /*securityMainNumber 시끝/
 /*securitysubNumber 강현규 2022-12-16 시작*/
 .securitysubNumber{
-    background-color:#0080FF;
+    background-color: #3579d4;
     border-bottom: 1px solid #62aef9;
-    color:white;
-    width: 30px;
+    color: #fff;
     text-align: center;
+    width: 30px;
 }
 /*securitysubNumber 끝*/
 /*warningContent 시작 강현규 2022-12-16 수정 */
@@ -78,8 +78,9 @@ th{
 /*warningMainContent 시작*/
 .warningMainContent{
     color: red;
-    font-weight: bold;
-    font-size: 13px;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: 15%;
 }
 /*warningMainContent 끝*/
 /*warningSubContent 시작*/
