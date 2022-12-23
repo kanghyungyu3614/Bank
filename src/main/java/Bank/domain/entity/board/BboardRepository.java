@@ -15,6 +15,6 @@ public interface BboardRepository extends JpaRepository< BboardEntity , Integer>
 
     @Modifying
     @Query(value = "update bboard b set b.bview = b.bview + 1 where b.bno =:bno; " , nativeQuery = true)
-    int viewcount( int bno);
+    void viewcount( int bno);
 
 }

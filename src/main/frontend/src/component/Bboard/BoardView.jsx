@@ -22,6 +22,12 @@ export default function BoardView( props ) {
    // 해당 게시물 번호의 업데이트 페이지로 이동
       const getUpdate = () => { window.location.href='/Bboard/BoardUpdate/'+ params.bno; }
 
+ /*   const  viewupdate = () => {
+         axios .get( "/count" , { params : { bno : params.bno  } }
+               .then( res => {  console.log( res.data ); } )
+                .catch( err => { console.log( err ); } ))
+
+    }*/
    //삭제
     const onDelete = () => {
             axios.   delete( "/delboard" , { params : { bno: params.bno}}).then( res => { alert('삭제 성공'); window.location.href='/Bboard/Board'; })

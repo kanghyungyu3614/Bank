@@ -31,7 +31,7 @@ export default function Board( ) {
     /*--------------------------------------- --------------------------*/
         const loadView = ( bno) => {
 
-              axios .get( "/count/{bno}" , { params : { bno : bno} } )
+              axios .get( "/count" , { params : { bno : bno } } )
                     .then( res => {  console.log( res.data ); } )
                     .catch( err => { console.log( err ); } )
 

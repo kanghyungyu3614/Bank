@@ -55,10 +55,10 @@ public class BoardController {
     }
 
 
-    @GetMapping("/count/{bno}")
-    public boolean viewcount (@RequestParam int bno) {
-        return boardService.viewcount(bno);
-    }
+    @GetMapping("/count")
+    public void viewcount (@RequestParam int bno) {
+
+        boardService.viewcount(bno);  }
 
 
 

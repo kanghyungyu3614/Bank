@@ -128,6 +128,7 @@ public class BoardService {
         if (optional.isPresent()) {
             BboardEntity bboardentity = optional.get();  // 꺼내는게 get
             System.out.println("개인별 호출 " + bboardentity.getBno());
+            //bboardRepository.viewcount(bboardentity.toDto().getBno());
             return bboardentity.toDto();
 
         } else {
@@ -196,30 +197,13 @@ public class BoardService {
 
     // 조회수 기능
     @Transactional
-    public boolean viewcount (int bno) {
+    public void viewcount (int bno ) {
+          System.out.println( "bno" );
+          System.out.println( bno );
+          System.out.println( "bno" );
 
-        bno = Integer.parseInt( request.getParameter("bno") ) ;
-
-        HttpSession session = request.getSession();
-
-        // 클릭한 게시물 번호를 세션에 저장
-        session.setAttribute("bno", bno);
-
-        // 해당 유저가 24시간내 한번도 클릭한 적이 없으면 [ 세션이 없으면 ]
-        if( session.getAttribute(String.valueOf(bno)) == null ) {
-            // 3. DAO 조회수 증가
-             bboardRepository.viewcount( bno ); // 실제 데이터 값 증가.
-            // 3. 현재 유저가 조회수 한 기록 남기기 [ 해당 유저가 조회수 올린적있다/없다 ]
-            request.getSession().setAttribute(String.valueOf(bno)) , true; );
-            request.getSession().setMaxInactiveInterval(60*60*24); // 하루
-
-            return true;
-        }
-        return false;
-
+         bboardRepository.viewcount( bno ); // 실제 데이터 값 증가
     }
-
-
 
 
 
