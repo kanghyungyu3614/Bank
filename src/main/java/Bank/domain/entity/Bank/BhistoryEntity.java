@@ -28,6 +28,8 @@ public class BhistoryEntity extends BaseEntity {
     @Column(nullable = false)
     String bcontent;   //거래내용
 
+
+
     @ManyToOne
     @JoinColumn(name = "acno")
     @ToString.Exclude
