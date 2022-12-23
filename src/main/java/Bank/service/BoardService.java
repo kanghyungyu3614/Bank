@@ -210,7 +210,7 @@ public class BoardService {
             // 3. DAO 조회수 증가
              bboardRepository.viewcount( bno ); // 실제 데이터 값 증가.
             // 3. 현재 유저가 조회수 한 기록 남기기 [ 해당 유저가 조회수 올린적있다/없다 ]
-            request.getSession().setAttribute(String.valueOf(bno)) , true; );
+            request.getSession().setAttribute(String.valueOf(bno) , true );
             request.getSession().setMaxInactiveInterval(60*60*24); // 하루
 
             return true;
