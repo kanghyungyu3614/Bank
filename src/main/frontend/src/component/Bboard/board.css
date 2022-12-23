@@ -13,10 +13,9 @@
   height: 1200px;
   }
 
-.hbox{
-   border: 1px solid blue;
-   height: 9%;
-}
+
+
+
 
 
 button{  border:1px;
@@ -31,8 +30,43 @@ button{  border:1px;
 .mbox{
   border: 1px solid green;
   height: 65%;
-  margin: 30px; }
+  margin: 10%; }
 
+
+.notice{
+  margin-bottom : 3%;
+}
+
+.nbox{
+ border-top: 1px solid blue;
+ border-bottom: 1px solid gray;
+}
+
+
+
+.hbox{
+    border: 1px solid blue;
+   height: 9%;
+}
+
+
+.tbox{
+   margin-bottom: 3%;
+   border-top: solid 1px;
+   margin-top: 3%; }
+
+
+.bconbox{ height: 70%; }
+
+
+.bbtn{
+   width: 50px;
+   height: 30px;
+   margin-left:45%;
+   color: white;
+   background-color: #2b70cc;}
+
+.btnt{ color: white;}
 
 .blist{
   margin: 0 auto;

@@ -202,7 +202,9 @@ public class BoardService {
           System.out.println( bno );
           System.out.println( "bno" );
 
-         bboardRepository.viewcount( bno ); // 실제 데이터 값 증가
+          BboardEntity entity =  bboardRepository.findById(bno).get();
+          entity.setBview( entity.getBview()+1 );
+
     }
 
 

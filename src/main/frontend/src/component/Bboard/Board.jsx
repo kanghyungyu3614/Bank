@@ -30,7 +30,7 @@ export default function Board( ) {
         const onPage = ( page ) => {   setPageInfo ( { page : page} )}
     /*--------------------------------------- --------------------------*/
         const loadView = ( bno) => {
-
+            alert(" click " + bno );
               axios .get( "/count" , { params : { bno : bno } } )
                     .then( res => {  console.log( res.data ); } )
                     .catch( err => { console.log( err ); } )
@@ -42,9 +42,9 @@ export default function Board( ) {
 
         return(
                     <div className = "mbox">
-                                <h3 > 공지사항</h3>
+                               <div className ="notice"> <h4> 공지사항</h4> </div>
                                     <table className = "table table-hover" >
-                                         <tr><th> 번호 </th> <th>제목</th> <th>작성 날짜</th> <th>조회수</th> </tr>
+                                         <tr className="nbox"><th> 번호 </th> <th>제목</th> <th>작성 날짜</th> <th>조회수</th> </tr>
                                    {
                                          pageDto.map( (b) => {
                                                       return(
@@ -64,7 +64,7 @@ export default function Board( ) {
 
                                 <Pagination
                                              activePage={ pageInfo.page  }
-                                             itemsCountPerPage = { 3 }
+                                             itemsCountPerPage = { 4 }
                                              totalItemsCount = { pageDto[0].totalBoards }
                                               pageRangeDisplayed = { 5 }
                                              onChange= { onPage }

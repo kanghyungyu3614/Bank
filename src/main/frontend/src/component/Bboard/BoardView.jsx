@@ -2,6 +2,7 @@ import React , { useState , useEffect } from 'react';
 import { useParams , Link  } from "react-router-dom";
 import axios from "axios";
 
+import styles from './board.css'
 
 export default function BoardView( props ) {
 
@@ -22,34 +23,37 @@ export default function BoardView( props ) {
    // 해당 게시물 번호의 업데이트 페이지로 이동
       const getUpdate = () => { window.location.href='/Bboard/BoardUpdate/'+ params.bno; }
 
- /*   const  viewupdate = () => {
-         axios .get( "/count" , { params : { bno : params.bno  } }
-               .then( res => {  console.log( res.data ); } )
-                .catch( err => { console.log( err ); } ))
 
-    }*/
    //삭제
     const onDelete = () => {
             axios.   delete( "/delboard" , { params : { bno: params.bno}}).then( res => { alert('삭제 성공'); window.location.href='/Bboard/Board'; })
            }
 
    return(
-      <div>
-      <h3> 자세히 보기 </h3>
 
-       <div  className = "mbox">
-           <div> { board.btitle } </div>
-           <div> { board.bcontent} </div>
+      <div  className = "mbox">
+           <h4 ClassName ="notice" > 공지 사항 </h4>
+
+        <div className ="tbox">
+            <div> { board.btitle } </div>
+            <div> { board.bdate } </div>
+        </div>
+
+            <div className="bconbox" dangerouslySetInnerHTML={{__html:board.bcontent }} ></div>
 
             { board.bfilename != '' && <a href={"/board/filedownload?filename=" + board.bfilename} > { board.bfilename } </a> }
 
-             <button type="button"> <Link to="/Bboard/Board">목록</Link> </button>
+             <div>
+             <button type="button" className="bbtn"> <Link to="/Bboard/Board"  className="btnt">목록</Link> </button>
+            </div>
 
-            <button type="button" onClick= { onDelete }> 삭제 </button>
-             <button type="button" onClick={ getUpdate}> 수정 </button>
+            <div>
+             <button type="button" className="dbtn" onClick= { onDelete }> 삭제 </button>
+             <button type="button" className="ubtn" onClick={ getUpdate}> 수정 </button>
+            </div>
 
          </div>
-         </div>
+
 
          /* login == board.mid("admin") &&*/
 

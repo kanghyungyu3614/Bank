@@ -56,7 +56,7 @@ public class BoardController {
 
 
     @GetMapping("/count")
-    public void viewcount (@RequestParam int bno) {
+    public void viewcount (@RequestParam("bno") int bno) {
 
         boardService.viewcount(bno);  }
 
