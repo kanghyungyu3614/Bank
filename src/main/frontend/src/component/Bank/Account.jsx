@@ -19,6 +19,7 @@ export default function Account(props) {
     const sendpay = () => { // 1. 송금버튼 2->3
         setStatech(2);
         setCcLick(0);
+
     }
 
     const send1 = () => { // 3. 계좌입력버튼    1-2
