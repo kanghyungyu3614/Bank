@@ -35,7 +35,7 @@ export default function Index(props) {
                 <BrowserRouter>
                     <Header/>
                     <ul className="main_sidebar" style={{display:"flex"}}>
-                        <li className="urlList"><a href="/">홈URL</a></li>
+                        <li className="urlList"><a href="/">홈</a></li>
                         <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
                         <li className="urlList"><a href="/Bank/Signup">회원가입 </a></li>
                         <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
