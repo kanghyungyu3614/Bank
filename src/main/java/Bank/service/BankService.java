@@ -5,6 +5,7 @@ import Bank.domain.dto.BsecurityDto;
 import Bank.domain.dto.DpositDto;
 import Bank.domain.dto.PageDto;
 import Bank.domain.entity.Bank.*;
+import Bank.domain.entity.member.BmemberEntity;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,11 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 // 강현규 2022-12-07 보안카드 난수 만들기 코드생성
 // 강현규 2022-12-09 보안카드 난수 만들기 수정
@@ -46,16 +46,34 @@ public class BankService {
     // ------------------------------- 전역 객체 -------------------------------//
 
     @Transactional
-    public boolean memberaccount(String ainput , String bank ){
+    public boolean memberaccount(String ainput, String bank) {
         System.out.println(ainput);
-      /*  DpositEntity dpositEntity = dpositRepository.findAcno(ainput);
-        if(dpositEntity.getAcno() != null){
-                return  true;
-        }else{
-            return  false;
-        }*/
-        return false;
+        DpositEntity dpositEntity =  dpositRepository.findbyAcno(ainput);
+        System.out.println(dpositEntity);
+     if(dpositEntity.getAcno()!=null){
+         return true;
+     }else{
+         return  false;
+         }
     }
+    /*-------------------------계좌 송금--------------------------------------*/
+
+    @Transactional
+    public  boolean paysend(BhistoryDto bhistoryDto/*String payinsert , String account*/){
+        /*System.out.println(payinsert);
+        System.out.println(account);*/
+        System.out.println(bhistoryDto);
+      /*  BhistoryEntity bhistoryEntity = bhistoryRepository.save(payinsert , account);
+        if(dpositEntity.getAcno()!=null){
+            return true;
+        }else {
+            return false;
+            }*/
+        return  true;
+        }
+
+    /*-----------------------------*/
+
 
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
@@ -65,36 +83,36 @@ public class BankService {
 
         // 1번 : 보안카드 위에 번호 10개 만들기위해 길이를 정해줍니다. //
         int mainlength = 10;
-        System.out.println("length : "+mainlength);
+        System.out.println("length : " + mainlength);
         // StringBuffer는 문자열을 추가하거나 변경 할 때 주로 사용하는 자료형입니다.
         // 주의 : string이랑 다른 자료형입니다.
         // mainsecurityCard 라는 StringBuffer타입의 변수를 만들겠습니다. 이게 위의 보안카드 번호 10자리 입니다.
         StringBuffer mainsecurityCard = new StringBuffer();
-        System.out.println("처음에 빈문자생성 : "+mainsecurityCard);
+        System.out.println("처음에 빈문자생성 : " + mainsecurityCard);
         // 이제 난수를 만들겁니다.
         for (int i = 0; i < mainlength; i++) {
             //문자형 숫자(0부터9까지)는 아스키코드의 48 ~ 58까지 범위입니다.
-            mainsecurityCard.append((char)((int)random.nextInt(10)+48));
+            mainsecurityCard.append((char) ((int) random.nextInt(10) + 48));
         }
         // StringBuffer 랑 String은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
         // String 타입으로 바꿔서 10자리 숫자를 콘솔창에 출력하면?
-        System.out.println("mainsecurityCardString는? : "+mainsecurityCardString);
+        System.out.println("mainsecurityCardString는? : " + mainsecurityCardString);
         mainsecurityCardString = mainsecurityCard.toString();
-        System.out.println("mainsecurityCardString는? : "+mainsecurityCardString);
+        System.out.println("mainsecurityCardString는? : " + mainsecurityCardString);
         // 이렇게 나옵니다.
 
 
         // 2번 : 보안카드 밑에 번호 140개 만들기 //
         // 보안카드 번호 140개의 길이를 지정해줍니다.
         int sublength = 140;
-        System.out.println("length : "+sublength);
+        System.out.println("length : " + sublength);
         // StringBuffer는 문자열을 추가하거나 변경 할 때 주로 사용하는 자료형입니다.
         StringBuffer subsecurityCard = new StringBuffer();
-        System.out.println("처음에 빈문자생성 : "+subsecurityCard);
+        System.out.println("처음에 빈문자생성 : " + subsecurityCard);
         // 마찬가지로 140개의 난수를 만들 for문을 만들어줍니다.
         for (int i = 0; i < sublength; i++) {
             //문자형 숫자(0부터9까지)는 48 ~ 58까지 범위다.
-            subsecurityCard.append((char)((int)random.nextInt(10)+48));
+            subsecurityCard.append((char) ((int) random.nextInt(10) + 48));
         }
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
@@ -132,7 +150,7 @@ public class BankService {
         System.out.println(ano);
         // 계좌순서 번호 1,2,3,4,5....가 가져와졌다.
         if (ano != null) {
-            List<DpositEntity> dpolist = dpositRepository.findAcno( Integer.parseInt(ano)); // ano로 계좌번호를 가져와야 한다.
+            List<DpositEntity> dpolist = dpositRepository.findAcno(Integer.parseInt(ano)); // ano로 계좌번호를 가져와야 한다.
             System.out.println("dpolist.get(0).getAcno()");
             System.out.println(dpolist.get(0).getAcno());
             System.out.println("dpolist.get(0).getAcno()");
@@ -161,7 +179,7 @@ public class BankService {
         }
     }
 
-    public String ReportPassword (DpositDto dpositDto) {
+    public String ReportPassword(DpositDto dpositDto) {
 
         // dpositDto를 받아와서
         // 1. 엔티티 전부 가져오기
@@ -182,115 +200,79 @@ public class BankService {
         return "2"; //비밀번호가 없습니다.
     }
 
+
+
+
+
+    // 2022-12-20 강현규 mname, mname2 유효성검사중
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
-        Pageable pageable = PageRequest.of(  pageDto.getPage()-1 , 5 , Sort.by( Sort.Direction.ASC , "bhno")  );
+        System.out.println("pageDto");
+        System.out.println(pageDto);
+        System.out.println("pageDto");
+        // 페이징처리 정보를 받아온다.
+        Pageable pageable = PageRequest.of(pageDto.getPage() - 1, 5 );
 
-        Page<BhistoryEntity> elist = bhistoryRepository.findBySearch(pageDto.getKey() , pageDto.getKeyword() , pageable);
-        List<BhistoryDto> dlist = new ArrayList<>(); // 2. 컨트롤에게 전달할때 형변환[ entity->dto ] : 역할이 달라서
-        System.out.println(pageDto.getKey());
-        System.out.println(pageDto.getKeyword());
-        for( BhistoryEntity entity : elist ){ // 3. 변환
-            int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
-            int mnamenumber2  =  entity.getDpositEntity2().getBmemberEntity().getMno();
-            System.out.println("mnamenumber");
-            System.out.println(mnamenumber);
-            String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
-            System.out.println(mname);
-            System.out.println("mnamenumber");
-            System.out.println("mnamenumber2");
-            System.out.println(mnamenumber2);
-            String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
-            System.out.println(mname2);
-            System.out.println("mnamenumber2");
-            entity.toDto(mname,mname2);
-            dlist.add( entity.toDto(mname,mname2) );
-        }
+        // 페이지 번호 에 따른 db에서 정보필터를 해줄 변수를 설정해준다.
+        int StartBtnNumber = pageDto.getStartbtn()*5-4;
+        int FinalBtnNumber = pageDto.getStartbtn()*5-1;
+        String getkey = pageDto.getKey();
+        String getkeyword = pageDto.getKeyword();
+        // 키와 값을 따로 리스트로 묶는다.
+        List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch(getkey, getkeyword);
 
+        // 담아줄 List를 만든다.
+        List<BhistoryEntity> historyDtoEntity = new ArrayList<BhistoryEntity>();
+        List<BhistoryDto> historyDtoList = new ArrayList<BhistoryDto>();
 
-        for( BhistoryEntity entity : elist ){ // 3. 변환
-            int mnamenumber  =  entity.getDpositEntity().getBmemberEntity().getMno();
-            int mnamenumber2  =  entity.getDpositEntity2().getBmemberEntity().getMno();
-            System.out.println("mnamenumber");
-            System.out.println(mnamenumber);
-            String mname = bmemberRepository.findMname(mnamenumber).get(0).getMname();
-            System.out.println(mname);
-            System.out.println("mnamenumber");
-            System.out.println("mnamenumber2");
-            System.out.println(mnamenumber2);
-            String mname2 = bmemberRepository.findMname(mnamenumber2).get(0).getMname();
-            System.out.println(mname2);
-            System.out.println("mnamenumber2");
-            System.out.println(pageDto.getKey());
-            System.out.println(pageDto.getKeyword());
-
-
-//            Pattern format = Pattern.compile("[가-힣]");
-//            Matcher matcher1 = format.matcher(mname);
-//            Matcher matcher2 = format.matcher(mname2);
-            //matcher1.group(pageDto.getKeyword()).length()>0
-            //matcher2.group(pageDto.getKeyword()).length()>0
-/*            System.out.println("mname.contains(pageDto.getKeyword())");
-            System.out.println(mname.contains(pageDto.getKeyword()));
-            System.out.println("mname.contains(pageDto.getKeyword())");
-            System.out.println("mname2.contains(pageDto.getKeyword())");
-            System.out.println(mname2.contains(pageDto.getKeyword()));
-            System.out.println("mname2.contains(pageDto.getKeyword())");
-            if(pageDto.getKey().equals("acno") &&  mname.contains(pageDto.getKeyword())){ //  acno
-                dlist.add( entity.toDto(mname,mname2) );
-            }else if(pageDto.getKey().equals("acno2") && mname2.contains(pageDto.getKeyword())){ // acno2
-                dlist.add( entity.toDto(mname,mname2) );
-            }else{
-                dlist.add( entity.toDto(mname,mname2) );
-            }*/
-            dlist.add( entity.toDto(mname,mname2) );
-        }
-
-
-
-        System.out.println("dlist 를 보여드리겠습니다.");
-        if(pageDto.getKey().equals("acno")){
-            System.out.println("pageDto.getKey().equals(acno) 를 보여드리겠습니다.");
-            int index = 0;
-            for( BhistoryDto entity : dlist ) { // 3. 변환
-                System.out.println("entity시작 ");
-                System.out.println(entity);
-                System.out.println("entity끝 ");
-
-                if (entity.getMname().contains(pageDto.getKeyword())) {
-                    continue;
-                } else {
-                    dlist.remove(index);
-                }
-                index++;
-            }
-        }
-        else if(pageDto.getKey().equals("acno2")){
-            System.out.println("pageDto.getKey().equals(acno2) 를 보여드리겠습니다.");
-            int index = 0;
-            for( BhistoryDto entity : dlist ) { // 3. 변환
-                System.out.println("entity시작 ");
-                System.out.println(entity);
-                System.out.println("entity끝 ");
-
-                if (entity.getMname().contains(pageDto.getKeyword())) {
-                    continue;
-                } else if (pageDto.getKey().equals("acno2") && entity.getMname2().contains(pageDto.getKeyword())) {
-                    continue;
-                } else {
-                    dlist.remove(index);
-                }
-                index++;
-            }
-        }
-
-        System.out.println("dlist 를 보여드리겠습니다.");
-        pageDto.setBhistorylist( dlist  );  // 결과 리스트 담기
-        pageDto.setTotalBoards( elist.getTotalElements() );
-
+        resultList.forEach( (r) -> { // 모든 레코드 들을 반복 [  r = 레코드 = 맵  ]
+            List<Object> keyAllValue = new ArrayList<Object>();
+            List<Object> ArrayListValue = new ArrayList<Object>();
+            System.out.println("----------------- 레코드 교체 ---------------------");
+            System.out.println(" 레코드정보: " + r);
+            r.keySet().forEach( (key) -> {  //  keySet() : 모든 키 호출해서  키 만큼 반복문 = 해당 레코드의 필드수만큼 반복문
+                System.out.println( "key 값은 무엇일까요? : " + key ); // 필드명
+                System.out.println( "value 값은 무엇일까요? : " + r.get(key) ); // 필드명의 값
+            });
+            historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2"))));
+            // 궁금한거 1.룸북 적용? 안됨 ㅠ
+            // 2.몰랐던거 Integer.parseInt(String.valueOf(r.get("bhno"))) 이건 되고
+            // Integer.parseInt((String)(r.get("bhno")) 이건 안된다.
+            // 3. 197번줄의 List<Map<Object,Object>> resultList = bhistoryRepository.findBySearch();
+            // 를 Map<String,String> 으로 하면 안되나요??
+            System.out.println("historyDtoList 시작 ");
+            System.out.println(historyDtoList);
+            System.out.println("historyDtoList 끝");
+        });
+        pageDto.setBhistorylist(historyDtoList);  // 결과 리스트 담기
+        pageDto.setTotalBoards((long)historyDtoList.size());
+        pageDto.setStartbtn(pageDto.getPage()*5-5);
+        pageDto.setEndbtn(pageDto.getPage()*5-1);
         return pageDto;
-
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,6 +28,8 @@ public class BhistoryEntity extends BaseEntity {
     @Column(nullable = false)
     String bcontent;   //거래내용
 
+
+
     @ManyToOne
     @JoinColumn(name = "acno")
     @ToString.Exclude
@@ -37,7 +39,7 @@ public class BhistoryEntity extends BaseEntity {
     @JoinColumn(name = "acno2")
     @ToString.Exclude
     private DpositEntity dpositEntity2;
-    public BhistoryDto toDto(String mname, String mname2){
+    public BhistoryDto toDto(){
         return BhistoryDto.builder()
                 .bhno(this.bhno)
                 .btypes(this.btypes)
@@ -45,8 +47,8 @@ public class BhistoryEntity extends BaseEntity {
                 .bcontent(this.bcontent)
                 .acno( this.getDpositEntity().getAcno())
                 .acno2( this.getDpositEntity2().getAcno() )
-                .mname( mname )
-                .mname2( mname2 )
+                .mname(this.getDpositEntity().getBmemberEntity().getMname())
+                .mname2(this.getDpositEntity2().getBmemberEntity().getMname() )
                 .build();
     }
 }

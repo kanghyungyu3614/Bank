@@ -1,70 +1,120 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import "../css/Signup.css"
-import DaumPostcode from "react-daum-postcode";
+import DaumPostcode, {useDaumPostcodePopup  } from "react-daum-postcode";
+import DaumPostcodeEmbed from "react-daum-postcode";
+
 
 export default function Signup(props) {
 
     /*===========================주소API========================================*/
-    const Post = (props) => {
+    const [address, setAddress] = useState({name: ''})
+    const open = useDaumPostcodePopup("//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
 
-        const complete = (data) =>{
-            let fullAddress = data.address;
-            let extraAddress = '';
-
-            if (data.addressType === 'R') {
-                if (data.bname !== '') {
-                    extraAddress += data.bname;
-                }
-                if (data.buildingName !== '') {
-                    extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
-                }
-                fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
-            }
-            console.log(data)
-            console.log(fullAddress)
-            console.log(data.zonecode)
-
-            props.setcompany({
-                ...props.company,
-                address:fullAddress,
-            })
-        }
-
-        return (
-            <div >
-                <DaumPostcode
-                    className="postmodal"
-                    autoClose
-                    onComplete={complete} />
-            </div>
-        );
+    const handleClick = () => {
+        open({onComplete: handleComplete});
     };
 
-
-    const [enroll_company, setEnroll_company] = useState({
-        address:'',
-    });
-
-    let [popup, setPopup] = useState(false);
-
-    const handleInput = (e) => {
-        setEnroll_company({
-            ...enroll_company,
-            [e.target.name]:e.target.value,
-
-        })
-    }
-
     const handleComplete = (data) => {
-        setPopup(!popup);
-        let user_enroll_text=document.querySelector('.user_enroll_text')
-        console.log(user_enroll_text.value)
-        if(user_enroll_text.value!=null){
-        setPopup(!popup);
-        }
-    }
 
+        axios.get("https://dapi.kakao.com/v2/local/search/address.json?query=" + data.address
+            , {headers: {Authorization: 'KakaoAK b9157166d1587f60a8ff9bf7e7c9a4f1'}})
+            .then(res => {
+                const location = res.data.documents[0]
+                console.log("확인하자")
+                console.log(location)
+                //5. State 업데이트
+                setAddress({name: data.address, lat: location.y, lng: location.x})
+                setForm({...form, name: data.address})
+            })
+    };
+    /*===========================================================================*/
+    /*카카오 주소 api*/
+
+
+    const element_layer = useRef( null );
+
+    function closeDaumPostcode() {
+        // iframe을 넣은 element를 안보이게 한다.
+        element_layer.style.display = 'none';
+    }
+    function sample2_execDaumPostcode() {
+        new DaumPostcodeEmbed({
+            oncomplete: function(data) {
+                // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample2_extraAddress").value = extraAddr;
+
+                } else {
+                    document.getElementById("sample2_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample2_postcode').value = data.zonecode;
+                document.getElementById("sample2_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample2_detailAddress").focus();
+
+                // iframe을 넣은 element를 안보이게 한다.
+                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+                element_layer.style.display = 'none';
+            },
+            width : '100%',
+            height : '100%',
+            maxSuggestItems : 5
+        }).embed(element_layer);
+
+
+        // iframe을 넣은 element를 보이게 한다.
+        element_layer.style.display = 'block';
+
+        // iframe을 넣은 element의 위치를 화면의 가운데로 이동시킨다.
+        initLayerPosition();
+    }
+    // 브라우저의 크기 변경에 따라 레이어를 가운데로 이동시키고자 하실때에는
+    // resize이벤트나, orientationchange이벤트를 이용하여 값이 변경될때마다 아래 함수를 실행 시켜 주시거나,
+    // 직접 element_layer의 top,left값을 수정해 주시면 됩니다.
+    function initLayerPosition(){
+        var width = 300; //우편번호서비스가 들어갈 element의 width
+        var height = 400; //우편번호서비스가 들어갈 element의 height
+        var borderWidth = 5; //샘플에서 사용하는 border의 두께
+
+        // 위에서 선언한 값들을 실제 element에 넣는다.
+        element_layer.style.width = width + 'px';
+        element_layer.style.height = height + 'px';
+        element_layer.style.border = borderWidth + 'px solid';
+        // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
+        element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+        element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
+    }
     /*===========================================================================*/
     const signUp = () => {
 
@@ -93,6 +143,7 @@ export default function Signup(props) {
         mname: '',
     })
 
+
     const [confirm, setConfirm] = useState({ // form의 input의 객체값이 전부 true여야 통과
         midc: false,
         mpwc: false,
@@ -100,6 +151,7 @@ export default function Signup(props) {
         mphonec: false,
         msnoc: false,
         mnamec: false,
+        madressc: false,
     })
 
     const midform = /^[A-Za-z0-9$@!%*#?&]{6,15}$/; // 정규표현식 아이디[ 2022-12-16 김원종 ]
@@ -109,9 +161,8 @@ export default function Signup(props) {
     const msnoform = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))[1-4][0-9]{6}$/ // 정규표현식 주민번호[ 2022-12-16 김원종 ]
     const mnameform = /^[가-힣a-zA-Z]{2,20}$/;// 정규표현식 이름[ 2022-12-16 김원종 ]
 
-
+    console.log(confirm)
     const midcheck = (e) => { /*아이디 검사 [ 2022-12-16 ] 김원종 */
-        console.log(e.target.value)
 
         setForm({...form, mid: e.target.value})
 
@@ -137,7 +188,8 @@ export default function Signup(props) {
     }
     const pwfirmcheck = (e) => {/*비밀번호 확인 [2022-12-16] 김원종 */
         setForm({...form, mpwconfirm: e.target.value})
-
+        console.log(form.mpw)
+        console.log(e.target.value)
         let pwchbox = document.querySelector('.pwchbox')
         if (form.mpw === e.target.value) {
             pwchbox.innerHTML = "👀비밀번호가 일치합니다👀"
@@ -149,7 +201,6 @@ export default function Signup(props) {
     }
     const phonecheck = (e) => {/*전화번호 확인 [2022-12-16] 김원종 */
         setForm({...form, mphone: e.target.value})
-        console.log(e.target.value)
         let phckbox = document.querySelector('.phckbox')
         if (phoneform.test(e.target.value)) {
             phckbox.innerHTML = "📞올바른 형식입니다><"
@@ -161,7 +212,6 @@ export default function Signup(props) {
     }
     const msnocheck = (e) => {/*주민번호 확인 [2022-12-16] 김원종 */
         setForm({...form, msno: e.target.value})
-        console.log(e.target.value)
         let msnockbox = document.querySelector('.msnockbox')
         if (msnoform.test(e.target.value)) {
             msnockbox.innerHTML = "👌올바른 형식입니다.👌"
@@ -174,7 +224,6 @@ export default function Signup(props) {
 
     const mnamecheck = (e) => {/*이름 확인 [2022-12-16] 김원종 */
         setForm({...form, mname: e.target.value})
-        console.log(e.target.value)
         let mnameckbox = document.querySelector('.mnameckbox')
         if (mnameform.test(e.target.value)) {
             mnameckbox.innerHTML = "반가워요 멋진 이름이네요!🙌"
@@ -185,71 +234,97 @@ export default function Signup(props) {
         }
     }
 
-        return (
-            <div>
-                <h3 className="top_title "> Welcome_<br/>
-                    Team_Bank</h3>
-                <form className="bankform">
-                    <label className="text-bg-center">👉아이디[ 영대소문자,특수문자,숫자 포함 6~15자리로 작성해주세요😀]</label>
-                    <input type="text" name="mid" value={form.mid} className="form-control"
-                           onChange={(e) => midcheck(e)}/>
-                    <div>
-                        <span className="idbox"></span>
-                    </div>
-                    <label className="text-bg-center">👉비밀번호 [최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상으로
-                        작성해주세요😁]</label>
-                    <input type="text"
-                           className="form-control" value={form.mpw} name="mpw" onChange={(e) => pwcheck(e)}/>
-                    <div>
-                        <span className="pwbox"></span>
-                    </div>
 
-                    <label className="text-bg-center">👉비밀번호확인</label>
-                    <input type="text"
-                           className="form-control" value={form.mpwconfirm} name="mpwconfirm"
-                           onChange={(e) => pwfirmcheck(e)}/>
-                    <div>
-                        <span className="pwchbox"></span>
-                    </div>
-
-                    <label className="text-bg-center">👉전화번호</label>
-                    <input type="text" value={form.mphone}
-                           className="form-control " name="mphone" onChange={(e) => phonecheck(e)}/>
-                    <div>
-                        <span className="phckbox"></span>
-                    </div>
-
-                    <label className="text-bg-center">👉주민번호[ - 을 제외하고 적어주세요 ]</label>
-                    <input type="password" value={form.msno}
-                           className="form-control " name="msno" onChange={(e) => msnocheck(e)}/>
-                    <div>
-                        <span className="msnockbox"></span>
-                    </div>
-                    <label className="text-bg-center">👉이름</label>
-                    <input type="text" value={form.mname}
-                           className="form-control " name="mname" onChange={(e) => mnamecheck(e)}/>
-                    <div>
-                        <span className="mnameckbox"></span>
-                    </div>
-
-                    <label className="text-bg-center">👉주소</label> {/*2022-12-19 김원종 주소 api 구현중*/}
-                    <div className="address_search" >
-                        <input className="form-control user_enroll_text" placeholder="주소"  type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
-                        <button onClick={handleComplete}>우편번호 찾기</button>
-                        {popup && <Post company={enroll_company} setcompany={setEnroll_company} />}
-                    </div>
-
-
-                 {/*   {openPostcode &&
-                        <DaumPostcode
-                            onComplete={handle.selectAddress}  // 값을 선택할 경우 실행되는 이벤트
-                            autoClose={false} // 값을 선택할 경우 사용되는 DOM을 제거하여 자동 닫힘 설정
-                            defaultQuery='판교역로 235' // 팝업을 열때 기본적으로 입력되는 검색어
-                        />}*/}
-
-                    <button type="button" onClick={signUp}>Go</button>
-                </form>
-            </div>
-        );
+    const madresscheck = (e) => {
+        console.log(".....////////////////////////////")
+        // let test = document.querySelector('.madress').value
+        console.log(e.target.value)
+        if (e.target.value != null) {
+            confirm.madressc = true;
+        } else {
+            alert("주소값을 입력해주세요")
+        }
     }
+
+    // useEffect(madresscheck ,[asd])
+
+
+    return (
+        <div>
+            <h3 className="top_title "> Welcome_<br/>
+                Team_Bank</h3>
+            <form className="bankform">
+                <label className="text-bg-center">👉아이디[ 영대소문자,특수문자,숫자 포함 6~15자리로 작성해주세요😀]</label>
+                <input type="text" name="mid" maxLength="15" value={form.mid} className="form-control"
+                       onChange={(e) => midcheck(e)}/>
+                <div>
+                    <span className="idbox"></span>
+                </div>
+                <label className="text-bg-center">👉비밀번호 [최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상으로
+                    작성해주세요😁]</label>
+                <input type="password"
+                       maxLength="15" className="form-control" value={form.mpw} name="mpw"
+                       onChange={(e) => pwcheck(e)}/>
+                <div>
+                    <span className="pwbox"></span>
+                </div>
+
+                <label className="text-bg-center">👉비밀번호확인</label>
+                <input type="password"
+                       className="form-control" value={form.mpwconfirm} name="mpwconfirm"
+                       onChange={(e) => pwfirmcheck(e)}/>
+                <div>
+                    <span className="pwchbox"></span>
+                </div>
+
+                <label className="text-bg-center">👉전화번호</label>
+                <input type="text" value={form.mphone}
+                       className="form-control " name="mphone" maxLength="13" onChange={(e) => phonecheck(e)}/>
+                <div>
+                    <span className="phckbox"></span>
+                </div>
+
+                <label className="text-bg-center">👉주민번호[ - 을 제외하고 적어주세요 ]</label>
+                <input type="password" value={form.msno}
+                       className="form-control " name="msno" maxLength="13" onChange={(e) => msnocheck(e)}/>
+                <div>
+                    <span className="msnockbox"></span>
+                </div>
+                <label className="text-bg-center">👉이름</label>
+                <input type="text" value={form.mname}
+                       className="form-control " name="mname" onChange={(e) => mnamecheck(e)}/>
+                <div>
+                    <span className="mnameckbox"></span>
+                </div>
+                {/*주소 ifram 방식으로 변경 2022-12-21 김원종 */}
+                <label className="text-bg-center">👉주소</label><br/>{/*2022-12-19 김원종 주소 api 구현중*/}
+                <input type="text" className="form-control" id="sample2_postcode" placeholder="우편번호"/>
+                <input type="button" className="form-control" onClick={sample2_execDaumPostcode} value="우편번호 찾기"/><br/>
+                <input type="text" className="form-control" id="sample2_address" placeholder="주소"/><br/>
+                <input type="text" className="form-control" id="sample2_detailAddress" placeholder="상세주소"/>
+                <input type="text" className="form-control" id="sample2_extraAddress" placeholder="참고항목"/>
+                <div ref={element_layer}
+                     style={{
+                         display: "none",
+                         position: "fixed",
+                         overflow: "hidden",
+                         zIndex: "1",
+                         WebkitOverflowScrolling: "touch"
+                     }}>
+                    <img src="//t1.daumcdn.net/postcode/resource/images/close.png=btnCloseLayer"
+                         style={{cursor: "pointer", position: "absolute", right: "-3px", top: "-3px", zIndex: "1"}}
+                         onClick={closeDaumPostcode} alt="닫기 버튼"></img>
+                </div>
+
+                <button type="button" onClick={signUp}>Go</button>
+            </form>
+        </div>
+    );
+}
+
+
+
+
+
+
 

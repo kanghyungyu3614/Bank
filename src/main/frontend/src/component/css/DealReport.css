@@ -66,8 +66,9 @@
     border : 1px solid black;
 }
 .dealReportTrComponent:nth-child(1){
-    background-color: #EFEFEF;
-    font-size: 22px;
+    background-color: #3579d4;
+    font-size: 30px;
+    color: white;
 }
 /*테이블 내용 끝 css*/
 /* th내용 시작 css 강현규 2022-12-16 수정*/
@@ -89,12 +90,14 @@
 .moneyComponent{
     width: 25%;
     height: 50px;
+
 }
 /* th내용 끝 css*/
 /* th list들 내용 시작 css*/
 .orderComponentList{
     height: 25px;
     width: 10%;
+
 }
 .categoryComponentList{
     height: 25px;

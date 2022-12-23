@@ -14,6 +14,7 @@ export default function DealListComponent(props){
        console.log(props.props)
        console.log("props.props2")
          result = props.props.bhistorylist.map((el,i,arr)=>{
+            if(i>=props.props.startbtn && i<props.props.endbtn+1){
                    return(
                     <tr className="dealReportTrComponent">
                         <th className="categoryComponentList">{el.btypes}</th>
@@ -21,7 +22,8 @@ export default function DealListComponent(props){
                         <th className="moneyComponentList">{el.bmoney}</th>
                         <th className="contentComponentList">{el.mname2}</th>
                     </tr>);
-                })
+                }
+            })
          setResultTableComponent(result)
        }
     },[props.props.bhistorylist])
@@ -38,6 +40,5 @@ export default function DealListComponent(props){
             {ResultTableComponent}
         </table>
     );
-
 }
 
