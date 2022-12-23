@@ -30,6 +30,7 @@ public class BhistoryEntity extends BaseEntity {
 
 
 
+
     @ManyToOne
     @JoinColumn(name = "acno")
     @ToString.Exclude
@@ -48,6 +49,7 @@ public class BhistoryEntity extends BaseEntity {
                 .acno( this.getDpositEntity().getAcno())
                 .acno2( this.getDpositEntity2().getAcno() )
                 .mname(this.getDpositEntity().getBmemberEntity().getMname())
+
                 .mname2(this.getDpositEntity2().getBmemberEntity().getMname() )
                 .build();
     }
