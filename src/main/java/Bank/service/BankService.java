@@ -59,10 +59,11 @@ public class BankService {
     /*-------------------------계좌 송금--------------------------------------*/
 
     @Transactional
-    public  boolean paysend(String payinsert , String account){
-        System.out.println(payinsert);
-        System.out.println(account);
-       /* DpositEntity dpositEntity = dpositRepository.save();
+    public  boolean paysend(BhistoryDto bhistoryDto/*String payinsert , String account*/){
+        /*System.out.println(payinsert);
+        System.out.println(account);*/
+        System.out.println(bhistoryDto);
+      /*  BhistoryEntity bhistoryEntity = bhistoryRepository.save(payinsert , account);
         if(dpositEntity.getAcno()!=null){
             return true;
         }else {

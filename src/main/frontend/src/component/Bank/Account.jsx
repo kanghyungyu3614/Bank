@@ -56,6 +56,7 @@ export default function Account(props) {
             .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum}})
             .then(res=>{if(res.data == true){
                 alert("입금완료")
+                window.location.reload();
             }else{
                  alert("입금실패[관리자에게 문의]")
             }
@@ -103,7 +104,6 @@ export default function Account(props) {
                             </>
                             )
                          }
-
 
                     </div>
                       {cclick ==3 &&(
