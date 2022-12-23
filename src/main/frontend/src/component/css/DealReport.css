@@ -90,12 +90,14 @@
 .moneyComponent{
     width: 25%;
     height: 50px;
+
 }
 /* th내용 끝 css*/
 /* th list들 내용 시작 css*/
 .orderComponentList{
     height: 25px;
     width: 10%;
+
 }
 .categoryComponentList{
     height: 25px;

@@ -2,7 +2,6 @@ package Bank.service;
 
 
 import Bank.domain.dto.BboardDto;
-import Bank.domain.dto.PageDto;
 import Bank.domain.entity.board.BboardEntity;
 import Bank.domain.entity.board.BboardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.util.ArrayList;
@@ -136,6 +136,8 @@ public class BoardService {
     }
 
 
+
+    // 게시물 삭제
     @Transactional
     public boolean bdelete( int bno){
 
@@ -154,6 +156,9 @@ public class BoardService {
         } else { return false;}
     }
 
+
+
+    // 게시물 수정
     @Transactional
     public boolean bupdate(BboardDto boardDto) {
 
@@ -187,6 +192,35 @@ public class BoardService {
             return true;
         } else { return false;}
     }
+
+
+    // 조회수 기능
+    @Transactional
+    public boolean viewcount (int bno) {
+
+        bno = Integer.parseInt( request.getParameter("bno") ) ;
+
+        HttpSession session = request.getSession();
+
+        // 클릭한 게시물 번호를 세션에 저장
+        session.setAttribute("bno", bno);
+
+        // 해당 유저가 24시간내 한번도 클릭한 적이 없으면 [ 세션이 없으면 ]
+        if( session.getAttribute(String.valueOf(bno)) == null ) {
+            // 3. DAO 조회수 증가
+             bboardRepository.viewcount( bno ); // 실제 데이터 값 증가.
+            // 3. 현재 유저가 조회수 한 기록 남기기 [ 해당 유저가 조회수 올린적있다/없다 ]
+            request.getSession().setAttribute(String.valueOf(bno)) , true; );
+            request.getSession().setMaxInactiveInterval(60*60*24); // 하루
+
+            return true;
+        }
+        return false;
+
+    }
+
+
+
 
 
 }
