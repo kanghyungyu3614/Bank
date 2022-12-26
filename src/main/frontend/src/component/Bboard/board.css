@@ -39,9 +39,16 @@ button{  border:1px;
 
 
 /*----------------------- 하단 부분--------------------------------------------*/
-.bbox{
-    background-color: #f8f8f8;
-    border: 1px solid blue;
-    bottom: 0;
-    height: 15%;
+.bbox{ /*2022-12-26 김원종 수정중 */
+    position: absolute;
+    background-color:#193f52;
+    bottom: -449px;
+    height: 27%;
+    width: 1400px;
+    text-align: center;
+    border: 6px double;
  }
+.atitle{
+    color: #98cfa3;
+    text-decoration: none;
+}

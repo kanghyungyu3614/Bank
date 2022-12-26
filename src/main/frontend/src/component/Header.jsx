@@ -7,13 +7,9 @@ export default function Header(props) {
         <div class="hbox" style={{backgroundColor:"#193f52"}}>
 
             <div style={{backgroundColor:"#193f52"}}>
-                <img src={logo} style={{width: "9%",margin:"0% 0% 0% 44%"}}/>
-                <h3 style={{
-                    textAlign: "center",
-                    fontSize:"123%",
-                    color:"#3598db",
-                    paddingBottom:"13px"
-                }}>Welcome_$ecurity_Bank</h3>
+               <a href="/">
+                   <img src={logo} style={{width: "10%",margin:"0% 0% 0% 43%"}}/>
+               </a>
             </div>
 
         </div>
