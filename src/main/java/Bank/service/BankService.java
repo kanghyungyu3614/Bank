@@ -38,6 +38,9 @@ public class BankService {
     private BsecurityRepository bsecurityRepository; //리포지토리 객체
     @Autowired
     private BhistoryRepository bhistoryRepository; //리포지토리 객체
+
+  /*  @Autowired
+    private  BhistoryEntity bhistoryEntity;*/
     @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request;
     @Autowired
@@ -59,20 +62,33 @@ public class BankService {
     /*-------------------------계좌 송금--------------------------------------*/
 
     @Transactional
-    public  boolean paysend(BhistoryDto bhistoryDto/*String payinsert , String account*/){
-        /*System.out.println(payinsert);
-        System.out.println(account);*/
-        System.out.println(bhistoryDto);
-      /*  BhistoryEntity bhistoryEntity = bhistoryRepository.save(payinsert , account);
-        if(dpositEntity.getAcno()!=null){
-            return true;
-        }else {
-            return false;
-            }*/
-        return  true;
-        }
+    public  boolean paysend(String payinsert , String account ,int type) {
+        System.out.println(payinsert);
+        System.out.println(account);
+        System.out.println(type);
+      int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
+        if(bhistoryEntity1!= 0){return  true;}
+        else{return false;}
+
+    }
 
     /*-----------------------------*/
+
+    @Transactional
+    public List<BhistoryDto>dealview(){
+            List<BhistoryEntity>list = bhistoryRepository.myhistory();
+            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+        System.out.println("list");
+        for(int i = 0 ; i< list.size() ; i++){
+            bhdistoryDtos.add(list.get(i).toDto());
+        }
+        System.out.println(bhdistoryDtos);
+        System.out.println("list");
+            return bhdistoryDtos;
+
+    }
+
+
 
 
     public static void main(String[] args) {

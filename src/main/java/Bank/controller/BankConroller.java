@@ -75,15 +75,20 @@ public class BankConroller {
  }
     /*개인송금금액*/
   @GetMapping("/accountinsert")
-    public boolean paysend(BhistoryDto bhistoryDto/*@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account*/){
-      /*System.out.println(payinsert);
-      System.out.println(account);*/
-      System.out.println(bhistoryDto);
-    /*  boolean result = bankService.paysend(payinsert , account);*/
-      return false;
-      /* result;*/
-  }
+    public boolean paysend(@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account ,@RequestParam(value="type") int type ){
+      System.out.println(payinsert);
+      System.out.println(account);
+      System.out.println(type);
+     boolean result = bankService.paysend(payinsert , account , type);
+      return result;
 
+  }
+    @GetMapping("/dealview")
+    public List<BhistoryDto>list(){
+
+        List<BhistoryDto> result = bankService.dealview();
+      return result;
+    }
 
 
 

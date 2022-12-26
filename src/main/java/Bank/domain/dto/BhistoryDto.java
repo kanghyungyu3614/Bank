@@ -14,11 +14,13 @@ public class BhistoryDto {
 
     String bcontent; //거래내용
 
+
     String acno;
     String acno2;
     String mname;
     String mname2;
-
+    String udate;
+    String cdate;
     public BhistoryDto(int bhno, String bcontent, int bmoney, int btypes, String mname, String mname2) {
         this.bhno = bhno;
         this.bcontent = bcontent;
