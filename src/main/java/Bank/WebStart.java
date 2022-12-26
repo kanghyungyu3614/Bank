@@ -13,3 +13,4 @@ public class WebStart {
         // 스프링 어플리케이션 실행[ 현재클래스명.class ]
     }
 }
+
