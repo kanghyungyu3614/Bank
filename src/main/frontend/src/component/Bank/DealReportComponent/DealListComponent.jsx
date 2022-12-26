@@ -16,7 +16,7 @@ export default function DealListComponent(props){
          result = props.props.bhistorylist.map((el,i,arr)=>{
             if(i>=props.props.startbtn && i<props.props.endbtn+1){
                    return(
-                    <tr className="dealReportTrComponent">
+                    <tr className="dealReportTrList">
                         <th className="categoryComponentList">{el.btypes}</th>
                         <th className="orderComponentList">{el.mname}</th>
                         <th className="moneyComponentList">{el.bmoney}</th>
