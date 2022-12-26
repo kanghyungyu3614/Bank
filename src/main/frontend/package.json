@@ -21,8 +21,8 @@
     "react-js-pagination": "^3.0.3",
     "react-modal": "^3.16.1",
     "react-responsive": "^9.0.2",
-    "react-router": "^6.4.4",
-    "react-router-dom": "^6.4.4",
+    "react-router": "^6.6.1",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

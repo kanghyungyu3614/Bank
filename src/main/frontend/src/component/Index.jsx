@@ -9,7 +9,6 @@ import Header from './Header'
 import Footer from './Footer'
 import Main from "./Main";
 import styles from "./css/Index.css";
-//import Signup from "./Bank/Signup.jsx";
 import Bank from './Bank/Account' // 계좌 임포트
 import SecurityCard from "./security/SecurityCard";   //  보안카드 임포트
 import SecurityCardPassword from "./security/SecurityCardPassword";  // 보안카드 패스워드
@@ -18,9 +17,12 @@ import BoardWrite from "./Bboard/BoardWrite";
 import BoardUpdate from "./Bboard/BoardUpdate";
 import BoardView from "./Bboard/BoardView";
 import Signup from "./Bank/Signup"; // 회원가입
+import Login from "./Bank/Login"; // 로그인
 
 import DealReport from "./Bank/DealReport"; // 거래내역 페이지
 import DealReportPassword from "./Bank/DealReportPassword"; // 거래내역 비밀번호 페이지
+import Nav from "./Nav"; // 네비게이션 페이지
+
 import style from "./css/Index.css"
 // BrowserRouter : 가상 URL
 //  vs HashRouter :
@@ -35,16 +37,7 @@ export default function Index(props) {
         <div className="webbox">
             <BrowserRouter>
                 <Header/>
-                <div style={{backgroundColor: "#193f52"}}>
-                    <ul className="main_sidebar" style={{display: "flex"}}>
-                        <li className="urlList"><a href="/">홈</a></li>
-                        <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
-                        <li className="urlList"><a href="/Bank/Signup">회원가입 </a></li>
-                        <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
-                        <li className="urlList"><a href="/Bboard/Board">공지사항</a></li>
-                        <li className="urlList"><a href="/admin/dealReport/password">거래내역</a></li>
-                    </ul>
-                </div>
+                <Nav/>
                 <Main/>
                 <div style={{border:"1px red solid"}}>
                     <Routes>
@@ -53,6 +46,7 @@ export default function Index(props) {
                         <Route path="/member/securityCard" element={<SecurityCard/>}/>
                         <Route path="/Bboard/Board" element={<BoardList/>}/>
                         <Route path="/Bank/Signup" element={<Signup/>}/>
+                        <Route path="/Bank/Login" element={<Login/>}/>
                         <Route path="/Bboard/BoardWrite" element={<BoardWrite/>}/>
                         <Route path="/Bboard/BoardUpdate/:bno" element={<BoardUpdate/>}/>
                         <Route path="/Bboard/BoardView/:bno" element={<BoardView/>}/>

@@ -2,18 +2,20 @@ import react from 'react';
 import logo from "../img/logo 2.jpg";
 
 export default function Header(props) {
-
+/* 2022-12-27 강현규 프론트 a태그 설정 */
     return (
         <div class="hbox" style={{backgroundColor:"#193f52"}}>
-
             <div style={{backgroundColor:"#193f52"}}>
-                <img src={logo} style={{width: "9%",margin:"0% 0% 0% 44%"}}/>
-                <h3 style={{
-                    textAlign: "center",
-                    fontSize:"123%",
-                    color:"#3598db",
-                    paddingBottom:"13px"
-                }}>Welcome_$ecurity_Bank</h3>
+                <a href="/"><img src={logo} style={{width: "9%",margin:"0% 0% 0% 44%"}}/></a>
+                <a href="/" style={{color: "#3598db",
+                                    textDecoration: "none",
+                                    outline: "none"}}>
+                    <h3 style={{
+                        textAlign: "center",
+                        fontSize:"123%",
+                        color:"#3598db",
+                        paddingBottom:"13px"}}>Welcome_$ecurity_Bank</h3>
+                </a>
             </div>
 
         </div>
