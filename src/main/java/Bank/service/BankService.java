@@ -267,6 +267,22 @@ public class BankService {
         pageDto.setEndbtn(pageDto.getPage()*5-1);
         return pageDto;
     }
+
+
+    //보안카드 따오기
+    public List<BsecurityDto>getsecurityCardnumlist(BsecurityDto dto){
+
+        List<BsecurityEntity>list = bsecurityRepository.findbySecurityNumberEntity(dto.getAcno());
+
+        List<BsecurityDto>dtoList = new ArrayList<>();
+        for(BsecurityEntity entity : list){
+            dtoList.add(entity.toDto());
+        }
+
+        return dtoList;
+    }
+
+
 }
 
 

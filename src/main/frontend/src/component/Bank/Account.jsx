@@ -1,4 +1,4 @@
-import React , { useState ,useEffect} from 'react';
+import React , { useState ,useEffect , } from 'react';
 import styles from './account.css'
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
@@ -53,14 +53,39 @@ export default function Account(props) {
         .catch(err => {console.log(err)})
     }
 
+    const bsecurity = (account)=>{
+        alert(account+123);
+                    let SecuritySubNumberArray = [];
+                    let Coma = ''
+
+        axios
+             .post("/bank/securityCardnum" , { acno : account})
+             .then(res=>{
+                console.log(res.data[0].ssno)
+            if(res.data[0].ssno.length>0){
+                Coma = res.data[0].ssno;
+                for(let i = 0; i<Coma.length; i++) {
+                        if(i<36) {
+                        // StringBuffer랑 String 은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
+                                          // 2자리 + " " + 2자리 를 합친 문자열을 subarr라는 ArrayList에 넣어줍니다.
+                        SecuritySubNumberArray[i]=  Coma.substring(4*i,2+4*i)+" "+Coma.substring(2+4*i,4+4*i);
+                         }
+                     }
+                         console.log(Coma)
+                      console.log(SecuritySubNumberArray)
+                      for( let i = 0 ; SecuritySubNumberArray.length; i++){
+
+                        }
+                     }
+                })
+             }
 
     const sendmoney =()=>{
         const payinsert = document.querySelector(".payinsert").value;
         axios
             .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum , type : 1}})
             .then(res=>{if(res.data == true){
-                alert("입금완료")
-                window.location.reload();
+                bsecurity(account.accountnum);
             }else{
                  alert("입금실패[관리자에게 문의]")
             }
