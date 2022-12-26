@@ -4,7 +4,7 @@ import logo from "../img/logo 2.jpg";
 export default function Header(props) {
 
     return (
-        <div class="hbox" style={{backgroundColor:"#193f52"}}>
+        <div style={{backgroundColor:"#193f52"}}>
 
             <div style={{backgroundColor:"#193f52"}}>
                 <img src={logo} style={{width: "9%",margin:"0% 0% 0% 44%"}}/>

@@ -43,14 +43,17 @@ export default function BoardView( props ) {
 
             { board.bfilename != '' && <a href={"/board/filedownload?filename=" + board.bfilename} > { board.bfilename } </a> }
 
-             <div>
-             <button type="button" className="bbtn"> <Link to="/Bboard/Board"  className="btnt">목록</Link> </button>
-            </div>
 
-            <div>
+         <span>
+             <div className = "rbox">
+             <button type="button" className="bbtn"> <Link to="/Bboard/Board"  className="btnt">목록</Link> </button>
+             </div>
+
+             <div className ="adbox">
              <button type="button" className="dbtn" onClick= { onDelete }> 삭제 </button>
-             <button type="button" className="ubtn" onClick={ getUpdate}> 수정 </button>
+             <button type="button" className="ubtn2" onClick={ getUpdate}> 수정 </button>
             </div>
+          </span>
 
          </div>
 

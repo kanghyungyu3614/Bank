@@ -15,26 +15,31 @@
 
 
 
-
-
-
 button{  border:1px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        background-color: transparent;}
+        color: white;
+        background-color: #2b70cc;
+        }
 
 
+a{ color: white;}
 /*-----------------------------중간 부분 ----------------------------------------*/
+.mbox{     /*   중간 부분 전체 박스 구분*/
+  height: 710px;
+  margin: 10%;
+  background-color: white;
 
-.mbox{
-  border: 1px solid green;
-  height: 65%;
-  margin: 10%; }
+  }
 
+.ck.ck-editor_editbale{ height:  70%;}
+
+/*  전체목록  화면   */
+.bbord{ height: 70%}
 
 .notice{
-  margin-bottom : 3%;
+  margin-bottom: 3%;
 }
 
 .nbox{
@@ -42,38 +47,50 @@ button{  border:1px;
  border-bottom: 1px solid gray;
 }
 
-
-
-.hbox{
-    border: 1px solid blue;
-   height: 9%;
-}
-
-
 .tbox{
    margin-bottom: 3%;
    border-top: solid 1px;
    margin-top: 3%; }
 
 
-.bconbox{ height: 70%; }
+.bconbox{ height: 70%;
+border-bottom: solid 1px gray;
+ margin-bottom: 4%;}
 
+/*----  작성페이지  버튼 꾸미기 ------------*/
 
+.bltn{ float: left;  margin-left: 49%;}
+
+.wbtn{ float: right; margin-right: 3% }
+
+/*----  자세히보기 버튼 꾸미기 ------------*/
 .bbtn{
    width: 50px;
    height: 30px;
-   margin-left:45%;
+   margin-left:80%;
    color: white;
    background-color: #2b70cc;}
 
-.btnt{ color: white;}
 
-.blist{
-  margin: 0 auto;
-  border: 1px solid blue;
-  width: 90%;
-  height: 70%
-}
+.bbtn{ color: white;}
+
+.rbox{ width: 50%; float: left;}
+.adbox{  width: 50%; float: right;}
+
+.ubt2 {margin-left: 2%; border-radius: 90px / 70px;}
+.dbtn{ margin-left: 62%;}
+
+
+
+/*---------수정 페이지  버튼----------------------*/
+
+.ubtn{ margin-left: 48%;}
+
+
+
+/*-------------------------------*/
+
+
 
 
 /*----------------------- 하단 부분--------------------------------------------*/
