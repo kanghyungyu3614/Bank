@@ -41,9 +41,9 @@
     box-shadow: 0 1px 1px #000;
     font-size: 40px;
     font-weight: 700;
-    height: 500px;
+    height: 350px;
     margin: 3px auto;
-    width: 99%;
+    width: 70%;
 }
 /* subtable 테이블 끝 */
 /* tr 시작*/
@@ -78,7 +78,7 @@ th{
 /*warningMainContent 시작*/
 .warningMainContent{
     color: red;
-    font-size: 25px;
+    font-size: 20px;
     display: inline-block;
     vertical-align: 15%;
 }
@@ -86,7 +86,7 @@ th{
 /*warningSubContent 시작*/
 .warningSubContent{
     color: red;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
 }
 /*warningSubContent 끝*/
