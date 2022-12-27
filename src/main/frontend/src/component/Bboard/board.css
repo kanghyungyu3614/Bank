@@ -2,7 +2,6 @@
 *{
 	text-decoration: none;	/* 텍스트 밑줄 제거 */
 	list-style: none;		/* 글머리 기호 제거 */
-	text-decoration: none;
 }
 /*-------------------------------*/
 
@@ -14,23 +13,20 @@
   }
 
 
-
-
-
-
 button{  border:1px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+        border-radius: 10px 0 0 10px;
         color: white;
         background-color: #2b70cc;
         }
 
 
-a{ color: white;}
+
 /*-----------------------------중간 부분 ----------------------------------------*/
 .mbox{     /*   중간 부분 전체 박스 구분*/
-  height: 710px;
+  height: 830px;
   margin: 10%;
   background-color: white;
 
@@ -39,6 +35,14 @@ a{ color: white;}
 .ck.ck-editor_editbale{ height:  70%;}
 
 /*  전체목록  화면   */
+
+.btnd{ margin-left : 3%;}
+
+.btn-default{ color: white;
+      border-radius: 10px 0 0 10px;
+     text-decoration: none;
+   }
+
 .bbord{ height: 70%}
 
 .notice{
@@ -56,15 +60,22 @@ a{ color: white;}
    margin-top: 3%; }
 
 
-.bconbox{ height: 70%;
+.bconbox{  height: 58%;
 border-bottom: solid 1px gray;
  margin-bottom: 4%;}
 
 /*----  작성페이지  버튼 꾸미기 ------------*/
 
-.bltn{ float: left;  margin-left: 49%;}
+ltn { text-decoration: none;
+               color: white;}
+
+.bltn{ float: left;  margin-left: 49%;
+  }
 
 .wbtn{ float: right; margin-right: 3% }
+
+
+
 
 /*----  자세히보기 버튼 꾸미기 ------------*/
 .bbtn{
@@ -74,14 +85,18 @@ border-bottom: solid 1px gray;
    color: white;
    background-color: #2b70cc;}
 
-
+.libtn{ color: white; text-decoration: none;}
 .bbtn{ color: white;}
 
-.rbox{ width: 50%; float: left;}
+.rbox{ width: 50%; float: left;
+       margin-top: 3%;
+       margin-left: 47%;
+
+       }
 .adbox{  width: 50%; float: right;}
 
-.ubt2 {margin-left: 2%; border-radius: 90px / 70px;}
-.dbtn{ margin-left: 62%;}
+
+.dbtn { margin-left: 59%;  margin-right: 5%}
 
 
 
@@ -92,8 +107,61 @@ border-bottom: solid 1px gray;
 
 
 /*-------------------------------*/
+{/*12/27 버튼 페이징 css 처리 */}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
 
+  ul {
+    list-style: none;
+    padding: 0;
+  }
 
+  ul.pagination li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  ul.pagination li:first-child{
+    border-radius: 5px 0 0 5px;
+  }
+
+  ul.pagination li:last-child{
+    border-radius: 0 5px 5px 0;
+  }
+
+  ul.pagination li a {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 1rem;
+  }
+
+  ul.pagination li.active a {
+    color: white;
+  }
+
+  ul.pagination li.active {
+    background-color: #337ab7;
+  }
+
+  ul.pagination li a:hover,
+  ul.pagination li a.active {
+    color: blue;
+  }
+
+.page-selection {
+    width: 48px;
+    height: 30px;
+    color: #337ab7;
+  }
 
 
 /*----------------------- 하단 부분--------------------------------------------*/
@@ -102,7 +170,7 @@ border-bottom: solid 1px gray;
     background-color:#193f52;
     bottom: -449px;
     height: 27%;
-    width: 1400px;
+    width: 70%;
     text-align: center;
     border: 6px double;
  }

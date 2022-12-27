@@ -3,6 +3,7 @@ import axios from "axios";
 import Pagination from 'react-js-pagination'
 import { useParams , Link } from "react-router-dom";
 
+
 import styles from './board.css'
 
 export default function Board( ) {
@@ -11,7 +12,7 @@ export default function Board( ) {
   //1. 메모리
    const [ pageInfo , setPageInfo ] = useState({ page:1 }) // 1. 요청 정보 객체 state
    const [ pageDto , setPageDto ] = useState( [ { totalBoards : 0}] )          // 1. 게시물 리스트 state
-
+   const [ login , setLogin ] = useState( { } ); //
 
 
     console.log( pageDto)
@@ -24,6 +25,10 @@ export default function Board( ) {
               }
 
       useEffect( getboardlist , [ pageInfo ] )  // 3. 렌더링 될때 그리고 * pageInfo 변경될때 마다
+
+      useEffect( // 2. 서버로 부터 해당 로그인된 회원의 아이디 정보
+               ()=>axios.get("/member/getloginMno" ).then( res => { setLogin( res.data); console.log( "로그인계정" + res.data )}) ,[] )
+
 
 
      /*----------------------------3. 페이징 --------------------------*/
@@ -62,15 +67,19 @@ export default function Board( ) {
 
                                       </table>
 
-                                <Pagination
+                              <Pagination
                                              activePage={ pageInfo.page  }
                                              itemsCountPerPage = { 4 }
                                              totalItemsCount = { pageDto[0].totalBoards }
-                                              pageRangeDisplayed = { 5 }
+                                             pageRangeDisplayed = { 5 }
                                              onChange= { onPage }
+                                              prevPageText="‹"
+                                              nextPageText="›"
+
                                           />
 
-                              <button><a className="btn btn-default"  href="/Bboard/BoardWrite">글등록 </a></button>  /*  관리자만 보이게 하기 */
+
+                          {  login == "adminLogin" && <button type="button" className="btnd"><a className="btn-default"  href="/Bboard/BoardWrite">글등록 </a></button> }
 
                    </div>
 

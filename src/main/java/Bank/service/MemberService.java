@@ -42,10 +42,16 @@ public class MemberService {
             // 1. 모든 엔티티=레코드 호출 [ select * from member ]
         List<BmemberEntity> entityList = bmemberRepository.findAll();
             // 2. 입력받은 데이터와 일치값 찾기
+        System.out.println("entityList");
+        System.out.println(entityList);
+        System.out.println("entityList");
         for( BmemberEntity entity : entityList ){ // 리스트 반복
             if( entity.getMid().equals(bmemberDto.getMid())){ // 엔티티=레코드 의 이메일 과 입력받은 이메일
                 if( entity.getMpw().equals(bmemberDto.getMpw())){ // 엔티티=레코드 의 패스워드 와 입력받은 패스워드
                     // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
+                    System.out.println("entity");
+                    System.out.println(entity);
+                    System.out.println("entity");
                     request.getSession().setAttribute("loginMno" , entity.getMno() );// 엔티티 = 레코드 = 로그인 성공한객체
                     if(entity.getMname().equals("admin")){
                         request.getSession().setAttribute("loginName","admin");
