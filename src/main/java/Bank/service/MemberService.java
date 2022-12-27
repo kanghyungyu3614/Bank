@@ -87,6 +87,12 @@ public class MemberService {
                     if(pwdList.get(j).equals(result)) {
                         request.getSession().setAttribute("loginMno", String.valueOf(entity.getMno()));
                         System.out.println("true");
+                        if(entity.getMname().equals("admin")){
+                            request.getSession().setAttribute("loginName","admin");
+                        }
+                        System.out.println("loginName : admin");
+                        System.out.println(request.getSession().getAttribute("loginName"));
+                        System.out.println("loginName : admin");
                         return 1;// 비밀번호가 있습니다.
                     }
                 }

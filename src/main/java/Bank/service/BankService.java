@@ -73,7 +73,7 @@ public class BankService {
     }
 
     /*-----------------------------*/
-
+    // 거래내역 출력 페이지
     @Transactional
     public List<BhistoryDto>dealview(){
             List<BhistoryEntity>list = bhistoryRepository.myhistory();
@@ -89,7 +89,7 @@ public class BankService {
     }
 
 
-
+    // 보안카드 난수 만들기
     @Transactional
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
@@ -354,7 +354,7 @@ public class BankService {
 
         return dtoList;
     }
-
+    // 2022-12-28 계좌송금 페이지 여기서부터 시작
     // 거래내역 저장하기
     @Transactional
     public int sendHistory(BhistoryDto dto){
@@ -366,8 +366,18 @@ public class BankService {
         System.out.println(dto);
         System.out.println("dto");
         dto.setAcno(acno);
-        int insertNumber = bhistoryRepository.sendHistorymoney(dto.getBtypes(),dto.getBmoney(),dto.getBcontent(),dto.getAcno(),dto.getAcno2());
-        return 1;
+        long memberMoney = dpositRepository.findbyAcno(dto.getAcno()).getAcba(); // 고객의 돈
+        if(dto.getBmoney()<0 || memberMoney - (long)dto.getBmoney() <0 || memberMoney < 0 ){ // 고객의 돈이 0보다 작거나 이체금액보다 작거나 이체하는 돈이 0보다 작거나
+            return 2; // 잔액부족
+        }else{
+            // update 는 pk int값
+            // 1. 계좌이체로 돈을 얻는사람과 잃는사람
+            int updateMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney - dto.getBmoney())),dto.getAcno());
+            int getMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney + dto.getBmoney())) , dto.getAcno2() );
+            // 2. 이체 내역 저장
+            int insertNumber = bhistoryRepository.sendHistorymoney(dto.getBtypes(),dto.getBmoney(),dto.getBcontent(),dto.getAcno(),dto.getAcno2());
+            return 1;
+        }
     }
 
     // 거래내역 프론트로 보내기

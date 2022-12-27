@@ -16,9 +16,9 @@ export default function Account(props) {
     const params = useParams();
     const [statech ,setStatech] = useState(1);
     const[mastercheck ,setMastercheck] = useState('');
-    const [account,setAccount] = useState()
+    const [account,setAccount] = useState({})
     const [dealview , setDealview] = useState([]);
-
+    const [finalpay , setFinalpay] = useState(0); // 보안카드 난수 일치후에 상대방에게 돈을 담아서 보내줄 훅
     const sendpay = () => { // 1. 송금버튼 2->3
         setStatech(2);
         setCcLick(0);
@@ -66,7 +66,7 @@ export default function Account(props) {
             if(res.data[0].ssno.length>0){
                 Coma = res.data[0].ssno;
                 for(let i = 0; i<Coma.length; i++) {
-                        if(i<36) {
+                        if(i<35) {
                         // StringBuffer랑 String 은 자료형이 다르기 때문에 StringBuffer에 .toString()이 필요합니다.
                                           // 2자리 + " " + 2자리 를 합친 문자열을 subarr라는 ArrayList에 넣어줍니다.
                         SecuritySubNumberArray[i]=  Coma.substring(4*i,2+4*i)+" "+Coma.substring(2+4*i,4+4*i);
@@ -76,48 +76,103 @@ export default function Account(props) {
                       console.log(SecuritySubNumberArray)
 
                      }
-                      getRandomArbitrary(1,35)
+                      bsecurityChoiceNum(SecuritySubNumberArray)
                 })
              }
-           function getRandomArbitrary(min, max) {
-                    return Math.random() * (max - min) + min;
-                        let number = getRandomArbitrary(1, 35);
-                        let num = prompt(Math.floor(number)+"번째 입력");
-                        alert(num)
-                }
 
-
-    const sendmoney =()=>{
-        const payinsert = document.querySelector(".payinsert").value;
-        axios
-            .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum , type : 1}})
-            .then(res=>{if(res.data == true){
-                alert("입금완료")
-            }else{
-                 alert("입금실패[관리자에게 문의]")
+            const sendmoney =()=>{
+                const payinsert = document.querySelector(".payinsert").value;
+                axios
+                    .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum , type : 1}})
+                    .then(res=>{if(res.data == true){
+                        alert("입금완료")
+                    }else{
+                         alert("입금실패[관리자에게 문의]")
+                    }
+                  })
+                    .catch(err => {console.log(err)})
             }
-          })
-            .catch(err => {console.log(err)})
+             let data ;
+            useEffect( ()=>{
+                axios
+                    .get("/bank/dealview")
+                    .then(res=>{console.log(res);
+                        data = res.data;
+                        setDealview(res.data);}
+                    )
+            } , [] )
+
+
+    function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
     }
-     let data ;
-    useEffect( ()=>{
-        axios
-            .get("/bank/dealview")
-            .then(res=>{console.log(res);
-                data = res.data;
-                setDealview(res.data);}
-            )
-    } , [  ] )
 
-console.log(dealview)
+        function bsecurityChoiceNum (SecurityArr){
+            // 보안카드 배열을 가지고 옵니다.
+            console.log(SecurityArr)
+            let Seat1 = Math.floor(getRandomArbitrary(1, 35))
+            let Seat2 = Math.floor(getRandomArbitrary(1, 35))
+            // 랜덤 자리수를 출력해줍니다.
+            console.log(Seat1 + " : 자리수")
+            console.log(Seat2 + " : 자리수")
+            // 보안카드 입력 숫자
+            console.log("보안카드에는 어떻게 입력되어 있을까요?")
+            console.log(SecurityArr[Seat1-1])
+            console.log(SecurityArr[Seat2-1])
+            console.log("보안카드에는 어떻게 입력되어 있을까요?")
 
-  const onchange2 = ( value ) => {
-        onChange(value)
-       alert(value)
+            let resultNumber1 = prompt(`${Seat1}앞 두자리를 입력해주세요.`);
+            let resultNumber2 = prompt(`${Seat2}뒤 두자리를 입력해주세요.`);
+            // 보안카드 배열을 가져옵니다.
+            console.log("SecurityArr")
+            console.log(resultNumber1)
+            console.log(resultNumber2)
+            console.log("SecurityArr")
 
-//       axios.get("",{params : {date : value}})
-//            .then(res => {bankacciunt(res.data)})
+            //
+            if(SecurityArr[Seat1-1].substring(0,2) === resultNumber1 && SecurityArr[Seat2-1].substring(3,5) === resultNumber2){
+                alert("보안카드 번호가 일치합니다. 완료버튼을 눌러주세요.");
+                setFinalpay(document.querySelector(".payinsert").value);
+                setStatech(3);
+            }else{
+                alert("번호가 일치하지 않습니다. 5회 이상 일치하지 않으면 계좌가 잠깁니다.");
+            }
         }
+
+        function finalEnter (){
+            let data = { acno2 : account.accountnum , bmoney : finalpay , btypes : 1 , bcontent : "예금" };
+            console.log("data");
+            console.log(data);
+            console.log("data");
+            setAinput(finalpay); // 거래금액이 바뀐다.
+            axios.post("/bank/sendHistory",data).then((res)=>{
+                console.log("res.data");
+                console.log(res.data);
+                console.log("res.data");
+                if(res.data == 1){
+                    alert("거래가 완료되었습니다.")
+                }else if(res.data == 2){
+                    if(finalpay<0){
+                      alert("거래금액이 부족합니다.");
+                    }else{
+                      alert("통장잔고가 부족합니다.");
+                    }
+                }
+                setCcLick(1);
+                setStatech(1);
+            })
+        }
+
+
+        console.log(dealview)
+            // 달력 시작
+            const onchange2 = ( value ) => {
+                    onChange(value)
+                   alert(value)
+
+            //       axios.get("",{params : {date : value}})
+            //            .then(res => {bankacciunt(res.data)})
+                    }
 
 
 
@@ -127,8 +182,9 @@ console.log(dealview)
     <div className="main">
         <div className="sub">
               <div className="inputside">
-                <h2>입금 계좌</h2>
-                   <div className="inputsize">
+                 <h2>입금 계좌 : {account.accountnum == "" ? "계좌가 없습니다." : account.accountnum} </h2>
+                 <h2>입금 금액 : {finalpay == "" ? "금액이 없습니다." : finalpay } </h2>
+                 <div className="inputsize">
 
                       { cclick == 1 && <button onClick={send1} className="accinput">계좌입력</button>  }
 
@@ -162,7 +218,12 @@ console.log(dealview)
                       </>
                         )
                       }
-
+                    { statech == 3 && (
+                     <>
+                     <button type="button" onClick={finalEnter} >완료</button>
+                      </>
+                        )
+                      }
 
 
               </div>

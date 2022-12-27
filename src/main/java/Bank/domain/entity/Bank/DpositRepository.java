@@ -1,6 +1,7 @@
 package Bank.domain.entity.Bank;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface DpositRepository extends JpaRepository<DpositEntity,String> {
     List<DpositEntity> findByGetacno(int memberNameNumber);
 
 
+    @Query(value = "update dposit set acba = :money where acno = :acno" , nativeQuery = true)
+    @Modifying
+    int deleteByMoney(int money, String acno);
 }
