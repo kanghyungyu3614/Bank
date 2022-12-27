@@ -3,6 +3,7 @@ package Bank.domain.entity.Bank;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public interface BhistoryRepository extends JpaRepository<BhistoryEntity,Integer
             // 키 : Object  : 필드
             // 값 : Object : 해당 필드의 값
     // List<Map<Object,Object> > : 검색된 레코드 여러개
+    @Query(value = "insert into bhistory(cdate, udate ,bcontent,bmoney , btypes , acno ,acno2)values(now(),now(),'안녕',:payinsert,:type,'1414',:account)" , nativeQuery = true)
+    @Modifying
+    int insertbyaccount(String payinsert , String account, int type);
+
+    @Query(value = "select * from bhistory where acno = '1414'" ,nativeQuery = true)
+    List<BhistoryEntity>myhistory();
 
 
 }

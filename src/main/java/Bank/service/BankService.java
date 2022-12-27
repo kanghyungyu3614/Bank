@@ -38,6 +38,9 @@ public class BankService {
     private BsecurityRepository bsecurityRepository; //리포지토리 객체
     @Autowired
     private BhistoryRepository bhistoryRepository; //리포지토리 객체
+
+  /*  @Autowired
+    private  BhistoryEntity bhistoryEntity;*/
     @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request;
     @Autowired
@@ -59,22 +62,35 @@ public class BankService {
     /*-------------------------계좌 송금--------------------------------------*/
 
     @Transactional
-    public  boolean paysend(BhistoryDto bhistoryDto/*String payinsert , String account*/){
-        /*System.out.println(payinsert);
-        System.out.println(account);*/
-        System.out.println(bhistoryDto);
-      /*  BhistoryEntity bhistoryEntity = bhistoryRepository.save(payinsert , account);
-        if(dpositEntity.getAcno()!=null){
-            return true;
-        }else {
-            return false;
-            }*/
-        return  true;
-        }
+    public  boolean paysend(String payinsert , String account ,int type) {
+        System.out.println(payinsert);
+        System.out.println(account);
+        System.out.println(type);
+      int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
+        if(bhistoryEntity1!= 0){return  true;}
+        else{return false;}
+
+    }
 
     /*-----------------------------*/
 
+    @Transactional
+    public List<BhistoryDto>dealview(){
+            List<BhistoryEntity>list = bhistoryRepository.myhistory();
+            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+        System.out.println("list");
+        for(int i = 0 ; i< list.size() ; i++){
+            bhdistoryDtos.add(list.get(i).toDto());
+        }
+        System.out.println(bhdistoryDtos);
+        System.out.println("list");
+            return bhdistoryDtos;
 
+    }
+
+
+
+    @Transactional
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
         Random random = new Random();
@@ -119,6 +135,7 @@ public class BankService {
     }
 
     /*강현규 2022-12-07 계좌 비밀번호를 입력했을때 보안카드 페이지로 이동하는 내용*/
+    @Transactional
     public String getSecurityCardPassword(DpositDto dpositDto) {
 
         // dpositDto를 받아와서
@@ -142,7 +159,7 @@ public class BankService {
         }
         return "2"; //비밀번호가 없습니다.
     }
-
+    @Transactional
     public List<BsecurityDto> getSecurityCardNumber() {
         // 계좌순서(숫자)를 일단 문자열로 세션으로 가져온다.
         String ano = (String) request.getSession().getAttribute("ano");
@@ -178,7 +195,7 @@ public class BankService {
             return null;
         }
     }
-
+    @Transactional
     public String ReportPassword(DpositDto dpositDto) {
 
         // dpositDto를 받아와서
@@ -251,6 +268,22 @@ public class BankService {
         pageDto.setEndbtn(pageDto.getPage()*5-1);
         return pageDto;
     }
+
+
+    //보안카드 따오기
+    public List<BsecurityDto>getsecurityCardnumlist(BsecurityDto dto){
+
+        List<BsecurityEntity>list = bsecurityRepository.findbySecurityNumberEntity(dto.getAcno());
+
+        List<BsecurityDto>dtoList = new ArrayList<>();
+        for(BsecurityEntity entity : list){
+            dtoList.add(entity.toDto());
+        }
+
+        return dtoList;
+    }
+
+
 }
 
 

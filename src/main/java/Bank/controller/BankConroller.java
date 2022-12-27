@@ -47,6 +47,8 @@ public class BankConroller {
         return result;
     }
 
+
+
     @PostMapping("/dealReport/password") // 3.거래내역 계좌비밀번호 입력 페이지
     public String DealReportGetPassword(@RequestBody DpositDto dpositDto){
         System.out.println("dpositDto");
@@ -75,17 +77,29 @@ public class BankConroller {
  }
     /*개인송금금액*/
   @GetMapping("/accountinsert")
-    public boolean paysend(BhistoryDto bhistoryDto/*@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account*/){
-      /*System.out.println(payinsert);
-      System.out.println(account);*/
-      System.out.println(bhistoryDto);
-    /*  boolean result = bankService.paysend(payinsert , account);*/
-      return false;
-      /* result;*/
+    public boolean paysend(@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account ,@RequestParam(value="type") int type ){
+      System.out.println(payinsert);
+      System.out.println(account);
+      System.out.println(type);
+     boolean result = bankService.paysend(payinsert , account , type);
+      return result;
+
   }
+    @GetMapping("/dealview")
+    public List<BhistoryDto>list(){
+
+        List<BhistoryDto> result = bankService.dealview();
+      return result;
+    }
 
 
-
+    //보안카드 끌어오기
+    @PostMapping("/securityCardnum")
+    public List<BsecurityDto>securityCardnumlist(@RequestBody BsecurityDto dto){
+      System.out.println(dto);
+      List<BsecurityDto>result= bankService.getsecurityCardnumlist(dto);
+        return result;
+  }
 
 
 }

@@ -74,7 +74,7 @@ const onSearch = () => {
                      </Form.Select>
 
                      <input type="text"className="keyword"/>
-                         <Button variant="primary" size="sm" type="button"className="userButton"onClick={ onSearch }>
+                         <Button variant="primary" size="sm" type="button" className="userButton" id="SearchButton" onClick={ onSearch }>
                            검색
                          </Button>
                      {/*<button type="button"className="userButton"onClick={ onSearch }>검색</button>*/}

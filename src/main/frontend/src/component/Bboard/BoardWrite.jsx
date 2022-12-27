@@ -39,9 +39,9 @@ export default function BoardWrite( props ){
                      첨부파일 : <input type="file" name="bfile" />
              </form>
 
-             <button type="button"> <Link to="/Bboard/Board">목록</Link> </button>
+             <div className = "bltn"><button type="button"> <Link to="/Bboard/Board">목록</Link> </button></div>
 
-             <button type="button" onClick={ bwrite } >등록</button>
+             <div className = "wbtn"><button type="button" onClick={ bwrite } >등록</button></div>
            </div>
   );
 
