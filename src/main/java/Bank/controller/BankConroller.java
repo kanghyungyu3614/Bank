@@ -91,6 +91,13 @@ public class BankConroller {
     }
 
 
+    //보안카드 끌어오기
+    @PostMapping("/securityCardnum")
+    public List<BsecurityDto>securityCardnumlist(@RequestBody BsecurityDto dto){
+      System.out.println(dto);
+      List<BsecurityDto>result= bankService.getsecurityCardnumlist(dto);
+        return result;
+  }
 
 
 }

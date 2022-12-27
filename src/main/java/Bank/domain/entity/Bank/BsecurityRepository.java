@@ -27,5 +27,4 @@ public interface BsecurityRepository extends JpaRepository<BsecurityEntity,Integ
     @Query( value = "select * from bsecurity where acno = :acnumber" , nativeQuery = true )
     List<BsecurityEntity> findbySecurityNumberEntity(String acnumber);
 
-
 }
