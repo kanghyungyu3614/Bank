@@ -228,26 +228,63 @@ public class BankService {
             return null;
         }
     }
-    // 2022-12-27 강현규 로그인
+
+    // 거래내역 비밀번호 입력 페이지
     @Transactional
     public String ReportPassword(DpositDto dpositDto) {
 
-        // dpositDto를 받아와서
-        // 1. 엔티티 전부 가져오기
-        List<DpositEntity> entityList = dpositRepository.findAll();
-        System.out.println("entityList 를 가져왔습니다.");
+        // 1. 세션으로 통장 엔티티 찾기
+        System.out.println("request.getSession().getAttribute(loginMno)");
+        System.out.println(request.getSession().getAttribute("loginMno"));
+        List<DpositEntity> entityList = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
+        System.out.println("entityList를 출력해보겠습니다.");
         System.out.println(entityList);
+        System.out.println("entityList 를 가져왔습니다.");
+
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
-        for (DpositEntity entity : entityList) { // 리스트 반복
-            if (entity.getAcpw() == dpositDto.getAcpw()) { // 엔티티=레코드 의 비밀번호 과 입력받은 비밀번호
-                // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
-                request.getSession().setAttribute("ano", entity.getAno());
-                System.out.println("entity 를 가져왔습니다.");
-                System.out.println(entity);
-                // 엔티티 = 레코드 = 로그인 성공한객체
+        //String entity = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+        int pwd = Integer.parseInt(dpositDto.getAcpw()); //String 타입의 비밀번호를 int로 변환해야 한다.
+        String num = "";
+        num = Long.toHexString(pwd+7);
+        System.out.println(num); // 비밀번호 toHexString 되어서 출력 => 4d9 // 아스키코드 된 값 : 4d9
+
+        String result = null; // 아스키코드 더한값 전역 선언
+        for(int i=0; i<num.length(); i++) {
+            System.out.println("num  내용입니다. ");
+            if(i+2<num.length()) {
+                System.out.println(num.charAt(i));
+                System.out.println(num.charAt(i+1));
+                System.out.println(num.charAt(i+2));
+                result = String.valueOf(num.charAt(i) + num.charAt(i+1) + num.charAt(i+2));
+                System.out.println(result); // 아스키코드를 10진수로 바꾼값을 전부 더한값
+            }
+        }
+
+        // 원래 있던거
+        String entityPwd = String.valueOf(entityList.get(0).getAcpw());
+        List<String> pwdList = new ArrayList<>();
+        String resulttrue = null;
+        //String DBpwd = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+        for(int i=0; i<entityPwd.length(); i++) {
+            if(i+2<entityPwd.length()){
+                System.out.println("DBpwd  내용입니다. ");
+                System.out.println(entityPwd.charAt(i));
+                System.out.println(entityPwd.charAt(i+1));
+                System.out.println(entityPwd.charAt(i+2));
+                pwdList.add(String.valueOf(entityPwd.charAt(i) + entityPwd.charAt(i+1) + entityPwd.charAt(i+2)));
+                System.out.println(pwdList.get(i));
+            }
+        }
+
+        boolean idture = false;
+        for(int j=0; j<pwdList.size(); j++) {
+            if(pwdList.get(j).equals(result)) {
+                request.getSession().setAttribute("ano", String.valueOf(entityList.get(0).getAno()));
+                System.out.println("true");
                 return "1";// 비밀번호가 있습니다.
             }
         }
+        System.out.println("false");
         return "2"; //비밀번호가 없습니다.
     }
 
@@ -255,7 +292,7 @@ public class BankService {
 
 
 
-    // 2022-12-20 강현규 mname, mname2 유효성검사중
+    // 2022-12-20 강현규 페이징처리
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {

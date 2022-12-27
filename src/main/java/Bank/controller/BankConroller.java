@@ -110,7 +110,7 @@ public class BankConroller {
       return result;
   }
 
-    /* sendHistory*/
+    /* sendcalendar*/
     @PostMapping("/calendar")
     public List<BhistoryDto> sendCalendar(@RequestBody BhistoryDto dto){
         System.out.println(dto);

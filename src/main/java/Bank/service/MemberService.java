@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -44,19 +45,53 @@ public class MemberService {
             // 2. 입력받은 데이터와 일치값 찾기
         for( BmemberEntity entity : entityList ){ // 리스트 반복
             if( entity.getMid().equals(bmemberDto.getMid())){ // 엔티티=레코드 의 이메일 과 입력받은 이메일
-                if( entity.getMpw().equals(bmemberDto.getMpw())){ // 엔티티=레코드 의 패스워드 와 입력받은 패스워드
-                    // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
-                    request.getSession().setAttribute("loginMno" , entity.getMno() );// 엔티티 = 레코드 = 로그인 성공한객체
-                    if(entity.getMname().equals("admin")){
-                        request.getSession().setAttribute("loginName","admin");
+
+                // 아이디를 맞추고 비밀번호를 맞추는거기 때문에 똑같은 엔티티에서 결정된다.
+                // 2. 입력받은 데이터와 엔티티 일치값 찾기
+                //String entity = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+                int pwd = Integer.parseInt(bmemberDto.getMpw()); //String 타입의 비밀번호를 int로 변환해야 한다.
+                String num = "";
+                num = Long.toHexString(pwd+7);
+                System.out.println(num); // 비밀번호 toHexString 되어서 출력 => 4d9 // 아스키코드 된 값 : 4d9
+
+                String result = null; // 아스키코드 더한값 전역 선언
+                for(int i=0; i<num.length(); i++) {
+                    System.out.println("num  내용입니다. ");
+                    if(i+2<num.length()) {
+                        System.out.println(num.charAt(i));
+                        System.out.println(num.charAt(i+1));
+                        System.out.println(num.charAt(i+2));
+                        result = String.valueOf(num.charAt(i) + num.charAt(i+1) + num.charAt(i+2));
+                        System.out.println(result); // 아스키코드를 10진수로 바꾼값을 전부 더한값
                     }
-                    System.out.println("loginName : admin");
-                    System.out.println(request.getSession().getAttribute("loginName"));
-                    System.out.println("loginName : admin");
-                    return 1;// 로그인 성공했다.
-                }else{
-                    return 2; // 패스워드 틀림 [ 전제조건 : 아이디중복 없다는 전제조건 ]
                 }
+
+                // 원래 있던거
+                String entityPwd = String.valueOf(entity.getMpw());
+                List<String> pwdList = new ArrayList<>();
+                String resulttrue = null;
+                //String DBpwd = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+                for(int i=0; i<entityPwd.length(); i++) {
+                    if(i+2<entityPwd.length()){ // i+2 가 db비밀번호문자열길이보다 작게
+                        System.out.println("DBpwd  내용입니다. ");
+                        System.out.println(entityPwd.charAt(i));
+                        System.out.println(entityPwd.charAt(i+1));
+                        System.out.println(entityPwd.charAt(i+2));
+                        pwdList.add(String.valueOf(entityPwd.charAt(i) + entityPwd.charAt(i+1) + entityPwd.charAt(i+2)));
+                        System.out.println(pwdList.get(i));
+                    }
+                }
+
+                boolean idture = false;
+                for(int j=0; j<pwdList.size(); j++) {
+                    if(pwdList.get(j).equals(result)) {
+                        request.getSession().setAttribute("loginMno", String.valueOf(entity.getMno()));
+                        System.out.println("true");
+                        return 1;// 비밀번호가 있습니다.
+                    }
+                }
+                System.out.println("false");
+                return 2; //비밀번호가 없습니다.
             }
         }
         return 0; // 아이디가 틀림
