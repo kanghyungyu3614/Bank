@@ -22,6 +22,8 @@ import Signup from "./Bank/Signup"; // 회원가입
 import DealReport from "./Bank/DealReport"; // 거래내역 페이지
 import DealReportPassword from "./Bank/DealReportPassword"; // 거래내역 비밀번호 페이지
 import style from "./css/Index.css"
+import GIF from "../img/bank-88.gif";
+import MainPhoto from "../img/은행메인비디오.mp4";
 // BrowserRouter : 가상 URL
 //  vs HashRouter :
 // Routes :  Route 목록/리스트
@@ -36,18 +38,15 @@ export default function Index(props) {
             <BrowserRouter>
                 <Header/>
                 <div style={{backgroundColor: "#193f52"}}>
-                    <ul className="main_sidebar" style={{display: "flex"}}>
-                        <li className="urlList"><a href="/">홈</a></li>
+                    <ul className="main_sidebar" style={{display: "flex",marginLeft:"5%"}}>
                         <li className="urlList"><a href="/member/securityCard/password">보안코드</a></li>
                         <li className="urlList"><a href="/Bank/Signup">회원가입 </a></li>
                         <li className="urlList"><a href="/Bank/Account">계좌송금</a></li>
                         <li className="urlList"><a href="/Bboard/Board">공지사항</a></li>
                         <li className="urlList"><a href="/admin/dealReport/password">거래내역</a></li>
                     </ul>
-                </div>
-                <Main/>
-                <div style={{border:"1px red solid"}}>
                     <Routes>
+                        <Route path="/" element={<Main/>} />
                         <Route path="/Bank/Account" element={<Bank/>}/>
                         <Route path="/member/securityCard/password" element={<SecurityCardPassword/>}/>
                         <Route path="/member/securityCard" element={<SecurityCard/>}/>

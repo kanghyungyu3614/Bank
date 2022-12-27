@@ -1,12 +1,28 @@
 import react from 'react';
-
-export default function Footer ( props) {  return (
-
-        <div class ="bbox">
-            은행소개  |  영업점안내  |  고객광장  |  개인정보처리방침  |  신용정보활용체제  |  개인신용정보관리보호
-            사고신고  |  전자민원접수  |  보호금융상품등록부  |  상품공시실  |  보안센터  |  웹접근성 이용안내
+import Git from '../img/Git.png'
+import Youtube from '../img/Youtube.png'
+import FaceBook from '../img/FaceBook.png'
+export default function Footer(props) {
+    return (
+        <div className="bbox">
+            <div className="FooterTile" style={{marginTop:"5%",marginBottom:"2%",display:"flex",justifyContent:"space-around"}}>
+                <a className="atitle">은행소개</a>
+                <a className="atitle">영업점안내</a>
+                <a className="atitle">고객광장</a>
+                <a className="atitle">개인정보처리방침</a>
+                <a className="atitle">개인신용정보관리보호</a>
+            </div>
+            <div className="fIcon">
+                    <span>
+                       <a href="https://github.com/kanghyungyu3614/Bank"> <img src={Git} style={{width:"3%"}}/> </a>
+                    </span>
+                <span>
+                        <img src={Youtube} style={{width:"4%",marginLeft:"6%"}}/>
+                    </span>
+                <span>
+                    <img src={FaceBook} style={{width:"15%"}}/>
+                </span>
+            </div>
         </div>
-
-)
-
-  }
+    );
+}
