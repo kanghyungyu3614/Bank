@@ -90,7 +90,7 @@ public class BankService {
 
 
 
-
+    @Transactional
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
         Random random = new Random();
@@ -135,6 +135,7 @@ public class BankService {
     }
 
     /*강현규 2022-12-07 계좌 비밀번호를 입력했을때 보안카드 페이지로 이동하는 내용*/
+    @Transactional
     public String getSecurityCardPassword(DpositDto dpositDto) {
 
         // dpositDto를 받아와서
@@ -158,7 +159,7 @@ public class BankService {
         }
         return "2"; //비밀번호가 없습니다.
     }
-
+    @Transactional
     public List<BsecurityDto> getSecurityCardNumber() {
         // 계좌순서(숫자)를 일단 문자열로 세션으로 가져온다.
         String ano = (String) request.getSession().getAttribute("ano");
@@ -194,7 +195,7 @@ public class BankService {
             return null;
         }
     }
-
+    @Transactional
     public String ReportPassword(DpositDto dpositDto) {
 
         // dpositDto를 받아와서

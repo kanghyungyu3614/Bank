@@ -12,8 +12,9 @@
 .DefaultUserName{
     display: inline-block;
     font-size: 22px;
-    width: 90px;
     line-height: 40px;
+    width: 90px;
+    color: white;
 }
 /* select option값 시작*/
 #keyid{
@@ -51,6 +52,7 @@
     padding: 1px;
     vertical-align: top;
     width: 70px;
+    width: 70px;
 }
 
 #SearchButton{
@@ -71,15 +73,20 @@
 }
 .dealReportTrComponent{
     border : 1px solid black;
-}
-.dealReportTrComponent:nth-child(1){
     background-color: #3579d4;
     font-size: 30px;
     color: white;
 }
+
+.dealReportTrList{
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    border: 1px solid black;
+}
 /*테이블 내용 끝 css*/
 /* th내용 시작 css 강현규 2022-12-16 수정*/
-.dealReportTrComponent th{
+.dealReportTrComponent th, .dealReportTrList th{
     border: 1px solid black;
 }
 .orderComponent{
