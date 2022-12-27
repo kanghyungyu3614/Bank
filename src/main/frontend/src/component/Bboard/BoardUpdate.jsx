@@ -52,9 +52,13 @@ export default function BoardUpdate( props ) {
 
                                                  />
                                  첨부파일 : <input type="file" name="bfile" />
+
+
+                <div> <button type="button" className="ubtn" onClick={ upboard }> 수정</button></div>
+
               </form>
 
-                <button type="button" onClick={ upboard }> 수정</button>
+
            </div>
   );
 
