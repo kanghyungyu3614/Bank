@@ -18,7 +18,7 @@ import MainPhoto from "../img/은행메인비디오.mp4"
                         fontSize: "39px",
                         color: "cornflowerblue"
                     }}>Thank_You_For_Visiting</h1>{/*2022-12-26 김원종 CSS 작업중 */}
-                <div style={{border: "2px double slateblue", borderRadius: "50%", width: "1300px"}}></div>
+                <div style={{border: "2px double azure", borderRadius: "50%", width: "1300px"}}></div>
             </div>
             <video muted autoPlay loop
                    style={{width: "1300px", marginTop: "9%",border: "15px ridge #3598db",

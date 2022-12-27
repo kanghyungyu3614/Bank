@@ -1,7 +1,7 @@
 import react from 'react';
 import Git from '../img/Git.png'
 import Youtube from '../img/Youtube.png'
-
+import FaceBook from '../img/FaceBook.png'
 export default function Footer(props) {
     return (
         <div className="bbox">
@@ -14,11 +14,14 @@ export default function Footer(props) {
             </div>
             <div className="fIcon">
                     <span>
-                       <a href="https://github.com/kanghyungyu3614/Bank"> <img src={Git} style={{width:"4%"}}/> </a>
+                       <a href="https://github.com/kanghyungyu3614/Bank"> <img src={Git} style={{width:"3%"}}/> </a>
                     </span>
                 <span>
                         <img src={Youtube} style={{width:"4%",marginLeft:"6%"}}/>
                     </span>
+                <span>
+                    <img src={FaceBook} style={{width:"15%"}}/>
+                </span>
             </div>
         </div>
     );
