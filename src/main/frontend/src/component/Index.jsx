@@ -45,6 +45,7 @@ export default function Index(props) {
                         <Route path="/member/securityCard/password" element={<SecurityCardPassword/>}/>
                         <Route path="/member/securityCard" element={<SecurityCard/>}/>
                         <Route path="/Bboard/Board" element={<BoardList/>}/>
+                        <Route path="/Bank/Login" element={<Login/>}/>
                         <Route path="/Bank/Signup" element={<Signup/>}/>
                         <Route path="/Bboard/BoardWrite" element={<BoardWrite/>}/>
                         <Route path="/Bboard/BoardUpdate/:bno" element={<BoardUpdate/>}/>
