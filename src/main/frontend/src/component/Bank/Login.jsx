@@ -1,7 +1,7 @@
 /* 2022-12-27 강현규 admin user 로그인,로그아웃 구현 */
 import react from 'react';
 import axios from 'axios';
-
+import '../css/Login.css';
 
 export default function Login(){
 
@@ -27,9 +27,9 @@ export default function Login(){
 
     return (
         <div className="loginComponent">
-           <h3>로그인</h3>
-               이메일 : <input type="text" className="memail" /><br/>
-               비밀번호 : <input type="password" className="mpassword" /><br/>
+           <h3 className="loginTitle">로그인</h3>
+               <span className="loginIdContext">이메일 : </span><input type="text" className="memail" /><br/>
+               <span className="loginPwdContext">비밀번호 : </span><input type="password" className="mpassword" /><br/>
                <input type="submit" value="로그인" onClick={loginMember} />
         </div>
     )
