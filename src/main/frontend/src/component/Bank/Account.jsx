@@ -18,6 +18,7 @@ export default function Account(props) {
     const[mastercheck ,setMastercheck] = useState('');
     const [account,setAccount] = useState()
     const [dealview , setDealview] = useState([]);
+
     const sendpay = () => { // 1. 송금버튼 2->3
         setStatech(2);
         setCcLick(0);
@@ -53,13 +54,13 @@ export default function Account(props) {
         .catch(err => {console.log(err)})
     }
 
-    const bsecurity = (account)=>{
-        alert(account+123);
+    const bsecurity = ()=>{
+        console.log(account);
                     let SecuritySubNumberArray = [];
                     let Coma = ''
 
         axios
-             .post("/bank/securityCardnum" , { acno : account})
+             .post("/bank/securityCardnum" , { acno :  account.accountnum})
              .then(res=>{
                 console.log(res.data[0].ssno)
             if(res.data[0].ssno.length>0){
@@ -71,21 +72,27 @@ export default function Account(props) {
                         SecuritySubNumberArray[i]=  Coma.substring(4*i,2+4*i)+" "+Coma.substring(2+4*i,4+4*i);
                          }
                      }
-                         console.log(Coma)
+                      console.log(Coma)
                       console.log(SecuritySubNumberArray)
-                      for( let i = 0 ; SecuritySubNumberArray.length; i++){
 
-                        }
                      }
+                      getRandomArbitrary(1,35)
                 })
              }
+           function getRandomArbitrary(min, max) {
+                    return Math.random() * (max - min) + min;
+                        let number = getRandomArbitrary(1, 35);
+                        let num = prompt(Math.floor(number)+"번째 입력");
+                        alert(num)
+                }
+
 
     const sendmoney =()=>{
         const payinsert = document.querySelector(".payinsert").value;
         axios
             .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum , type : 1}})
             .then(res=>{if(res.data == true){
-                bsecurity(account.accountnum);
+                alert("입금완료")
             }else{
                  alert("입금실패[관리자에게 문의]")
             }
@@ -151,7 +158,7 @@ console.log(dealview)
                        { statech == 2 && (
                      <>
                      <input type="text" className="payinsert" placeholder="금액입력"/>
-                     <button type="button" onClick={sendmoney}>입금</button>
+                     <button type="button" onClick={bsecurity}>보안카드입력</button>
                       </>
                         )
                       }

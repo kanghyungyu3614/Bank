@@ -85,6 +85,7 @@ public class BankConroller {
       return result;
 
   }
+    /* 거래내역 출력하기 */
     @GetMapping("/dealview")
     public List<BhistoryDto>list(){
 
@@ -101,5 +102,20 @@ public class BankConroller {
         return result;
   }
 
+  /* sendHistory*/
+  @PostMapping("/sendHistory")
+  public int sendHistory(@RequestBody BhistoryDto dto){
+      System.out.println(dto);
+      int result= bankService.sendHistory(dto);
+      return result;
+  }
+
+    /* sendHistory*/
+    @PostMapping("/calendar")
+    public List<BhistoryDto> sendCalendar(@RequestBody BhistoryDto dto){
+        System.out.println(dto);
+        List<BhistoryDto> result= bankService.giveHistory(dto);
+        return result;
+    }
 
 }

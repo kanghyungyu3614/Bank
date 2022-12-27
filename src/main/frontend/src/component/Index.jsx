@@ -38,7 +38,6 @@ export default function Index(props) {
             <BrowserRouter>
                 <Header/>
                 <Nav/>
-                <Main/>
                 <div style={{border:"1px red solid"}}>
                     <Routes>
                         <Route path="/Bank/Account" element={<Bank/>}/>

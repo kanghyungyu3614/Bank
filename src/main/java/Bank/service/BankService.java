@@ -66,7 +66,7 @@ public class BankService {
         System.out.println(payinsert);
         System.out.println(account);
         System.out.println(type);
-      int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
+        int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
         if(bhistoryEntity1!= 0){return  true;}
         else{return false;}
 
@@ -228,6 +228,7 @@ public class BankService {
             return null;
         }
     }
+    // 2022-12-27 강현규 로그인
     @Transactional
     public String ReportPassword(DpositDto dpositDto) {
 
@@ -285,7 +286,7 @@ public class BankService {
                 System.out.println( "key 값은 무엇일까요? : " + key ); // 필드명
                 System.out.println( "value 값은 무엇일까요? : " + r.get(key) ); // 필드명의 값
             });
-            historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2"))));
+            historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2")),"null","null"));
             // 궁금한거 1.룸북 적용? 안됨 ㅠ
             // 2.몰랐던거 Integer.parseInt(String.valueOf(r.get("bhno"))) 이건 되고
             // Integer.parseInt((String)(r.get("bhno")) 이건 안된다.
@@ -317,6 +318,43 @@ public class BankService {
         return dtoList;
     }
 
+    // 거래내역 저장하기
+    @Transactional
+    public int sendHistory(BhistoryDto dto){
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        System.out.println(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        String acno = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno")))).get(0).getAcno();
+        System.out.println("dto");
+        System.out.println(dto);
+        System.out.println("dto");
+        dto.setAcno(acno);
+        int insertNumber = bhistoryRepository.sendHistorymoney(dto.getBtypes(),dto.getBmoney(),dto.getBcontent(),dto.getAcno(),dto.getAcno2());
+        return 1;
+    }
+
+    // 거래내역 프론트로 보내기
+    public List<BhistoryDto> giveHistory(BhistoryDto dto){
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        System.out.println(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        String acno = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno")))).get(0).getAcno();
+        System.out.println("dto");
+        dto.setAcno(acno);
+        System.out.println(dto);
+        System.out.println("dto");
+        List<BhistoryDto> dtoList = new ArrayList<>();
+        List<BhistoryEntity> findhistory = bhistoryRepository.findDealHistory(dto.getAcno(),dto.getCdate());
+
+        for(BhistoryEntity entity : findhistory){
+            dtoList.add(entity.toDto());
+        }
+
+        System.out.println("dtoList");
+        System.out.println(dtoList);
+        System.out.println("dtoList");
+        return dtoList;
+    }
 
 }
 
