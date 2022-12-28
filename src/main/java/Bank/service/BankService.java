@@ -366,14 +366,15 @@ public class BankService {
         System.out.println(dto);
         System.out.println("dto");
         dto.setAcno(acno);
-        long memberMoney = dpositRepository.findbyAcno(dto.getAcno()).getAcba(); // 고객의 돈
+        long memberMoney = dpositRepository.findbyAcno(dto.getAcno()).getAcba(); // 나의 돈 내계좌의 잔액
+        long memberMoney2 = dpositRepository.findbyAcno(dto.getAcno2()).getAcba(); // 받는사람의 돈 받는사람의 잔액
         if(dto.getBmoney()<0 || memberMoney - (long)dto.getBmoney() <0 || memberMoney < 0 ){ // 고객의 돈이 0보다 작거나 이체금액보다 작거나 이체하는 돈이 0보다 작거나
             return 2; // 잔액부족
         }else{
             // update 는 pk int값
             // 1. 계좌이체로 돈을 얻는사람과 잃는사람
-            int updateMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney - dto.getBmoney())),dto.getAcno());
-            int getMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney + dto.getBmoney())) , dto.getAcno2() );
+            int updateMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney - dto.getBmoney())),dto.getAcno()); //내계좌
+            int getMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney2 + updateMemberMoney )) , dto.getAcno2() );
             // 2. 이체 내역 저장
             int insertNumber = bhistoryRepository.sendHistorymoney(dto.getBtypes(),dto.getBmoney(),dto.getBcontent(),dto.getAcno(),dto.getAcno2());
             return 1;
