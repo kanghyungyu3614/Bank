@@ -20,7 +20,7 @@ public interface DpositRepository extends JpaRepository<DpositEntity,String> {
     @Query( value = "select * from dposit where mno = :memberNameNumber" , nativeQuery = true )
     List<DpositEntity> findByGetacno(int memberNameNumber);
 
-
+    // 4. 통장 돈 바꿔치기
     @Query(value = "update dposit set acba = :money where acno = :acno" , nativeQuery = true)
     @Modifying
     int deleteByMoney(int money, String acno);
