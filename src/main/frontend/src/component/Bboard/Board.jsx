@@ -35,7 +35,7 @@ export default function Board( ) {
         const onPage = ( page ) => {   setPageInfo ( { page : page} )}
     /*--------------------------------------- --------------------------*/
         const loadView = ( bno) => {
-            alert(" click " + bno );
+            //alert(" click " + bno );
               axios .get( "/count" , { params : { bno : bno } } )
                     .then( res => {  console.log( res.data ); } )
                     .catch( err => { console.log( err ); } )
@@ -69,7 +69,7 @@ export default function Board( ) {
 
                               <Pagination
                                              activePage={ pageInfo.page  }
-                                             itemsCountPerPage = { 4 }
+                                             itemsCountPerPage = { 3 }
                                              totalItemsCount = { pageDto[0].totalBoards }
                                              pageRangeDisplayed = { 5 }
                                              onChange= { onPage }

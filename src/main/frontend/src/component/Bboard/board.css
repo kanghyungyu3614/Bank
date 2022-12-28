@@ -10,6 +10,7 @@
   border: 1px solid red;
   width: 70%;
   height: 1200px;
+  color: white;
   }
 
 
@@ -28,7 +29,7 @@ button{  border:1px;
 .mbox{     /*   중간 부분 전체 박스 구분*/
   height: 830px;
   margin: 10%;
-  background-color: white;
+  background-color: #193f52;
 
   }
 
@@ -48,6 +49,9 @@ button{  border:1px;
 .notice{
   margin-bottom: 3%;
 }
+
+th , td{ color: #3598DB;}
+
 
 .nbox{
  border-top: 1px solid blue;

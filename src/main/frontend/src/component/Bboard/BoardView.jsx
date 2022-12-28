@@ -29,6 +29,11 @@ export default function BoardView( props ) {
             axios.   delete( "/delboard" , { params : { bno: params.bno}}).then( res => { alert('삭제 성공'); window.location.href='/Bboard/Board'; })
            }
 
+  const onDownload= () => {
+                  axios.get("/filedownload" , { params : { filename : board.bfilename}})
+
+              }
+
    return(
 
       <div  className = "mbox">
@@ -41,7 +46,7 @@ export default function BoardView( props ) {
 
             <div className="bconbox" dangerouslySetInnerHTML={{__html:board.bcontent }} ></div>
 
-            { board.bfilename != '' && <a href={"/board/filedownload?filename=" + board.bfilename} > { board.bfilename } </a> }
+            { board.bfilename != '' && <a href={"/filedownload?filename=" + board.bfilename} > { board.bfilename } </a> }
 
 
          <span>

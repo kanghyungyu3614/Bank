@@ -20,8 +20,8 @@ export default function BoardWrite( props ){
         axios .post("/bwrite", formdata ,{ headers: { 'Content-Type': 'multipart/form-data'  } }  )
               .then( res => {
                       console.log( res.data )
-                      if( res.data == true ){ alert('게시물 작성 성공'); }
-                      else{ alert('게시물 작성 실패'); }
+                      if( res.data == true ){ console.log('게시물 작성 성공'); }
+                      else{ console.log('게시물 작성 실패'); }
                   })
               .catch( err => { console.log( err ); } )
      }
