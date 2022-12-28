@@ -76,6 +76,7 @@ export default function Signup(props) {
         msno: '',
         mname: '',
         madress: '',
+        madressc:'',
     })
 
 
@@ -95,9 +96,10 @@ export default function Signup(props) {
     const phoneform = /^\d{3}-\d{3,4}-\d{4}$/;// 정규표현식 휴대폰[ 2022-12-16 김원종 ]
     const msnoform = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))[1-4][0-9]{6}$/ // 정규표현식 주민번호[ 2022-12-16 김원종 ]
     const mnameform = /^[가-힣a-zA-Z]{2,20}$/;// 정규표현식 이름[ 2022-12-16 김원종 ]
-    const madressform = /(([가-힣A-Za-z·\d~\-\.]{2,}(로|길).[\d]+)|([가-힣A-Za-z·\d~\-\.]+(읍|동)\s)[\d]+)/
 
     console.log(confirm)
+    console.log(form)
+
     const midcheck = (e) => { /*아이디 검사 [ 2022-12-16 ] 김원종 */
 
         setForm({...form, mid: e.target.value})
@@ -185,11 +187,11 @@ export default function Signup(props) {
             confirm.madressc = true;
             setForm({...form,madress: e.target.value})
             madressbox.innerHTML = "올바른 주소입니다☺"
+            console.log(form.madress)
         } else {
             madressbox.innerHTML = "올바른 주소가 아닙니다!!"
         }
     }
-
 
     const handleInput = (e) => {
         setEnroll_company({
@@ -204,7 +206,6 @@ export default function Signup(props) {
     }
 
 
-    /*주소*/
     return (
         <div>
             <form className="bankform">
