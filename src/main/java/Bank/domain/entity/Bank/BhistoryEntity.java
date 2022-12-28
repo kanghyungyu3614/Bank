@@ -5,6 +5,7 @@ import Bank.domain.entity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,7 +29,8 @@ public class BhistoryEntity extends BaseEntity {
     @Column(nullable = false)
     String bcontent;   //거래내용
 
-
+    LocalDateTime udate;
+    LocalDateTime cdate;
 
 
     @ManyToOne
@@ -49,8 +51,9 @@ public class BhistoryEntity extends BaseEntity {
                 .acno( this.getDpositEntity().getAcno())
                 .acno2( this.getDpositEntity2().getAcno() )
                 .mname(this.getDpositEntity().getBmemberEntity().getMname())
-
                 .mname2(this.getDpositEntity2().getBmemberEntity().getMname() )
+                .cdate(String.valueOf((Object)this.cdate))
+                .udate(String.valueOf((Object)this.udate))
                 .build();
     }
 }

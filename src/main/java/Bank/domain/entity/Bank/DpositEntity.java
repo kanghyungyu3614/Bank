@@ -32,8 +32,8 @@ public class DpositEntity extends BaseEntity {
     @Column
     Boolean acst;    // 계좌 상태
 
-    @Column(nullable = false, length = 4)
-    int acpw;        // 계좌 비밀번호
+    @Column(nullable = false, length = 40)
+    String acpw;        // 계좌 비밀번호
     @Column(nullable = false)
     @ColumnDefault("0")
     long acba;       // 계좌 통장잔고

@@ -38,6 +38,7 @@ export default function Index(props) {
             <BrowserRouter>
                 <Header/>
                 <Nav/>
+
                 <div style={{border:"1px red solid"}}>
                     <Routes>
                         <Route path="/" element={<Main/>} />

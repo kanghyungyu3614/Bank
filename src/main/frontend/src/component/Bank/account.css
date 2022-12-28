@@ -9,10 +9,12 @@
     justify-content: space-between;
     border-radius : 5px;
     display : flex;
+        background-color: white;
 }
 /*캘린더*/
 .react-calendar{
    border : none;
+   background : none;
 }
 .react-calendar__navigation {
     width : 600px;

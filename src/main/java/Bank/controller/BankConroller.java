@@ -66,8 +66,8 @@ public class BankConroller {
         System.out.println("@RequestBody PageDto pageDto 가 들어왔어요.");
         return bankService.boardlist( pageDto  );
     }
-
-    /*개인거래*/
+  /* 계좌송금페이지  여기서부터 하면 된다. */
+ /*개인거래 라우터*/
  @GetMapping("/memberaccount")
     public boolean mastercheck(@RequestParam String ainput , @RequestParam String bank){
      System.out.println(ainput+"11");
@@ -75,7 +75,7 @@ public class BankConroller {
      boolean result = bankService.memberaccount(ainput,bank );
      return result;
  }
-    /*개인송금금액*/
+  /*개인송금금액*/
   @GetMapping("/accountinsert")
     public boolean paysend(@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account ,@RequestParam(value="type") int type ){
       System.out.println(payinsert);
@@ -85,6 +85,7 @@ public class BankConroller {
       return result;
 
   }
+    /* 거래내역 출력하기 */
     @GetMapping("/dealview")
     public List<BhistoryDto>list(){
 
@@ -101,5 +102,22 @@ public class BankConroller {
         return result;
   }
 
+  /* sendHistory*/
+  @PostMapping("/sendHistory")
+  public int sendHistory(@RequestBody BhistoryDto dto){
+      System.out.println("dto");
+      System.out.println(dto);
+      System.out.println("dto");
+      int result= bankService.sendHistory(dto);
+      return result;
+  }
+
+    /* sendcalendar*/
+    @PostMapping("/calendar")
+    public List<BhistoryDto> sendCalendar(@RequestBody BhistoryDto dto){
+        System.out.println(dto);
+        List<BhistoryDto> result= bankService.giveHistory(dto);
+        return result;
+    }
 
 }

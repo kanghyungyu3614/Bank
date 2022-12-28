@@ -10,14 +10,14 @@ export default function BoardView( props ) {
     console.log(params);
 
     const [ board , setBoard ] = useState( { } ); // 게시물 메모리
-    const [ login , setLogin ] = useState( { } ); // 로그인 /( 관리자 관련)
+    const [login, setLogin] = useState( { } );  // 로그인 /( 관리자 관련)
 
     useEffect(  // 1. 서버로 부터 해당 게시물 번호 의 게시물 정보 -> useState[board[ 요청[
            ()=> axios  .get( "/bdetail" , { params : { bno: params.bno } } ).then( res => { setBoard( res.data ) })
         , [] )
 
-   /*useEffect( // 2. 서버로 부터 해당 로그인된 회원의 아이디 정보
-          ()=>axios.get("/member" ).then( res => { setLogin( res.data); }) ,[] )*/
+   useEffect( // 2. 서버로 부터 해당 로그인된 회원의 아이디 정보
+          ()=>axios.get("/member/getloginMno" ).then( res => { setLogin( res.data); console.log( "로그인계정" + res.data )}) ,[] )
 
 
    // 해당 게시물 번호의 업데이트 페이지로 이동
@@ -46,12 +46,12 @@ export default function BoardView( props ) {
 
          <span>
              <div className = "rbox">
-             <button type="button" className="bbtn"> <Link to="/Bboard/Board"  className="btnt">목록</Link> </button>
+             <button type="button"> <a className="libtn" href="/Bboard/Board">목록</a> </button>
              </div>
 
              <div className ="adbox">
-             <button type="button" className="dbtn" onClick= { onDelete }> 삭제 </button>
-             <button type="button" className="ubtn2" onClick={ getUpdate}> 수정 </button>
+            { login == "adminLogin" &&  <button type="button" className="dbtn" onClick= { onDelete }> 삭제 </button> }
+            { login == "adminLogin" &&  <button type="button" className="ubtn2" onClick={ getUpdate}> 수정 </button> }
             </div>
           </span>
 

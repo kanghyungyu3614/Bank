@@ -66,14 +66,14 @@ public class BankService {
         System.out.println(payinsert);
         System.out.println(account);
         System.out.println(type);
-      int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
+        int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
         if(bhistoryEntity1!= 0){return  true;}
         else{return false;}
 
     }
 
     /*-----------------------------*/
-
+    // 거래내역 출력 페이지
     @Transactional
     public List<BhistoryDto>dealview(){
             List<BhistoryEntity>list = bhistoryRepository.myhistory();
@@ -89,7 +89,7 @@ public class BankService {
     }
 
 
-
+    // 보안카드 난수 만들기
     @Transactional
     public static void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
@@ -140,23 +140,56 @@ public class BankService {
 
         // dpositDto를 받아와서
         // 1. 엔티티 전부 가져오기
-        List<DpositEntity> entityList = dpositRepository.findAll();
+        System.out.println("request.getSession().getAttribute(loginMno)");
+        System.out.println(request.getSession().getAttribute("loginMno"));
+        List<DpositEntity> entityList = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
         System.out.println("entityList를 출력해보겠습니다.");
         System.out.println(entityList);
+
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
-        for (DpositEntity entity : entityList) { // 리스트 반복
-            if (entity.getAcpw() == dpositDto.getAcpw()) { // 엔티티=레코드 의 비밀번호 과 입력받은 비밀번호
-                System.out.println("entity");
-                System.out.println(entity);
-                System.out.println("entity");
-                System.out.println("entity.getAno()");
-                System.out.println(entity.getAno());
-                // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
-                request.getSession().setAttribute("ano", String.valueOf(entity.getAno()));
-                // 엔티티 = 레코드 = 로그인 성공한객체
-                return "1";// 비밀번호가 있습니다.
+        //String entity = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+        int pwd = Integer.parseInt(dpositDto.getAcpw()); //String 타입의 비밀번호를 int로 변환해야 한다.
+        String num = "";
+        num = Long.toHexString(pwd+7);
+        System.out.println(num); // 비밀번호 toHexString 되어서 출력 => 4d9 // 아스키코드 된 값 : 4d9
+
+        String result = null; // 아스키코드 더한값 전역 선언
+        for(int i=0; i<num.length(); i++) {
+            System.out.println("num  내용입니다. ");
+            if(i+2<num.length()) {
+                System.out.println(num.charAt(i));
+                System.out.println(num.charAt(i+1));
+                System.out.println(num.charAt(i+2));
+                result = String.valueOf(num.charAt(i) + num.charAt(i+1) + num.charAt(i+2));
+                System.out.println(result); // 아스키코드를 10진수로 바꾼값을 전부 더한값
             }
         }
+
+            // 원래 있던거
+            String entityPwd = String.valueOf(entityList.get(0).getAcpw());
+            List<String> pwdList = new ArrayList<>();
+            String resulttrue = null;
+            //String DBpwd = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+            for(int i=0; i<entityPwd.length(); i++) {
+                if(i+2<entityPwd.length()){
+                    System.out.println("DBpwd  내용입니다. ");
+                    System.out.println(entityPwd.charAt(i));
+                    System.out.println(entityPwd.charAt(i+1));
+                    System.out.println(entityPwd.charAt(i+2));
+                    pwdList.add(String.valueOf(entityPwd.charAt(i) + entityPwd.charAt(i+1) + entityPwd.charAt(i+2)));
+                    System.out.println(pwdList.get(i));
+                }
+            }
+
+            boolean idture = false;
+            for(int j=0; j<pwdList.size(); j++) {
+                if(pwdList.get(j).equals(result)) {
+                    request.getSession().setAttribute("ano", String.valueOf(entityList.get(0).getAno()));
+                    System.out.println("true");
+                    return "1";// 비밀번호가 있습니다.
+                }
+            }
+        System.out.println("false");
         return "2"; //비밀번호가 없습니다.
     }
     @Transactional
@@ -195,25 +228,63 @@ public class BankService {
             return null;
         }
     }
+
+    // 거래내역 비밀번호 입력 페이지
     @Transactional
     public String ReportPassword(DpositDto dpositDto) {
 
-        // dpositDto를 받아와서
-        // 1. 엔티티 전부 가져오기
-        List<DpositEntity> entityList = dpositRepository.findAll();
-        System.out.println("entityList 를 가져왔습니다.");
+        // 1. 세션으로 통장 엔티티 찾기
+        System.out.println("request.getSession().getAttribute(loginMno)");
+        System.out.println(request.getSession().getAttribute("loginMno"));
+        List<DpositEntity> entityList = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
+        System.out.println("entityList를 출력해보겠습니다.");
         System.out.println(entityList);
+        System.out.println("entityList 를 가져왔습니다.");
+
         // 2. 입력받은 데이터와 엔티티 일치값 찾기
-        for (DpositEntity entity : entityList) { // 리스트 반복
-            if (entity.getAcpw() == dpositDto.getAcpw()) { // 엔티티=레코드 의 비밀번호 과 입력받은 비밀번호
-                // 세션 부여 [ 로그인 성공시 'loginMno'이름으로 회원번호 세션 저장  ]
-                request.getSession().setAttribute("ano", entity.getAno());
-                System.out.println("entity 를 가져왔습니다.");
-                System.out.println(entity);
-                // 엔티티 = 레코드 = 로그인 성공한객체
+        //String entity = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+        int pwd = Integer.parseInt(dpositDto.getAcpw()); //String 타입의 비밀번호를 int로 변환해야 한다.
+        String num = "";
+        num = Long.toHexString(pwd+7);
+        System.out.println(num); // 비밀번호 toHexString 되어서 출력 => 4d9 // 아스키코드 된 값 : 4d9
+
+        String result = null; // 아스키코드 더한값 전역 선언
+        for(int i=0; i<num.length(); i++) {
+            System.out.println("num  내용입니다. ");
+            if(i+2<num.length()) {
+                System.out.println(num.charAt(i));
+                System.out.println(num.charAt(i+1));
+                System.out.println(num.charAt(i+2));
+                result = String.valueOf(num.charAt(i) + num.charAt(i+1) + num.charAt(i+2));
+                System.out.println(result); // 아스키코드를 10진수로 바꾼값을 전부 더한값
+            }
+        }
+
+        // 원래 있던거
+        String entityPwd = String.valueOf(entityList.get(0).getAcpw());
+        List<String> pwdList = new ArrayList<>();
+        String resulttrue = null;
+        //String DBpwd = "3E2YQdaJ76qQ20U4d99KT4vIb1Gu6lhT3";
+        for(int i=0; i<entityPwd.length(); i++) {
+            if(i+2<entityPwd.length()){
+                System.out.println("DBpwd  내용입니다. ");
+                System.out.println(entityPwd.charAt(i));
+                System.out.println(entityPwd.charAt(i+1));
+                System.out.println(entityPwd.charAt(i+2));
+                pwdList.add(String.valueOf(entityPwd.charAt(i) + entityPwd.charAt(i+1) + entityPwd.charAt(i+2)));
+                System.out.println(pwdList.get(i));
+            }
+        }
+
+        boolean idture = false;
+        for(int j=0; j<pwdList.size(); j++) {
+            if(pwdList.get(j).equals(result)) {
+                request.getSession().setAttribute("ano", String.valueOf(entityList.get(0).getAno()));
+                System.out.println("true");
                 return "1";// 비밀번호가 있습니다.
             }
         }
+        System.out.println("false");
         return "2"; //비밀번호가 없습니다.
     }
 
@@ -221,7 +292,7 @@ public class BankService {
 
 
 
-    // 2022-12-20 강현규 mname, mname2 유효성검사중
+    // 2022-12-20 강현규 페이징처리
     // 2. 게시물 목록 조회
     @Transactional      // bcno : 카테고리번호 , page : 현재 페이지번호 , key : 검색필드명 , keyword : 검색 데이터
     public PageDto boardlist(PageDto pageDto) {
@@ -252,7 +323,7 @@ public class BankService {
                 System.out.println( "key 값은 무엇일까요? : " + key ); // 필드명
                 System.out.println( "value 값은 무엇일까요? : " + r.get(key) ); // 필드명의 값
             });
-            historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2"))));
+            historyDtoList.add(new BhistoryDto(  Integer.parseInt(String.valueOf(r.get("bhno")))  , String.valueOf(r.get("bcontent"))  ,  Integer.parseInt(String.valueOf(r.get("bmoney")))  ,  Integer.parseInt(String.valueOf(r.get("btypes")))  ,  String.valueOf(r.get("mname"))  ,  String.valueOf(r.get("mname2")),"null","null"));
             // 궁금한거 1.룸북 적용? 안됨 ㅠ
             // 2.몰랐던거 Integer.parseInt(String.valueOf(r.get("bhno"))) 이건 되고
             // Integer.parseInt((String)(r.get("bhno")) 이건 안된다.
@@ -271,6 +342,7 @@ public class BankService {
 
 
     //보안카드 따오기
+    @Transactional
     public List<BsecurityDto>getsecurityCardnumlist(BsecurityDto dto){
 
         List<BsecurityEntity>list = bsecurityRepository.findbySecurityNumberEntity(dto.getAcno());
@@ -282,7 +354,55 @@ public class BankService {
 
         return dtoList;
     }
+    // 2022-12-28 계좌송금 페이지 여기서부터 시작
+    // 거래내역 저장하기
+    @Transactional
+    public int sendHistory(BhistoryDto dto){
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        System.out.println(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        String acno = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno")))).get(0).getAcno();
+        System.out.println("dto");
+        System.out.println(dto);
+        System.out.println("dto");
+        dto.setAcno(acno);
+        long memberMoney = dpositRepository.findbyAcno(dto.getAcno()).getAcba(); // 나의 돈 내계좌의 잔액
+        long memberMoney2 = dpositRepository.findbyAcno(dto.getAcno2()).getAcba(); // 받는사람의 돈 받는사람의 잔액
+        if(dto.getBmoney()<0 || memberMoney - (long)dto.getBmoney() <0 || memberMoney < 0 ){ // 고객의 돈이 0보다 작거나 이체금액보다 작거나 이체하는 돈이 0보다 작거나
+            return 2; // 잔액부족
+        }else{
+            // update 는 pk int값
+            // 1. 계좌이체로 돈을 얻는사람과 잃는사람
+            int updateMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney - dto.getBmoney())),dto.getAcno()); //내계좌
+            int getMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney2 + updateMemberMoney )) , dto.getAcno2() );
+            // 2. 이체 내역 저장
+            int insertNumber = bhistoryRepository.sendHistorymoney(dto.getBtypes(),dto.getBmoney(),dto.getBcontent(),dto.getAcno(),dto.getAcno2());
+            return 1;
+        }
+    }
 
+    // 거래내역 프론트로 보내기
+    public List<BhistoryDto> giveHistory(BhistoryDto dto){
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        System.out.println(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno"))));
+        System.out.println("Integer.parseInt(String.valueOf(request.getSession().getAttribute(loginMno)))");
+        String acno = dpositRepository.findByGetacno(Integer.parseInt(String.valueOf(request.getSession().getAttribute("loginMno")))).get(0).getAcno();
+        System.out.println("dto");
+        dto.setAcno(acno);
+        System.out.println(dto);
+        System.out.println("dto");
+        List<BhistoryDto> dtoList = new ArrayList<>();
+        List<BhistoryEntity> findhistory = bhistoryRepository.findDealHistory(dto.getAcno(),dto.getCdate());
+
+        for(BhistoryEntity entity : findhistory){
+            dtoList.add(entity.toDto());
+        }
+
+        System.out.println("dtoList");
+        System.out.println(dtoList);
+        System.out.println("dtoList");
+        return dtoList;
+    }
 
 }
 
