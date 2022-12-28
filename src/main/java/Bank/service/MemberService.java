@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MemberService {
@@ -66,10 +67,8 @@ public class MemberService {
         }catch (Exception e){
             System.out.println(e);
         }
-        System.out.println("확인");
         System.out.println(Result);
-        return  false;
-   /*     bmemberDto.setMpw(Result); // 변경된 비밀번호로 셋팅
+        bmemberDto.setMpw(Result); // 변경된 비밀번호로 셋팅
 
         System.out.println(bmemberDto.getMpw());
         boolean IDcheck= bmemberRepository.findBymid(bmemberDto.getMid()).isPresent();
@@ -79,12 +78,20 @@ public class MemberService {
             return true;
         } else {
             return false;
-        }*/
+        }
     }
     /* 중복검사 */
     @Transactional
     public boolean checkmember(String mid){
-        return false;
+        Optional< BmemberEntity > optional
+                = bmemberRepository.findBymid(mid);
+        System.out.println("드루와");
+        System.out.println(optional.toString());
+        if(optional.isPresent()){
+            return true;
+        }else{
+            return false;
+        }
     }
     /* 2. 로그인 */
     @Transactional

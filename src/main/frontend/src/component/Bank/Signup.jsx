@@ -59,6 +59,7 @@ export default function Signup(props) {
                     console.log(res.data)
                     if (res.data === true) {
                         alert('회원가입성공');
+                        window.location.href ="http://localhost:8081/"
                     } else {
                         alert('회원가입 실패 ');
                     }
@@ -76,6 +77,8 @@ export default function Signup(props) {
             .then(res=>{
                 if(res.data===true){
                     console.log("aaa")
+                }else{
+                    console.log("sss")
                 }
             })
 

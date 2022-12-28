@@ -30,8 +30,12 @@ public class MemberController {
     }
     @GetMapping("/checkmember")
     public boolean checkmember(@RequestParam("mid") String mid){
+        System.out.println("확인용");
         System.out.println(mid);
-        return false;
+        boolean result = memberService.checkmember(mid);
+        System.out.println("아이디 체크 결과");
+        System.out.println(result);
+        return result;
     }
 
     /* 로그아웃 */ /*2022-12-27 강현규 로그아웃 */
