@@ -13,6 +13,7 @@
 /*캘린더*/
 .react-calendar{
    border : none;
+   background : none;
 }
 .react-calendar__navigation {
     width : 600px;

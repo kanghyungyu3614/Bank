@@ -41,4 +41,11 @@ public interface BhistoryRepository extends JpaRepository<BhistoryEntity,Integer
     List<BhistoryEntity>myhistory();
 
 
+    @Query(value = "insert into bhistory(cdate, udate ,bcontent,bmoney , btypes , acno ,acno2)values(now(),now(),:bcontent,:bmoeny,:btypes,:acno,:acno2)" , nativeQuery = true)
+    @Modifying
+    int sendHistorymoney(int btypes,long bmoeny,String bcontent,String acno,String acno2);
+
+    @Query(value = "select * from bhistory where acno = :acno and cdate like %:cdate%" ,nativeQuery = true)
+    List<BhistoryEntity> findDealHistory (String acno,String cdate);
+
 }
