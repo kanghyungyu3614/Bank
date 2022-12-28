@@ -24,7 +24,7 @@ export default function Nav (){
 
     return(
             <div style={{backgroundColor: "#193f52",marginTop:"50px"}}>
-                   <ul className="main_sidebar" style={{display: "flex"}}>
+                   <ul className="main_sidebar" style={{display: "flex" }}>
                      {
                      login == "userLogin" ?
                       (

@@ -76,23 +76,30 @@ public class BankConroller {
      return result;
  }
   /*개인송금금액*/
-  @GetMapping("/accountinsert")
+/*  @GetMapping("/accountinsert")
     public boolean paysend(@RequestParam(value = "pay") String payinsert , @RequestParam(value = "account") String account ,@RequestParam(value="type") int type ){
+      System.out.println("accountinsert");
       System.out.println(payinsert);
       System.out.println(account);
       System.out.println(type);
+      System.out.println("accountinsert");
      boolean result = bankService.paysend(payinsert , account , type);
       return result;
 
-  }
+  }*/
     /* 거래내역 출력하기 */
     @GetMapping("/dealview")
     public List<BhistoryDto>list(){
-
         List<BhistoryDto> result = bankService.dealview();
       return result;
     }
-
+    /*날짜별 거래 목록 조회*/
+    @PostMapping("/dateview")
+    public List<BhistoryDto>datelist(@RequestBody BhistoryDto dto){
+        System.out.println(dto);
+        List<BhistoryDto>result = bankService.giveHistory(dto);
+        return result;
+    }
 
     //보안카드 끌어오기
     @PostMapping("/securityCardnum")
@@ -113,11 +120,11 @@ public class BankConroller {
   }
 
     /* sendcalendar*/
-    @PostMapping("/calendar")
+   /* @PostMapping("/calendar")
     public List<BhistoryDto> sendCalendar(@RequestBody BhistoryDto dto){
         System.out.println(dto);
         List<BhistoryDto> result= bankService.giveHistory(dto);
         return result;
-    }
+    }*/
 
 }

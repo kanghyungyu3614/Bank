@@ -61,7 +61,7 @@ public class BankService {
     }
     /*-------------------------계좌 송금--------------------------------------*/
 
-    @Transactional
+ /*   @Transactional
     public  boolean paysend(String payinsert , String account ,int type) {
         System.out.println(payinsert);
         System.out.println(account);
@@ -71,14 +71,23 @@ public class BankService {
         else{return false;}
 
     }
-
+*/
     /*-----------------------------*/
     // 거래내역 출력 페이지
     @Transactional
     public List<BhistoryDto>dealview(){
-            List<BhistoryEntity>list = bhistoryRepository.myhistory();
-            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+
+        int mno = Integer.parseInt( (String.valueOf( request.getSession().getAttribute("loginMno"))));
+        List<DpositEntity>list1 = dpositRepository.findByGetacno(mno);
+          System.out.println("list");
+        System.out.println(list1);
         System.out.println("list");
+            List<BhistoryEntity>list = bhistoryRepository.myhistory(list1.get(0).getAcno());
+            System.out.println(list);
+
+
+            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+
         for(int i = 0 ; i< list.size() ; i++){
             bhdistoryDtos.add(list.get(i).toDto());
         }
@@ -374,7 +383,7 @@ public class BankService {
             // update 는 pk int값
             // 1. 계좌이체로 돈을 얻는사람과 잃는사람
             int updateMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney - dto.getBmoney())),dto.getAcno()); //내계좌
-            int getMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney2 + updateMemberMoney )) , dto.getAcno2() );
+            int getMemberMoney = dpositRepository.deleteByMoney(Integer.parseInt(String.valueOf(memberMoney2 + dto.getBmoney() )) , dto.getAcno2() );
             // 2. 이체 내역 저장
             int insertNumber = bhistoryRepository.sendHistorymoney(dto.getBtypes(),dto.getBmoney(),dto.getBcontent(),dto.getAcno(),dto.getAcno2());
             return 1;

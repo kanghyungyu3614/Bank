@@ -33,12 +33,13 @@ public interface BhistoryRepository extends JpaRepository<BhistoryEntity,Integer
             // 키 : Object  : 필드
             // 값 : Object : 해당 필드의 값
     // List<Map<Object,Object> > : 검색된 레코드 여러개
-    @Query(value = "insert into bhistory(cdate, udate ,bcontent,bmoney , btypes , acno ,acno2)values(now(),now(),'안녕',:payinsert,:type,'1414',:account)" , nativeQuery = true)
+   /* @Query(value = "insert into bhistory(cdate, udate ,bcontent,bmoney , btypes , acno ,acno2)values(now(),now(),'안녕',:payinsert,:type, '1414',:account)" , nativeQuery = true)
     @Modifying
     int insertbyaccount(String payinsert , String account, int type);
+*/
 
-    @Query(value = "select * from bhistory where acno = '1414'" ,nativeQuery = true)
-    List<BhistoryEntity>myhistory();
+    @Query(value = "select * from bhistory where acno = :acno" ,nativeQuery = true)
+    List<BhistoryEntity>myhistory(String acno);
 
 
     @Query(value = "insert into bhistory(cdate, udate ,bcontent,bmoney , btypes , acno ,acno2)values(now(),now(),:bcontent,:bmoeny,:btypes,:acno,:acno2)" , nativeQuery = true)

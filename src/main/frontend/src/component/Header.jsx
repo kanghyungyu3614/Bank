@@ -6,7 +6,9 @@ export default function Header(props) {
     return (
         <div class="hbox" style={{backgroundColor:"#193f52"}}>
             <div style={{backgroundColor:"#193f52"}}>
-                <a href="/"><img src={logo} style={{width: "9%",margin:"0% 0% 0% 44%"}}/></a>
+                <div>
+                <a href="/"><img src={logo} style={{width: "9%", float: "left"}}/></a>
+                </div>
                 <a href="/" style={{color: "#3598db",
                                     textDecoration: "none",
                                     outline: "none"}}>
@@ -14,6 +16,7 @@ export default function Header(props) {
                         textAlign: "center",
                         fontSize:"123%",
                         color:"#3598db",
+                        float: "right",
                         paddingBottom:"13px"}}>Welcome_$ecurity_Bank</h3>
                 </a>
             </div>

@@ -1,34 +1,40 @@
 import React from "react";
 import GIF from "../img/bank-88.gif"
 import MainPhoto from "../img/은행메인비디오.mp4"
-
+import img from "../img/project.JPG"
 
 
 
  function Main(props) {
 
     return (
-        <div style={{height: "20%", width: "1400px"}}>
+        <div style={{height: "20%"}}>
 
             <div className="Imgbox" style={{backgroundColor: "#193f52"}}>{/*2022-12-26 김원종 CSS 작업중 */}
-                <img className="GIF" src={GIF} style={{width: "13%", marginLeft: "39%"}}/>{/*2022-12-26 김원종 CSS 작업중 */}
-                <h1 className="Title"
+                <img className="GIF" src={GIF} style={{width: "13%", marginLeft: "45%"}}/>{/*2022-12-26 김원종 CSS 작업중 */}
+              {/*  <h1 className="Title"
                     style={{
                         marginLeft: "31.5%",
                         fontSize: "39px",
                         color: "cornflowerblue"
-                    }}>Thank_You_For_Visiting</h1>{/*2022-12-26 김원종 CSS 작업중 */}
-                <div style={{border: "2px double azure", borderRadius: "50%", width: "1300px"}}></div>
+                    }}>Thank_You_For_Visiting</h1>*/}{/*2022-12-26 김원종 CSS 작업중 */}
+
+                <div style={{border: "2px double azure", borderRadius: "50%"}}></div>
+                <div style={{width:"400px" , height:"300px" , border :"solid 1px white"}}>
+                     <img src={img} style={{width :"100%" , height:"100%"}}/>
+                </div>
+                <div>
+                    박스권 2
+                </div>
             </div>
-            <video muted autoPlay loop
+           {/* <video muted autoPlay loop
                    style={{width: "1300px", marginTop: "9%",border: "15px ridge #3598db",
-                       boxShadow:"-11px 0px 68px steelblue"}}> {/*2022-12-26 김원종 CSS 작업중 */}
+                       boxShadow:"-11px 0px 68px steelblue"}}> {*//*2022-12-26 김원종 CSS 작업중 *//*}
                 <source src={MainPhoto} type="video/mp4"/>
-            </video>
+            </video>*/}
             <div style={{display: "flex", width: "1200px", justifyContent: "space-around"}}>
             </div>
         </div>
-
     )
 }
 

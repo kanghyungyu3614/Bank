@@ -5,6 +5,10 @@ ul{display: flex; margin-left:10px; margin-bottom: 10px;}
 li{margin-left:10px;}
 .main_sidebar{
     margin-bottom : 10px;
+    clear: both;
+   text-align: center;
+   border-bottom: 2px solid #4c5e66;
+    margin: 0px
 }
 /* 2022-12-06 강현규 프론트작성 */
 /* 2022-12-15 강현규 링크 프론트작성 */
