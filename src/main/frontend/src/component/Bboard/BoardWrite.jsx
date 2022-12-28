@@ -1,8 +1,10 @@
-import React from 'react';
+import React , { useState , useEffect } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+import styles from './board.css'
 
 let bcontent = '';
 
@@ -24,6 +26,11 @@ export default function BoardWrite( props ){
               .catch( err => { console.log( err ); } )
      }
 
+      const [login, setLogin] = useState( { } );  // 로그인 /( 관리자 관련)
+
+       useEffect( // 2. 서버로 부터 해당 로그인된 회원의 아이디 정보
+                ()=>axios.get("/member/getloginMno" ).then( res => { setLogin( res.data); console.log( "로그인계정" + res.data )}) ,[] )
+
   return(
          <div className = "mbox">
              <form className = "bbord">
@@ -39,9 +46,9 @@ export default function BoardWrite( props ){
                      첨부파일 : <input type="file" name="bfile" />
              </form>
 
-             <div className = "bltn"><button type="button"> <Link to="/Bboard/Board">목록</Link> </button></div>
+             <div className = "bltn"><button type="button"> <a className="libtn" href="/Bboard/Board">목록</a> </button></div>
 
-             <div className = "wbtn"><button type="button" onClick={ bwrite } >등록</button></div>
+            {  login == "adminLogin" && <div className = "wbtn"><button type="button" onClick={ bwrite } >등록</button></div> }
            </div>
   );
 

@@ -7,7 +7,7 @@ import {HashRouter, BrowserRouter, Routes, Route, Link, Router} from "react-rout
 
 import Header from './Header'
 import Footer from './Footer'
-import Main from "./Main";
+import Main from './Main'
 import styles from "./css/Index.css";
 import Bank from './Bank/Account' // 계좌 임포트
 import SecurityCard from "./security/SecurityCard";   //  보안카드 임포트
@@ -38,9 +38,10 @@ export default function Index(props) {
             <BrowserRouter>
                 <Header/>
                 <Nav/>
+                <Main/>
                 <div style={{border:"1px red solid"}}>
                     <Routes>
-                        <Route path="/" element={<Main/>} />
+
                         <Route path="/Bank/Account" element={<Bank/>}/>
                         <Route path="/member/securityCard/password" element={<SecurityCardPassword/>}/>
                         <Route path="/member/securityCard" element={<SecurityCard/>}/>
