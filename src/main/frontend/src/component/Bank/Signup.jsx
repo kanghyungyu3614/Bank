@@ -32,6 +32,7 @@ export default function Signup(props) {
                 address: fullAddress,
             })
             setPopup(false);
+            setForm({...form,madressc:fullAddress})
         }
 
 
@@ -181,7 +182,6 @@ export default function Signup(props) {
 
     const madresscheck = (e) => {
         console.log(e.target.value)
-        setForm({ })
         let madressbox = document.querySelector('.madressbox')
         if (e.target.value!=null) {
             confirm.madressc = true;
