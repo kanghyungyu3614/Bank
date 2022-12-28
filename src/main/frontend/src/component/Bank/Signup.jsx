@@ -2,12 +2,12 @@ import React, {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import "../css/Signup.css"
 import DaumPostcode from "react-daum-postcode"
+import {useParams} from "react-router-dom";
 
 
 export default function Signup(props) {
-
+    /* 주소 api/////////////////////////////////////////////////////////////////////////*/
     const [popup, setPopup] = useState(false);
-
     const Post = (props) => {
 
         const complete = (data) => {
@@ -32,7 +32,7 @@ export default function Signup(props) {
                 address: fullAddress,
             })
             setPopup(false);
-            setForm({...form,madressc:fullAddress})
+            setForm({...form, madressc: fullAddress})
         }
 
 
@@ -52,21 +52,33 @@ export default function Signup(props) {
     //fullAddress -> 전체 주소반환
     /*===========================================================================*/
     const signUp = () => {
-
-
-        axios
-            .post("/member/signup/", form, {headers: {'Content-Type': 'multipart/form-data'}})
-            .then(res => {
-                console.log(res.data)
-                if (res.data === true) {
-                    alert('회원가입성공');
-                } else {
-                    alert('회원가입 실패 ');
+        if (confirm.midc===true&&confirm.mpwc===true&&confirm.madressc===true&&confirm.mnamec===true&&confirm.msnoc===true&&confirm.mphonec===true&&confirm.mpwconfirmc===true) {
+            axios
+                .post("/member/signup/", form, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data === true) {
+                        alert('회원가입성공');
+                    } else {
+                        alert('회원가입 실패 ');
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        } else {
+            alert("항목을 확인해주세요 ")
+        }
+    }
+    const param = useParams();
+    const Idcheck=()=>{ // 아이디 중복검사
+        axios.get("/member/checkmember/", {params:{mid : form.mid}})
+            .then(res=>{
+                if(res.data===true){
+                    console.log("aaa")
                 }
             })
-            .catch(err => {
-                console.log(err);
-            })
+
     }
 
     const [form, setForm] = useState({ // form의 input을 객체로 묶음
@@ -77,7 +89,7 @@ export default function Signup(props) {
         msno: '',
         mname: '',
         madress: '',
-        madressc:'',
+        madressc: '',
     })
 
 
@@ -106,22 +118,22 @@ export default function Signup(props) {
         setForm({...form, mid: e.target.value})
 
         if (midform.test(e.target.value)) {
-            document.querySelector('.idbox').innerHTML = "🌝사용가능한 아이디입니다🌝"
+            document.querySelector('.idbox').innerHTML = "사용가능한 아이디입니다✔"
             confirm.midc = true;
             setForm({...form, mid: e.target.value})
         } else {
-            document.querySelector('.idbox').innerHTML = "사용불가능"
+            document.querySelector('.idbox').innerHTML = "사용불가능❌"
         }
     }
     const pwcheck = (e) => { /*비밀번호 검사 [ 2022-12-16 ] 김원종*/
 
         setForm({...form, mpw: e.target.value})
         if (mpwform.test(e.target.value)) {
-            document.querySelector('.pwbox').innerHTML = "👌사용가능한 비밀번호입니다."
+            document.querySelector('.pwbox').innerHTML = "사용가능한 비밀번호입니다.✔"
             confirm.mpwc = true;
             setForm({...form, mpw: e.target.value})
         } else {
-            document.querySelector('.pwbox').innerHTML = "🔓사용불가능한 비밀번호입니다.<br>" +
+            document.querySelector('.pwbox').innerHTML = "사용불가능한 비밀번호입니다❌<br>" +
                 "최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자 하나, 숫자 하나 및 특수 문자 하나 이상으로 작성해주세요!"
         }
     }
@@ -131,33 +143,33 @@ export default function Signup(props) {
         console.log(e.target.value)
         let pwchbox = document.querySelector('.pwchbox')
         if (form.mpw === e.target.value) {
-            pwchbox.innerHTML = "👀비밀번호가 일치합니다👀"
+            pwchbox.innerHTML = "비밀번호가 일치합니다✔"
             confirm.mpwconfirmc = true;
             setForm({...form, mpwconfirm: e.target.value})
         } else {
-            pwchbox.innerHTML = "😨입력하신 비밀번호와 다릅니다!!다시 확인해주세요!!"
+            pwchbox.innerHTML = "입력하신 비밀번호와 다릅니다!다시 확인해주세요!❌"
         }
     }
     const phonecheck = (e) => {/*전화번호 확인 [2022-12-16] 김원종 */
         setForm({...form, mphone: e.target.value})
         let phckbox = document.querySelector('.phckbox')
         if (phoneform.test(e.target.value)) {
-            phckbox.innerHTML = "📞올바른 형식입니다><"
+            phckbox.innerHTML = "올바른 형식입니다✔"
             confirm.mphonec = true;
             setForm({...form, mphone: e.target.value})
         } else {
-            phckbox.innerHTML = "올바른 전화번호 형식이 아닙니다!!"
+            phckbox.innerHTML = "올바른 전화번호 형식이 아닙니다❌"
         }
     }
     const msnocheck = (e) => {/*주민번호 확인 [2022-12-16] 김원종 */
         setForm({...form, msno: e.target.value})
         let msnockbox = document.querySelector('.msnockbox')
         if (msnoform.test(e.target.value)) {
-            msnockbox.innerHTML = "👌올바른 형식입니다.👌"
+            msnockbox.innerHTML = "올바른 형식입니다✔"
             confirm.msnoc = true;
             setForm({...form, msno: e.target.value})
         } else {
-            msnockbox.innerHTML = "형식이 맞지 않습니다!"
+            msnockbox.innerHTML = "형식이 맞지 않습니다❌"
         }
     }
 
@@ -165,11 +177,11 @@ export default function Signup(props) {
         setForm({...form, mname: e.target.value})
         let mnameckbox = document.querySelector('.mnameckbox')
         if (mnameform.test(e.target.value)) {
-            mnameckbox.innerHTML = "반가워요 멋진 이름이네요!🙌"
+            mnameckbox.innerHTML = "반가워요 멋진 이름이네요✔"
             confirm.mnamec = true;
             setForm({...form, mname: e.target.value})
         } else {
-            mnameckbox.innerHTML = "나라가 어디신가요..?😳관리자에게 문의해주세요..ㅠㅠ"
+            mnameckbox.innerHTML = "관리자에게 문의해주세요❌"
         }
     }
 
@@ -183,10 +195,10 @@ export default function Signup(props) {
     const madresscheck = (e) => {
         console.log(e.target.value)
         let madressbox = document.querySelector('.madressbox')
-        if (e.target.value!=null) {
+        if (e.target.value != null) {
             confirm.madressc = true;
-            setForm({...form,madress: e.target.value})
-            madressbox.innerHTML = "올바른 주소입니다☺"
+            setForm({...form, madress: e.target.value})
+            madressbox.innerHTML = "올바른 주소입니다✔"
             console.log(form.madress)
         } else {
             madressbox.innerHTML = "올바른 주소가 아닙니다!!"
@@ -213,8 +225,10 @@ export default function Signup(props) {
                     작성해주세요😀]</label>
                 <input type="text" name="mid" maxLength="15" value={form.mid} className="form-control"
                        onChange={(e) => midcheck(e)}/>
+                <button type="button" onClick={Idcheck}>아이디 중복검사</button>
                 <div>
                     <span className="idbox"></span>
+                    <span className="idcheckbox"> </span>
                 </div>
                 <label className="text-bg-center" style={{color: "white"}}>👉비밀번호 [최소 8 자 및 최대 10 자, 대문자 하나 이상, 소문자
                     하나,
@@ -235,7 +249,7 @@ export default function Signup(props) {
                     <span className="pwchbox"></span>
                 </div>
 
-                <label className="text-bg-center" style={{color: "white"}}>👉전화번호</label>
+                <label className="text-bg-center" style={{color: "white"}}>👉전화번호[ - 을 포함하여 적어주세요 ]</label>
                 <input type="text" value={form.mphone}
                        className="form-control " name="mphone" maxLength="13" onChange={(e) => phonecheck(e)}/>
                 <div>
@@ -259,16 +273,22 @@ export default function Signup(props) {
                        style={{color: "white"}}>👉주소</label><br/>{/*2022-12-19 김원종 주소 api 구현중*/}
 
                 <div className="address_search">
-                    <input className="form-control user_enroll_text" placeholder="주소" type="text" onChange={handleInput} required={true} name="address" value={enroll_company.address}/>
-                    {popup && <Post autoClose={true} company={enroll_company} setcompany={setEnroll_company} onClose={handleComplete}></Post>}
-                </div>
-                    <input type="text" placeholder="상세주소" value={form.madress} className="form-control adressform" onChange={(e) => {madresscheck(e); console.log(e.target.value)}}/>
-                        <div>
-                            <span className="madressbox"></span>
-                        </div>
+                    <input className="form-control user_enroll_text" placeholder="주소" type="text" onChange={handleInput}
+                           required={true} name="address" value={enroll_company.address}/>
+                    {popup && <Post autoClose={true} company={enroll_company} setcompany={setEnroll_company}
+                                    onClose={handleComplete}></Post>}
                     <button className="EventBtn" onClick={handleComplete}>우편번호 찾기</button>
-
-
+                </div>
+                <label className="text-bg-center"
+                       style={{color: "white"}}>상세주소</label><br/>{/*2022-12-19 김원종 주소 api 구현중*/}
+                <input type="text" placeholder="상세주소" value={form.madress} className="form-control adressform"
+                       onChange={(e) => {
+                           madresscheck(e);
+                           console.log(e.target.value)
+                       }}/>
+                <div>
+                    <span className="madressbox"></span>
+                </div>
                 <button type="button" onClick={signUp}>Go</button>
             </form>
         </div>

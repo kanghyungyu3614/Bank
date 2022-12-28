@@ -13,13 +13,13 @@ import java.util.Set;
 @Setter
 @ToString
 @Builder
-public class BmemberDto {
+public class BmemberDto  {
     int mno;               // 회원번호  [PK]
     private String mname;    //  회원이름
     private String mphone;        // 	회원전화번호
     private String msno;        //  회원주민번호
     private String madress;    // 	회원 주소
-    private String memail;
+    private String madressc;
     private String mid;        //  회원아이디
     private String mpw;        //  회원비밀번호
 
@@ -30,7 +30,6 @@ public class BmemberDto {
                 .mphone(this.mphone)
                 .msno(this.msno)
                 .madress(this.madress)
-                .memail(this.memail)
                 .mid(this.mid)
                 .mpw(this.mpw)
                 .build();

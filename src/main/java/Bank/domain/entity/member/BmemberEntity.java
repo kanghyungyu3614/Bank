@@ -33,8 +33,6 @@ public class BmemberEntity extends BaseEntity {
     String madress;    // 	회원 주소
     @Column(nullable = false,length = 30)
     String mid;        //  회원아이디]
-    @Column(nullable = false)
-    String memail;
     @Column(nullable = false ,length = 40)
     String mpw;        //  회원비밀번호
 

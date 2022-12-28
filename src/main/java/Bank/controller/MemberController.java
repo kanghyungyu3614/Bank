@@ -5,6 +5,7 @@ import Bank.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/member")
@@ -14,7 +15,7 @@ public class MemberController {
     private MemberService memberService; // 서비스 객체 생성
     /* 1.회원가입 */
     @PostMapping("/signup")
-    public boolean signup(BmemberDto bmemberDto){
+    public boolean signup(BmemberDto bmemberDto) {
         System.out.println("확인하라잉");
         System.out.println(bmemberDto);
         return memberService.signup(bmemberDto);
@@ -23,11 +24,14 @@ public class MemberController {
     /* 2.로그인 */ /*2022-12-27 강현규 로그인 */
     @PostMapping("/getmember") // 2.로그인 기능 [ 시큐리티 사용시 필요없음 ]
     public int getmember( @RequestBody BmemberDto memberDto ){
-        System.out.println("memberDto");
-        System.out.println(memberDto);
-        System.out.println("memberDto");
         int result = memberService.getmember( memberDto );
+        System.out.println(result);
         return result;
+    }
+    @GetMapping("/checkmember")
+    public boolean checkmember(@RequestParam("mid") String mid){
+        System.out.println(mid);
+        return false;
     }
 
     /* 로그아웃 */ /*2022-12-27 강현규 로그아웃 */
