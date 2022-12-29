@@ -112,9 +112,6 @@ public class BankConroller {
   /* sendHistory*/
   @PostMapping("/sendHistory")
   public int sendHistory(@RequestBody BhistoryDto dto){
-      System.out.println("dto");
-      System.out.println(dto);
-      System.out.println("dto");
       int result= bankService.sendHistory(dto);
       return result;
   }
