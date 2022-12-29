@@ -22,6 +22,7 @@ public class BmemberDto  {
     private String madressc;
     private String mid;        //  회원아이디
     private String mpw;        //  회원비밀번호
+    private String acpw;        //계좌비번
 
     public BmemberEntity toEntity() {
         return BmemberEntity.builder()

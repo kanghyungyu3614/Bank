@@ -1,6 +1,7 @@
 package Bank.domain.entity.Bank;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -24,7 +25,11 @@ public interface BsecurityRepository extends JpaRepository<BsecurityEntity,Integ
 //    Page<BoardEntity> findBybcno( int bcno ,  Pageable pageable);
 
     // 1. 보안카드번호검색
-    @Query( value = "select * from bsecurity where acno = :acnumber" , nativeQuery = true )
+    @Query(value = "select * from bsecurity where acno = :acnumber", nativeQuery = true)
     List<BsecurityEntity> findbySecurityNumberEntity(String acnumber);
 
+
+    @Query(value = "insert into bsecurity(cdate, udate ,smno ,ssno,acno)values(now(),now(),:smno,:ssno,:acno)", nativeQuery = true)
+    @Modifying
+    int savecard (String smno,String ssno, String acno);
 }

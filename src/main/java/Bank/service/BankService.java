@@ -39,8 +39,8 @@ public class BankService {
     @Autowired
     private BhistoryRepository bhistoryRepository; //리포지토리 객체
 
-  /*  @Autowired
-    private  BhistoryEntity bhistoryEntity;*/
+    /*  @Autowired
+      private  BhistoryEntity bhistoryEntity;*/
     @Autowired // 스프링 컨테이너 [ 메모리 ] 위임
     private HttpServletRequest request;
     @Autowired
@@ -51,56 +51,56 @@ public class BankService {
     @Transactional
     public boolean memberaccount(String ainput, String bank) {
         System.out.println(ainput);
-        DpositEntity dpositEntity =  dpositRepository.findbyAcno(ainput);
+        DpositEntity dpositEntity = dpositRepository.findbyAcno(ainput);
         System.out.println(dpositEntity);
-     if(dpositEntity.getAcno()!=null){
-         return true;
-     }else{
-         return  false;
-         }
+        if (dpositEntity.getAcno() != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
     /*-------------------------계좌 송금--------------------------------------*/
 
- /*   @Transactional
-    public  boolean paysend(String payinsert , String account ,int type) {
-        System.out.println(payinsert);
-        System.out.println(account);
-        System.out.println(type);
-        int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
-        if(bhistoryEntity1!= 0){return  true;}
-        else{return false;}
+    /*   @Transactional
+       public  boolean paysend(String payinsert , String account ,int type) {
+           System.out.println(payinsert);
+           System.out.println(account);
+           System.out.println(type);
+           int  bhistoryEntity1 =  bhistoryRepository.insertbyaccount(payinsert, account, type);
+           if(bhistoryEntity1!= 0){return  true;}
+           else{return false;}
 
-    }
-*/
+       }
+   */
     /*-----------------------------*/
     // 거래내역 출력 페이지
     @Transactional
-    public List<BhistoryDto>dealview(){
+    public List<BhistoryDto> dealview() {
 
-        int mno = Integer.parseInt( (String.valueOf( request.getSession().getAttribute("loginMno"))));
-        List<DpositEntity>list1 = dpositRepository.findByGetacno(mno);
-          System.out.println("list");
+        int mno = Integer.parseInt((String.valueOf(request.getSession().getAttribute("loginMno"))));
+        List<DpositEntity> list1 = dpositRepository.findByGetacno(mno);
+        System.out.println("list");
         System.out.println(list1);
         System.out.println("list");
-            List<BhistoryEntity>list = bhistoryRepository.myhistory(list1.get(0).getAcno());
-            System.out.println(list);
+        List<BhistoryEntity> list = bhistoryRepository.myhistory(list1.get(0).getAcno());
+        System.out.println(list);
 
 
-            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+        List<BhistoryDto> bhdistoryDtos = new ArrayList<>();
 
-        for(int i = 0 ; i< list.size() ; i++){
+        for (int i = 0; i < list.size(); i++) {
             bhdistoryDtos.add(list.get(i).toDto());
         }
         System.out.println(bhdistoryDtos);
         System.out.println("list");
-            return bhdistoryDtos;
+        return bhdistoryDtos;
 
     }
 
 
     // 보안카드 난수 만들기
     @Transactional
-    public static void main(String[] args) {
+    public void main(String[] args) {
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
         Random random = new Random();
         // 보안카드숫자를 담을 빈문자열을 만들겠습니다.
@@ -135,13 +135,22 @@ public class BankService {
         StringBuffer subsecurityCard = new StringBuffer();
         System.out.println("처음에 빈문자생성 : " + subsecurityCard);
         // 마찬가지로 140개의 난수를 만들 for문을 만들어줍니다.
-        for (int i = 0; i < sublength; i++) {
+        String result = null;
+      for (int i = 0; i < sublength; i++) {
             //문자형 숫자(0부터9까지)는 48 ~ 58까지 범위다.
-            subsecurityCard.append((char) ((int) random.nextInt(10) + 48));
+           subsecurityCard.append((char) ((int) random.nextInt(10) + 48));
         }
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
+        MemberService memberService = new MemberService();
+//        String ano=memberService.ano;
+//        int bsecurityEntity = bsecurityRepository.savecard( mainsecurityCardString, String.valueOf(subsecurityCard), ano);
+//                )
+//
+
     }
+
+
 
     /*강현규 2022-12-07 계좌 비밀번호를 입력했을때 보안카드 페이지로 이동하는 내용*/
     @Transactional

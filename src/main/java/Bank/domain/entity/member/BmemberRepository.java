@@ -20,4 +20,7 @@ public interface BmemberRepository extends JpaRepository<BmemberEntity, Integer 
 
         @Query(value = "select*From bank.bmember where mid=:mid",nativeQuery = true)
         Optional<BmemberEntity> findBymid(String mid);
+
+        @Query(value = "select mno from bmember  where mid =:mid",nativeQuery = true)
+        Optional<BmemberEntity> findBymno(String mid);
 }

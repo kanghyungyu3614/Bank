@@ -151,7 +151,7 @@ export default function Account(props) {
             console.log(SecurityArr[Seat2-1])
             console.log("보안카드에는 어떻게 입력되어 있을까요?")
 
-            let resultNumber1 = prompt(`${Seat1}앞 두자리를 입력해주세요.`);
+            let resultNumber1 = prompt(`${Seat1} 두자리를 입력해주세요.`);
             let resultNumber2 = prompt(`${Seat2}뒤 두자리를 입력해주세요.`);
             // 보안카드 배열을 가져옵니다.
             console.log("SecurityArr")

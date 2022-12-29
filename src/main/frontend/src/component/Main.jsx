@@ -21,7 +21,7 @@ import img from "../img/project.JPG"
 
                 <div style={{border: "2px double azure", borderRadius: "50%"}}></div>
                 <div style={{width:"400px" , height:"300px" , border :"solid 1px white"}}>
-                     <img src={img} style={{width :"100%" , height:"100%"}}/>
+                     <img src={MainPhoto} style={{width :"100%" , height:"100%"}}/>
                 </div>
                 <div>
                     박스권 2

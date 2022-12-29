@@ -2,6 +2,9 @@ package Bank.service;
 
 import Bank.SHA256.SHA269;
 import Bank.domain.dto.BmemberDto;
+import Bank.domain.dto.DpositDto;
+import Bank.domain.entity.Bank.DpositEntity;
+import Bank.domain.entity.Bank.DpositRepository;
 import Bank.domain.entity.member.BmemberEntity;
 import Bank.domain.entity.member.BmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class MemberService {
@@ -29,6 +33,10 @@ public class MemberService {
     private HttpServletRequest request;
     @Autowired
     private HttpServletResponse response;
+    @Autowired
+    private DpositRepository dpositRepository;
+    @Autowired
+    private BankService bankService;
 
     /* 1. 회원가입 */
     @Transactional
@@ -44,22 +52,57 @@ public class MemberService {
         try {
            Result=SHA256.encrypt(bmemberDto.getMpw());
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println(e+"암호화 SHA-256오류발생");
         }
         System.out.println(Result);
         bmemberDto.setMpw(Result); // 변경된 비밀번호로 셋팅
-
         System.out.println(bmemberDto.getMpw());
         boolean IDcheck= bmemberRepository.findBymid(bmemberDto.getMid()).isPresent();
         System.out.println("결과");
         if(IDcheck==false) {
            BmemberEntity bmemberEntity = bmemberRepository.save(bmemberDto.toEntity());
+            /*/////////////계좌생성//////////////////*/
+            createnum(bmemberDto);
+            /*/////////////계좌생성//////////////////*/
             return true;
+
         } else {
             return false;
         }
 
     }
+    String account = null;
+    @Transactional
+    public String createnum(BmemberDto bmemberDto){
+        /*계좌생성........................*/
+        int random = (int)(Math.random()*10000000);
+        // String 변환
+        String randomaccount = Integer.toString(random);
+        // String 사이에 특정 문자를 추가하려면 String은 변하지 못하므로 변할 수 있는 StringBuffer로 변환해줘야한다.
+        StringBuffer bufferaccount = new StringBuffer(randomaccount);
+        bufferaccount.insert(0 ,  "620-");
+        bufferaccount.insert(6 ,  "-");
+        // buffer -> String 변환
+         account = bufferaccount.substring(0);
+        /*계좌생성........................*/
+         DpositDto dpositDto= new DpositDto();
+         dpositDto.setAcno(account);
+        System.out.println("계좌생성 확인용 ");
+        System.out.println(dpositDto.getAcno()); // 생성된 계좌번호
+        System.out.println(bmemberDto.getAcpw());// 받아온 비밀번호
+       Optional<BmemberEntity> optionalmno = bmemberRepository.findBymno(bmemberDto.getMid());
+       dpositDto.setAcpw(bmemberDto.getAcpw());
+       dpositDto.setMno(optionalmno.get().getMno());
+        System.out.println("뭐니 제발 ");
+        System.out.println(optionalmno.get().getMno()); // 회원번호 가져오기
+        System.out.println(dpositDto.getAcpw());
+        int dpositEntity = dpositRepository.savedposit(dpositDto.getAcno(),dpositDto.getAcpw() ,dpositDto.getMno());
+
+        System.out.println("확인");
+        System.out.println(dpositDto.getAcno());
+        return dpositDto.getAcno();
+    }
+
     /* 중복검사 */
     @Transactional
     public boolean checkmember(String mid){

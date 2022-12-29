@@ -24,4 +24,12 @@ public interface DpositRepository extends JpaRepository<DpositEntity,String> {
     @Query(value = "update dposit set acba = :money where acno = :acno" , nativeQuery = true)
     @Modifying
     int deleteByMoney(int money, String acno);
+
+
+    @Query(value = "insert into dposit(acno,cdate, udate ,acba, acst, acpw ,ano,mno)values(:acno,now(),now(),200000,1,:acpw,null,:mno)",nativeQuery = true)
+    @Modifying
+    int savedposit(String acno , String acpw , int mno);
+
+
+
 }

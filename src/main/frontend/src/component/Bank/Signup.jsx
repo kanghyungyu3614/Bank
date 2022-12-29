@@ -49,8 +49,6 @@ export default function Signup(props) {
     /*===========================================================================*/
     /*카카오 주소 api*/
 
-    //fullAddress -> 전체 주소반환
-    /*===========================================================================*/
     const signUp = () => {
         if (confirm.midc===true&&confirm.mpwc===true&&confirm.madressc===true&&confirm.mnamec===true&&confirm.msnoc===true&&confirm.mphonec===true&&confirm.mpwconfirmc===true) {
             axios
@@ -93,8 +91,8 @@ export default function Signup(props) {
         mname: '',
         madress: '',
         madressc: '',
+        acpw:'',
     })
-
 
     const [confirm, setConfirm] = useState({ // form의 input의 객체값이 전부 true여야 통과
         midc: false,
@@ -104,6 +102,7 @@ export default function Signup(props) {
         msnoc: false,
         mnamec: false,
         madressc: false,
+        acpw : false,
     })
 
     const midform = /^[A-Za-z0-9$@!%*#?&]{6,15}$/; // 정규표현식 아이디[ 2022-12-16 김원종 ]
@@ -187,18 +186,27 @@ export default function Signup(props) {
             mnameckbox.innerHTML = "관리자에게 문의해주세요❌"
         }
     }
+    const acno=(e)=>{
+        setForm({...form,acpw: e.target.value})
+        let acnobox = document.querySelector('.acnobox')
+        if(e.target.value.length===4){
+            confirm.acnoc=true;
+            setForm({...form,acpw: e.target.value})
+            acnobox.innerHTML="입력되었습니다"
+        }else{
+            acnobox.innerHTML="4자리 숫자를 입력해주세요"
+        }
+    }
 
-    /* 주소 */
+    /*///////////////////////////////// 주소 //////////////////////////*/
     const [enroll_company, setEnroll_company] = useState({
         address: '',
     });
 
-    /**/
-
     const madresscheck = (e) => {
         console.log(e.target.value)
         let madressbox = document.querySelector('.madressbox')
-        if (e.target.value != null) {
+        if (e.target.value !=null) {
             confirm.madressc = true;
             setForm({...form, madress: e.target.value})
             madressbox.innerHTML = "올바른 주소입니다✔"
@@ -214,12 +222,12 @@ export default function Signup(props) {
             [e.target.name]: e.target.value,
         })
     }
-// useEffect(madresscheck ,[asd])
 
     const handleComplete = (data) => {
         setPopup(!popup);
     }
 
+/*//////////////////////////////////////////////////////////////////////////////////////*/
 
     return (
         <div>
@@ -292,6 +300,13 @@ export default function Signup(props) {
                 <div>
                     <span className="madressbox"></span>
                 </div>
+                <label className="text-bg-center"
+                       style={{color: "white"}}>계좌비밀번호</label><br/>{/*2022-12-19 김원종 주소 api 구현중*/}
+                <input type="text" placeholder="계좌 비밀번호 4자리를 입력해주세요." value={form.acno} className="form-control acno"
+                onChange={(e)=>acno(e)} maxLength="4" minLength="4"/>
+                    <div>
+                        <span className="acnobox"></span>
+                    </div>
                 <button type="button" onClick={signUp}>Go</button>
             </form>
         </div>
