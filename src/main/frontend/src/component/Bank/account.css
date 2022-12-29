@@ -13,8 +13,11 @@
 }
 /*캘린더*/
 .react-calendar{
-   border : none;
-   background : none;
+       background: none;
+       border: none;
+       color: black;
+       background-color: white;
+       border-radius: 5px;
 }
 .react-calendar__navigation {
     width : 600px;
