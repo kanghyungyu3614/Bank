@@ -7,10 +7,11 @@
 
 .webbox{
   margin: 0 auto;  /*중앙정렬*/
-  border: 1px solid red;
+  border: 1px solid black;
   width: 70%;
   height: 1200px;
-  color: white;
+  background-color: #193f52;
+
   }
 
 
@@ -27,9 +28,9 @@ button{  border:1px;
 
 /*-----------------------------중간 부분 ----------------------------------------*/
 .mbox{     /*   중간 부분 전체 박스 구분*/
-  height: 830px;
-  margin: 10%;
-  background-color: #193f52;
+     background-color: #fff;
+     height: 1000px;
+     margin: 1%;
 
   }
 
@@ -49,9 +50,6 @@ button{  border:1px;
 .notice{
   margin-bottom: 3%;
 }
-
-th , td{ color: #3598DB;}
-
 
 .nbox{
  border-top: 1px solid blue;

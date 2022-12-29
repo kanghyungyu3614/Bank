@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 
@@ -35,11 +36,13 @@ import style from "./css/Index.css"
 export default function Index(props) {
     return (
         <div className="webbox">
+
+
             <BrowserRouter>
                 <Header/>
                 <Nav/>
 
-                <div style={{border:"1px red solid"}}>
+                <div>
                     <Routes>
                         <Route path="/" element={<Main/>} />
                         <Route path="/Bank/Account" element={<Bank/>}/>

@@ -61,7 +61,7 @@ public class BankService {
     }
     /*-------------------------계좌 송금--------------------------------------*/
 
-    @Transactional
+ /*   @Transactional
     public  boolean paysend(String payinsert , String account ,int type) {
         System.out.println(payinsert);
         System.out.println(account);
@@ -71,14 +71,23 @@ public class BankService {
         else{return false;}
 
     }
-
+*/
     /*-----------------------------*/
     // 거래내역 출력 페이지
     @Transactional
     public List<BhistoryDto>dealview(){
-            List<BhistoryEntity>list = bhistoryRepository.myhistory();
-            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+
+        int mno = Integer.parseInt( (String.valueOf( request.getSession().getAttribute("loginMno"))));
+        List<DpositEntity>list1 = dpositRepository.findByGetacno(mno);
+          System.out.println("list");
+        System.out.println(list1);
         System.out.println("list");
+            List<BhistoryEntity>list = bhistoryRepository.myhistory(list1.get(0).getAcno());
+            System.out.println(list);
+
+
+            List<BhistoryDto>bhdistoryDtos = new ArrayList<>();
+
         for(int i = 0 ; i< list.size() ; i++){
             bhdistoryDtos.add(list.get(i).toDto());
         }

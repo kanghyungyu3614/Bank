@@ -28,8 +28,8 @@ export default function Login(){
     return (
         <div className="loginComponent">
            <h3 className="loginTitle">로그인</h3>
-               <span className="loginIdContext">이메일 : </span><input type="text" className="memail" /><br/>
-               <span className="loginPwdContext">비밀번호 : </span><input type="password" className="mpassword" /><br/>
+             { /* <span className="loginIdContext">이메일 : </span>*/}<input type="text" className="memail" placeholder="your Email"/><br/>
+               {/*<span className="loginPwdContext">비밀번호 : </span>*/}<input type="password" className="mpassword" placeholder="your Password"/><br/>
                <input type="submit" value="로그인" onClick={loginMember} />
         </div>
     )

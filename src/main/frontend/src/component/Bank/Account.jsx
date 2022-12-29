@@ -13,9 +13,10 @@ export default function Account(props) {
     const [ainput ,setAinput] = useState("");
     const [sendview , setSendview] = useState(false);
     const [value,onChange] = useState(new Date());
+
     const params = useParams();
     const [statech ,setStatech] = useState(1);
-    const[mastercheck ,setMastercheck] = useState('');
+    const[mastercheck ,setMastercheck] = useState([]);
     const [account,setAccount] = useState({})
     const [dealview , setDealview] = useState([]);
     const [finalpay , setFinalpay] = useState(0); // 보안카드 난수 일치후에 상대방에게 돈을 담아서 보내줄 훅
@@ -80,7 +81,7 @@ export default function Account(props) {
                 })
              }
 
-            const sendmoney =()=>{
+            /*const sendmoney =()=>{
                 const payinsert = document.querySelector(".payinsert").value;
                 axios
                     .get("/bank/accountinsert" ,{params : {pay : payinsert , account : account.accountnum , type : 1}})
@@ -91,16 +92,45 @@ export default function Account(props) {
                     }
                   })
                     .catch(err => {console.log(err)})
-            }
-             let data ;
+            }*/
+            let data ;
             useEffect( ()=>{
                 axios
-                    .get("/bank/dealview")
+                    .get("/bank/dealview" )
                     .then(res=>{console.log(res);
                         data = res.data;
                         setDealview(res.data);}
                     )
             } , [] )
+
+
+          // 달력 시작
+
+                const onchange2 =( value )=>{
+                        onChange(value)
+                       console.log(value)
+                       console.log(value.getMonth())
+                       console.log(value.getDate())
+                       console.log(value.getFullYear())
+                       let value2 = `${value.getFullYear()}-${value.getMonth()+1}-${value.getDate()}`
+                        console.log(value2)
+                         axios.post("/bank/dateview", {cdate : value2})
+                         .then(res => {console.log(res.data);
+                                setMastercheck(res.data);
+
+                            })
+                        }
+
+
+
+
+
+
+
+
+
+
+
 
 
     function getRandomArbitrary(min, max) {
@@ -165,16 +195,6 @@ export default function Account(props) {
 
 
         console.log(dealview)
-            // 달력 시작
-            const onchange2 = ( value ) => {
-                    onChange(value)
-                   alert(value)
-
-            //       axios.get("",{params : {date : value}})
-            //            .then(res => {bankacciunt(res.data)})
-                    }
-
-
 
 
    /* 계좌 조회가 우선 계좌입력 예금주있으면 true  | true일시 변화 -> 금액 입력창 나오게 */
@@ -182,8 +202,8 @@ export default function Account(props) {
     <div className="main">
         <div className="sub">
               <div className="inputside">
-                 <h2>입금 계좌 : {account.accountnum == "" ? "계좌가 없습니다." : account.accountnum} </h2>
-                 <h2>입금 금액 : {finalpay == "" ? "금액이 없습니다." : finalpay } </h2>
+                 <h5><div className="sendpayaccunt"> 입금예정 계좌 {account.accountnum == "" ? "계좌가 없습니다." : account.accountnum}</div> </h5>
+                 <h5 className="sendpay">{finalpay == "" ? "" :  "송금된 금액 : "+finalpay.toLocaleString() } </h5>
                  <div className="inputsize">
 
                       { cclick == 1 && <button onClick={send1} className="accinput">계좌입력</button>  }
@@ -205,6 +225,7 @@ export default function Account(props) {
                          }
 
                     </div>
+
                       {cclick ==3 &&(
                             <>
                              <button className="closinsert" onClick={sendpay}>금액 입력</button>
@@ -214,7 +235,7 @@ export default function Account(props) {
                        { statech == 2 && (
                      <>
                      <input type="text" className="payinsert" placeholder="금액입력"/>
-                     <button type="button" onClick={bsecurity}>보안카드입력</button>
+                      <button type="button" className="safecard"onClick={bsecurity}>보안카드입력</button>
                       </>
                         )
                       }
@@ -254,7 +275,7 @@ export default function Account(props) {
                    </div>
               </div>
               <div>
-                1 , 2 , 3 , 4 ,5 페이징 자리 또는 스크롤 자리
+                $ecurity_bank
               </div>
         </div>
             <div className="acdate">
@@ -270,11 +291,22 @@ export default function Account(props) {
                 <div className="billdate">
                     <h1>거래별 날짜 자리</h1>
                     <div className="billcontent">
-                          <li>2022-10-10 전상근 10,000</li>
-                          <li>2022-10-10 전상근 10,000</li>
-                          <li>2022-10-10 전상근 10,000</li>
-                          <li>2022-10-10 전상근 10,000</li>
-                          <li>2022-10-10 전상근 10,000</li>
+
+
+                      {
+                        mastercheck.map((el)=>{
+
+                            return(
+                            <ul>
+                                  <li>{el.cdate}</li>
+                                  <li>{el.mname2}</li>
+                                  <li>{el.bcontent}</li>
+                                  <li>{el.bmoney}</li>
+                           </ul>
+                              );
+                             })
+                        }
+
                      </div>
              </div>
          </div>
