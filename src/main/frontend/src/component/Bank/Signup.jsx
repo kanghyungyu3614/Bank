@@ -57,6 +57,10 @@ export default function Signup(props) {
                     console.log(res.data)
                     if (res.data === true) {
                         alert('회원가입성공');
+                        axios.get("/member/acno/")
+                            .then(res=>{
+                                console.log(res.data)
+                            })
                         window.location.href ="http://localhost:8081/"
                     } else {
                         alert('회원가입 실패 ');

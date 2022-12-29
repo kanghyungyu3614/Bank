@@ -19,13 +19,11 @@ import img from "../img/project.JPG"
                         color: "cornflowerblue"
                     }}>Thank_You_For_Visiting</h1>*/}{/*2022-12-26 김원종 CSS 작업중 */}
 
-                <div style={{border: "2px double azure", borderRadius: "50%"}}></div>
-                <div style={{width:"400px" , height:"300px" , border :"solid 1px white"}}>
-                     <img src={MainPhoto} style={{width :"100%" , height:"100%"}}/>
-                </div>
-                <div>
-                    박스권 2
-                </div>
+                {/*<div style={{border: "2px double azure", borderRadius: "50%"}}></div>*/}
+                {/*<div style={{width:"400px" , height:"300px" , border :"solid 1px white"}}>*/}
+                     <video src={MainPhoto} style={ {height:"148%",width:"100%",marginTop:"2%"}}/>
+                {/*</div>*/}
+
             </div>
            {/* <video muted autoPlay loop
                    style={{width: "1300px", marginTop: "9%",border: "15px ridge #3598db",

@@ -22,6 +22,7 @@ public class MemberController {
     }
 
 
+
     /* 2.로그인 */ /*2022-12-27 강현규 로그인 */
     @PostMapping("/getmember") // 2.로그인 기능 [ 시큐리티 사용시 필요없음 ]
     public int getmember( @RequestBody BmemberDto memberDto ){

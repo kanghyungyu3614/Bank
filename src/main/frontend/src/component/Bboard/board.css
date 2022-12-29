@@ -170,9 +170,9 @@ ltn { text-decoration: none;
 .bbox{ /*2022-12-26 김원종 수정중 */
     position: absolute;
     background-color:#193f52;
-    bottom: -449px;
+    bottom: -320px;
     height: 27%;
-    width: 70%;
+    width: 69.9%;
     text-align: center;
     border: 6px double;
  }

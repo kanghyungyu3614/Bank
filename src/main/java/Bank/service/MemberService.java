@@ -38,6 +38,7 @@ public class MemberService {
     @Autowired
     private BankService bankService;
 
+    String acno= null;
     /* 1. 회원가입 */
     @Transactional
     public boolean signup(BmemberDto bmemberDto) {
@@ -65,11 +66,9 @@ public class MemberService {
             createnum(bmemberDto);
             /*/////////////계좌생성//////////////////*/
             return true;
-
         } else {
             return false;
         }
-
     }
     String account = null;
     @Transactional
@@ -81,7 +80,7 @@ public class MemberService {
         // String 사이에 특정 문자를 추가하려면 String은 변하지 못하므로 변할 수 있는 StringBuffer로 변환해줘야한다.
         StringBuffer bufferaccount = new StringBuffer(randomaccount);
         bufferaccount.insert(0 ,  "620-");
-        bufferaccount.insert(6 ,  "-");
+         bufferaccount.insert(6 ,  "-");
         // buffer -> String 변환
          account = bufferaccount.substring(0);
         /*계좌생성........................*/
@@ -93,13 +92,9 @@ public class MemberService {
        Optional<BmemberEntity> optionalmno = bmemberRepository.findBymno(bmemberDto.getMid());
        dpositDto.setAcpw(bmemberDto.getAcpw());
        dpositDto.setMno(optionalmno.get().getMno());
-        System.out.println("뭐니 제발 ");
         System.out.println(optionalmno.get().getMno()); // 회원번호 가져오기
-        System.out.println(dpositDto.getAcpw());
         int dpositEntity = dpositRepository.savedposit(dpositDto.getAcno(),dpositDto.getAcpw() ,dpositDto.getMno());
-
-        System.out.println("확인");
-        System.out.println(dpositDto.getAcno());
+        acno=dpositDto.getAcno();
         return dpositDto.getAcno();
     }
 
