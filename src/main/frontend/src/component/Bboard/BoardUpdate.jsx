@@ -28,8 +28,8 @@ export default function BoardUpdate( props ) {
 
                   axios .put("/bupdate" , formdata , { headers: { 'Content-Type': 'multipart/form-data'  } } )
                                  .then( res => {
-                                         if( res.data == true ){ console.log( res ); alert('게시물 수정 성공'); }
-                                         else{ alert('게시물 수정 실패'); }
+                                         if( res.data == true ){ console.log( res ); console.log('게시물 수정 성공'); }
+                                         else{ console.log('게시물 수정 실패'); }
                                      })
                                  .catch( err => { console.log( err ); } )
 

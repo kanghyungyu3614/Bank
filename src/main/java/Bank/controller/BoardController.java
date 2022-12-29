@@ -60,7 +60,10 @@ public class BoardController {
 
         boardService.viewcount(bno);  }
 
-
+    @GetMapping("/filedownload")
+    public void filedownload( @RequestParam("filename") String filename ){
+        boardService.filedownload( filename );
+    }
 
 
 /*
