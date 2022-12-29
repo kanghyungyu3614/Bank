@@ -72,7 +72,7 @@ public class MemberService {
     }
     String account = null;
     @Transactional
-    public String createnum(BmemberDto bmemberDto){
+    public String createnum(BmemberDto bmemberDto){ /* 계좌번호 생성 메소드 */
         /*계좌생성........................*/
         int random = (int)(Math.random()*10000000);
         // String 변환
