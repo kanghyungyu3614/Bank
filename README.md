@@ -4,7 +4,7 @@
 주제 : 은행 <br>
 주제선정이유: 은행<br>
 노션 : https://bit.ly/3UsHijP <br>
-캔바 :  <br>
+캔바 :  https://www.canva.com/design/DAFViUGX5bk/p_yQQQJI60fqGyg8vHF6JQ/edit<br>
 figma :  <br>
 
 <table>
