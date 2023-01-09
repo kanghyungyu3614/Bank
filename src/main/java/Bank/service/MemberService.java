@@ -96,7 +96,67 @@ public class MemberService {
         System.out.println(dpositDto.getAcno()); // 생성된 계좌번호
         System.out.println(bmemberDto.getAcpw());// 받아온 비밀번호
         Optional<BmemberEntity> optionalmno = bmemberRepository.findBymno(bmemberDto.getMid());
-        dpositDto.setAcpw(bmemberDto.getAcpw());
+
+        int A  = Integer.parseInt(bmemberDto.getAcpw());
+        String num = "";
+        num = Long.toHexString(A+7);
+        Random randomvalue = new Random();
+        System.out.println("num");
+        System.out.println(num);
+        System.out.println("num");
+
+        System.out.println("randomvalue : " + randomvalue);
+        int length = 15;
+        System.out.println("length : " + length);
+        StringBuffer newWord1 = new StringBuffer();
+        StringBuffer newWord2 = new StringBuffer();
+        System.out.println("처음에 빈문자생성 newWord1 : "+newWord1);
+        // newWord1 로직
+        for (int i = 0; i < length; i++) {
+            int choice = randomvalue.nextInt(3);
+            switch(choice) {
+                case 0: // choice가 0일때 //97 ~ 122까지 영문 소문자
+                    newWord1.append((char)((int)randomvalue.nextInt(25)+97));
+
+                    break;
+                case 1: // choice가 1일때 //65 ~ 90 까지 영문 대문자
+                    newWord1.append((char)((int)randomvalue.nextInt(25)+65));
+
+                    break;
+                case 2: // choice가 2일때 //문자형 숫자(0부터9까지)는 48 ~ 58까지 범위다.
+                    newWord1.append((char)((int)randomvalue.nextInt(10)+48));
+            }
+        }
+        // newWord1 로직
+        for (int i = 0; i < length; i++) {
+            System.out.println("i : "+i);
+            int choice = randomvalue.nextInt(3);
+            System.out.println("choice : "+choice);
+            switch(choice) {
+                case 0: // choice가 0일때 //97 ~ 122까지 영문 소문자
+                    newWord2.append((char)((int)randomvalue.nextInt(25)+97));
+                    System.out.println("0번 : "+newWord2);
+                    break;
+                case 1: // choice가 1일때 //65 ~ 90 까지 영문 대문자
+                    newWord2.append((char)((int)randomvalue.nextInt(25)+65));
+                    System.out.println("1번 : "+newWord2);
+                    break;
+                case 2: // choice가 2일때 //문자형 숫자(0부터9까지)는 48 ~ 58까지 범위다.
+                    newWord2.append((char)((int)randomvalue.nextInt(10)+48));
+                    System.out.println("2번 : "+num+newWord2+7+num);
+
+            }
+        }
+        //D5A96614fQMvxTn95VJ7abOb32a3b9a5b3
+        System.out.println("4번 //////");
+        System.out.println("4-1번 newWord1 : "+newWord1);
+        System.out.println("4-2번 newWord2 : "+newWord2);
+        System.out.println("4-3번 : num "+num);
+        System.out.println("최종값 : newWord2+newWord1+num");
+        System.out.println(""+newWord1+num+newWord2);
+
+
+        dpositDto.setAcpw(newWord1+num+newWord2);
         dpositDto.setMno(optionalmno.get().getMno());
         System.out.println(optionalmno.get().getMno()); // 회원번호 가져오기
         int dpositEntity = dpositRepository.savedposit(dpositDto.getAcno(), dpositDto.getAcpw(), dpositDto.getMno());
