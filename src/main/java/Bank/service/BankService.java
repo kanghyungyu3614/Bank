@@ -100,7 +100,9 @@ public class BankService {
 
     // 보안카드 난수 만들기
     @Transactional
-    public void main(String[] args) {
+    public void main(String acno) {
+        System.out.println("확인좀하자 ");
+        System.out.println(acno);
         // 난수를 만들기 위해 랜덤class를 가져옵니다.
         Random random = new Random();
         // 보안카드숫자를 담을 빈문자열을 만들겠습니다.
@@ -142,12 +144,8 @@ public class BankService {
         }
         // 랜덤영숫자의 길이와 문자는
         System.out.println("newWord = (" + subsecurityCard + "), length = " + sublength);
-        MemberService memberService = new MemberService();
-//        String ano=memberService.ano;
-//        int bsecurityEntity = bsecurityRepository.savecard( mainsecurityCardString, String.valueOf(subsecurityCard), ano);
-//                )
-//
-
+      String sub = String.valueOf(subsecurityCard);
+        int bsecurityEntity = bsecurityRepository.savecard(mainsecurityCardString, String.valueOf(sub),acno);
     }
 
 

@@ -47,6 +47,7 @@ public interface BhistoryRepository extends JpaRepository<BhistoryEntity,Integer
     int sendHistorymoney(int btypes,long bmoeny,String bcontent,String acno,String acno2);
 
     @Query(value = "select * from bhistory where acno = :acno and cdate like %:cdate%" ,nativeQuery = true)
+    @Modifying
     List<BhistoryEntity> findDealHistory (String acno,String cdate);
 
 }
