@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DpositRepository extends JpaRepository<DpositEntity,String> {
     // 1.  보안카드번호검색
@@ -29,7 +30,6 @@ public interface DpositRepository extends JpaRepository<DpositEntity,String> {
     @Query(value = "insert into dposit(acno,cdate, udate ,acba, acst, acpw ,ano,mno)values(:acno,now(),now(),200000,1,:acpw,null,:mno)",nativeQuery = true)
     @Modifying
     int savedposit(String acno , String acpw , int mno);
-
 
 
 }
