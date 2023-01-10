@@ -61,9 +61,7 @@ figma :  <br>
 </table>
 
 ### 3) :movie_camera: 시연 영상 :camera:
-<a href="">시연 영상 1번<a/><br>
-<a href="">시연 영상 2번<a/><br>
-<a href="">시연 영상 3번<a/>
+<a href="https://youtu.be/6tapT3ymldo">시연 영상<a/><br>
 
 
 
